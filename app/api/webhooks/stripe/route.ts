@@ -5,6 +5,7 @@ import {
   PRINTIFY_VARIANT_MAP,
   PRINTIFY_BLUEPRINT_ID,
   PRINTIFY_PRINT_PROVIDER_ID,
+  DESIGN_PRINT_FILES,
   DEFAULT_PRINT_FILE,
 } from "@/lib/printify"
 
@@ -64,7 +65,7 @@ export async function POST(req: NextRequest) {
       print_provider_id: PRINTIFY_PRINT_PROVIDER_ID,
       blueprint_id: PRINTIFY_BLUEPRINT_ID,
       variant_id: PRINTIFY_VARIANT_MAP[item.modelId] ?? 130115,
-      print_areas: { front: DEFAULT_PRINT_FILE },
+      print_areas: { front: DESIGN_PRINT_FILES[item.designId] ?? DEFAULT_PRINT_FILE },
       quantity: item.quantity,
     }))
 

@@ -1,1 +1,12 @@
-{}
+{
+  "marble-white": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/4822bf66-d730-486d-b415-d791aabfc6e3",
+  "marble-black": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/94ef4c53-c1d3-4242-8de3-c743fa81dce5",
+  "sage-green": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/7b5ea2c0-d48d-4070-8bad-56db58ed6409",
+  "dusty-rose": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/fd2cd758-693a-43d0-b7a1-8251e8682559",
+  "midnight-navy": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/e37167be-a30a-410c-9eae-db939d7b7984",
+  "champagne-gold": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/72dcb17c-b838-4733-a79e-a608f428f59d",
+  "cloud-grey": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/0d4bdb75-90bf-4969-8234-17fc9992f7d6",
+  "terracotta": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/1b66284d-6d54-46ed-80b3-a037aec25731",
+  "lavender-mist": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/c9006376-1ac9-404a-9f99-7f907019ba68",
+  "obsidian": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/78388749-afea-4391-a4dd-64e444b373de"
+}

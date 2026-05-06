@@ -42,7 +42,7 @@ export async function POST(req: NextRequest) {
       quantity: number
     }> = JSON.parse(session.metadata?.items ?? "[]")
 
-    const shipping = session.shipping_details
+    const shipping = (session as Stripe.Checkout.Session & { shipping_details?: { name?: string; address?: { country?: string; state?: string; line1?: string; line2?: string; city?: string; postal_code?: string } } }).shipping_details
     const nameParts = (shipping?.name ?? "Customer").split(" ")
     const firstName = nameParts[0] ?? "Customer"
     const lastName = nameParts.slice(1).join(" ") || "."

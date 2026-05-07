@@ -44,7 +44,7 @@ export async function POST(req: NextRequest) {
       caselleBrain, caselleStrategy, caselleAccounting,
       atelierBrain, atelierStrategy, atelierOrders,
     ] = await Promise.all([
-      fetchGitHubFile("Casellelol/Caselle", "exelixis-brain.md"),
+      fetchGitHubFile("Casellelol/Caselle", "exelixis-brain.md"),   // Exelixis owns Caselle
       fetchGitHubFile("Casellelol/Caselle", "exelixis-strategy.md"),
       fetchGitHubFile("Casellelol/Caselle", "accounting/summary.md"),
       fetchGitHubFile("Casellelol/Atelier", "exelixis-brain.md"),
@@ -59,7 +59,7 @@ export async function POST(req: NextRequest) {
     const webIntel = await searchWeb(searchQuery)
 
     const empireContext = `
-=== CASELLE (Phone Cases — Vercel Store) ===
+=== CASELLE (Phone Cases — managed by Exelixis) ===
 Strategy: ${caselleStrategy || "No strategy yet"}
 Brain: ${caselleBrain || "No Scout data yet"}
 Accounting: ${caselleAccounting || "No revenue yet — $0"}

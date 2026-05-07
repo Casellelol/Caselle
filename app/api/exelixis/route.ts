@@ -71,7 +71,8 @@ ${context}`,
     const text = response.content[0].type === "text" ? response.content[0].text : ""
     return NextResponse.json({ response: text })
   } catch (err) {
+    const msg = err instanceof Error ? err.message : String(err)
     console.error(err)
-    return NextResponse.json({ error: "Exelixis offline" }, { status: 500 })
+    return NextResponse.json({ error: "Exelixis offline", detail: msg }, { status: 500 })
   }
 }

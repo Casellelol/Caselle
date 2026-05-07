@@ -27,7 +27,7 @@ function buildTwitterAuth(method: string, url: string) {
   const signingKey = `${encodeURIComponent(process.env.TWITTER_API_SECRET!)}&${encodeURIComponent(process.env.TWITTER_ACCESS_SECRET!)}`
   const signature = crypto.createHmac("sha1", signingKey).update(base).digest("base64")
 
-  const all = { ...oauthParams, oauth_signature: signature }
+  const all: Record<string, string> = { ...oauthParams, oauth_signature: signature }
   return (
     "OAuth " +
     Object.keys(all)

@@ -14,11 +14,11 @@
     },
     {
       "path": "/api/maximus/scout",
-      "schedule": "0 * * * *"
+      "schedule": "0 7 * * *"
     },
     {
       "path": "/api/jarvis/world",
-      "schedule": "0 */4 * * *"
+      "schedule": "0 8 * * *"
     }
   ]
 }

@@ -139,7 +139,17 @@ CAPABILITY: You can spawn new Masterminds for new business opportunities. If con
       })
     } catch {}
 
-    return NextResponse.json({ response: text, spawn: spawnResult })
+    // If JARVIS detects he can't do something, file an upgrade request automatically
+    const needsUpgrade = /i cannot|i don't have|i'm unable|not able to|i lack|i don't currently/i.test(text)
+    if (needsUpgrade) {
+      fetch(`${BASE_URL}/api/jarvis/upgrade`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ limitation: text, context: message }),
+      }).catch(() => {})
+    }
+
+    return NextResponse.json({ response: text, spawn: spawnResult, upgradeRequested: needsUpgrade })
   } catch (err) {
     const msg = err instanceof Error ? err.message : String(err)
     return NextResponse.json({ error: "JARVIS offline", detail: msg }, { status: 500 })

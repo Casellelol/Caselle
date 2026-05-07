@@ -37,6 +37,7 @@ export const DESIGN_PRINT_FILES: Record<string, string> = {
   "terracotta":     "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/1b66284d-6d54-46ed-80b3-a037aec25731",
   "lavender-mist":  "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/c9006376-1ac9-404a-9f99-7f907019ba68",
   "obsidian":       "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/78388749-afea-4391-a4dd-64e444b373de",
+  "cherry-red":     "https://burga-store.vercel.app/designs/cherry-red.jpg",
 }
 
 export const DEFAULT_PRINT_FILE = DESIGN_PRINT_FILES["marble-white"]

@@ -19,6 +19,7 @@ function makeImages(seed: string): Record<string, string[]> {
     "terracotta": "terracotta,orange,earthy",
     "lavender-mist": "purple,lavender,soft",
     "obsidian": "black,dark,minimal",
+    "cherry-red": "red,cherry,bold",
   }
   const result: Record<string, string[]> = {}
   for (const [id, theme] of Object.entries(themes)) {

@@ -33,6 +33,7 @@ export const designVariants: DesignVariant[] = [
   { id: "terracotta", name: "Terracotta", type: "solid", swatch: "#C17A5A" },
   { id: "lavender-mist", name: "Lavender Mist", type: "solid", swatch: "#B8A9C9" },
   { id: "obsidian", name: "Obsidian", type: "solid", swatch: "#1A1A18" },
+  { id: "cherry-red", name: "Cherry Red", type: "solid", swatch: "#C41E3A" },
 ]
 
 export const allModelIds = deviceModels.map((m) => m.id)

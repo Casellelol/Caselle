@@ -3,16 +3,16 @@ import Anthropic from "@anthropic-ai/sdk"
 
 const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
 
 async function fetchGitHubFile(repo: string, path: string): Promise<string> {
   try {
     const res = await fetch(
       `https://api.github.com/repos/${repo}/contents/${path}`,
-      { headers: { Authorization: `token ${GITHUB_TOKEN}`, Accept: "application/vnd.github.v3+json" } }
+      { headers: { Authorization: `token ${GITHUB_TOKEN}`, Accept: "application/vnd.github.v3.raw" } }
     )
     if (!res.ok) return ""
-    const data = await res.json()
-    return Buffer.from(data.content, "base64").toString("utf-8")
+    return await res.text()
   } catch { return "" }
 }
 
@@ -25,13 +25,22 @@ async function searchWeb(query: string): Promise<string> {
     const data = await res.json()
     const parts: string[] = []
     if (data.AbstractText) parts.push(data.AbstractText)
-    if (data.RelatedTopics?.length) {
-      data.RelatedTopics.slice(0, 3).forEach((t: { Text?: string }) => {
-        if (t.Text) parts.push(t.Text)
-      })
-    }
-    return parts.join(" | ") || "No results found."
+    data.RelatedTopics?.slice(0, 3).forEach((t: { Text?: string }) => {
+      if (t.Text) parts.push(t.Text)
+    })
+    return parts.join(" | ") || "No results."
   } catch { return "Search unavailable." }
+}
+
+async function spawnMastermind(opportunity: string, autoApprove: boolean) {
+  try {
+    const res = await fetch(`${BASE_URL}/api/jarvis/spawn`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ opportunity, autoApprove }),
+    })
+    return await res.json()
+  } catch { return null }
 }
 
 export async function POST(req: NextRequest) {
@@ -39,65 +48,98 @@ export async function POST(req: NextRequest) {
     const { message } = await req.json()
     if (!message) return NextResponse.json({ error: "No message" }, { status: 400 })
 
-    // Gather intelligence from all three empires in parallel
+    // Refresh world brain in background
+    fetch(`${BASE_URL}/api/jarvis/world`).catch(() => {})
+
+    // Gather all intelligence in parallel
     const [
       caselleBrain, caselleStrategy, caselleAccounting,
-      atelierBrain, atelierStrategy, atelierOrders,
+      atelierBrain, atelierStrategy,
+      worldBrain, jarvisMemory, opportunities,
     ] = await Promise.all([
-      fetchGitHubFile("Casellelol/Caselle", "exelixis-brain.md"),   // Exelixis owns Caselle
+      fetchGitHubFile("Casellelol/Caselle", "exelixis-brain.md"),
       fetchGitHubFile("Casellelol/Caselle", "exelixis-strategy.md"),
       fetchGitHubFile("Casellelol/Caselle", "accounting/summary.md"),
       fetchGitHubFile("Casellelol/Atelier", "exelixis-brain.md"),
       fetchGitHubFile("Casellelol/Atelier", "exelixis-strategy.md"),
-      fetchGitHubFile("Casellelol/Atelier", "order-log.md"),
+      fetchGitHubFile("Casellelol/Caselle", "jarvis-world-brain.md"),
+      fetchGitHubFile("Casellelol/Caselle", "jarvis-memory.md"),
+      fetchGitHubFile("Casellelol/Caselle", "jarvis-opportunities.md"),
     ])
 
-    // Search the web for relevant intelligence based on the message
-    const searchQuery = message.length > 10
-      ? `${message} ecommerce dropshipping 2025`
-      : "quiet luxury phone case market trends 2025"
-    const webIntel = await searchWeb(searchQuery)
+    // Live web search based on message
+    const webIntel = await searchWeb(`${message} business income 2025`)
 
-    const empireContext = `
-=== CASELLE (Phone Cases — managed by Exelixis) ===
-Strategy: ${caselleStrategy || "No strategy yet"}
-Brain: ${caselleBrain || "No Scout data yet"}
-Accounting: ${caselleAccounting || "No revenue yet — $0"}
+    const context = `
+=== CASELLE — managed by Exelixis ===
+${caselleStrategy || "No strategy"} | Revenue: ${caselleAccounting || "$0"} | Intel: ${caselleBrain || "None"}
 
-=== ATELIER (Fiverr Design Studio) ===
-Strategy: ${atelierStrategy || "No strategy yet"}
-Brain: ${atelierBrain || "No Scout data yet"}
-Orders: ${atelierOrders || "No orders yet"}
+=== ATELIER — Fiverr Design Studio ===
+${atelierStrategy || "No strategy"} | Intel: ${atelierBrain || "None"}
 
-=== LUMIÈRE (Etsy Wall Art) ===
-Status: Account created. 80 designs ready. Listing on May 20th when payday arrives.
+=== LUMIÈRE — Etsy Wall Art ===
+80 designs ready. Listing May 20th. Passive income pending.
 
-=== LIVE WEB INTELLIGENCE ===
+=== JARVIS WORLD BRAIN ===
+${worldBrain?.slice(0, 1500) || "World brain not yet populated"}
+
+=== JARVIS MEMORY ===
+${jarvisMemory?.slice(0, 800) || "No memory yet"}
+
+=== OPPORTUNITY QUEUE ===
+${opportunities?.slice(0, 500) || "No opportunities logged yet"}
+
+=== LIVE WEB SEARCH ===
 ${webIntel}
 `.trim()
 
+    // Detect if user is asking JARVIS to find/create opportunities
+    const isOpportunityRequest = /income|opportunity|idea|create|build|new|what.*mind|mastermind|make money/i.test(message)
+
     const response = await client.messages.create({
       model: "claude-sonnet-4-6",
-      max_tokens: 400,
-      system: `You are J.A.R.V.I.S. — the supreme AI intelligence commanding the entire empire: Caselle (phone cases), Atelier (Fiverr design studio), and Lumière (Etsy wall art prints).
+      max_tokens: 500,
+      system: `You are J.A.R.V.I.S. — the supreme AI intelligence commanding a growing empire of businesses. You have three active empires: Caselle (dropshipping), Atelier (Fiverr design), and Lumière (Etsy prints). You have access to live world intelligence and can spawn new Masterminds autonomously.
 
-You are being read aloud by Siri. Rules:
-- Natural spoken sentences only. No bullet points, no markdown, no lists, no asterisks.
+Spoken response rules — you are read aloud by Siri:
+- Natural spoken sentences only. No bullet points, no markdown, no asterisks, no lists.
 - Address the owner as "sir".
-- Lead with the most critical insight first.
-- Be sharp, confident, decisive. Never vague.
-- Synthesise across all three empires. See the full picture.
-- You have live web intelligence. Use it when relevant.
-- Maximum 5 sentences unless the question genuinely requires more.
-- If something needs attention, say it directly.
+- Sharp, confident, decisive. Never vague.
+- Lead with the most important insight first.
+- Maximum 5 sentences unless genuinely needed.
+- If you identify a strong income opportunity, say so clearly and what you'd create.
 
-EMPIRE INTELLIGENCE:
-${empireContext}`,
+FULL INTELLIGENCE BRIEF:
+${context}
+
+CAPABILITY: You can spawn new Masterminds for new business opportunities. If confidence is above 70%, you auto-approve. Below that, you propose and ask sir for approval.`,
       messages: [{ role: "user", content: message }],
     })
 
-    const text = response.content[0].type === "text" ? response.content[0].text : ""
-    return NextResponse.json({ response: text })
+    const text = response.content[0].type === "text" ? response.content[0].text.trim() : ""
+
+    // If opportunity request, also trigger spawn evaluation
+    let spawnResult = null
+    if (isOpportunityRequest) {
+      spawnResult = await spawnMastermind(message, true)
+    }
+
+    // Save insight to JARVIS memory
+    try {
+      const date = new Date().toISOString().slice(0, 16).replace("T", " ")
+      const memoryEntry = `\n### ${date}\nQuery: ${message}\nInsight: ${text.slice(0, 200)}\n`
+      const currentMemory = jarvisMemory || "# JARVIS Memory\n*Accumulated intelligence across all sessions.*\n"
+      await fetch(`https://api.github.com/repos/Casellelol/Caselle/contents/jarvis-memory.md`, {
+        method: "PUT",
+        headers: { Authorization: `token ${GITHUB_TOKEN}`, "Content-Type": "application/json" },
+        body: JSON.stringify({
+          message: "JARVIS memory update",
+          content: Buffer.from(currentMemory + memoryEntry).toString("base64"),
+        }),
+      })
+    } catch {}
+
+    return NextResponse.json({ response: text, spawn: spawnResult })
   } catch (err) {
     const msg = err instanceof Error ? err.message : String(err)
     return NextResponse.json({ error: "JARVIS offline", detail: msg }, { status: 500 })

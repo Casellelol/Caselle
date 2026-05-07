@@ -55,6 +55,7 @@ export async function POST(req: NextRequest) {
     const [
       caselleBrain, caselleStrategy, caselleAccounting,
       atelierBrain, atelierStrategy,
+      maximusBrain, maximusStrategy,
       worldBrain, jarvisMemory, opportunities,
     ] = await Promise.all([
       fetchGitHubFile("Casellelol/Caselle", "exelixis-brain.md"),
@@ -62,6 +63,8 @@ export async function POST(req: NextRequest) {
       fetchGitHubFile("Casellelol/Caselle", "accounting/summary.md"),
       fetchGitHubFile("Casellelol/Atelier", "exelixis-brain.md"),
       fetchGitHubFile("Casellelol/Atelier", "exelixis-strategy.md"),
+      fetchGitHubFile("Casellelol/Maximus", "maximus-brain.md"),
+      fetchGitHubFile("Casellelol/Maximus", "maximus-strategy.md"),
       fetchGitHubFile("Casellelol/Caselle", "jarvis-world-brain.md"),
       fetchGitHubFile("Casellelol/Caselle", "jarvis-memory.md"),
       fetchGitHubFile("Casellelol/Caselle", "jarvis-opportunities.md"),
@@ -79,6 +82,10 @@ ${atelierStrategy || "No strategy"} | Intel: ${atelierBrain || "None"}
 
 === LUMIÈRE — Etsy Wall Art ===
 80 designs ready. Listing May 20th. Passive income pending.
+
+=== MAXIMUS — Gold Trading ===
+Strategy: ${maximusStrategy || "Inactive until May 20th"}
+Market Intel: ${maximusBrain?.slice(0, 600) || "Scout not yet active"}
 
 === JARVIS WORLD BRAIN ===
 ${worldBrain?.slice(0, 1500) || "World brain not yet populated"}

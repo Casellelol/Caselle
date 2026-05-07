@@ -1,0 +1,12 @@
+{
+  "stores": [
+    {
+      "name": "Caselle",
+      "repo": "Casellelol/Caselle",
+      "url": "https://burga-store.vercel.app",
+      "type": "phone-cases",
+      "status": "live",
+      "created": "2026-05-07"
+    }
+  ]
+}

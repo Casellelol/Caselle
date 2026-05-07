@@ -1,36 +1,41 @@
 import { NextRequest, NextResponse } from "next/server"
-import Anthropic from "@anthropic-ai/sdk"
 
-const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
 const MAKE_WEBHOOK = process.env.MAKE_WEBHOOK_URL
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN
 const REPO = "Casellelol/Caselle"
 
-async function fetchGitHubFile(path: string): Promise<string> {
-  try {
-    const res = await fetch(
-      `https://api.github.com/repos/${REPO}/contents/${path}`,
-      { headers: { Authorization: `token ${GITHUB_TOKEN}`, Accept: "application/vnd.github.v3+json" } }
-    )
-    if (!res.ok) return ""
-    const data = await res.json()
-    return Buffer.from(data.content, "base64").toString("utf-8")
-  } catch { return "" }
-}
-
-async function postToMake(text: string, imageUrl?: string) {
-  if (!MAKE_WEBHOOK) return false
-  const res = await fetch(MAKE_WEBHOOK, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      caption: text,
-      image_url: imageUrl || "https://raw.githubusercontent.com/Casellelol/Caselle/main/public/designs/marble-white.jpg",
-      link: "https://burga-store.vercel.app",
-    }),
-  })
-  return res.ok
-}
+const POSTS = [
+  "The case that says everything without saying a word. ✦\n#quietluxury #minimalist #caselle",
+  "Protect what matters. Look good doing it. —\n#phonecase #luxury #minimal",
+  "Less is always more. ✦\n#quietluxury #minimalism #caselle",
+  "Understated. Intentional. Yours. —\n#luxurylifestyle #minimal #phoneaccessories",
+  "Clean lines. Quiet confidence. ✦\n#minimalstyle #quietluxury #caselle",
+  "The details make the difference. —\n#phonecase #aesthetic #luxury",
+  "Designed for those who don't need to shout. ✦\n#quietluxury #minimalist #caselle",
+  "Simplicity is the ultimate sophistication. —\n#minimal #luxuryaesthetic #phonecase",
+  "A case as refined as your taste. ✦\n#caselle #quietluxury #lifestyle",
+  "Nothing extra. Nothing missing. —\n#minimalism #phoneaccessories #aesthetic",
+  "Timeless over trendy. Every time. ✦\n#quietluxury #caselle #minimal",
+  "Your phone. Elevated. —\n#luxury #phonecase #minimalist",
+  "Soft tones. Strong impression. ✦\n#aesthetic #quietluxury #caselle",
+  "The quiet ones always stand out. —\n#minimalism #luxurystyle #phonecase",
+  "Crafted for the intentional. ✦\n#caselle #quietluxury #minimal",
+  "Style that whispers, never shouts. —\n#quietluxury #aesthetic #phoneaccessories",
+  "Minimalist by choice. Luxurious by nature. ✦\n#minimal #luxury #caselle",
+  "Carry less. Mean more. —\n#minimalism #quietluxury #phonecase",
+  "A small detail that changes everything. ✦\n#caselle #aesthetic #luxury",
+  "For those who appreciate the subtle. —\n#quietluxury #minimal #lifestyle",
+  "Quality over quantity. Always. ✦\n#luxurylifestyle #minimalist #caselle",
+  "The most elegant things are always the simplest. —\n#quietluxury #phonecase #aesthetic",
+  "Refined taste. Zero compromise. ✦\n#caselle #minimal #luxury",
+  "Slow down. Choose well. —\n#intentionalliving #quietluxury #phonecase",
+  "Built for the long run. Designed to be loved. ✦\n#caselle #minimalism #aesthetic",
+  "Your everyday deserves better. —\n#quietluxury #lifestyle #phoneaccessories",
+  "Effortless. That's the point. ✦\n#minimal #luxury #caselle",
+  "In a world of noise, choose silence. —\n#quietluxury #minimalist #phonecase",
+  "The understated is always the most powerful. ✦\n#caselle #aesthetic #luxury",
+  "Less clutter. More presence. —\n#minimalism #quietluxury #lifestyle",
+]
 
 async function logToGitHub(content: string) {
   try {
@@ -55,29 +60,25 @@ async function logToGitHub(content: string) {
 
 export async function POST(req: NextRequest) {
   try {
-    const { topic } = await req.json().catch(() => ({}))
-    const brain = await fetchGitHubFile("exelixis-brain.md")
+    if (!MAKE_WEBHOOK) {
+      return NextResponse.json({ error: "No Make webhook configured" }, { status: 500 })
+    }
 
-    const response = await client.messages.create({
-      model: "claude-haiku-4-5-20251001",
-      max_tokens: 150,
-      system: `You are the Caselle social media marketing agent. Caselle is a quiet luxury phone case brand.
-Write ONE social media post. Rules:
-- Tone: minimal, aspirational, luxury lifestyle
-- Max 3 hashtags
-- 1-2 subtle emojis only (✦ · —)
-- Under 150 characters for main text
-- Hashtags on a new line
-- Never mention prices
-- Focus on aesthetic and feeling
-${topic ? `Topic: ${topic}` : ""}
-${brain ? `Market intel: ${brain.slice(0, 300)}` : ""}`,
-      messages: [{ role: "user", content: "Write a post for Instagram, Facebook and Pinterest." }],
+    // Pick post based on day of year so it rotates automatically
+    const dayOfYear = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0).getTime()) / 86400000)
+    const postText = POSTS[dayOfYear % POSTS.length]
+
+    const res = await fetch(MAKE_WEBHOOK, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        caption: postText,
+        image_url: "https://raw.githubusercontent.com/Casellelol/Caselle/main/public/designs/marble-white.jpg",
+        link: "https://burga-store.vercel.app",
+      }),
     })
 
-    const postText = response.content[0].type === "text" ? response.content[0].text.trim() : ""
-    const success = await postToMake(postText)
-
+    const success = res.ok
     const date = new Date().toISOString().slice(0, 16).replace("T", " ")
     await logToGitHub(`\n## ${date}\n**Status:** ${success ? "Posted via Make.com" : "Make webhook failed"}\n**Post:**\n${postText}\n`)
 

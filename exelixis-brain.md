@@ -26,3 +26,25 @@
 **Sources:** TikTok Discover pages (#coquette phone cases, #y2k phonecase, #viral phone cases), TikTok Shop search results, Google search results via WebSearch: "trending hashtags phone accessories TikTok 2026", "viral product TikTok May 2026", "Pinterest trending aesthetic 2026 phone case", "TikTok phone case viral content format 2026 engagement unboxing aesthetic", influencer marketing niche growth 2026 searches.
 
 ---
+
+## 2026-05-08 11:05 — Pricing & Business Intelligence
+
+**Key findings:**
+- **Printify phone case base cost: $15.49 (free plan), $12.64 with Premium** — Premium saves $2.85/unit, costs $24.99/mo (annual) or $39/mo (monthly). Break-even is just 11 orders/month on annual, 17/month on monthly. Any store consistently moving 15-20+ cases/month should be on Premium annual. This is a concrete, calculable upgrade.
+- **Podbase claims 40% cheaper than Printify standard, ~€7.95 (~$8.65 USD) per case** — their own marketing states "$7 higher profit margin per unit than industry standard," 98.9% satisfaction, ships in 24 hours. If true, this undercuts Printify free plan by ~$6.85/case. At $25 retail that's 27% more margin per unit. This needs verification but is worth testing with a small order batch.
+- **Chinese supplier dropshipping is dead for the US market in 2026.** De minimis exemption fully eliminated as of Feb 2025. Now: 145% tariff via FedEx/UPS, or 120% of item value OR $200 flat (whichever higher) via USPS. A $9 case from China now costs $21+ just in duties. POD with US-based fulfillment (Printify, Printful, Gelato US nodes) is now the structurally correct model — not just convenient but the only viable path.
+- **Printify + Printful merger announced late 2025, still operating as separate platforms as of April 2026.** No catalog or pricing integration yet — monitor for changes that could affect provider availability or pricing.
+- **Net margins for POD phone cases in 2026: 18-35% for strategic operators, 5-15% for passive ones.** The gap is almost entirely explained by: (1) manually selecting the cheapest print provider per SKU instead of using Printify's auto-routing, (2) using Premium plan, (3) pricing with intent ($24.99 vs $19.99 hits same conversion rate but vastly different margin).
+- **Gelato = best option if/when Caselle expands internationally.** Prints locally in 32+ countries, 87% of orders produced and delivered in the same country, cuts international delivery from 10-20 days → 3-7 days. No advantage for US-only store but a decisive edge if EU/UK/AUS markets are targeted.
+- **CustomCat: fastest US fulfillment (2-3 business days consistently), Michigan-based, in-house production** — but limited phone case SKU variety. Better for apparel than cases.
+- **Casestry: phone-case specialist POD** — 1-business-day shipping, lifetime warranty. Worth pricing vs Podbase for a dedicated case-only store.
+
+**Actionable for:**
+- Marketing Agent: Price phone cases at $24.99-$29.99 — this range maximizes margin while staying in the TikTok Shop sweet spot ($10-$30 range confirmed in prior scouting). At $24.99 with Printify Premium ($12.64 base), gross margin is ~49% before shipping/ads.
+- Store Creator: Do NOT use Chinese suppliers — tariffs make it unviable. All stores must use US-based POD. Compare Podbase vs Printify directly: order 1 test case from each at the same design to verify quality and actual landed cost before switching.
+- Trend Monitor: Watch the Printify-Printful merger for any catalog merges or provider consolidation that could change pricing structure.
+- Exelixis: Two high-priority financial moves — (1) upgrade to Printify Premium annual ($299/yr) the moment the store hits 11+ orders/month consistently; saves $2.85/case, pays for itself on the 11th order. (2) Request a Podbase sample order to verify their €7.95 base claim — if real, switching primary supplier could add $5-7/unit margin without changing anything in the store.
+
+**Sources:** WebSearch queries: "phone case profit margin dropshipping 2026", "Printify vs Printful comparison 2026 phone cases", "best POD suppliers phone cases 2026 margins quality", "Printify premium plan phone case cost savings worth it 2026", "2026 tariff impact dropshipping China phone cases de minimis exemption", "Podbase phone case base price cost 2026"; results from autods.com, podbase.com, traksource.com, chayaani.com, tariffstool.com, efulfillmentservice.com, whitehouse.gov, productlair.com, podtomatic.com.
+
+---

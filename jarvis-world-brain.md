@@ -1,12 +1,12 @@
 # JARVIS World Brain
-*Last updated: 2026-05-08 08:29*
+*Last updated: 2026-05-08 22:27*
 
 ## Hacker News — Tech & Business
-- Canvas is down as ShinyHunters threatens to leak schools’ data
-- Maybe you shouldn't install new software for a bit
-- Cloudflare to cut about 20% workforce
-- Dirtyfrag: Universal Linux LPE
-- The map that keeps Burning Man honest
+- Google broke reCAPTCHA for de-googled Android users
+- AI is breaking two vulnerability cultures
+- You gave me a u32. I gave you root. (io_uring ZCRX freelist LPE)
+- Cartoon Network Flash Games
+- Non-determinism is an issue with patching CVEs
 
 ## Reddit — Entrepreneurs
 No data

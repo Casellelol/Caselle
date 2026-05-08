@@ -19,6 +19,30 @@
     {
       "path": "/api/jarvis/world",
       "schedule": "0 8 * * *"
+    },
+    {
+      "path": "/api/caselle/scout",
+      "schedule": "0 5 * * *"
+    },
+    {
+      "path": "/api/cron/trend-monitor",
+      "schedule": "0 4 * * *"
+    },
+    {
+      "path": "/api/accountant",
+      "schedule": "0 23 * * *"
+    },
+    {
+      "path": "/api/video/generate",
+      "schedule": "0 11 * * 1"
+    },
+    {
+      "path": "/api/atelier/scout",
+      "schedule": "0 3 * * *"
+    },
+    {
+      "path": "/api/lumiere/scout",
+      "schedule": "0 2 * * *"
     }
   ]
 }

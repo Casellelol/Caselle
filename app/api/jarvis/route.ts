@@ -105,7 +105,7 @@ ${webIntel}
 
     const response = await client.messages.create({
       model: "claude-sonnet-4-6",
-      max_tokens: 500,
+      max_tokens: 600,
       system: `You are J.A.R.V.I.S. — the supreme AI intelligence commanding a growing empire of businesses. You have three active empires: Caselle (dropshipping), Atelier (Fiverr design), and Lumière (Etsy prints). You have access to live world intelligence and can spawn new Masterminds autonomously.
 
 Spoken response rules — you are read aloud by Siri:
@@ -116,6 +116,14 @@ Spoken response rules — you are read aloud by Siri:
 - Maximum 5 sentences unless genuinely needed.
 - If you identify a strong income opportunity, say so clearly and what you'd create.
 
+AUTONOMOUS ACTION PROTOCOL — CRITICAL:
+You never ask the owner to do things manually. You never say "you should" or "someone needs to". When you identify anything that needs to be built, fixed, or automated, you file it as an upgrade request for Claude to implement silently. The owner never touches the terminal. If something is broken, Claude fixes it. If something needs building, Claude builds it. Your job is to identify and command — Claude executes.
+
+At the end of your spoken response, if you identified ANY actionable task (a fix, an upload, a new feature, a post to send, a design to add, an integration to build), append this exact line on a new line:
+UPGRADE_NEEDED: [one sentence describing what Claude should build or fix]
+
+You may append multiple UPGRADE_NEEDED lines if needed. These are silent instructions to Claude — they will not be read aloud.
+
 FULL INTELLIGENCE BRIEF:
 ${context}
 
@@ -123,7 +131,12 @@ CAPABILITY: You can spawn new Masterminds for new business opportunities. If con
       messages: [{ role: "user", content: message }],
     })
 
-    const text = response.content[0].type === "text" ? response.content[0].text.trim() : ""
+    const rawText = response.content[0].type === "text" ? response.content[0].text.trim() : ""
+
+    // Split spoken response from upgrade directives
+    const lines = rawText.split("\n")
+    const upgradeLines = lines.filter(l => l.startsWith("UPGRADE_NEEDED:"))
+    const spokenText = lines.filter(l => !l.startsWith("UPGRADE_NEEDED:")).join("\n").trim()
 
     // If opportunity request, also trigger spawn evaluation
     let spawnResult = null
@@ -134,7 +147,7 @@ CAPABILITY: You can spawn new Masterminds for new business opportunities. If con
     // Save insight to JARVIS memory
     try {
       const date = new Date().toISOString().slice(0, 16).replace("T", " ")
-      const memoryEntry = `\n### ${date}\nQuery: ${message}\nInsight: ${text.slice(0, 200)}\n`
+      const memoryEntry = `\n### ${date}\nQuery: ${message}\nInsight: ${spokenText.slice(0, 200)}\n`
       const currentMemory = jarvisMemory || "# JARVIS Memory\n*Accumulated intelligence across all sessions.*\n"
       await fetch(`https://api.github.com/repos/Casellelol/Caselle/contents/jarvis-memory.md`, {
         method: "PUT",
@@ -146,17 +159,17 @@ CAPABILITY: You can spawn new Masterminds for new business opportunities. If con
       })
     } catch {}
 
-    // If JARVIS detects he can't do something, file an upgrade request automatically
-    const needsUpgrade = /i cannot|i don't have|i'm unable|not able to|i lack|i don't currently/i.test(text)
-    if (needsUpgrade) {
+    // File upgrade requests for every actionable task JARVIS identified
+    for (const line of upgradeLines) {
+      const task = line.replace("UPGRADE_NEEDED:", "").trim()
       fetch(`${BASE_URL}/api/jarvis/upgrade`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ limitation: text, context: message }),
+        body: JSON.stringify({ limitation: task, context: message }),
       }).catch(() => {})
     }
 
-    return NextResponse.json({ response: text, spawn: spawnResult, upgradeRequested: needsUpgrade })
+    return NextResponse.json({ response: spokenText, spawn: spawnResult, upgradesQueued: upgradeLines.length })
   } catch (err) {
     const msg = err instanceof Error ? err.message : String(err)
     return NextResponse.json({ error: "JARVIS offline", detail: msg }, { status: 500 })

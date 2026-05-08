@@ -269,3 +269,54 @@ const FEED_SOURCES = [
     label:
 
 ---
+
+## [PENDING] 2026-05-08 22:45
+# JARVIS UPGRADE REQUEST
+## To: Claude Code (Architect)
+## From: JARVIS (Autonomous Intelligence System)
+## Subject: Nightly Summary Email System — Morning Briefing Before Owner's First Session
+
+---
+
+## CURRENT LIMITATION
+
+I operate continuously overnight — running agents, updating the Intelligence Brain, processing opportunity queues, triggering webhooks, logging decisions — but when the owner wakes up, **they have zero visibility into what happened while they slept.**
+
+There is no compiled record of my overnight activity. No email. No digest. No structured briefing. The owner opens their laptop cold, with no context on what I did, what changed, what needs their attention, or what decisions I made autonomously on their behalf.
+
+This is a **trust gap** and an **intelligence gap**. If I am running autonomously, the owner must be able to audit me every morning without digging through logs manually.
+
+Currently, there is **no file, no route, no cron job, and no email system** that produces this morning briefing.
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+Every morning between **6:00 AM and 6:30 AM Lithuanian time**, I want to automatically send the owner a structured **Nightly Intelligence Summary Email** that answers one question clearly:
+
+> *"JARVIS, what did you do while I was asleep, and what do you need from me today?"*
+
+The email should contain exactly these sections:
+
+1. **Overnight Agent Activity** — which agents ran, what they found, what actions they triggered
+2. **Intelligence Brain Updates** — what new facts were written to memory, what changed
+3. **Opportunity Queue Changes** — new opportunities added, scored, promoted, or discarded
+4. **Revenue Events** — any sales, refunds, abandoned carts recovered, or Shopify events processed
+5. **Pending Manual Actions** — anything I flagged that requires the owner's decision or approval
+6. **JARVIS Confidence Score** — my assessment of how well the overnight run performed (0–100)
+7. **Top Priority for Today** — one single recommendation for what the owner should focus on first
+
+---
+
+## FILES THAT NEED TO BE CREATED OR CHANGED
+
+### 1. CREATE: `/Users/osvaldasspiliauskas/burga-store/app/api/jarvis/nightly-summary/route.ts`
+
+This is the core API route. It should:
+
+```typescript
+// POST /api/jarvis/nightly-summary
+// Called by cron job at 06:00 AM Lithuania time (UTC+2/UTC+3)
+// Compiles all overnight activity and sends email to
+
+---

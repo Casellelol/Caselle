@@ -1,3 +1,10 @@
+## 2026-05-08T23:15:13.033Z
+- **Text:** the phone case you've been looking for. minimal, tough, beautiful. burga-store.vercel.app #PhoneAccessories
+- **Twitter:** ❌ failed
+- **Bluesky:** ✅ posted
+- **Errors:** Twitter: Error: {"account_id":2052331077230829600,"title":"CreditsDepleted","detail":"Your enrolled account [2052331077230829570] does not have any credits to fulfill this request.","type":"https://api.twitter.com/2/problems/credits"}
+---
+
 ## 2026-05-08T23:00:25.533Z
 - **Text:** the phone case you've been looking for. minimal, tough, beautiful. burga-store.vercel.app #PhoneAccessories
 - **Twitter:** ❌ failed

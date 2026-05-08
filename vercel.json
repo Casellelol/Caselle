@@ -62,7 +62,7 @@
     },
     {
       "path": "/api/jarvis/think",
-      "schedule": "0 * * * *"
+      "schedule": "0 7 * * *"
     },
     {
       "path": "/api/jarvis/evaluate",

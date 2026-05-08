@@ -10,20 +10,44 @@ const PRINTIFY_TOKEN = process.env.PRINTIFY_API_TOKEN
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
 
-// Step 1: Generate design image via Pollinations AI (free, no key needed)
-async function generateDesignImage(prompt: string, slug: string): Promise<string> {
-  const enhancedPrompt = `phone case design, ${prompt}, flat lay product design, centered composition, clean background, high quality, 1800x2400, print ready`
-  const encoded = encodeURIComponent(enhancedPrompt)
-  // Pollinations returns the image directly at this URL
-  const imageUrl = `https://image.pollinations.ai/prompt/${encoded}?width=1800&height=2400&nologo=true&model=flux&seed=${Date.now()}`
+const REPLICATE_TOKEN = process.env.REPLICATE_API_TOKEN
 
-  // Verify it's reachable
-  const check = await fetch(imageUrl, { method: "HEAD" }).catch(() => null)
-  if (!check?.ok) {
-    // Fallback: use existing marble-white design URL as base
-    return "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/4822bf66-d730-486d-b415-d791aabfc6e3"
+// Step 1: Generate design image — Replicate (pro quality) with Pollinations fallback
+async function generateDesignImage(prompt: string): Promise<string> {
+  const enhancedPrompt = `phone case design, ${prompt}, flat lay product design, centered composition, white background, ultra high quality, print ready, 1800x2400`
+
+  // Try Replicate Flux Pro first if key is available
+  if (REPLICATE_TOKEN) {
+    try {
+      const startRes = await fetch("https://api.replicate.com/v1/models/black-forest-labs/flux-1.1-pro/predictions", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${REPLICATE_TOKEN}`,
+          "Content-Type": "application/json",
+          Prefer: "wait=60",
+        },
+        body: JSON.stringify({
+          input: { prompt: enhancedPrompt, width: 1024, height: 1365, output_format: "png" },
+        }),
+      })
+
+      if (startRes.ok) {
+        const prediction = await startRes.json()
+        // Wait for completion (Prefer: wait=60 means it returns synchronously)
+        const outputUrl = Array.isArray(prediction.output) ? prediction.output[0] : prediction.output
+        if (outputUrl && typeof outputUrl === "string") return outputUrl
+      }
+    } catch {}
   }
-  return imageUrl
+
+  // Fallback: Pollinations (free, no key)
+  const encoded = encodeURIComponent(enhancedPrompt)
+  const pollinationsUrl = `https://image.pollinations.ai/prompt/${encoded}?width=1800&height=2400&nologo=true&model=flux&seed=${Date.now()}`
+  const check = await fetch(pollinationsUrl, { method: "HEAD" }).catch(() => null)
+  if (check?.ok) return pollinationsUrl
+
+  // Last resort: existing marble design
+  return "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/4822bf66-d730-486d-b415-d791aabfc6e3"
 }
 
 // Step 2: Upload image to Printify media library
@@ -176,7 +200,7 @@ export async function POST(req: NextRequest) {
     const date = new Date().toISOString().slice(0, 16).replace("T", " ")
 
     // Full pipeline
-    const imageUrl = await generateDesignImage(prompt, slug)
+    const imageUrl = await generateDesignImage(prompt)
     const imageId = await uploadToPrintify(imageUrl, slug)
     const productId = await createProduct({
       title: name,

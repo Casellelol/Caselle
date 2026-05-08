@@ -57,6 +57,7 @@ export async function POST(req: NextRequest) {
       atelierBrain, atelierStrategy,
       maximusBrain, maximusStrategy,
       worldBrain, jarvisMemory, opportunities, conversationLog,
+      salesPerformance, competitorIntel, socialPerformance,
     ] = await Promise.all([
       fetchGitHubFile("Casellelol/Caselle", "exelixis-brain.md"),
       fetchGitHubFile("Casellelol/Caselle", "exelixis-strategy.md"),
@@ -69,6 +70,9 @@ export async function POST(req: NextRequest) {
       fetchGitHubFile("Casellelol/Caselle", "jarvis-memory.md"),
       fetchGitHubFile("Casellelol/Caselle", "jarvis-opportunities.md"),
       fetchGitHubFile("Casellelol/Caselle", "conversation-log.md"),
+      fetchGitHubFile("Casellelol/Caselle", "sales-performance.md"),
+      fetchGitHubFile("Casellelol/Caselle", "competitor-intel.md"),
+      fetchGitHubFile("Casellelol/Caselle", "social-performance.md"),
     ])
 
     // Live web search based on message
@@ -96,6 +100,15 @@ ${jarvisMemory?.slice(0, 800) || "No memory yet"}
 
 === CONVERSATION HISTORY ===
 ${conversationLog?.slice(-3000) || "No past sessions recorded yet"}
+
+=== SALES PERFORMANCE (what's actually selling) ===
+${salesPerformance?.slice(0, 600) || "No sales data yet"}
+
+=== COMPETITOR INTELLIGENCE ===
+${competitorIntel?.slice(0, 600) || "No competitor data yet"}
+
+=== SOCIAL PERFORMANCE ===
+${socialPerformance?.slice(0, 400) || "No social data yet"}
 
 === OPPORTUNITY QUEUE ===
 ${opportunities?.slice(0, 500) || "No opportunities logged yet"}

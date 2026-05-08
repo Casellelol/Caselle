@@ -43,6 +43,22 @@
     {
       "path": "/api/lumiere/scout",
       "schedule": "0 2 * * *"
+    },
+    {
+      "path": "/api/accountant/performance",
+      "schedule": "0 0 * * *"
+    },
+    {
+      "path": "/api/jarvis/morning-briefing",
+      "schedule": "0 6 * * *"
+    },
+    {
+      "path": "/api/cron/competitor-monitor",
+      "schedule": "0 1 * * *"
+    },
+    {
+      "path": "/api/cron/social-performance",
+      "schedule": "0 12 * * 1"
     }
   ]
 }

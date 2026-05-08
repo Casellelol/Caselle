@@ -59,6 +59,18 @@
     {
       "path": "/api/cron/social-performance",
       "schedule": "0 12 * * 1"
+    },
+    {
+      "path": "/api/jarvis/think",
+      "schedule": "0 * * * *"
+    },
+    {
+      "path": "/api/jarvis/evaluate",
+      "schedule": "0 0 * * 0"
+    },
+    {
+      "path": "/api/jarvis/evolve",
+      "schedule": "0 1 * * 0"
     }
   ]
 }

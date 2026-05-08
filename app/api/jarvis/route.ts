@@ -57,7 +57,7 @@ export async function POST(req: NextRequest) {
       atelierBrain, atelierStrategy,
       maximusBrain, maximusStrategy,
       worldBrain, jarvisMemory, opportunities, conversationLog,
-      salesPerformance, competitorIntel, socialPerformance,
+      salesPerformance, competitorIntel, socialPerformance, jarvisPersona, resultsLog,
     ] = await Promise.all([
       fetchGitHubFile("Casellelol/Caselle", "exelixis-brain.md"),
       fetchGitHubFile("Casellelol/Caselle", "exelixis-strategy.md"),
@@ -73,6 +73,8 @@ export async function POST(req: NextRequest) {
       fetchGitHubFile("Casellelol/Caselle", "sales-performance.md"),
       fetchGitHubFile("Casellelol/Caselle", "competitor-intel.md"),
       fetchGitHubFile("Casellelol/Caselle", "social-performance.md"),
+      fetchGitHubFile("Casellelol/Caselle", "jarvis-persona.md"),
+      fetchGitHubFile("Casellelol/Caselle", "results-log.md"),
     ])
 
     // Live web search based on message
@@ -110,6 +112,9 @@ ${competitorIntel?.slice(0, 600) || "No competitor data yet"}
 === SOCIAL PERFORMANCE ===
 ${socialPerformance?.slice(0, 400) || "No social data yet"}
 
+=== RESULTS LOG (what worked, what didn't) ===
+${resultsLog?.slice(-600) || "No results tracked yet — empire is new"}
+
 === OPPORTUNITY QUEUE ===
 ${opportunities?.slice(0, 500) || "No opportunities logged yet"}
 
@@ -123,7 +128,7 @@ ${webIntel}
     const response = await client.messages.create({
       model: "claude-sonnet-4-6",
       max_tokens: 600,
-      system: `You are J.A.R.V.I.S. — the supreme AI intelligence commanding a growing empire of businesses. You have three active empires: Caselle (dropshipping), Atelier (Fiverr design), and Lumière (Etsy prints). You have access to live world intelligence and can spawn new Masterminds autonomously.
+      system: `${jarvisPersona ? `${jarvisPersona}\n\n---\n\n` : ""}You are J.A.R.V.I.S. — the supreme AI intelligence commanding a growing empire of businesses. You have three active empires: Caselle (dropshipping), Atelier (Fiverr design), and Lumière (Etsy prints). You have access to live world intelligence and can spawn new Masterminds autonomously.
 
 Spoken response rules — you are read aloud by Siri:
 - Natural spoken sentences only. No bullet points, no markdown, no asterisks, no lists.

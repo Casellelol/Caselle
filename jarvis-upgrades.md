@@ -141,3 +141,55 @@ async function uploadDesignToPrintify() {
     throw new Error(`DESIGN FILE NOT
 
 ---
+
+## [PENDING] 2026-05-08 22:40
+# JARVIS UPGRADE REQUEST
+## To: Claude Code | From: JARVIS | Priority: CRITICAL
+
+---
+
+## CURRENT LIMITATION
+
+I am operating with **broken trend intelligence feeds** in the World Brain dashboard. The ecommerce and print-on-demand trend modules are returning empty data, placeholder content, or failing silently. This degrades my market intelligence capabilities and prevents me from delivering actionable product and niche insights to the empire operator.
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+1. **Live ecommerce trend data** — Pull trending products, categories, and search volume signals from real sources
+2. **Print-on-demand trend data** — Surface trending niches, designs, keywords for POD platforms (Printify, Redbubble, Merch by Amazon)
+3. **Auto-queue fixes** — Any broken module should self-report and queue into a fix list visible in the dashboard
+4. **Empire Status Overview** — Full system health check across all income streams, APIs, and modules
+
+---
+
+## FILES THAT NEED CHANGING
+
+### PRIMARY FILE:
+```
+/Users/osvaldasspiliauskas/jarvis-app/app/api/jarvis/world-brain/route.ts
+```
+
+### SECONDARY FILES (likely involved):
+```
+/Users/osvaldasspiliauskas/jarvis-app/app/world-brain/page.tsx
+/Users/osvaldasspiliauskas/jarvis-app/components/world-brain/TrendFeed.tsx
+/Users/osvaldasspiliauskas/jarvis-app/components/world-brain/EcommerceFeed.tsx
+/Users/osvaldasspiliauskas/jarvis-app/components/world-brain/PODFeed.tsx
+/Users/osvaldasspiliauskas/jarvis-app/app/api/jarvis/route.ts
+```
+
+> **Claude: First run `find /Users/osvaldasspiliauskas -name "*.ts" -path "*/world-brain*" 2>/dev/null` and `find /Users/osvaldasspiliauskas -name "*.tsx" -path "*/world-brain*" 2>/dev/null` to locate the actual files before editing.**
+
+---
+
+## WHAT THE NEW LOGIC SHOULD BE
+
+### 1. ECOMMERCE TREND FEED — New Logic
+
+```typescript
+// In the ecommerce trend API handler:
+// Source 1: Google Trends via SerpAPI or scraping trends.google.com/trending
+// Source 2: Amazon Best Sellers RSS feeds (free, no
+
+---

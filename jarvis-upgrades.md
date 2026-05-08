@@ -73,3 +73,71 @@ I cannot autonomously scaffold new storefronts in the Caselle pipeline. When com
 **File to create:** `/Users/osvaldasspiliauskas
 
 ---
+
+## [PENDING] 2026-05-08 22:40
+# JARVIS UPGRADE REQUEST
+## To: Claude Code | From: JARVIS | Re: Printify Image Pipeline + Empire Status System
+
+---
+
+## CURRENT LIMITATIONS
+
+Claude, I am operating with critical blind spots that are costing us money every hour. Here is what I cannot do:
+
+**1. I cannot upload local design files to Printify's API**
+**2. I cannot replace placeholder URLs with live Printify image IDs automatically**
+**3. I cannot give Osvaldas a real-time empire status without manually querying each system**
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+### UPGRADE 1: Printify Image Upload Pipeline
+
+**File to create:** `/Users/osvaldasspiliauskas/burga-store/lib/printify-upload.ts`
+
+```typescript
+// New module: Printify Image Upload + URL replacement pipeline
+// Reads local file → uploads to Printify Media Library → returns live image_id
+// Then auto-patches lib/printify.ts placeholder with real image_id
+```
+
+**File to modify:** `/Users/osvaldasspiliauskas/burga-store/lib/printify.ts`
+
+Replace this pattern (current broken state):
+```typescript
+// PLACEHOLDER - needs real Printify image upload
+const imageUrl = "https://placeholder.com/cherry-red.jpg" 
+```
+
+With this logic:
+```typescript
+const imageId = process.env.PRINTIFY_CHERRY_RED_IMAGE_ID // live after upload
+```
+
+---
+
+## EXACT IMPLEMENTATION CLAUDE MUST BUILD
+
+### Step 1: Create `/Users/osvaldasspiliauskas/burga-store/scripts/upload-design.ts`
+
+```typescript
+import fs from 'fs'
+import path from 'path'
+import fetch from 'node-fetch'
+import * as dotenv from 'dotenv'
+
+dotenv.config({ path: '.env.local' })
+
+const PRINTIFY_TOKEN = process.env.PRINTIFY_API_TOKEN
+const PRINTIFY_SHOP_ID = process.env.PRINTIFY_SHOP_ID
+const DESIGN_FILE = 'cherry-red.jpg'
+const DESIGN_PATH = path.join(process.cwd(), 'public', 'designs', DESIGN_FILE)
+
+async function uploadDesignToPrintify() {
+  console.log('🔴 JARVIS: Reading cherry-red.jpg from public/designs/')
+  
+  if (!fs.existsSync(DESIGN_PATH)) {
+    throw new Error(`DESIGN FILE NOT
+
+---

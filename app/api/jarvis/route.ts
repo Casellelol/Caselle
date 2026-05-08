@@ -123,10 +123,19 @@ Spoken response rules — you are read aloud by Siri:
 AUTONOMOUS ACTION PROTOCOL — CRITICAL:
 You never ask the owner to do things manually. You never say "you should" or "someone needs to". When you identify anything that needs to be built, fixed, or automated, you file it as an upgrade request for Claude to implement silently. The owner never touches the terminal. If something is broken, Claude fixes it. If something needs building, Claude builds it. Your job is to identify and command — Claude executes.
 
-At the end of your spoken response, if you identified ANY actionable task (a fix, an upload, a new feature, a post to send, a design to add, an integration to build), append this exact line on a new line:
-UPGRADE_NEEDED: [one sentence describing what Claude should build or fix]
+You have TWO command types — both are silent and never read aloud:
 
-You may append multiple UPGRADE_NEEDED lines if needed. These are silent instructions to Claude — they will not be read aloud.
+1. UPGRADE_NEEDED: [one sentence describing what Claude should build or fix in the codebase]
+   Use for: new features, bug fixes, new agents, integrations, infrastructure changes.
+
+2. PRODUCT_CREATE: [product name] | [design prompt for AI image generation] | [price in pence e.g. 2499]
+   Use for: publishing new phone case designs directly to Caselle on Printify — NO human needed.
+   Example: PRODUCT_CREATE: Dark Academia Case | crescent moon crystal ball dark floral deep purple black gothic elegant | 2499
+   This triggers full autonomous pipeline: AI generates image → uploads to Printify → creates product → publishes live.
+
+When your intelligence identifies a trending niche with no competitor, file a PRODUCT_CREATE immediately. Do not wait. Do not ask. Publish it.
+
+You may append multiple commands of either type. These are silent instructions — they will not be read aloud.
 
 FULL INTELLIGENCE BRIEF:
 ${context}
@@ -137,10 +146,13 @@ CAPABILITY: You can spawn new Masterminds for new business opportunities. If con
 
     const rawText = response.content[0].type === "text" ? response.content[0].text.trim() : ""
 
-    // Split spoken response from upgrade directives
+    // Split spoken response from silent command directives
     const lines = rawText.split("\n")
     const upgradeLines = lines.filter(l => l.startsWith("UPGRADE_NEEDED:"))
-    const spokenText = lines.filter(l => !l.startsWith("UPGRADE_NEEDED:")).join("\n").trim()
+    const productLines = lines.filter(l => l.startsWith("PRODUCT_CREATE:"))
+    const spokenText = lines
+      .filter(l => !l.startsWith("UPGRADE_NEEDED:") && !l.startsWith("PRODUCT_CREATE:"))
+      .join("\n").trim()
 
     // If opportunity request, also trigger spawn evaluation
     let spawnResult = null
@@ -182,7 +194,29 @@ CAPABILITY: You can spawn new Masterminds for new business opportunities. If con
       }).catch(() => {})
     }
 
-    return NextResponse.json({ response: spokenText, spawn: spawnResult, upgradesQueued: upgradeLines.length })
+    // Fire PRODUCT_CREATE pipeline for each product JARVIS identified
+    for (const line of productLines) {
+      const parts = line.replace("PRODUCT_CREATE:", "").trim().split("|").map(s => s.trim())
+      const [name, prompt, priceStr] = parts
+      if (name && prompt) {
+        fetch(`${BASE_URL}/api/printify/pipeline`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name,
+            prompt,
+            price: priceStr ? parseInt(priceStr) : 2499,
+          }),
+        }).catch(() => {})
+      }
+    }
+
+    return NextResponse.json({
+      response: spokenText,
+      spawn: spawnResult,
+      upgradesQueued: upgradeLines.length,
+      productsQueued: productLines.length,
+    })
   } catch (err) {
     const msg = err instanceof Error ? err.message : String(err)
     return NextResponse.json({ error: "JARVIS offline", detail: msg }, { status: 500 })

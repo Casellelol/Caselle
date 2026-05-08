@@ -1,4 +1,16 @@
 import Link from "next/link"
+import { collections } from "@/lib/data/collections"
+
+const shopLinks = collections
+  .filter((c) => c.slug !== "bestsellers")
+  .sort((a, b) => a.sortOrder - b.sortOrder)
+  .concat(collections.filter((c) => c.slug === "bestsellers"))
+
+const infoLinks = [
+  { label: "Terms of Service", href: "/terms" },
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Contact", href: "mailto:the3vka@gmail.com" },
+]
 
 export default function Footer() {
   return (
@@ -15,24 +27,23 @@ export default function Footer() {
         <div>
           <p className="font-sans text-xs uppercase tracking-[0.12em] text-[#1A1A18] mb-4">Shop</p>
           <ul className="space-y-2">
-            {["iPhone 17", "iPhone 16", "iPhone 15", "Galaxy S25", "Pixel 9", "Bestsellers"].map((name) => {
-              const slug = name.toLowerCase().replace(" ", "-")
-              return (
-                <li key={name}>
-                  <Link href={`/collections/${slug}`} className="font-sans text-sm text-[#8C8880] hover:text-[#1A1A18] transition-colors">
-                    {name}
-                  </Link>
-                </li>
-              )
-            })}
+            {shopLinks.map((c) => (
+              <li key={c.slug}>
+                <Link href={`/collections/${c.slug}`} className="font-sans text-sm text-[#8C8880] hover:text-[#1A1A18] transition-colors">
+                  {c.name}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
         <div>
           <p className="font-sans text-xs uppercase tracking-[0.12em] text-[#1A1A18] mb-4">Info</p>
           <ul className="space-y-2">
-            {["About", "Shipping & Returns", "FAQ", "Contact"].map((item) => (
-              <li key={item}>
-                <span className="font-sans text-sm text-[#8C8880]">{item}</span>
+            {infoLinks.map(({ label, href }) => (
+              <li key={label}>
+                <Link href={href} className="font-sans text-sm text-[#8C8880] hover:text-[#1A1A18] transition-colors">
+                  {label}
+                </Link>
               </li>
             ))}
           </ul>
@@ -40,7 +51,11 @@ export default function Footer() {
       </div>
       <div className="border-t border-[#E2DDD6] py-6 px-6 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
         <p className="font-sans text-xs text-[#8C8880]">© 2026 Caselle. All rights reserved.</p>
-        <p className="font-sans text-xs text-[#8C8880]">Fulfilled by Printify · Made to order</p>
+        <div className="flex items-center gap-4">
+          <Link href="/privacy" className="font-sans text-xs text-[#8C8880] hover:text-[#1A1A18] transition-colors">Privacy</Link>
+          <Link href="/terms" className="font-sans text-xs text-[#8C8880] hover:text-[#1A1A18] transition-colors">Terms</Link>
+          <p className="font-sans text-xs text-[#8C8880]">Fulfilled by Printify · Made to order</p>
+        </div>
       </div>
     </footer>
   )

@@ -1,5 +1,5 @@
 import type { Product } from "@/types/product"
-import { designVariants, allModelIds } from "./variants"
+import { designVariants } from "./variants"
 
 const iphone17Models = ["iphone-17-pro-max", "iphone-17-pro", "iphone-17-plus", "iphone-17"]
 const iphone16Models = ["iphone-16-pro-max", "iphone-16-pro", "iphone-16-plus", "iphone-16"]

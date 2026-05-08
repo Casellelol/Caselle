@@ -76,10 +76,19 @@ export async function POST(req: NextRequest) {
       lineItems,
     })
 
-    console.log("Printify order created for session:", session.id)
+    // Notify JARVIS immediately — he knows the moment money hits
+    const amount = ((session.amount_total ?? 0) / 100).toFixed(2)
+    const designs = items.map(i => i.designId).join(", ")
+    fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/jarvis`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        message: `SALE ALERT: A customer just paid $${amount} for ${items.length} item(s) — designs: ${designs}, model(s): ${items.map(i => i.modelId).join(", ")}. Order ${session.id.slice(-8).toUpperCase()} sent to Printify. Update your memory and note what sold.`,
+      }),
+    }).catch(() => {})
+
   } catch (err) {
     console.error("Failed to create Printify order:", err)
-    // Don't return 500 — Stripe would retry. Log and return 200.
   }
 
   return NextResponse.json({ received: true })

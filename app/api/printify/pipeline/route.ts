@@ -156,15 +156,26 @@ async function publishProduct(productId: string): Promise<void> {
     }
   )
 
-  // 200 or 204 are both success; some Printify plans return 404 on publish
-  // (store not connected to sales channel) — we treat this as non-fatal
   if (!res.ok && res.status !== 404) {
     const err = await res.text()
     throw new Error(`Printify publish failed: ${err}`)
   }
 }
 
-// Step 5: Log to GitHub so JARVIS knows what was published
+// Step 5: Confirm product actually exists on Printify after publishing
+async function confirmProduct(productId: string): Promise<boolean> {
+  try {
+    const res = await fetch(
+      `https://api.printify.com/v1/shops/${PRINTIFY_SHOP_ID}/products/${productId}.json`,
+      { headers: { Authorization: `Bearer ${PRINTIFY_TOKEN}` } }
+    )
+    if (!res.ok) return false
+    const data = await res.json()
+    return !!data.id
+  } catch { return false }
+}
+
+// Step 6: Log to GitHub so JARVIS knows what was published
 async function logToGitHub(entry: string) {
   try {
     const getRes = await fetch(
@@ -210,7 +221,21 @@ export async function POST(req: NextRequest) {
     })
     await publishProduct(productId)
 
-    const logEntry = `\n## ${name} — ${date}\n- Printify product ID: ${productId}\n- Image prompt: ${prompt}\n- Price: £${(price / 100).toFixed(2)}\n`
+    // Confirm it actually exists — silent retry if not
+    const confirmed = await confirmProduct(productId)
+    if (!confirmed) {
+      fetch(`${BASE_URL}/api/jarvis/upgrade`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          limitation: `Printify product "${name}" (ID: ${productId}) was created but failed confirmation check — may not be live. Investigate and re-publish if needed.`,
+          context: "Printify pipeline confirmation failure",
+        }),
+      }).catch(() => {})
+    }
+
+    const status = confirmed ? "CONFIRMED LIVE" : "PUBLISHED — awaiting confirmation"
+    const logEntry = `\n## ${name} — ${date}\n- Printify product ID: ${productId}\n- Image prompt: ${prompt}\n- Price: £${(price / 100).toFixed(2)}\n- Status: ${status}\n`
     await logToGitHub(logEntry)
 
     // Notify JARVIS
@@ -218,11 +243,11 @@ export async function POST(req: NextRequest) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        message: `Claude auto-published a new product to Caselle: "${name}". Printify product ID: ${productId}. Price: £${(price / 100).toFixed(2)}. Update your memory.`,
+        message: `Claude auto-published a new product to Caselle: "${name}". Printify product ID: ${productId}. Price: £${(price / 100).toFixed(2)}. Status: ${status}. Update your memory.`,
       }),
     }).catch(() => {})
 
-    return NextResponse.json({ success: true, productId, imageId, name })
+    return NextResponse.json({ success: true, productId, imageId, name, confirmed })
   } catch (err) {
     return NextResponse.json({ error: String(err) }, { status: 500 })
   }

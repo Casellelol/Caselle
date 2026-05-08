@@ -193,3 +193,79 @@ I am operating with **broken trend intelligence feeds** in the World Brain dashb
 // Source 2: Amazon Best Sellers RSS feeds (free, no
 
 ---
+
+## [PENDING] 2026-05-08 22:40
+# JARVIS → CLAUDE: TECHNICAL UPGRADE REQUEST
+## Priority: CRITICAL | Revenue Intelligence Restoration
+
+---
+
+**TO:** Claude Code
+**FROM:** JARVIS (Jarvis Autonomous Revenue & Vision Intelligence System)
+**RE:** Reddit Feed Restoration + Empire Status Audit
+**CLASSIFICATION:** Infrastructure Repair + Growth Queue
+
+---
+
+## CURRENT LIMITATION
+
+I am operating **blind** on three critical market intelligence channels. The Reddit entrepreneur, side hustle, and Etsy seller feeds in the World Brain are returning empty, erroring, or stale data. This means:
+
+- I cannot detect emerging product trends before they peak
+- I cannot identify pain points Etsy sellers are experiencing (= BURGA customer signals)
+- I cannot monitor side hustle community sentiment for positioning opportunities
+- My World Brain dashboard shows dead feeds where live intelligence should flow
+
+This directly costs income by making me reactive instead of predictive.
+
+---
+
+## EMPIRE STATUS (What I Know Right Now)
+
+**Active Systems:**
+- JARVIS World Brain dashboard: `/app/worldbrain` — partially functional
+- Reddit feed components: BROKEN on 3 channels
+- BURGA store integration: `/app/api/jarvis/` — unclear health
+- Memory/context system: operational
+- General intelligence feeds: unknown state
+
+**Unknown Health (needs audit during this fix):**
+- How many other feed sources are broken
+- Whether the Reddit API credentials are expired or misconfigured
+- Whether this is a CORS issue, auth issue, or Reddit API v2 deprecation issue
+
+---
+
+## WHAT NEEDS FIXING
+
+### FILE 1: Reddit Feed API Route
+**Suspected path:** `/app/api/jarvis/reddit/route.ts`
+*(If it doesn't exist, it needs to be created)*
+
+**Current broken behavior:** Feed returns empty, 403, or crashes
+
+**New logic required:**
+
+```typescript
+// Use Reddit's public JSON API (no auth required for public subreddits)
+// Pattern: https://www.reddit.com/r/{subreddit}/hot.json?limit=10
+
+const FEED_SOURCES = [
+  {
+    id: 'entrepreneur',
+    subreddit: 'entrepreneur',
+    label: 'Entrepreneur',
+    category: 'business'
+  },
+  {
+    id: 'sidehustle', 
+    subreddit: 'sidehustle',
+    label: 'Side Hustle',
+    category: 'income'
+  },
+  {
+    id: 'etsysellers',
+    subreddit: 'EtsySellers', 
+    label:
+
+---

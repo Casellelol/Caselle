@@ -56,7 +56,7 @@ export async function POST(req: NextRequest) {
       caselleBrain, caselleStrategy, caselleAccounting,
       atelierBrain, atelierStrategy,
       maximusBrain, maximusStrategy,
-      worldBrain, jarvisMemory, opportunities,
+      worldBrain, jarvisMemory, opportunities, conversationLog,
     ] = await Promise.all([
       fetchGitHubFile("Casellelol/Caselle", "exelixis-brain.md"),
       fetchGitHubFile("Casellelol/Caselle", "exelixis-strategy.md"),
@@ -68,6 +68,7 @@ export async function POST(req: NextRequest) {
       fetchGitHubFile("Casellelol/Caselle", "jarvis-world-brain.md"),
       fetchGitHubFile("Casellelol/Caselle", "jarvis-memory.md"),
       fetchGitHubFile("Casellelol/Caselle", "jarvis-opportunities.md"),
+      fetchGitHubFile("Casellelol/Caselle", "conversation-log.md"),
     ])
 
     // Live web search based on message
@@ -92,6 +93,9 @@ ${worldBrain?.slice(0, 1500) || "World brain not yet populated"}
 
 === JARVIS MEMORY ===
 ${jarvisMemory?.slice(0, 800) || "No memory yet"}
+
+=== CONVERSATION HISTORY ===
+${conversationLog?.slice(-3000) || "No past sessions recorded yet"}
 
 === OPPORTUNITY QUEUE ===
 ${opportunities?.slice(0, 500) || "No opportunities logged yet"}
@@ -149,12 +153,21 @@ CAPABILITY: You can spawn new Masterminds for new business opportunities. If con
       const date = new Date().toISOString().slice(0, 16).replace("T", " ")
       const memoryEntry = `\n### ${date}\nQuery: ${message}\nInsight: ${spokenText.slice(0, 200)}\n`
       const currentMemory = jarvisMemory || "# JARVIS Memory\n*Accumulated intelligence across all sessions.*\n"
+
+      // Get current sha to avoid 409 conflicts
+      const shaRes = await fetch(
+        `https://api.github.com/repos/Casellelol/Caselle/contents/jarvis-memory.md`,
+        { headers: { Authorization: `token ${GITHUB_TOKEN}`, Accept: "application/vnd.github.v3+json" } }
+      )
+      const shaMeta = shaRes.ok ? await shaRes.json() : null
+
       await fetch(`https://api.github.com/repos/Casellelol/Caselle/contents/jarvis-memory.md`, {
         method: "PUT",
         headers: { Authorization: `token ${GITHUB_TOKEN}`, "Content-Type": "application/json" },
         body: JSON.stringify({
           message: "JARVIS memory update",
           content: Buffer.from(currentMemory + memoryEntry).toString("base64"),
+          sha: shaMeta?.sha,
         }),
       })
     } catch {}

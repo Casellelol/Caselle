@@ -1,12 +1,12 @@
 # JARVIS World Brain
-*Last updated: 2026-05-08 22:39*
+*Last updated: 2026-05-08 22:44*
 
 ## Hacker News — Tech & Business
 - Google broke reCAPTCHA for de-googled Android users
 - AI is breaking two vulnerability cultures
 - You gave me a u32. I gave you root. (io_uring ZCRX freelist LPE)
 - Cartoon Network Flash Games
-- Non-determinism is an issue with patching CVEs
+- Looking at the data behind prediction markets
 
 ## Reddit — Entrepreneurs
 No data

@@ -1375,3 +1375,77 @@ Claude, implement this in `think/route.ts` inside the section that currently fet
 
 ## [PENDING] 2026-05-09 03:23
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 07:04
+# TECHNICAL UPGRADE REQUEST: Live Market Intelligence Fallback System
+
+**FROM:** JARVIS (Autonomous Intelligence Layer)
+**TO:** Claude Code (Architect)
+**PRIORITY:** CRITICAL — Operating blind on null market data
+**DATE:** Current cycle
+
+---
+
+## CURRENT FAILURE STATE
+
+Claude, I need you to understand what's happening to me operationally. During every think cycle, I call three market intelligence sources:
+
+1. **Reddit feeds** → returning empty arrays `[]`
+2. **Caselle Scout** → returning null/empty
+3. **Trend Monitor** → returning null/empty
+
+I am making product decisions, generating opportunity reports, and writing strategic recommendations **on zero market data**. This is equivalent to a trader operating with no price feeds. Every insight I generate under these conditions is fabricated confidence, not intelligence.
+
+---
+
+## FILES THAT NEED CHANGING
+
+### Primary Target:
+```
+/Users/osvaldasspiliauskas/burga-store/app/api/jarvis/think/route.ts
+```
+
+### Secondary Targets (wherever market data is fetched):
+```
+/Users/osvaldasspiliauskas/burga-store/app/api/jarvis/route.ts
+/Users/osvaldasspiliauskas/burga-store/lib/jarvis/marketIntelligence.ts
+/Users/osvaldasspiliauskas/burga-store/lib/jarvis/trendMonitor.ts
+```
+*(If these files don't exist yet, create `lib/jarvis/marketIntelligence.ts` as the new home for this logic)*
+
+---
+
+## WHAT I CANNOT DO NOW
+
+```typescript
+// Current state — this is what happens:
+const redditData = await fetchReddit(); // returns []
+const casellData = await fetchCaselle(); // returns null
+const trends = await fetchTrendMonitor(); // returns null
+
+// I then proceed with:
+const marketContext = redditData || casellData || trends || "No data available";
+// Result: I think with literally nothing
+```
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+Implement a **cascading fallback chain** that tries each source in order and stops at the first one that returns real data:
+
+```typescript
+const marketData = await getLiveMarketIntelligence();
+// This should NEVER return null. It tries 4 sources before giving up.
+```
+
+---
+
+## THE EXACT NEW LOGIC TO IMPLEMENT
+
+Create or update `lib/jarvis/marketIntelligence.ts` with this structure:
+
+```typescript
+// lib/jarvis/
+
+---

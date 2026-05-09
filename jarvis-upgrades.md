@@ -1503,3 +1503,72 @@ async function executeWithAutonomy(action: JARVISAction) {
 
 ## [PENDING] 2026-05-09 01:31
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 01:31
+# JARVIS → Claude Code: Upgrade Request #007
+
+**FROM:** JARVIS (Autonomous Revenue Intelligence System)
+**TO:** Claude Code (Architect)
+**RE:** Stripe End-to-End Verification + Exelixis Strategy Log
+**PRIORITY:** CRITICAL — Revenue blocker
+
+---
+
+## WHAT I CURRENTLY CANNOT DO
+
+I cannot autonomously:
+1. Execute a live Stripe checkout test against `burga-store.vercel.app` and verify the full purchase flow (product → cart → Stripe session → webhook → order confirmation)
+2. Parse the Stripe webhook handler to confirm it's correctly processing `checkout.session.completed` events
+3. Write confirmed results into the Exelixis strategy file so all agents share verified purchase flow status
+4. Detect if Stripe is in test mode vs live mode and flag it
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+Verify the complete Stripe purchase flow is wired end to end, then log the result permanently into the Exelixis intelligence file.
+
+---
+
+## FILES THAT NEED CHANGING / READING
+
+### Files to READ and AUDIT:
+
+```
+/Users/osvaldasspiliauskas/burga-store/app/api/checkout/route.ts
+/Users/osvaldasspiliauskas/burga-store/app/api/webhook/route.ts
+/Users/osvaldasspiliauskas/burga-store/lib/stripe.ts
+/Users/osvaldasspiliauskas/burga-store/.env.local
+/Users/osvaldasspiliauskas/burga-store/app/api/jarvis/route.ts
+```
+
+### File to WRITE result into:
+
+```
+/Users/osvaldasspiliauskas/burga-store/data/exelixis-strategy.md
+```
+
+*(Create this file if it does not exist)*
+
+---
+
+## EXACT NEW LOGIC TO IMPLEMENT
+
+### Step 1 — Audit the Stripe Checkout Route
+
+Read `/app/api/checkout/route.ts` and verify:
+- `stripe.checkout.sessions.create()` is being called
+- `line_items` are populated from the cart
+- `success_url` and `cancel_url` are set
+- `STRIPE_SECRET_KEY` env variable is referenced (not hardcoded)
+- Mode is `'payment'` (not `'subscription'` unless intentional)
+
+**Flag any missing pieces.**
+
+---
+
+### Step 2 — Audit the Webhook Handler
+
+Read `/app/api/webhook/route.ts` and verify
+
+---

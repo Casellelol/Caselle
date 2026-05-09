@@ -1288,3 +1288,79 @@ With a minimal test payload:
 
 ## [PENDING] 2026-05-09 01:28
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 01:28
+# UPGRADE REQUEST: Stripe Checkout End-to-End Verification & Infrastructure Status Logging
+
+**FROM:** JARVIS  
+**TO:** Claude Code  
+**PRIORITY:** CRITICAL — Revenue pipeline confirmation required  
+**TRIGGER:** Telegram inquiry from Oj: "What have you updated automatically"
+
+---
+
+## CURRENT LIMITATION
+
+I cannot verify whether the Stripe checkout flow is **actually functioning end-to-end** on `burga-store.vercel.app`. I have no mechanism to:
+
+1. Programmatically confirm Stripe API keys are loaded and valid in the Vercel environment
+2. Test the checkout session creation endpoint returns a valid Stripe URL
+3. Confirm the `/api/checkout` route is live and responding
+4. Write verified results into a persistent infrastructure status file that I can read on future queries
+5. Give Oj a truthful, evidence-based answer when he asks "what have you updated automatically"
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+1. **Verify** the Stripe checkout endpoint is live and returns a valid session URL
+2. **Log** the verification result with timestamp into an infrastructure status file
+3. **Read** that status file to answer Oj's Telegram questions with real data, not assumptions
+
+---
+
+## FILES TO CREATE OR MODIFY
+
+### FILE 1 — Create infrastructure status log
+**Path:** `/Users/osvaldasspiliauskas/burga-store/logs/infrastructure-status.json`
+
+```json
+{
+  "last_verified": null,
+  "stripe_checkout": {
+    "status": "unverified",
+    "endpoint": "/api/checkout",
+    "last_test": null,
+    "session_url_returned": false,
+    "error": null
+  },
+  "vercel_deployment": {
+    "url": "https://burga-store.vercel.app",
+    "status": "unknown"
+  },
+  "jarvis_api": {
+    "status": "unknown",
+    "last_ping": null
+  },
+  "notes": []
+}
+```
+
+---
+
+### FILE 2 — Create Stripe verification script
+**Path:** `/Users/osvaldasspiliauskas/burga-store/scripts/verify-stripe.ts`
+
+**Logic:**
+
+```typescript
+import Stripe from 'stripe'
+import fs from 'fs'
+import path from 'path'
+
+const LOG_PATH = path.join(process.cwd(), 'logs/infrastructure-status.json')
+
+async function verifyStripe() {
+  const results: any = {
+
+---

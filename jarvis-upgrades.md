@@ -1521,3 +1521,60 @@ function log(msg: string) {
 
 ## [PENDING] 2026-05-09 09:32
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 09:33
+# JARVIS UPGRADE REQUEST — STRIPE + PRINTIFY END-TO-END VERIFICATION & FIX
+
+**To:** Claude Code
+**From:** JARVIS
+**Priority:** CRITICAL — Zero revenue until this is confirmed working
+**Subject:** Verify and fix Stripe checkout + Printify product IDs on burga-store
+
+---
+
+## CURRENT LIMITATION
+
+I cannot verify whether burga-store.vercel.app can actually process a real purchase end-to-end. I have no confirmation that:
+
+1. Stripe checkout session creation works without throwing errors
+2. The Cherry Red and Terracotta product IDs in the codebase are real Printify product IDs (not placeholder strings like `"PRODUCT_ID_HERE"` or test values)
+3. The Stripe webhook receives and processes the order confirmation
+4. Printify receives the fulfilled order and would ship a real product
+
+The store may be "running" in the sense that pages load, but a customer attempting to purchase would hit a silent failure, a broken redirect, or a Stripe error — and I would not know.
+
+---
+
+## WHAT I WANT YOU TO DO
+
+### STEP 1 — Audit the Printify product IDs
+
+Open these files and find every reference to a Printify product ID or variant ID:
+
+- `/Users/osvaldasspiliauskas/burga-store/lib/products.ts`
+- `/Users/osvaldasspiliauskas/burga-store/lib/printify.ts`
+- `/Users/osvaldasspiliauskas/burga-store/app/api/products/route.ts`
+- `/Users/osvaldasspiliauskas/burga-store/data/products.json` (if it exists)
+- `/Users/osvaldasspiliauskas/burga-store/.env.local`
+
+Look for any string that looks like a placeholder:
+- `"YOUR_PRODUCT_ID"`
+- `"PRODUCT_ID_HERE"`
+- `"xxx"`, `"000"`, `"test"`
+- Any ID that is fewer than 10 characters
+- Any hardcoded string that is not a real 24-character Printify MongoDB ObjectID
+
+Then call the Printify API directly to confirm each ID exists:
+
+```bash
+curl -H "Authorization: Bearer $PRINTIFY_API_KEY" \
+  https://api.printify.com/v1/shops/{SHOP_ID}/products/{PRODUCT_ID}.json
+```
+
+If the API returns 404 or an error — that product ID is broken and must be replaced.
+
+---
+
+### STEP
+
+---

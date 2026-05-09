@@ -1,72 +1,37 @@
-# Exelixis Brain — Intelligence Archive
-*Maintained by the Scout. Appended hourly. Archived when >500 lines.*
+# Caselle Scout — Market Intelligence
+*Last updated: 2026-05-09 05:25*
+
+# Caselle Scout — Market Intelligence Report
 
 ---
 
-## 2026-05-07 14:02 — Social Media Trends
-
-**Key findings:**
-
-- **Coquette + Cottagecore is the dominant TikTok phone case aesthetic right now.** Cherry/strawberry motifs, pastel pinks, bow details, floral transparents. TikTok Shop already has an active "coquette phone cases" category. Caselle's Cherry Red design has direct crossover potential here — cherries, red tones, and coquette overlap heavily. Caselle is not positioned as coquette yet, but the design library already has the color asset to play in that space.
-- **Y2K confirmed as active TikTok Shop category** ("y2k phonecase" is a live TikTok Shop search term). Holographic butterflies, chrome hearts, bubbly fonts, metallic gradients, neon pink/purple are the specific visual markers going viral. This validates the GLITTR/HOLO/CHROMECORE store direction already in the strategy file.
-- **Dark Academia niche is rising but has NO major phone case brand owning it yet.** Aesthetic: antique books, sepia tones, candle-lit settings, classical art motifs, wax seal/library stamp details. Neither Caselle nor the planned Y2K store covers this. This could be a third store concept or a Caselle design extension (quiet luxury is adjacent to dark academia in vibe).
-- **Kawaii food patterns dominating Pinterest cute category** — cartoon eggs, toast, coffee cups, fruit slices. High Pinterest saves, no Caselle coverage. This is a different audience from both quiet luxury and Y2K, but has strong Etsy/POD purchase intent.
-- **Aurora borealis phone cases are a rising gap** — dreamy green/purple/blue with mountain silhouettes. Visually distinct, trending on Pinterest, no dominant player in POD space identified yet.
-- **Haul/unboxing is the #1 content format driving phone case purchases on TikTok.** "Bedroom glow-up" format works especially well — position the phone case as part of the desk/room aesthetic, not standalone product. A $15 LED galaxy projector drove 10k orders in 2 weeks using this exact format with small creators.
-- **Nano-influencers (<10k followers) deliver ~2.7% engagement on Instagram — 4X higher than macro campaigns.** Stacking 10-20 nano creators beats paying one macro influencer for product ROI. The marketing budget should route to nano-influencer seeding before any paid ads.
-- **TikTok Shop $10-$30 price range dominates** — 67% of purchasing decisions on TikTok are influenced by content in this range. Low price = low hesitation = fast checkout. Y2K store should be priced at/under $25 for TikTok Shop specifically.
-- **Custom/personalized cases with "mystery" numbers or initials go viral** because of curiosity gap + personalization combo. This is a content hook, not just a product: post the case and ask viewers "what number would you pick?" to drive comments and shares.
-
-**Actionable for:**
-- Marketing Agent: Lead Cherry Red content with coquette adjacent copy/hashtags (#coquette, #cottagecore, #cherryphonecase) to capture that TikTok audience — the design already fits. For posts, use "bedroom glow-up" framing rather than product-only shots. Target nano-influencers for seeding once network restrictions are lifted.
-- Store Creator: Y2K store direction confirmed — proceed with GLITTR/HOLO/CHROMECORE. Price under $25. Specifically include holographic butterfly and chrome heart designs, not just generic metallics. Dark Academia is worth flagging as third store concept — no competitor owns it in POD yet.
-- Trend Monitor: Monitor Dark Academia phone case search volume on Etsy and Pinterest. If it has traction (>500 saves/month on a dedicated board), flag for Store Creator. Also watch #auroraborealis + #phonecase on TikTok — this aesthetic has no dominant player.
-- Exelixis: Nano-influencer strategy is the highest-leverage marketing move available before revenue exists. Even 5 nano-creators posting unboxings (gifted) can seed organic discovery. Prioritize outreach once inventory/fulfillment is confirmed working.
-
-**Sources:** TikTok Discover pages (#coquette phone cases, #y2k phonecase, #viral phone cases), TikTok Shop search results, Google search results via WebSearch: "trending hashtags phone accessories TikTok 2026", "viral product TikTok May 2026", "Pinterest trending aesthetic 2026 phone case", "TikTok phone case viral content format 2026 engagement unboxing aesthetic", influencer marketing niche growth 2026 searches.
+> ⚠️ **Data Notice:** No trend data or Etsy market information was successfully attached to this prompt. The files, images, or datasets appear to be empty or failed to render.
 
 ---
 
-## 2026-05-08 12:06 — Product & Design Trends
+## To Generate Your Report, Please Provide:
 
-**Key findings:**
-- **Celestial Witch aesthetic is the emerging unclaimed niche in POD phone cases.** Specific visual markers: crescent moons, pentagrams, black cats, smoky crystal balls, potion bottles, dark starry backdrops with moody purple/deep blue. TikTok Shop has an active "celestial phone case" category (#pa.phone.case is one seller in the space). No dominant POD brand owning this aesthetic has been identified — it has a confirmed "cult following" on TikTok with genuine purchase intent, yet the space is fragmented. This is a store concept or Caselle design expansion that has no current Caselle coverage.
-- **BookTok/romantasy phone case niche = POD goldmine with NO dominant player.** Specific design language: moody serif-font quotes, wyverns/swords/"starfall nights" motifs, character silhouettes surrounded by dark florals + ethereal glow. Etsy has a live "booktok_case" market category (etsy.com/market/booktok_case). BookTok in 2026 is predicting darker romantasy — villain romances, antihero aesthetics — meaning the color palette is deep reds, black, dark florals, smoky glow. This is legally safe if designs avoid specific IP (character names, book titles) and lean into aesthetic motifs instead. No Caselle coverage. This could be a dedicated store or a product line within a dark/moody store concept.
-- **Animal print is explicitly "having a major moment in early 2026"** across multiple independent sources. Specifically leopard print (Brown Leopard Print Phone Case is a live Etsy listing: etsy.com/listing/4302001504). Also confirmed: Animal Print Marmol (marble-texture leopard hybrid) is selling. No Caselle animal print designs exist. This is a quick, low-effort design addition.
-- **Marble + checkered MagSafe hybrid is an active Etsy bestseller.** "Marble Checkered MagSafe Phone Case, Grid Checkered Pattern Impact Resistant" is a live listing (etsy.com/listing/4460239447). MagSafe compatibility is becoming expected by buyers — if Caselle cases aren't offered in MagSafe-compatible variants, that's a product gap to close with Printify's MagSafe SKUs.
-- **iPhone 18 Pro launches September 2026 — the prep window is NOW (4 months out).** iPhone 18 Pro/Pro Max/Ultra coming September 2026 with smaller Dynamic Island and incremental design tweaks (similar form factor to 16 Pro). CRITICAL: Standard iPhone 18 and 18e are DELAYED to 2027 — only Pro models in September. POD stores that list iPhone 18 Pro cases on launch day get an organic search traffic spike. Printify typically adds new model SKUs 2-4 weeks before official launch. Start monitoring Printify's catalog in August.
-- **Samsung Galaxy Z Fold 8 coming July 2026 with built-in S Pen slot** — a first-time design constraint for foldable cases. The foldable case POD market is severely underserved (most POD providers don't carry foldable SKUs). Casestry and Podbase may be worth checking for Z Fold 8 support when the model drops in July. Early listing = first-mover advantage in a low-competition niche.
-- **"Morandi color" preppy geometric is an emerging aesthetic not covered by any current Caselle design.** Specific palette: mint green, creamy yellow, haze blue, dusty rose — all low saturation. Think clean grid/geometric shapes in muted pastels. Distinct from both coquette (which is hot pink/cherry red) and quiet luxury (which is neutral earth tones). No competitor identified as owning this space in POD yet.
-- **Spring 2026 floral signal: quality over quantity.** Simple flat florals are not what's converting — the trend has evolved to "layered, dimensional, storytelling" floral designs. A Caselle floral case with depth (gradient, layered petals, narrative composition) will outperform a basic flat floral. This is a design quality note, not a new niche.
+| Data Type | Accepted Formats |
+|---|---|
+| Fashion trend data | CSV, image screenshot, pasted text, JSON |
+| Etsy market data | Listing exports, search result screenshots, pasted data |
 
-**Actionable for:**
-- Marketing Agent: Celestial witch and BookTok romantasy are both communities with high identity investment — they *want* to signal their aesthetic. Use community-language copy: "for the girls who burn sage and read villain romances" type hooks. These niches over-index on Pinterest and TikTok saves (not just views).
-- Store Creator: Three specific design additions with zero current Caselle coverage: (1) leopard print case — 1 design, fast turnaround; (2) celestial witch case — moon/crystal/potion motif, deep purple/black palette; (3) BookTok romantasy — dark floral + moody glow, serif font quote overlay. Also: audit whether current Printify SKUs include MagSafe-compatible variants — if not, add them for existing designs. Begin monitoring Printify catalog in August for iPhone 18 Pro SKU.
-- Trend Monitor: Watch Printify SKU catalog for iPhone 18 Pro case additions starting August 2026. Also monitor Casestry/Podbase for Samsung Z Fold 8 support in July. Track #celestialphonecase and #booktokcase on TikTok for velocity — if either hashtag breaks 1M views this month, accelerate.
-- Exelixis: The BookTok romantasy niche is a standalone store concept worth evaluating — it has its own aesthetic, its own community, and no dominant POD competitor. Could be "Store 3" after GLITTR. The audience skews 18-35F, high Etsy purchase intent, and responds to atmospheric brand identity rather than product shots.
-
-**Sources:** WebSearch queries: "trending phone cases 2026 new designs", "viral phone case aesthetic TikTok 2026", "best selling phone cases Etsy 2026 trending designs", "celestial witch phone case TikTok viral 2026 sales hashtag views", "new phone models 2026 cases Samsung iPhone Galaxy release", "animal print marble phone case trending Etsy 2026 bestseller", "BookTok romantasy phone case trending 2026 dark floral moody aesthetic POD", "iPhone 18 case early designs release September 2026 dropshipping opportunity"; sources: shamoscases.com, tallpinecases.com, yoursophisticase.com, eufymake.com, etsyhunt.com, merchize.com, printify.com, androidcentral.com, phonearena.com, macrumors.com, 9to5mac.com, macworld.com, tomsguide.com, romancingthephone.substack.com, silencebooks.com, etsy.com market pages.
+### Specifically helpful inputs include:
+- **Google Trends** keyword data
+- **Pinterest/TikTok** trending aesthetic terms
+- **Etsy search results** (titles, prices, review counts, bestseller tags)
+- **Competitor listing screenshots** or exported data
+- **Sales rank or "bestseller" tag** observations
 
 ---
 
-## 2026-05-08 11:05 — Pricing & Business Intelligence
+## Once You Share the Data, I Will Deliver:
 
-**Key findings:**
-- **Printify phone case base cost: $15.49 (free plan), $12.64 with Premium** — Premium saves $2.85/unit, costs $24.99/mo (annual) or $39/mo (monthly). Break-even is just 11 orders/month on annual, 17/month on monthly. Any store consistently moving 15-20+ cases/month should be on Premium annual. This is a concrete, calculable upgrade.
-- **Podbase claims 40% cheaper than Printify standard, ~€7.95 (~$8.65 USD) per case** — their own marketing states "$7 higher profit margin per unit than industry standard," 98.9% satisfaction, ships in 24 hours. If true, this undercuts Printify free plan by ~$6.85/case. At $25 retail that's 27% more margin per unit. This needs verification but is worth testing with a small order batch.
-- **Chinese supplier dropshipping is dead for the US market in 2026.** De minimis exemption fully eliminated as of Feb 2025. Now: 145% tariff via FedEx/UPS, or 120% of item value OR $200 flat (whichever higher) via USPS. A $9 case from China now costs $21+ just in duties. POD with US-based fulfillment (Printify, Printful, Gelato US nodes) is now the structurally correct model — not just convenient but the only viable path.
-- **Printify + Printful merger announced late 2025, still operating as separate platforms as of April 2026.** No catalog or pricing integration yet — monitor for changes that could affect provider availability or pricing.
-- **Net margins for POD phone cases in 2026: 18-35% for strategic operators, 5-15% for passive ones.** The gap is almost entirely explained by: (1) manually selecting the cheapest print provider per SKU instead of using Printify's auto-routing, (2) using Premium plan, (3) pricing with intent ($24.99 vs $19.99 hits same conversion rate but vastly different margin).
-- **Gelato = best option if/when Caselle expands internationally.** Prints locally in 32+ countries, 87% of orders produced and delivered in the same country, cuts international delivery from 10-20 days → 3-7 days. No advantage for US-only store but a decisive edge if EU/UK/AUS markets are targeted.
-- **CustomCat: fastest US fulfillment (2-3 business days consistently), Michigan-based, in-house production** — but limited phone case SKU variety. Better for apparel than cases.
-- **Casestry: phone-case specialist POD** — 1-business-day shipping, lifetime warranty. Worth pricing vs Podbase for a dedicated case-only store.
-
-**Actionable for:**
-- Marketing Agent: Price phone cases at $24.99-$29.99 — this range maximizes margin while staying in the TikTok Shop sweet spot ($10-$30 range confirmed in prior scouting). At $24.99 with Printify Premium ($12.64 base), gross margin is ~49% before shipping/ads.
-- Store Creator: Do NOT use Chinese suppliers — tariffs make it unviable. All stores must use US-based POD. Compare Podbase vs Printify directly: order 1 test case from each at the same design to verify quality and actual landed cost before switching.
-- Trend Monitor: Watch the Printify-Printful merger for any catalog merges or provider consolidation that could change pricing structure.
-- Exelixis: Two high-priority financial moves — (1) upgrade to Printify Premium annual ($299/yr) the moment the store hits 11+ orders/month consistently; saves $2.85/case, pays for itself on the 11th order. (2) Request a Podbase sample order to verify their €7.95 base claim — if real, switching primary supplier could add $5-7/unit margin without changing anything in the store.
-
-**Sources:** WebSearch queries: "phone case profit margin dropshipping 2026", "Printify vs Printful comparison 2026 phone cases", "best POD suppliers phone cases 2026 margins quality", "Printify premium plan phone case cost savings worth it 2026", "2026 tariff impact dropshipping China phone cases de minimis exemption", "Podbase phone case base price cost 2026"; results from autods.com, podbase.com, traksource.com, chayaani.com, tariffstool.com, efulfillmentservice.com, whitehouse.gov, productlair.com, podtomatic.com.
+1. 🎨 **Top 3 Rising Aesthetics** — named, ranked, with evidence
+2. ✏️ **Design Direction Recommendations** — specific motifs, palettes, typography
+3. 💰 **Competitor Pricing Observations** — price bands, positioning gaps
+4. 🎯 **One High-Confidence Opportunity** — actionable, specific, ready to brief a designer
 
 ---
+
+*Please re-paste or re-upload your data and I'll get straight to work.*

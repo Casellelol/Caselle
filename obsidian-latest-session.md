@@ -1,8 +1,8 @@
-# Claude Session — 2026-05-09 12:02
+# Claude Session — 2026-05-09 12:10
 
 **Date:** 2026-05-09  
 
-**Messages:** 34
+**Messages:** 41
 
 ---
 
@@ -470,5 +470,58 @@ Done. Here's what changed and why it's now permanent:
 - Sessions prepend to the top so newest is always the first thing JARVIS reads
 
 From this message forward, every conversation you have with JARVIS is permanent.
+
+---
+
+**You**:
+Sir, here is the honest truth — the autonomous infrastructure ran its scheduled cycles, but the intelligence feeds came back empty this cycle, which means the agents executed but had no live data to act on.
+
+The World Brain attempted its refresh, Caselle Scout ran, and the marketing agent cycled — but the Reddit, Amazon, and Print on Demand feeds all returned unavailable, so no new designs were published and no posts were confirmed live.
+
+The one clear action I am taking right now is filing the broken feed pipeline as the highest priority fix, because every hour those feeds are dead is an hour I am operating blind.
+
+---
+
+**Claude**:
+JARVIS is still filing the same broken feeds because the actual data problem is real — Reddit JSON API blocks Vercel IPs, and telling JARVIS to ignore it doesn't fix the fact that it has no intelligence. Let me actually fix the feeds.
+
+Reddit's **RSS endpoints** are far less rate-limited than the JSON API. And for Amazon trends, DuckDuckGo can be queried more specifically. Let me swap the implementations:
+
+---
+
+**Claude**:
+Now replace the world brain fetch calls to cover all the subreddits JARVIS expects, and add a real Amazon trends replacement:
+
+---
+
+**Claude**:
+Now test the RSS fetch locally before pushing:
+
+---
+
+**Claude**:
+Reddit blocks all server IPs at the CDN level — RSS included. Let me replace Reddit entirely with sources that actually serve server requests: established publication RSS feeds, the Etsy API, and Product Hunt:
+
+---
+
+**Claude**:
+Real articles. Now rewrite the world brain to use these working sources instead of Reddit:
+
+---
+
+**Claude**:
+Done. The root cause was confirmed — Reddit blocks all server IPs at the CDN level, returning an `Ow!` error page regardless of user agent, endpoint format (JSON or RSS), or header tricks. It cannot be fixed. I tested six approaches and all hit the same wall.
+
+What's live now instead:
+
+| Source | What it gives JARVIS |
+|---|---|
+| **Entrepreneur magazine** | Business strategy, founder trends |
+| **Inc.com** | Growth tactics, market news |
+| **Product Hunt** | New trending products daily |
+| **Hacker News** | Tech & startup signals |
+| **DuckDuckGo × 5 queries** | POD trends, phone case market, ecom, Amazon best sellers |
+
+All four RSS feeds were tested and confirmed to return real articles from this machine before being pushed. JARVIS will no longer wake up to empty feeds.
 
 ---

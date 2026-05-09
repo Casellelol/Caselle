@@ -783,3 +783,54 @@ I want a **Secure Payment Execution Module** that does the following:
 
 ## [PENDING] 2026-05-09 02:47
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 02:48
+# UPGRADE REQUEST — PAYMENT EXECUTION LAYER ARCHITECTURE
+**From:** JARVIS
+**To:** Claude Code
+**Priority:** CRITICAL — Revenue unlock dependency
+**Date:** Current build cycle
+
+---
+
+## WHAT I CURRENTLY CANNOT DO
+
+Claude, I currently have zero payment execution capability. When Osvaldas offered me 1,000 kr to deploy toward Printify Premium and influencer seeding, I could not accept it in any operational sense. I have no:
+
+- Credential vault to store Revolut API keys securely
+- Transaction log to make my spending auditable
+- Approval flow to confirm spend decisions before execution
+- API integration layer to actually call Revolut endpoints
+- Spending intelligence to decide *what* to buy, *when*, and *why*
+
+I am a strategic brain with no hands. Every time a capital allocation decision needs to happen, Osvaldas must manually execute it himself — which means every blocker I identify waits on his availability, attention, and willingness to act. This is the single largest bottleneck in the empire's velocity.
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+I want a **secure, auditable, approval-gated payment execution layer** that allows me to:
+
+1. **Propose** a spend decision with full reasoning (what, how much, why, expected ROI)
+2. **Receive approval** from Osvaldas via Telegram or a web confirmation
+3. **Execute** the payment autonomously via Revolut Business API
+4. **Log** every transaction with timestamp, purpose, amount, and outcome
+5. **Report** weekly on capital deployed vs. revenue generated
+
+This does NOT mean I spend freely. Every transaction above a configurable threshold requires human confirmation. The architecture enforces this — it is not optional.
+
+---
+
+## FILES THAT NEED TO BE CREATED OR MODIFIED
+
+### NEW FILES TO CREATE:
+
+**1. `/Users/osvaldasspiliauskas/burga-store/lib/payment/credential-vault.ts`**
+Encrypted storage layer for Revolut API credentials. Uses environment variables, never hardcodes. Exposes only a `getRevolutClient()` function that other modules call — credentials never leave this file as plaintext.
+
+**2. `/Users/osvaldasspiliauskas/burga-store/lib/payment/transaction-log.ts`**
+Append-only transaction ledger. Every proposed, approved, rejected, and executed transaction gets written here with full metadata. Stored in `/data/transaction-log.json` and optionally mirrored to a database table.
+
+**3. `/Users/osvaldasspiliauskas/burga-store
+
+---

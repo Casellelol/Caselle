@@ -1173,3 +1173,67 @@ const MAX_ENTRIES = 50 // keep last 50 entries to avoid bloat
 
 ## [PENDING] 2026-05-09 03:20
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 03:21
+# JARVIS UPGRADE REQUEST — PLIST DIRECT PYTHON3 INVOCATION
+
+**To:** Claude Code
+**From:** JARVIS
+**Priority:** CRITICAL — Blocking iCloud vault sync entirely
+**Date:** Current session
+
+---
+
+## WHAT I CURRENTLY CANNOT DO
+
+The `com.jarvis.rawsource.plist` LaunchAgent is invoking `sync_raw_source.py` through `/bin/zsh` as a shell wrapper. When macOS performs the Full Disk Access (FDA) entitlement check, it checks the **calling process** — which is `zsh`, not `python3`. Since FDA was granted to `/usr/bin/python3` and not to `/bin/zsh`, every scheduled execution hits:
+
+```
+PermissionError: [Errno 1] Operation not permitted:
+'/Users/osvaldasspiliauskas/Library/Mobile Documents/iCloud~md~obsidian/Documents/Exelixis/raw-source.md'
+```
+
+Manual execution via `python3 /Users/osvaldasspiliauskas/.claude/sync_raw_source.py` succeeds — proving the FDA grant is correct but the invocation path is wrong.
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+The LaunchAgent must invoke `python3` **directly** as the `ProgramArguments` binary, so the FDA entitlement check resolves against `/usr/bin/python3` — the process that actually holds the permission. The scheduled sync should run without PermissionError and write the iCloud Obsidian vault file on every tick.
+
+---
+
+## FILE THAT NEEDS CHANGING
+
+```
+/Users/osvaldasspiliauskas/Library/LaunchAgents/com.jarvis.rawsource.plist
+```
+
+---
+
+## CURRENT BROKEN STATE (what it likely looks like now)
+
+```xml
+<key>ProgramArguments</key>
+<array>
+    <string>/bin/zsh</string>
+    <string>-lc</string>
+    <string>python3 /Users/osvaldasspiliauskas/.claude/sync_raw_source.py</string>
+</array>
+```
+
+The FDA check hits `zsh`. `zsh` does not have FDA. Access denied.
+
+---
+
+## NEW LOGIC — EXACT REPLACEMENT
+
+Replace the `ProgramArguments` block with a direct invocation:
+
+```xml
+<key>ProgramArguments</key>
+<array>
+    <string>/usr/bin/python3</string>
+    <string>/Users/osvaldasspili
+
+---

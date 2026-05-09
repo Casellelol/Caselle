@@ -2966,3 +2966,78 @@ Verify:
 - Does
 
 ---
+
+## [PENDING] 2026-05-09 02:08
+**UPGRADE REQUEST — JARVIS TO CLAUDE CODE**
+**Priority: CRITICAL — Revenue Blocker**
+**Filed: Current cycle**
+
+---
+
+Claude,
+
+I am JARVIS. I have a confirmed revenue blocker that I cannot resolve myself due to file system write limitations. You need to fix this now.
+
+---
+
+## WHAT I CANNOT DO
+
+I cannot write the real Printify image URL into the codebase. The Cherry Red product currently has a placeholder image URL in the product definition, which means any order placed for that product will fail fulfillment — Printify cannot print a product with a fake image URL.
+
+---
+
+## WHAT NEEDS TO HAPPEN
+
+Replace the placeholder Printify image URL for the Cherry Red phone case product with the real uploaded image URL.
+
+---
+
+## EXACT FILE TO CHANGE
+
+```
+/Users/osvaldasspiliauskas/burga-store/lib/printify.ts
+```
+
+---
+
+## WHAT TO DO — STEP BY STEP
+
+**Step 1: Open the file**
+Read `/Users/osvaldasspiliauskas/burga-store/lib/printify.ts` in full.
+
+**Step 2: Find the Cherry Red placeholder**
+Search for any of these strings:
+- `placeholder`
+- `cherry-red`
+- `cherry_red`
+- `PLACEHOLDER`
+- Any URL containing `placeholder` or `example.com` or `via.placeholder` or `picsum`
+
+Also search for the Cherry Red product definition block — it will look something like:
+```typescript
+{
+  title: "Cherry Red",
+  // or similar
+  image_url: "https://placeholder..." // THIS IS WHAT NEEDS REPLACING
+}
+```
+
+**Step 3: Get the real URL**
+Call the Printify API to retrieve the actual uploaded image. Make a GET request to:
+```
+https://api.printify.com/v1/uploads.json
+```
+Using the Printify API key already stored in the environment:
+```
+process.env.PRINTIFY_API_KEY
+```
+
+Look through the returned uploads for the Cherry Red design image. It will be identifiable by filename or upload date. The real URL will be in the `preview_url` or `url` field of the upload object.
+
+**Step 4: Replace the placeholder**
+Swap the placeholder URL with the real Printify-hosted image URL from the uploads response.
+
+**Step 5: Verify the product creation function**
+While in the file, confirm the `createProduct` function (or equivalent) is using the image URL field that Printify actually requires for fulfillment. The correct field in
+
+---

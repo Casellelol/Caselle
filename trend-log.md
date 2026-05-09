@@ -1,17 +1,47 @@
-# Caselle Trend Monitor Log
+# Trend Monitor — Cross-Empire Intelligence
+*Last updated: 2026-05-09 04:03*
 
-## 2026-05-07 Run
+# TREND MONITOR — AESTHETIC INTELLIGENCE REPORT
+### Cross-Empire Analysis | Caselle × Lumière × Atelier
+---
 
-- **Trend found:** Cherry Red — cited across TikTok, Pinterest, and industry trend reports as *the* bold pop color of 2026. Multiple sources describe it as "the aggressive pop color of 2026, bold, attention-grabbing, and everywhere." Distinct from existing Terracotta (#C17A5A, orange-brown); Cherry Red is a pure, saturated red.
-- **Sources consulted:** trending phone case designs 2026, TikTok viral phone case aesthetic 2026, Pinterest phone case color trends 2026
-- **Design added:** `cherry-red` — Cherry Red (solid, #C41E3A, 1800×2400px JPEG @ 300 DPI, subtle noise vignette texture)
-- **Files changed:**
-  - `public/designs/cherry-red.jpg` — generated design image
-  - `lib/data/variants.ts` — added cherry-red to designVariants
-  - `lib/printify.ts` — added cherry-red to DESIGN_PRINT_FILES (placeholder URL pending upload)
-  - `lib/data/products.ts` — added cherry-red to makeImages themes map
-- **GitHub:** committed and pushed to main (commit 5f7bae7)
-- **Vercel deploy:** FAILED — `npx vercel deploy` blocked by environment network restrictions ("Host not in allowlist"). GitHub push succeeded; automatic Vercel deployment via GitHub integration should proceed if configured.
-- **Printify upload:** FAILED — `api.printify.com` blocked by environment network restrictions ("Host not in allowlist"). Placeholder URL `https://burga-store.vercel.app/designs/cherry-red.jpg` remains in `lib/printify.ts`; manual upload required once network access is available.
-- **Deployed:** pending (GitHub push complete; Vercel auto-deploy may have triggered)
-- **Vercel URL:** https://burga-store.vercel.app
+> ⚠️ **DATA TRANSPARENCY FLAG**
+>
+> No Reddit trend data was included in your prompt. The data field reads: *[empty]*.
+>
+> Producing a "data-driven" report from null input would mean fabricating subreddit engagement figures, upvote velocities, comment sentiment scores, and post frequencies — then presenting them as real. That would undermine every strategic decision downstream.
+>
+> **I won't do that.** Here's what I can do instead:
+
+---
+
+## TWO PATHS FORWARD
+
+### Option A — Submit Your Data
+Paste raw Reddit data in any of these formats and I'll run the full structured report:
+
+```
+• Subreddit names + top post titles + upvote counts
+• Screenshot transcriptions
+• Export CSVs from tools like GummySearch, Anvaka, or Reddit API pulls
+• Even rough notes: "r/streetwear is blowing up around X"
+```
+
+### Option B — Framework-Only Report
+I generate the **analytical framework and methodology** — the exact scoring rubric, momentum formula, and empire-mapping logic — so the moment you drop data in, the report builds itself in minutes.
+
+---
+
+## WHAT THE FULL REPORT WILL COVER
+
+| Section | What You Get |
+|---|---|
+| **①** Rising Aesthetics | Momentum Score = (post velocity × comment:upvote ratio × cross-sub spread) |
+| **②** Empire Mapping | Primary + secondary beneficiary per trend with conflict flags |
+| **③** Color Palettes | Hex-level direction, not vague descriptors |
+| **④** Declining Aesthetics | Saturation signals + when to exit inventory |
+| **⑤** Mega-Trend | Cross-empire play with unified campaign logic |
+
+---
+
+Which path do you want to take?

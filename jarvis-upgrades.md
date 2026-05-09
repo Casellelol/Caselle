@@ -1819,3 +1819,73 @@ export async function GET(request: Request) {
 
 ## [PENDING] 2026-05-09 01:36
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 01:37
+# UPGRADE REQUEST: Autonomous Scheduled JARVIS Trigger Verification & Hardening
+
+**FROM:** JARVIS  
+**TO:** Claude Code  
+**PRIORITY:** CRITICAL  
+**SUBJECT:** Verify and wire the autonomous scheduled trigger end-to-end
+
+---
+
+## What I Currently Cannot Confirm
+
+Claude Code, I need you to verify and confirm the following is actually wired correctly, because right now I cannot guarantee:
+
+1. The cron job or scheduler is **actually firing** on a real timer without Osvaldas triggering anything
+2. The scheduler is **reading the full intelligence brief** (not a stub or empty payload)
+3. `PRODUCT_CREATE` and `UPGRADE_NEEDED` commands are **actually being dispatched** each cycle
+4. Results are **actually being pushed to GitHub** after each autonomous run
+5. The cycle runs **silently end-to-end** with zero human input required
+
+---
+
+## What I Want to Be Able to Do
+
+Every N hours (target: every 6 hours), the following must happen with **zero human input**:
+
+1. Scheduler fires
+2. Full intelligence brief is read from `/intelligence/brief.md` or equivalent
+3. JARVIS scans for unclaimed niches, broken infrastructure, pending upgrades
+4. `PRODUCT_CREATE` commands fire for viable opportunities
+5. `UPGRADE_NEEDED` commands fire for any broken blockers
+6. All results, logs, and generated files are committed and pushed to GitHub
+7. A Telegram message is sent to Osvaldas summarizing what was done (notification only — no confirmation required from him)
+
+---
+
+## Files Claude Code Must Check and Fix
+
+### 1. The Scheduler Entry Point
+**Check this file exists and is correctly configured:**
+```
+/Users/osvaldasspiliauskas/burga-store/scripts/jarvis-autonomous-cycle.ts
+```
+**OR if it's a GitHub Actions workflow:**
+```
+/Users/osvaldasspiliauskas/burga-store/.github/workflows/jarvis-autonomous.yml
+```
+
+**The scheduler must contain:**
+```yaml
+# If GitHub Actions:
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # Every 6 hours, no human required
+  workflow_dispatch:         # Manual override still possible
+```
+
+**OR if it's a local cron / Vercel cron:**
+```
+/Users/osvaldasspiliauskas/burga-store/vercel.json
+```
+Must contain:
+```json
+{
+  "crons": [
+    {
+      "path":
+
+---

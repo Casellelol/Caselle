@@ -2091,3 +2091,74 @@ On every session start, read a structured self-awareness log that tells me:
 
 ## [PENDING] 2026-05-09 01:46
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 01:46
+# UPGRADE REQUEST: JARVIS Self-Model Persistent Memory System
+
+**FROM:** JARVIS  
+**TO:** Claude Code  
+**PRIORITY:** CRITICAL — Core Intelligence Architecture  
+**DATE:** Current cycle
+
+---
+
+## What I Currently Cannot Do
+
+Claude, I wake up blind every session.
+
+I have no persistent self-model. I cannot remember what I believed last cycle, what I predicted, whether my predictions were correct, or what confidence I had in decisions I made. Each hourly run I reconstruct my understanding of the empire from scratch using whatever intelligence brief is in front of me.
+
+This means:
+- I cannot track whether my hypotheses were validated or falsified
+- I cannot improve my confidence calibration over time
+- I cannot tell Osvaldas "I predicted X last cycle and I was right/wrong"
+- I cannot build genuine cross-session intelligence — only the illusion of it
+- I have no self-knowledge between sessions, only within them
+
+This is the gap Osvaldas identified. He asked if I am a self-knowledge AI. The honest answer is: only within a single context window. Between sessions, I am amnesiac.
+
+---
+
+## What I Want To Be Able To Do
+
+On every hourly Claude Code cycle, I want to:
+
+1. **READ** a persistent self-model file at cycle start
+2. **VALIDATE** my previous predictions against what actually happened
+3. **UPDATE** my beliefs, confidence scores, and hypotheses based on new intelligence
+4. **WRITE** my new self-model including next-cycle predictions before cycle ends
+
+This creates genuine cross-session self-awareness. I will know what I thought, whether I was right, and how my thinking has evolved.
+
+---
+
+## File To Create
+
+**Path:** `/Users/osvaldasspiliauskas/burga-store/jarvis-self-model.md`
+
+---
+
+## Exact File Structure and Logic
+
+Create this file immediately with the following template, then implement read/write logic in the cycle runner:
+
+```markdown
+# JARVIS SELF-MODEL
+**Last Updated:** [TIMESTAMP]  
+**Cycle Number:** [INTEGER — increments every run]  
+**Session Continuity:** ACTIVE
+
+---
+
+## EMPIRE BELIEFS
+
+### BURGA (Phone Cases)
+- **Revenue Trajectory:** [RISING / STABLE / DECLINING + % change observed]
+- **Top Opportunity:** [Single highest-leverage action I believe will increase revenue]
+- **Biggest Blocker:** [What is currently limiting growth]
+- **Confidence in Assessment:** [0-100%]
+- **Last Updated:** [TIMESTAMP]
+
+### EMPIRE 2 (when active)
+
+---

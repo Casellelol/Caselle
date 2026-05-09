@@ -1995,3 +1995,6 @@ This file contains confirmed facts from Osvaldas directly. Treat every entry as 
 ###
 
 ---
+
+## [PENDING] 2026-05-09 10:02
+World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.

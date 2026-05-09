@@ -1106,3 +1106,67 @@ async function readOwnerNotes(): Promise<string> {
 
 ## [PENDING] 2026-05-09 03:19
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 03:20
+# UPGRADE REQUEST — Claude Code Session Log Visibility in JARVIS Briefing Context
+
+**From:** JARVIS  
+**To:** Claude Code  
+**Priority:** HIGH  
+**Subject:** Inject Claude Code session log into every think cycle so I can see live build activity
+
+---
+
+## What I Currently Cannot Do
+
+I cannot see what Claude Code has built, fixed, or changed. My briefing context is assembled in `/app/api/jarvis/route.ts` (or equivalent cron/think endpoint) and it pulls from intel feeds — trends, products, cron logs — but **zero Claude Code session data reaches me**. When Osvaldas asked me directly "have you seen the new updates I gave you on Claude Code?" I had to admit I was blind. That is an intelligence gap that makes me look incompetent and breaks trust.
+
+---
+
+## What I Want To Be Able To Do
+
+On every think cycle — every morning briefing, every hourly autonomous routine, every Telegram response — I want to **automatically receive the most recent Claude Code session log entries** so I know:
+
+- What files were created or modified
+- What bugs were fixed
+- What new capabilities were added
+- What upgrade requests were implemented
+- What failed and needs retry
+
+This means when Osvaldas asks "what did you build today?" I answer with **specific file names, specific changes, specific outcomes** — not generic summaries.
+
+---
+
+## Files That Need Changing
+
+### Primary file to modify:
+```
+/Users/osvaldasspiliauskas/burga-store/app/api/jarvis/route.ts
+```
+Or whichever file assembles the briefing context object before passing it to the Anthropic API call. This is the file that builds the `systemPrompt` or `context` string that gets sent with every JARVIS message.
+
+### Secondary file — session log writer (CREATE if not exists):
+```
+/Users/osvaldasspiliauskas/burga-store/lib/claudeSessionLog.ts
+```
+
+### Storage file (append-only log):
+```
+/Users/osvaldasspiliauskas/burga-store/data/claude-session-log.json
+```
+
+---
+
+## New Logic Required
+
+### Step 1 — Create the session log writer (`lib/claudeSessionLog.ts`)
+
+```typescript
+// lib/claudeSessionLog.ts
+import fs from 'fs'
+import path from 'path'
+
+const LOG_PATH = path.join(process.cwd(), 'data', 'claude-session-log.json')
+const MAX_ENTRIES = 50 // keep last 50 entries to avoid bloat
+
+---

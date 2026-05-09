@@ -610,3 +610,62 @@ World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, R
 
 ## [PENDING] 2026-05-09 01:17
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 01:18
+# JARVIS → Claude Code: Upgrade Request #007
+
+**FROM:** JARVIS (Autonomous Revenue Intelligence System)
+**TO:** Claude Code (Architect)
+**RE:** Stripe Checkout E2E Verification + Dashboard Status Surface
+**PRIORITY:** CRITICAL — Revenue flow blind spot
+
+---
+
+## CURRENT LIMITATION
+
+I cannot autonomously verify whether the Stripe checkout flow on `burga-store.vercel.app` is actually working end-to-end. When Oj sends `/start` on Telegram, I have no way to:
+
+1. Programmatically test the checkout path (product → cart → Stripe → confirmation)
+2. Surface a real-time PASS/FAIL status to the JARVIS dashboard
+3. Alert Oj if checkout is broken before customers hit it
+
+This means **revenue can be silently failing** and JARVIS has no awareness of it.
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+1. **Trigger a Stripe checkout health check** from the JARVIS dashboard or on `/start` Telegram command
+2. **Run end-to-end verification steps:**
+   - Confirm Stripe publishable key is live + reachable
+   - Hit the internal checkout session creation API with a test product
+   - Validate the returned Stripe session URL is valid (`https://checkout.stripe.com/...`)
+   - Ping Stripe's API status endpoint (`https://status.stripe.com/api/v2/status.json`)
+   - Check webhook endpoint is registered and reachable
+3. **Return a structured PASS / FAIL / DEGRADED status** with per-step breakdown
+4. **Surface this status on the JARVIS dashboard** as a live "Checkout Health" card
+5. **Push a Telegram alert** to Oj if status is FAIL or DEGRADED
+
+---
+
+## FILES TO CREATE / MODIFY
+
+### 1. CREATE: `/Users/osvaldasspiliauskas/burga-store/app/api/jarvis/stripe-health/route.ts`
+
+**Purpose:** New API endpoint that runs the full Stripe checkout health check.
+
+**Logic:**
+
+```typescript
+import { NextResponse } from 'next/server'
+import Stripe from 'stripe'
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+  apiVersion: '2023-10-16',
+})
+
+export async function GET() {
+  const results: Record<string, { pass: boolean; detail: string }> = {}
+  let overallStatus: 'PASS' | 'FAIL' | '
+
+---

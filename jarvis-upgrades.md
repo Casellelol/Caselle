@@ -1956,3 +1956,6 @@ At the **end of every Claude Code session**, before closing, execute this append
 - [ ] GitHub commit hash: [paste actual hash or write UNCONFIRMED
 
 ---
+
+## [PENDING] 2026-05-09 01:42
+World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.

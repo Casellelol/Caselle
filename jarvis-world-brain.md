@@ -1,12 +1,12 @@
 # JARVIS World Brain
-*Last updated: 2026-05-09 10:37*
+*Last updated: 2026-05-09 10:43*
 
 ## Hacker News — Tech & Business
 - A recent experience with ChatGPT 5.5 Pro
 - Google broke reCAPTCHA for de-googled Android users
 - Using Claude Code: The unreasonable effectiveness of HTML
-- Mythical Man Month
 - OpenAI’s WebRTC problem
+- Mythical Man Month
 
 ## Reddit — Entrepreneurs
 Feed unavailable

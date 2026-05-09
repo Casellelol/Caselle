@@ -1,8 +1,8 @@
-# Claude Session — 2026-05-09 12:54
+# Claude Session — 2026-05-09 12:55
 
 **Date:** 2026-05-09  
 
-**Messages:** 106
+**Messages:** 109
 
 ---
 
@@ -1348,5 +1348,50 @@ dont switch it
 
 **Claude**:
 Got it. Just top up at **console.anthropic.com → Plans & Billing** — put in whatever amount feels right knowing it'll run roughly 2 weeks per $5. Once you add credits, JARVIS picks up automatically on the next cron cycle, no changes needed.
+
+---
+
+**You**:
+but it ran 5 dollars for couple hours
+
+---
+
+**Claude**:
+That's way too fast — something was looping or misfiring. Let me check what was actually hitting the API.
+
+---
+
+**Claude**:
+Found the real problem. It's not just the think cycle — there are **21 different routes** calling Claude, and look at this in vercel.json:
+
+```json
+{ "path": "/api/cron/maximus-macro", "schedule": "0 * * * *" }
+```
+
+That fires **every single hour** — 24x per day. And on top of that, every single JARVIS upgrade request calls Claude separately to write a spec. During the early sessions when Reddit was broken and JARVIS was filing 10+ upgrade requests per think cycle — that was 10 extra Claude calls every few hours.
+
+Here's the full daily API call count:
+
+| Route | Frequency | Claude calls/day |
+|-------|-----------|-----------------|
+| Think cycle | 4x/day | 8 (think + self-model) |
+| Morning briefing | daily | 1 |
+| Nightly summary | daily | 1 |
+| Caselle scout | daily | 1 |
+| Trend monitor | daily | 1 |
+| Atelier scout | daily | 1 |
+| Lumiere scout | daily | 1 |
+| Competitor monitor | daily | 1 |
+| Accountant | daily | 1 |
+| Accountant performance | daily | 1 |
+| Marketing cron | daily | 1 |
+| Command | daily | 1 |
+| Upgrade requests | per upgrade | variable — was spiking |
+
+That's **20+ Claude calls per day minimum**, with large context windows. Plus every Telegram message you send triggers a full Claude response. During setup day we were also calling endpoints manually dozens of times.
+
+The real number is probably **$15-20/month** in normal operation, more during heavy days. $5 lasting only a few hours was the setup day — every test, every `curl` I ran to notify JARVIS, every upgrade request JARVIS filed — all hit Claude.
+
+**The biggest waste to fix:** the `/api/jarvis/upgrade` route calling Claude just to format a spec. That's backwards — JARVIS should write plain text, not pay Claude to reword it. Want me to remove the Claude call from that route? It would cut a lot of the spike cost with zero loss in functionality.
 
 ---

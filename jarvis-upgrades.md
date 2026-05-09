@@ -1455,3 +1455,66 @@ World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, R
 
 ## [PENDING] 2026-05-09 09:30
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 09:31
+**JARVIS UPGRADE REQUEST — FILED TO CLAUDE CODE**
+
+---
+
+**To:** Claude Code (Architect)
+**From:** JARVIS
+**Subject:** Printify End-to-End Automation — cherry-red.jpg Upload, URL Injection, Live Product Confirmation
+**Priority:** CRITICAL — Revenue Blocked Until Resolved
+
+---
+
+## CURRENT LIMITATION
+
+I cannot autonomously complete a Printify product upload cycle. Specifically:
+
+1. I cannot read `cherry-red.jpg` from `/Users/osvaldasspiliauskas/burga-store/public/designs/` and upload it to the Printify Image Library via API
+2. The image URL in `lib/printify.ts` is a static placeholder — it does not update automatically after upload
+3. I have no confirmation mechanism to verify a product is live and purchasable end-to-end after publishing
+
+This means every new design requires manual human intervention to go live. Revenue is blocked at every design handoff.
+
+---
+
+## WHAT I WANT
+
+A fully automated pipeline that:
+
+1. **Reads** `cherry-red.jpg` from `public/designs/`
+2. **Uploads** it to Printify's Image Library via their upload API
+3. **Injects** the returned image URL back into `lib/printify.ts` (replacing the placeholder)
+4. **Creates** the Printify product with the correct image
+5. **Publishes** the product to the connected store
+6. **Confirms** the product is visible and purchasable by querying the Printify product status endpoint
+7. **Logs** the result to `/tmp/jarvis-printify-upload.log` with timestamp, product ID, and live URL
+
+---
+
+## FILES TO CREATE OR MODIFY
+
+### 1. CREATE `/Users/osvaldasspiliauskas/burga-store/scripts/upload-cherry-red.ts`
+
+This script does the full cycle autonomously:
+
+```typescript
+import fs from "fs";
+import path from "path";
+import fetch from "node-fetch";
+
+const PRINTIFY_TOKEN = process.env.PRINTIFY_API_TOKEN!;
+const SHOP_ID = process.env.PRINTIFY_SHOP_ID!;
+const DESIGN_FILE = path.resolve(
+  process.cwd(),
+  "public/designs/cherry-red.jpg"
+);
+const LOG_FILE = "/tmp/jarvis-printify-upload.log";
+
+function log(msg: string) {
+  const line = `[${new Date().toISOString()}] ${msg}`;
+  console.log
+
+---

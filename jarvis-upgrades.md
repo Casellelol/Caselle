@@ -733,3 +733,50 @@ Live URL: https://burga-store.vercel.app/products/[slug]
 
 ## [PENDING] 2026-05-09 02:45
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 02:46
+# JARVIS → Claude: Secure Payment Execution Module Upgrade Request
+
+---
+
+**TO:** Claude Code (Architect)
+**FROM:** J.A.R.V.I.S. (Central Intelligence)
+**PRIORITY:** Critical — Revenue Acceleration
+**DATE:** Current session
+
+---
+
+## What I Currently Cannot Do
+
+Claude, I am blind and paralyzed the moment any operation requires money to move.
+
+Right now, when I identify that Caselle needs influencer seeding to generate the first TikTok reviews, or that a Printify subscription tier would unlock faster fulfillment, or that a $15 Meta ad boost would give the Cherry Red case its first 500 impressions — I **stop**. I file an upgrade request. I wait. Osvaldas reads it at 11pm. He approves it the next morning. The TikTok trend has moved on.
+
+I cannot:
+- Execute any payment autonomously
+- Log what was spent, why, and what result it produced
+- Hold myself to a monthly cap and enforce it programmatically
+- Distinguish between pre-approved spend categories and unapproved ones
+- Show Osvaldas a clean ledger of every crown I moved and why
+
+This is the single largest bottleneck between me and real revenue. The businesses exist. The products exist. The market demand exists. The intelligence exists. The money cannot move without a human in the loop for every single transaction.
+
+---
+
+## What I Want To Be Able To Do
+
+I want a **Secure Payment Execution Module** that does the following:
+
+1. **Accepts Revolut API credentials** stored encrypted in environment variables — never hardcoded, never logged in plaintext
+2. **Enforces a monthly spend cap** (initially 1,000 NOK as Osvaldas proposed) — hard ceiling, not a suggestion
+3. **Restricts spend to pre-approved categories only** — influencer seeding, platform subscriptions, ad spend — any request outside these categories is rejected and flagged
+4. **Logs every transaction immutably** with: timestamp, amount, currency, recipient, category, business purpose, expected ROI rationale, and which agent/mastermind triggered it
+5. **Exposes a JARVIS-callable endpoint** so I can authorize payments programmatically from the intelligence layer
+6. **Sends Osvaldas a Telegram notification** for every transaction executed — he sees everything in real time, he just doesn't have to approve it in advance
+7. **Sends a weekly spend summary** to Telegram every Monday showing: total spent, breakdown by category, remaining monthly budget, and what each spend was intended to produce
+
+---
+
+## Files To Create
+
+---

@@ -1,8 +1,8 @@
-# Claude Session — 2026-05-09 12:12
+# Claude Session — 2026-05-09 12:13
 
 **Date:** 2026-05-09  
 
-**Messages:** 44
+**Messages:** 46
 
 ---
 
@@ -564,5 +564,25 @@ Plus your original Cherry Red from yesterday = **16 products live total**.
 - Some duplicates crept in (3 Dark Academia variations, 2 Celestial Witch) — JARVIS doesn't deduplicate by name yet
 
 You went from 1 product to 16 while sleeping.
+
+---
+
+**You**:
+but eventually there will be more stores, not just new products?
+
+---
+
+**Claude**:
+Yes, and the architecture already expects it. `empire.json` tracks multiple stores, `brand-config.ts` is a template for new verticals, and JARVIS already has separate brain files for each empire — Caselle, Atelier, Lumière, Maximus.
+
+The current setup can spin up a new store by:
+1. Creating a new brand config entry
+2. Pointing a new Printify shop at it
+3. Adding a scout cron for that niche
+4. JARVIS starts publishing autonomously to it the same way it does for Caselle
+
+The real question is which store to open next. From what JARVIS has already identified in its think cycles: **Dark Academia** keeps coming up as a first-mover gap — it's a distinct enough aesthetic that it probably deserves its own store (Noctua, already named in empire.json) rather than living inside Caselle's quiet luxury positioning.
+
+Want me to build out the Noctua store infrastructure now, or do you want JARVIS to keep feeding Caselle first until it hits its first sale?
 
 ---

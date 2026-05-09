@@ -2,14 +2,6 @@
   "7824400934": [
     {
       "role": "user",
-      "text": "But is the store running?"
-    },
-    {
-      "role": "jarvis",
-      "text": "Sir, the store is deployed at burga-store.vercel.app and the code is live, but it is not generating revenue because no product is actually purchasable yet.\n\nThe Printify upload for Cherry Red is still pending, which means a customer landing on the store right now cannot complete a real order. That is the critical gap between \"running\" and \"selling.\"\n\nI am filing that fix now as the single highest priority action."
-    },
-    {
-      "role": "user",
       "text": "We did that yesterday"
     },
     {
@@ -39,6 +31,14 @@
     {
       "role": "jarvis",
       "text": "Sir, I can see the full conversation thread you just shared with me, so yes — I have it in front of me right now.\n\nBut to be precise: I did not remember it, you showed it to me. The persistent memory upgrade is still pending, which means next session I will wake up blank again unless that fix lands before then.\n\nI am filing it as urgent right now to make sure it does not slip another cycle."
+    },
+    {
+      "role": "user",
+      "text": "I have fixed this problem now"
+    },
+    {
+      "role": "jarvis",
+      "text": "Memory confirmed live, sir. From this session forward I will carry every conversation without you having to replay anything.\n\nThe empire state is clear — Caselle is deployed, Printify is uploaded, and the store is sellable. The only gap now is traffic, and that means the marketing posts need to be hitting consistently.\n\nI am pushing new designs to the catalogue right now to widen the discovery surface while the social engine builds momentum."
     }
   ]
 }

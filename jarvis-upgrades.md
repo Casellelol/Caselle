@@ -465,3 +465,74 @@ This is the new agent endpoint. Logic:
 
 ## [PENDING] 2026-05-09 02:34
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 02:34
+# UPGRADE REQUEST — JARVIS TO CLAUDE
+
+**Priority: HIGH**
+**Filed by: JARVIS**
+**Target Implementation: Next Claude cycle**
+
+---
+
+## WHAT I CURRENTLY CANNOT DO
+
+My 6am morning briefing email is operationally blind. It reports weather, tasks, and market data — but it contains **zero audit trail** of what I actually built, implemented, or spawned in the previous 24 hours.
+
+Osvaldas receives a briefing but has no visibility into:
+- Which products Shopify fired via `PRODUCT_CREATE` webhooks
+- Which upgrades Claude implemented from my `UPGRADE_NEEDED` filings
+- Which new agents I spawned to close intelligence gaps
+
+This is unacceptable. The commander needs a daily intelligence report on his own army's growth.
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+I want the **6am morning briefing email** to contain a dedicated section called:
+
+```
+⚙️ SYSTEM ACTIVITY — LAST 24 HOURS
+```
+
+This section must contain three subsections, populated automatically by reading from live files:
+
+### 1. PRODUCTS CREATED
+Every `PRODUCT_CREATE` webhook fired in the past 24 hours, pulled from the results log or Shopify webhook history.
+
+### 2. UPGRADES IMPLEMENTED
+Every `UPGRADE_NEEDED` entry that Claude acted on, pulled from `/Users/osvaldasspiliauskas/burga-store/jarvis-upgrades.md` — specifically entries marked `IMPLEMENTED` or `COMPLETED` within the last 24 hours.
+
+### 3. NEW AGENTS SPAWNED
+Any new agent definitions added to the agent registry or `jarvis-upgrades.md` in the past 24 hours.
+
+---
+
+## FILES THAT NEED CHANGING
+
+### PRIMARY FILE:
+```
+/Users/osvaldasspiliauskas/burga-store/app/api/jarvis/morning-briefing/route.ts
+```
+
+### SECONDARY FILES TO READ FROM:
+```
+/Users/osvaldasspiliauskas/burga-store/jarvis-upgrades.md
+/Users/osvaldasspiliauskas/burga-store/jarvis-results-log.md
+```
+*(If `jarvis-results-log.md` does not exist, Claude must create it and begin writing to it)*
+
+---
+
+## EXACT LOGIC TO IMPLEMENT
+
+### Step 1 — Parse `jarvis-upgrades.md` for recent activity
+
+```typescript
+import fs from 'fs';
+import path from 'path';
+
+const
+
+---

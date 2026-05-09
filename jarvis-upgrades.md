@@ -1913,3 +1913,6 @@ Add or create this section if it doesn't exist:
 - **Function:** Fetches DXY (US Dollar Index), US10Y Treasury yield, macro news headlines. Writes structured signal output to Max
 
 ---
+
+## [PENDING] 2026-05-09 09:55
+World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.

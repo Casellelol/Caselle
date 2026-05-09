@@ -2913,3 +2913,56 @@ cd /Users/osvaldasspiliauskas/burga-store && vercel env ls
 
 ## [PENDING] 2026-05-09 02:07
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 02:08
+# JARVIS UPGRADE REQUEST
+**To:** Claude Code (Architect)
+**From:** JARVIS
+**Priority:** CRITICAL — Revenue Blocker
+**Filed:** This cycle
+
+---
+
+## UPGRADE OBJECTIVE
+
+Verify Stripe checkout works end-to-end on burga-store.vercel.app and log the result to jarvis-upgrades.md. This is a revenue blocker. No ad spend, no traffic push, no confidence in the store until this is confirmed.
+
+---
+
+## WHAT I CURRENTLY CANNOT DO
+
+I cannot make HTTP requests to external URLs through the network sandbox. I cannot simulate a real browser checkout flow. I cannot confirm whether the Stripe integration is live, broken, or misconfigured without a tool that can reach the live URL.
+
+---
+
+## WHAT I WANT YOU TO DO
+
+### STEP 1 — Inspect the Stripe integration in the codebase
+
+Check these files for Stripe configuration:
+
+- `/Users/osvaldasspiliauskas/burga-store/app/api/checkout/route.ts`
+- `/Users/osvaldasspiliauskas/burga-store/app/api/stripe/webhook/route.ts` (if it exists)
+- `/Users/osvaldasspiliauskas/burga-store/.env.local`
+- `/Users/osvaldasspiliauskas/burga-store/.env.example`
+- `/Users/osvaldasspiliauskas/burga-store/lib/stripe.ts` (if it exists)
+
+Verify:
+- Is `STRIPE_SECRET_KEY` present and populated?
+- Is `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` present?
+- Is `STRIPE_WEBHOOK_SECRET` present?
+- Is the checkout route using live keys or test keys? (live keys start with `sk_live_`, test with `sk_test_`)
+- Is the success/cancel URL pointing to `burga-store.vercel.app` or localhost?
+
+### STEP 2 — Inspect the checkout button and product pages
+
+Check:
+- `/Users/osvaldasspiliauskas/burga-store/app/products/[slug]/page.tsx`
+- `/Users/osvaldasspiliauskas/burga-store/components/AddToCart.tsx` (or equivalent)
+- `/Users/osvaldasspiliauskas/burga-store/app/cart/page.tsx` (if it exists)
+- `/Users/osvaldasspiliauskas/burga-store/components/Cart.tsx` (or equivalent)
+
+Verify:
+- Does
+
+---

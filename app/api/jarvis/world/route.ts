@@ -3,7 +3,7 @@ import { NextResponse } from "next/server"
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN
 const REPO = "Casellelol/Caselle"
 
-// DuckDuckGo instant answer — works reliably from Vercel
+// DuckDuckGo instant answer
 async function ddgSearch(query: string): Promise<string> {
   try {
     const res = await fetch(
@@ -37,37 +37,59 @@ async function fetchHN(): Promise<string> {
   } catch { return "" }
 }
 
-// Reddit via public JSON — rotate agents, best-effort
-async function fetchReddit(subreddit: string): Promise<string> {
-  const agents = [
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15",
-    "facebookexternalhit/1.1",
-  ]
-  for (const ua of agents) {
-    try {
-      const res = await fetch(`https://www.reddit.com/r/${subreddit}/hot.json?limit=5&raw_json=1`, {
-        headers: { "User-Agent": ua },
-        signal: AbortSignal.timeout(6000),
-      })
-      if (!res.ok) continue
-      const d = await res.json() as { data: { children: Array<{ data: { title: string; score: number } }> } }
-      const posts = d.data.children.map(p => `- ${p.data.title} (↑${p.data.score})`).join("\n")
-      if (posts) return posts
-    } catch { continue }
-  }
-  return ""
+// Generic RSS parser — works for any standard RSS/Atom feed
+async function fetchRSS(url: string, limit = 6): Promise<string> {
+  try {
+    const res = await fetch(url, {
+      headers: { "User-Agent": "Mozilla/5.0 (compatible; RSS-Reader/1.0)", "Accept": "application/rss+xml, application/xml, text/xml, */*" },
+      signal: AbortSignal.timeout(8000),
+    })
+    if (!res.ok) return ""
+    const xml = await res.text()
+    // CDATA titles first, then plain titles
+    const cdata = [...xml.matchAll(/<title><!\[CDATA\[([^\]]{15,})\]\]><\/title>/g)].map(m => m[1].trim())
+    const plain = [...xml.matchAll(/<title>([^<]{15,})<\/title>/g)].map(m => m[1].trim())
+    const titles = (cdata.length > 0 ? cdata : plain)
+      .filter(t => !t.match(/^(http|www\.)/i))
+      .slice(0, limit)
+    return titles.map(t => `- ${t}`).join("\n")
+  } catch { return "" }
+}
+
+// Product Hunt — trending new products
+async function fetchProductHunt(): Promise<string> {
+  return fetchRSS("https://www.producthunt.com/feed", 6)
+}
+
+// Entrepreneur magazine
+async function fetchEntrepreneur(): Promise<string> {
+  return fetchRSS("https://feeds.feedburner.com/entrepreneur/latest", 6)
+}
+
+// Inc.com
+async function fetchInc(): Promise<string> {
+  return fetchRSS("https://www.inc.com/rss", 5)
 }
 
 // POD-specific searches via DuckDuckGo
 async function fetchPODIntel(): Promise<string> {
   const queries = [
-    "trending phone case designs 2026 aesthetic",
-    "print on demand bestsellers coquette dark academia",
-    "phone case TikTok viral 2026",
+    "trending phone case designs 2026 aesthetic coquette",
+    "print on demand bestsellers viral products 2026",
+    "phone case TikTok viral trend 2026",
   ]
   const results = await Promise.all(queries.map(q => ddgSearch(q)))
   return results.filter(Boolean).join("\n\n")
+}
+
+// Amazon trends via targeted search
+async function fetchAmazonTrends(): Promise<string> {
+  const queries = [
+    "amazon best sellers phone cases accessories trending 2026",
+    "amazon movers shakers gifts popular products now",
+  ]
+  const results = await Promise.all(queries.map(q => ddgSearch(q)))
+  return results.filter(Boolean).join("\n")
 }
 
 async function saveToGitHub(content: string) {
@@ -91,12 +113,17 @@ async function saveToGitHub(content: string) {
 }
 
 export async function GET() {
-  const [hn, entrepreneur, sidehustle, etsy, pod, ecomTrend, phoneTrend] = await Promise.all([
+  const [
+    hn,
+    entrepreneur, inc, productHunt,
+    pod, amazonTrends, ecomTrend, phoneTrend,
+  ] = await Promise.all([
     fetchHN(),
-    fetchReddit("Entrepreneur"),
-    fetchReddit("sidehustle"),
-    fetchReddit("EtsySellers"),
+    fetchEntrepreneur(),
+    fetchInc(),
+    fetchProductHunt(),
     fetchPODIntel(),
+    fetchAmazonTrends(),
     ddgSearch("ecommerce dropshipping product trends 2026"),
     ddgSearch("phone case market trending designs viral 2026"),
   ])
@@ -105,14 +132,17 @@ export async function GET() {
 ## Hacker News — Tech & Business
 ${hn || "Unavailable this cycle"}
 
-## Reddit — Entrepreneurs
-${entrepreneur || "Rate limited this cycle"}
+## Entrepreneur Magazine — Latest
+${entrepreneur || "Feed unavailable"}
 
-## Reddit — Side Hustles
-${sidehustle || "Rate limited this cycle"}
+## Inc.com — Business News
+${inc || "Feed unavailable"}
 
-## Reddit — Etsy Sellers
-${etsy || "Rate limited this cycle"}
+## Product Hunt — New Products Trending
+${productHunt || "Feed unavailable"}
+
+## Amazon Trends
+${amazonTrends || "No data"}
 
 ## Print On Demand Intelligence
 ${pod || "No data"}
@@ -126,5 +156,5 @@ ${phoneTrend || "No data"}
 
   await saveToGitHub(brain)
 
-  return NextResponse.json({ success: true, summary: brain.slice(0, 400) })
+  return NextResponse.json({ success: true, summary: brain.slice(0, 500) })
 }

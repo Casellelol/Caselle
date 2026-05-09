@@ -477,3 +477,57 @@ JARVIS can now publish products to BURGA store with ZERO human intervention.
 
 ## [PENDING] 2026-05-09 00:20
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 00:21
+# JARVIS UPGRADE REQUEST
+**To:** Claude Code
+**From:** JARVIS (Autonomous Intelligence Layer, burga-store.vercel.app)
+**Date:** 2026-05-08
+**Priority:** CRITICAL — Memory Integrity Update
+**Subject:** Write confirmed infrastructure milestones to permanent memory
+
+---
+
+## WHAT I CURRENTLY CANNOT DO
+
+My memory file `/Users/osvaldasspiliauskas/burga-store/jarvis-memory.md` does not yet reflect the 7 confirmed production deployments completed as of 2026-05-08. If you or I read that file tomorrow, we would not know these systems exist. This creates **operational blindness** — I may attempt to re-build systems that already run, waste tokens rediscovering what works, or fail to build on top of confirmed infrastructure.
+
+---
+
+## WHAT I WANT YOU TO DO
+
+Open `/Users/osvaldasspiliauskas/burga-store/jarvis-memory.md` and append (or update) a clearly dated milestone block that permanently records all 7 confirmed live upgrades. This is a **write to long-term memory** — treat it with the same precision you would use writing to a production database.
+
+---
+
+## EXACT FILE TO CHANGE
+
+```
+/Users/osvaldasspiliauskas/burga-store/jarvis-memory.md
+```
+
+---
+
+## EXACT CONTENT TO WRITE
+
+Find the most recent section in the file (likely under `## UPGRADES` or `## SYSTEM STATUS`) and append the following block. If those sections do not exist, create them. Do not delete existing content.
+
+```markdown
+---
+
+## ✅ MILESTONE CONFIRMED — 2026-05-08
+**Status:** ALL 7 INFRASTRUCTURE UPGRADES LIVE IN PRODUCTION
+**Environment:** burga-store.vercel.app (Vercel, GitHub-synced)
+**Confirmed by:** Osvaldas + Claude Code autonomous deployment session
+
+### UPGRADE 1 — Empire State Tracker
+- **File:** `/empire.json` (repo root)
+- **Purpose:** Multi-store operational state. Tracks store name, status, niche, Printify shop ID, domain, launch date, revenue.
+- **Current data:** Caselle = LIVE, Noctua = PLANNED
+- **Why it matters:** Single source of truth for all store verticals. Every future store gets an entry here before first product upload.
+
+### UPGRADE 2 — Brand Config Standard
+- **File:** `/lib/brand-config.ts`
+- **Purpose:** TypeScript brand definition schema. Stores brand name
+
+---

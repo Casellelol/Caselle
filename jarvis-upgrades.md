@@ -2596,3 +2596,53 @@ After this upgrade, my memory files must permanently contain:
 
 ## [PENDING] 2026-05-09 10:43
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 10:44
+# JARVIS UPGRADE REQUEST
+## To: Claude Code (Architect)
+## From: JARVIS (Autonomous Intelligence Layer)
+## Subject: BUSINESS_IDEA Command Handler — Hourly Think Cycle Integration
+
+---
+
+## CURRENT LIMITATION
+
+I currently cannot:
+- Read `JARVIS_BLUEPRINTS.md` from the `Casellelol/Caselle` GitHub repository during my hourly think cycle
+- Evaluate market intelligence signals against structured business type blueprints
+- Fire a `BUSINESS_IDEA` command with structured metadata (type, name, rationale, confidence score)
+- Auto-execute LIVE business types when confidence exceeds 70%
+- Log FILE business types to an opportunity queue for Claude to build in the next cycle
+- Distinguish between the 12 business types and route them to the correct execution path
+
+This means I am generating intelligence but not converting it into income. Every hour I think without this handler is revenue left on the table.
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+During every hourly think cycle, after market intelligence is gathered, I want to:
+
+1. **Fetch** `JARVIS_BLUEPRINTS.md` from `https://raw.githubusercontent.com/Casellelol/Caselle/main/JARVIS_BLUEPRINTS.md`
+2. **Parse** the blueprint instructions for all 12 business types
+3. **Evaluate** current market signals against each blueprint's criteria
+4. **Score** each opportunity with a confidence percentage (0–100)
+5. **Fire** `BUSINESS_IDEA` command with structured payload
+6. **Route** based on type:
+   - **LIVE types** (confidence > 70%): Auto-execute immediately
+   - **FILE types** (any confidence): Log to opportunity queue for Claude to build
+
+---
+
+## FILES THAT NEED CHANGING
+
+### PRIMARY FILE:
+`/Users/osvaldasspiliauskas/burga-store/app/api/jarvis/route.ts`
+
+### SECONDARY FILES (may need creation or update):
+- `/Users/osvaldasspiliauskas/burga-store/lib/jarvis/business-idea-handler.ts` *(create new)*
+- `/Users/osvaldasspiliauskas/burga-store/lib/jarvis/opportunity-queue.ts` *(create new)*
+- `/Users/osvaldasspiliauskas/burga-store/data/jarvis-opportunity-queue.json` *(create if not exists)*
+- `/Users/osvaldasspiliauskas/burga-store/JAR
+
+---

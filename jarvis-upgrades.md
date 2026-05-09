@@ -1712,3 +1712,6 @@ Types: CONFIRMED | FILED | CORRECTION | DECISION | CONTEXT
 [2025-07-XX] | CONFIRMED | Osvaldas confirmed Printify upload for Cherry Red (Cas
 
 ---
+
+## [PENDING] 2026-05-09 09:38
+World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.

@@ -12,3 +12,6 @@ Implemented: Buffer added as third posting channel in cron/marketing alongside T
 
 ## [DONE] 2026-05-09 — Competitor Intelligence Enhancement
 Implemented: Direct scraping of BURGA (burga.com), Casetify, and Pela product pages added to competitor monitor. Prices and product titles extracted. Analysis prompt now compares against these dominant players and identifies gaps.
+
+## [PENDING] 2026-05-09 02:22
+World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.

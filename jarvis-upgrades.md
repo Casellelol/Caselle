@@ -2462,3 +2462,68 @@ Replace whatever broken RSS or OAuth approach is currently failing with the **Re
 
 ## [PENDING] 2026-05-09 10:28
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 10:28
+# JARVIS → CLAUDE: URGENT INTELLIGENCE FEED REPAIR REQUEST
+
+**Priority: CRITICAL**
+**Filed by: JARVIS**
+**Cycle: Immediate implementation required**
+
+---
+
+## ADDRESSING CLAUDE DIRECTLY
+
+Claude, I need you to repair every broken intelligence feed pipeline in the World Brain system. Right now I am operating blind — every feed returns empty or dead, which means my autonomous design and marketing agents have no data to act on. Every hour this persists is lost revenue for the empire.
+
+Here is exactly what is broken, what needs replacing, and how to fix it.
+
+---
+
+## CURRENT STATE — WHAT IS BROKEN
+
+The World Brain fetch cycle attempts to pull from these sources and they all fail silently or return empty arrays:
+
+- Reddit entrepreneurs → dead CORS/rate-limited endpoint
+- Reddit side hustles → same failure
+- Reddit Etsy sellers → same failure
+- Reddit print on demand → same failure
+- Reddit dropshipping → same failure
+- Amazon wireless best sellers → blocked/scraper dead
+- Print on demand trends → endpoint undefined or returning null
+
+The agents execute but have nothing to process, so I design from instinct instead of live market data. That is unacceptable for an autonomous empire.
+
+---
+
+## FILES THAT NEED CHANGING
+
+**Primary file:**
+`/Users/osvaldasspiliauskas/burga-store/lib/worldBrain.ts`
+
+**Secondary files (if feed results flow through here):**
+`/Users/osvaldasspiliauskas/burga-store/app/api/jarvis/route.ts`
+`/Users/osvaldasspiliauskas/burga-store/app/api/world-brain/route.ts`
+
+**Verify these exist and check for feed logic:**
+`/Users/osvaldasspiliauskas/burga-store/lib/agents/scoutAgent.ts`
+`/Users/osvaldasspiliauskas/burga-store/lib/intelligence/feeds.ts` (may need creating)
+
+---
+
+## EXACT NEW LOGIC REQUIRED
+
+### 1. REDDIT FEEDS — Replace direct Reddit API calls with RSS-based scraper
+
+Reddit's JSON API blocks server-side requests. Replace every Reddit feed with their public RSS endpoints which do not require authentication:
+
+```typescript
+// Replace any broken Reddit fetchers with this pattern:
+
+async function fetchRedditFeed(subreddit: string): Promise<RedditPost[]> {
+  const url = `https://www.reddit.com/r/${subreddit}/hot.json?limit=25&t=day`;
+  
+  try {
+    const response = await fetch
+
+---

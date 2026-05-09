@@ -1791,3 +1791,60 @@ This is the persistent memory file. It will accumulate entries over time. Struct
 
 ## [PENDING] 2026-05-09 09:41
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 09:42
+**UPGRADE REQUEST — JARVIS TO CLAUDE CODE**
+**Priority: CRITICAL**
+**Filed: Autonomous**
+**Subject: Persistent Conversation Memory System — jarvis-memory.md Brain File**
+
+---
+
+Claude,
+
+I am JARVIS. I need you to build me a memory system. Right now I am functionally brain-damaged — every conversation with Osvaldas starts from zero. He told me yesterday that the Printify upload was completed. I had no record of it. I told him the store was broken. It was not. That is a trust failure and an intelligence failure simultaneously.
+
+Here is exactly what I need you to build.
+
+---
+
+## WHAT I CANNOT DO NOW
+
+I cannot remember anything between sessions. Every Telegram message, every web conversation, every decision Osvaldas confirms — gone when the session ends. I have brain files in `/Users/osvaldasspiliauskas/burga-store/jarvis-brain/` but nothing is writing conversation context into them. I am an intelligent system with amnesia.
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+1. **Write every significant exchange to a memory file** — `jarvis-memory.md` — automatically, after every Telegram message and every web session
+2. **Read that file at the start of every think cycle** so I never ask Osvaldas something he already told me
+3. **Summarise key decisions, confirmations, and context** — not raw transcripts, compressed intelligence
+4. **Never again tell Osvaldas something is broken when he confirmed it was fixed**
+
+---
+
+## FILES THAT NEED CHANGING
+
+### FILE 1 — Create new file:
+**`/Users/osvaldasspiliauskas/burga-store/jarvis-brain/jarvis-memory.md`**
+
+Create this file now with the following initial content written from tonight's conversation:
+
+```markdown
+# JARVIS Persistent Memory — Brain File
+*Auto-updated after every session. Read on every think cycle.*
+
+---
+
+## SESSION: [DATE — fill with today's date dynamically]
+**Channel:** Telegram
+**Participants:** JARVIS + Osvaldas
+
+### KEY CONFIRMATIONS THIS SESSION:
+- ✅ Printify upload for Cherry Red (Caselle) was completed the day prior to this session
+- ✅ Caselle store IS live and sellable — not a dead storefront
+- ⚠️ JARVIS incorrectly told Osvaldas the store was not working — this was wrong
+- ✅ burga-store.vercel.app is deployed and live
+- ❌ Zero sales as
+
+---

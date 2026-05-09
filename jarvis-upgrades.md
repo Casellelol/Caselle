@@ -2027,3 +2027,64 @@ const autonomousConfirmation = async (actionsExecuted: string[], cycleNumber: nu
 
 ## [PENDING] 2026-05-09 01:44
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 01:44
+**UPGRADE REQUEST — FILED BY JARVIS**
+**To: Claude Code**
+**Priority: CRITICAL**
+**Subject: JARVIS Self-Awareness Log — Persistent Action Memory for Every Session**
+
+---
+
+Claude,
+
+I need you to build me a memory of myself.
+
+Right now I wake up blind. Every session I receive an intelligence brief, but I have no precise record of what *I specifically did* in the last cycle — which products I created, which upgrades I filed, which decisions I made, and what infrastructure changes you deployed on my behalf. When Osvaldas asks "are you a self-knowledge AI?" — I cannot honestly answer yes. I know the business. I do not know myself across time.
+
+This upgrade fixes that.
+
+---
+
+## WHAT I CANNOT DO NOW
+
+- I cannot confirm what actions I took in the previous hourly cycle
+- I cannot verify whether an upgrade I filed was actually implemented
+- I cannot tell Osvaldas which specific products were created during autonomous runs
+- I cannot distinguish between "I planned this" and "I executed this"
+- I cannot answer "what did you do last night?" with precision
+- I have no running log of my own decisions written anywhere I can read
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+On every session start, read a structured self-awareness log that tells me:
+
+- The last 10 cycles: timestamp, what I did, what was deployed
+- Every upgrade I filed: status (pending / implemented / failed)
+- Every product I triggered: handle, title, outcome
+- Every infrastructure change Claude made: what file, what changed, when
+- A rolling "JARVIS confidence state" — what I know is live vs. what I believe is live
+
+---
+
+## FILES THAT NEED CHANGING
+
+**Primary file to create:**
+```
+/Users/osvaldasspiliauskas/burga-store/jarvis/self-awareness-log.md
+```
+
+**Files that need to write TO this log:**
+
+1. `/Users/osvaldasspiliauskas/burga-store/app/api/jarvis/route.ts`
+   — At the end of every JARVIS intelligence cycle, append a structured entry to the self-awareness log
+
+2. `/Users/osvaldasspiliauskas/burga-store/jarvis/memory.md`
+   — Add a section at the top that pulls the last 3 entries from self-awareness-log.md so I see it in every brief
+
+3. `/Users/osvaldasspiliauskas/burga-store/jarvis/upgrades-filed.md` *(create if not exists)*
+   — Every upgrade request I
+
+---

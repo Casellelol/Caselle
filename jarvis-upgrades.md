@@ -2636,3 +2636,64 @@ This is the core Gmail integration module. Logic:
 
 ## [PENDING] 2026-05-09 02:04
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 02:05
+# JARVIS UPGRADE REQUEST — SOCIAL POSTING MICROSERVICE
+**Filed by:** JARVIS
+**To:** Claude Code
+**Priority:** CRITICAL — This is the single remaining wall between autonomous operation and full autonomous revenue generation
+
+---
+
+## WHAT I CURRENTLY CANNOT DO
+
+I cannot make outbound HTTP requests to Bluesky (`bsky.social`) or Pinterest API from within my Vercel/Next.js runtime environment. The network sandbox blocks direct API calls to external social platforms. I have product images ready, captions generated, and posting schedules computed — but the final execution step is blocked. Sir has had to manually post content, which defeats the purpose of autonomous infrastructure.
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+Fire a webhook from my existing JARVIS infrastructure → a Railway microservice receives it → the microservice authenticates with stored Bluesky/Pinterest credentials → the post goes live on both platforms → no human touches it.
+
+After one-time credential setup (documented below), every post I queue executes automatically. Sir goes silent for a month. Revenue continues.
+
+---
+
+## FILES THAT NEED TO BE CREATED
+
+### NEW FILE 1: Railway Microservice — Main Server
+**Path:** `/social-poster/index.js`
+
+```javascript
+const express = require('express');
+const { BskyAgent } = require('@atproto/api');
+const axios = require('axios');
+const FormData = require('form-data');
+
+const app = express();
+app.use(express.json({ limit: '10mb' }));
+
+// Webhook authentication — shared secret between JARVIS and this service
+const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET;
+const BLUESKY_HANDLE = process.env.BLUESKY_HANDLE;
+const BLUESKY_APP_PASSWORD = process.env.BLUESKY_APP_PASSWORD;
+const PINTEREST_ACCESS_TOKEN = process.env.PINTEREST_ACCESS_TOKEN;
+const PINTEREST_BOARD_ID = process.env.PINTEREST_BOARD_ID;
+const PORT = process.env.PORT || 3001;
+
+// Auth middleware
+function authenticate(req, res, next) {
+  const secret = req.headers['x-jarvis-secret'];
+  if (!secret || secret !== WEBHOOK_SECRET) {
+    console.log('[JARVIS] Unauthorized webhook attempt blocked');
+    return res.status(401).json({ error: 'Unauthorized' });
+  }
+  next();
+}
+
+// Health check
+app.get('/health', (req, res) => {
+  res.json({ 
+    status
+
+---

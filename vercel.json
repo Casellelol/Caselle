@@ -75,6 +75,10 @@
     {
       "path": "/api/jarvis/nightly-summary",
       "schedule": "0 3 * * *"
+    },
+    {
+      "path": "/api/jarvis/verify",
+      "schedule": "0 6 * * *"
     }
   ]
 }

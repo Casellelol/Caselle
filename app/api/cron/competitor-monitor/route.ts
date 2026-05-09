@@ -4,6 +4,53 @@ import Anthropic from "@anthropic-ai/sdk"
 const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN
 
+const UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
+
+async function scrapeBurga(): Promise<string> {
+  try {
+    const res = await fetch("https://burga.com/collections/iphone-cases", {
+      headers: { "User-Agent": UA, Accept: "text/html" },
+      signal: AbortSignal.timeout(8000),
+    })
+    if (!res.ok) return ""
+    const html = await res.text()
+    const prices = (html.match(/\$[\d.]+/g) || []).slice(0, 10)
+    const titles = (html.match(/"title":"([^"]{5,60})"/g) || [])
+      .slice(0, 8).map(m => m.replace(/"title":"/, "").replace(/"$/, ""))
+    return `BURGA prices: ${prices.join(", ")} | Products: ${titles.join(" | ")}`
+  } catch { return "" }
+}
+
+async function scrapeCasetify(): Promise<string> {
+  try {
+    const res = await fetch("https://www.casetify.com/collections/iphone-cases", {
+      headers: { "User-Agent": UA, Accept: "text/html" },
+      signal: AbortSignal.timeout(8000),
+    })
+    if (!res.ok) return ""
+    const html = await res.text()
+    const prices = (html.match(/\$[\d.]+/g) || []).slice(0, 10)
+    const titles = (html.match(/"name":"([^"]{5,60})"/g) || [])
+      .slice(0, 8).map(m => m.replace(/"name":"/, "").replace(/"$/, ""))
+    return `Casetify prices: ${prices.join(", ")} | Products: ${titles.join(" | ")}`
+  } catch { return "" }
+}
+
+async function scrapePela(): Promise<string> {
+  try {
+    const res = await fetch("https://pelacase.com/collections/iphone-cases", {
+      headers: { "User-Agent": UA, Accept: "text/html" },
+      signal: AbortSignal.timeout(8000),
+    })
+    if (!res.ok) return ""
+    const html = await res.text()
+    const prices = (html.match(/\$[\d.]+/g) || []).slice(0, 10)
+    const titles = (html.match(/"title":"([^"]{5,60})"/g) || [])
+      .slice(0, 8).map(m => m.replace(/"title":"/, "").replace(/"$/, ""))
+    return `Pela prices: ${prices.join(", ")} | Products: ${titles.join(" | ")}`
+  } catch { return "" }
+}
+
 async function scrapeEtsySearch(query: string): Promise<string> {
   try {
     const url = `https://www.etsy.com/search?q=${encodeURIComponent(query)}&explicit=1`
@@ -63,23 +110,40 @@ export async function GET() {
       "phone case y2k",
     ]
 
-    const [etsyResults, redditResults] = await Promise.all([
+    const [etsyResults, redditResults, burga, casetify, pela] = await Promise.all([
       Promise.all(niches.map(q => scrapeEtsySearch(q).then(r => `[${q}]: ${r}`))),
       Promise.all(niches.map(q => fetchRedditCompetitors(`${q} phone case`).then(r => `[${q}]: ${r}`))),
+      scrapeBurga(),
+      scrapeCasetify(),
+      scrapePela(),
     ])
 
-    const rawData = `ETSY:\n${etsyResults.join("\n")}\n\nREDDIT:\n${redditResults.join("\n")}`
+    const rawData = `DIRECT COMPETITORS:
+${burga || "BURGA: unavailable"}
+${casetify || "Casetify: unavailable"}
+${pela || "Pela: unavailable"}
+
+ETSY MARKET:
+${etsyResults.join("\n")}
+
+REDDIT SIGNALS:
+${redditResults.join("\n")}`
 
     const analysis = await client.messages.create({
       model: "claude-sonnet-4-6",
-      max_tokens: 800,
-      system: `You are the Competitor Monitor for a phone case dropshipping empire. Analyse the market data and produce intelligence on: (1) Which niches competitors are flooding (avoid or differentiate), (2) Price points competitors are using, (3) Gaps where no dominant competitor exists, (4) One specific opportunity to move on immediately. Be specific and actionable.`,
+      max_tokens: 1000,
+      system: `You are the Competitor Monitor for a phone case dropshipping empire (Caselle). Analyse the market data and produce intelligence on:
+(1) BURGA, Casetify, Pela — their price points and what they're pushing
+(2) Which niches these big players dominate (avoid head-on)
+(3) Gaps where no dominant player owns the space yet
+(4) One specific immediately actionable opportunity — name the niche, the price point, the angle
+Be specific and decisive. No hedging.`,
       messages: [{ role: "user", content: rawData }],
     })
 
     const report = analysis.content[0].type === "text" ? analysis.content[0].text : ""
     const date = new Date().toISOString().slice(0, 16).replace("T", " ")
-    const content = `# Competitor Intelligence\n*Last updated: ${date}*\n\n${report}`
+    const content = `# Competitor Intelligence\n*Last updated: ${date}*\n\n## Raw Data\n\`\`\`\n${rawData.slice(0, 800)}\n\`\`\`\n\n## Analysis\n${report}`
 
     await saveToGitHub(content)
 

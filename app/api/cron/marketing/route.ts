@@ -118,6 +118,28 @@ const POSTS = [
   "the phone case you've been looking for. minimal, tough, beautiful. burga-store.vercel.app #PhoneAccessories",
 ]
 
+// ── Buffer (fallback + additional channel) ───────────────────────────────────
+async function postToBuffer(text: string) {
+  const token = process.env.BUFFER_ACCESS_TOKEN
+  if (!token) throw new Error("BUFFER_ACCESS_TOKEN not set")
+
+  const profilesRes = await fetch(`https://api.bufferapp.com/1/profiles.json?access_token=${token}`)
+  if (!profilesRes.ok) throw new Error(`Buffer profiles HTTP ${profilesRes.status}`)
+  const profiles = await profilesRes.json() as Array<{ id: string }>
+  if (!profiles.length) throw new Error("No Buffer profiles connected")
+
+  const body = new URLSearchParams({ text, access_token: token, now: "true" })
+  profiles.forEach(p => body.append("profile_ids[]", p.id))
+
+  const res = await fetch("https://api.bufferapp.com/1/updates/create.json", {
+    method: "POST",
+    body,
+  })
+  const data = await res.json()
+  if (!res.ok) throw new Error(JSON.stringify(data))
+  return data
+}
+
 // ── Handler ──────────────────────────────────────────────────────────────────
 export async function GET() {
   const hour = new Date().getHours()
@@ -140,12 +162,21 @@ export async function GET() {
     results.bluesky = "failed"
   }
 
-  const logEntry = `## ${new Date().toISOString()}\n- **Text:** ${text}\n- **Twitter:** ${results.twitter === "failed" ? "❌ failed" : "✅ posted"}\n- **Bluesky:** ${results.bluesky === "failed" ? "❌ failed" : "✅ posted"}\n- **Errors:** ${errors.join(" | ") || "none"}\n---`
+  // Buffer runs as an additional channel (not gated on Twitter/Bluesky success)
+  try {
+    results.buffer = await postToBuffer(text)
+  } catch (e) {
+    errors.push(`Buffer: ${e}`)
+    results.buffer = "failed"
+  }
+
+  const anyPosted = results.twitter !== "failed" || results.bluesky !== "failed" || results.buffer !== "failed"
+  const logEntry = `## ${new Date().toISOString()}\n- **Text:** ${text}\n- **Twitter:** ${results.twitter === "failed" ? "❌ failed" : "✅ posted"}\n- **Bluesky:** ${results.bluesky === "failed" ? "❌ failed" : "✅ posted"}\n- **Buffer:** ${results.buffer === "failed" ? "❌ failed" : "✅ posted"}\n- **Errors:** ${errors.join(" | ") || "none"}\n---`
   try {
     await logToGitHub(logEntry)
   } catch (e) {
     errors.push(`Log: ${e}`)
   }
 
-  return NextResponse.json({ success: errors.length === 0, ...results, errors })
+  return NextResponse.json({ success: anyPosted, ...results, errors })
 }

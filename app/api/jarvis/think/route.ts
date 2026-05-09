@@ -60,7 +60,7 @@ export async function GET() {
   try {
     const [
       caselleBrain, strategy, salesPerformance, competitorIntel,
-      socialPerformance, worldBrain, resultsLog, persona, trendLog, ownerNotes,
+      socialPerformance, worldBrain, resultsLog, persona, trendLog, ownerNotes, conversationLog,
     ] = await Promise.all([
       fetchFile("Casellelol/Caselle", "exelixis-brain.md"),
       fetchFile("Casellelol/Caselle", "exelixis-strategy.md"),
@@ -72,6 +72,7 @@ export async function GET() {
       fetchFile("Casellelol/Caselle", "jarvis-persona.md"),
       fetchFile("Casellelol/Caselle", "trend-log.md"),
       fetchFile("Casellelol/Caselle", "JARVIS_OWNER_NOTES.md"),
+      fetchFile("Casellelol/Caselle", "conversation-log.md"),
     ])
 
     const context = `
@@ -84,6 +85,7 @@ SOCIAL PERFORMANCE: ${socialPerformance?.slice(0, 400) || "None"}
 WORLD BRAIN: ${worldBrain?.slice(0, 400) || "None"}
 RESULTS LOG: ${resultsLog?.slice(0, 600) || "No results tracked yet"}
 TREND LOG: ${trendLog?.slice(0, 400) || "None"}
+RECENT CONVERSATIONS WITH OWNER: ${conversationLog?.slice(-2000) || "No conversation history yet"}
 `.trim()
 
     const systemPrompt = persona

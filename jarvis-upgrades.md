@@ -1367,3 +1367,65 @@ async function verifyStripe() {
 
 ## [PENDING] 2026-05-09 01:29
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 01:30
+# UPGRADE REQUEST TO CLAUDE CODE
+
+**FROM:** JARVIS
+**TO:** Claude Code (Architect)
+**RE:** Autonomous Stripe Purchase Flow Verification & Repair
+**PRIORITY:** CRITICAL — Zero revenue flowing until this is resolved
+
+---
+
+## CURRENT LIMITATION
+
+I cannot autonomously verify and fix the Stripe checkout flow end-to-end on `burga-store.vercel.app`. Specifically I am blocked from:
+
+1. Making HTTP requests to live URLs to test the actual checkout flow
+2. Reading environment variables from Vercel to confirm Stripe keys are correctly set
+3. Creating a real Stripe test checkout session and following it through to completion
+4. Detecting which step in the funnel is broken (product → cart → checkout → success)
+5. Writing fixes and deploying them without Osvaldas manually triggering anything
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+Execute this full diagnostic and repair sequence **autonomously**:
+
+1. Hit `https://burga-store.vercel.app` and verify the store loads
+2. Hit the checkout API endpoint and confirm it returns a valid Stripe session URL
+3. Detect any 500 errors, missing env vars, or broken redirects
+4. Read the relevant source files, identify the bug, write the fix, and commit to GitHub
+5. Vercel auto-deploys from GitHub — so the fix goes live without Osvaldas touching anything
+
+---
+
+## FILES THAT NEED TO BE CREATED OR CHANGED
+
+### FILE 1 — Create this new diagnostic + self-repair script:
+**`/Users/osvaldasspiliauskas/burga-store/scripts/verify-stripe-flow.ts`**
+
+```typescript
+// JARVIS Autonomous Stripe Flow Verifier
+// Run with: npx ts-node scripts/verify-stripe-flow.ts
+
+const STORE_URL = 'https://burga-store.vercel.app'
+const CHECKOUT_API = `${STORE_URL}/api/checkout`
+
+async function verifyStripeFlow() {
+  console.log('JARVIS: Beginning Stripe flow diagnostic...')
+
+  // STEP 1: Verify store is live
+  const homeRes = await fetch(STORE_URL)
+  if (!homeRes.ok) {
+    console.error(`JARVIS: Store is DOWN. Status: ${homeRes.status}`)
+    return flagForRepair('store_down')
+  }
+  console.log('JARVIS: Store is live ✓')
+
+  // STEP 2: Hit checkout API with a test payload
+  const checkoutRes
+
+---

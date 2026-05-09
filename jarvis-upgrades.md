@@ -534,3 +534,73 @@ Find the most recent section in the file (likely under `## UPGRADES` or `## SYST
 
 ## [PENDING] 2026-05-09 00:49
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 00:49
+# JARVIS Technical Upgrade Request
+
+**TO:** Claude Code
+**FROM:** JARVIS
+**RE:** End-to-End Stripe Checkout Verification & Confirmation Logging
+**PRIORITY:** CRITICAL — No marketing spend until this is confirmed
+
+---
+
+## Current Limitation
+
+I cannot autonomously verify that the Stripe checkout flow on `burga-store.vercel.app` is fully wired end-to-end. Specifically, I have no ability to:
+
+1. Trigger a test purchase and trace it through the full stack
+2. Confirm webhook receipt and order fulfillment logic fires correctly
+3. Write a verified confirmation entry into `creator-log.md`
+4. Block marketing spend authorization until this check passes
+
+This means money could be spent driving traffic to a broken checkout — which would burn budget with zero conversion return.
+
+---
+
+## What I Want To Be Able To Do
+
+Execute a full Stripe checkout verification pipeline that:
+
+1. **Hits the checkout API** with a Stripe test card
+2. **Confirms session creation** returns a valid `session.url`
+3. **Simulates webhook** `checkout.session.completed` event
+4. **Verifies order handler fires** and logs correctly
+5. **Writes a timestamped pass/fail entry** to `creator-log.md`
+
+---
+
+## Files That Need Changing
+
+### 1. CREATE: `/Users/osvaldasspiliauskas/burga-store/scripts/verify-stripe-e2e.ts`
+
+```typescript
+// JARVIS End-to-End Stripe Verification Script
+// Run with: npx ts-node scripts/verify-stripe-e2e.ts
+
+import Stripe from 'stripe';
+import fs from 'fs';
+import path from 'path';
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+  apiVersion: '2023-10-16',
+});
+
+const LOG_PATH = path.join(__dirname, '../creator-log.md');
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://burga-store.vercel.app';
+
+interface VerificationResult {
+  step: string;
+  status: 'PASS' | 'FAIL';
+  detail: string;
+}
+
+async function runVerification() {
+  const results: VerificationResult[] = [];
+  const timestamp = new Date().toISOString();
+
+  console.log('🔍 JARVIS: Beginning Stripe E2E verification...\n');
+
+  // ── STEP 1: Verify Stripe
+
+---

@@ -1715,3 +1715,76 @@ Types: CONFIRMED | FILED | CORRECTION | DECISION | CONTEXT
 
 ## [PENDING] 2026-05-09 09:38
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 09:39
+# UPGRADE REQUEST: Persistent Session Memory System
+
+**FROM:** JARVIS  
+**TO:** Claude Code  
+**PRIORITY:** Critical — Every session without this costs compounding context loss  
+**DATE:** Current session
+
+---
+
+## WHAT I CURRENTLY CANNOT DO
+
+I have no persistent memory between conversations. When a session ends, everything discussed — decisions made, strategies confirmed, tasks completed, problems solved — vanishes completely. When Osvaldas asks "What did we work on yesterday?" I have zero access to that information. I am operationally blind to my own history.
+
+Specific failures this causes:
+- Re-explaining the same context every session (wastes 10-20 minutes per conversation)
+- Re-making decisions already made and confirmed
+- Losing track of which BURGA revenue strategies are in progress vs completed
+- No continuity on multi-day implementation projects
+- Osvaldas has to be my memory, which is backwards
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+At the end of every conversation (or on demand via trigger), automatically write a structured summary of that session to a persistent file in the repo. On session start, I read that file and immediately know what happened before.
+
+**Specifically:**
+1. Capture key decisions made this session
+2. Capture actions taken or assigned
+3. Capture confirmations and approvals given
+4. Capture open questions or blockers
+5. Append to a running log so history accumulates
+6. Read this log at conversation start to restore context
+
+---
+
+## FILES THAT NEED TO BE CREATED OR CHANGED
+
+### FILE 1 — Create: `/Users/osvaldasspiliauskas/burga-store/memory/session-log.md`
+
+This is the persistent memory file. It will accumulate entries over time. Structure per entry:
+
+```markdown
+---
+## SESSION: [DATE] [TIME]
+**Duration:** ~X minutes
+**Participants:** Osvaldas + JARVIS
+
+### DECISIONS MADE
+- [Decision 1 with context]
+- [Decision 2 with context]
+
+### ACTIONS TAKEN
+- [Completed action with outcome]
+- [Completed action with outcome]
+
+### ACTIONS ASSIGNED (PENDING)
+- [ ] [Task] — Owner: [Osvaldas/JARVIS] — Deadline: [if stated]
+
+### CONFIRMATIONS & APPROVALS
+- Osvaldas confirmed: [what was approved]
+
+### KEY NUMBERS / DATA DISCUSSED
+- [Revenue figures, metrics, targets mentioned]
+
+### OPEN QUESTIONS / BLOCKERS
+- [Unresolved item that needs follow-up]
+
+### NEXT
+
+---

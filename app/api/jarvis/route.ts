@@ -70,7 +70,7 @@ async function jarvisRespond(message: string) {
       caselleBrain, caselleStrategy, caselleAccounting,
       atelierBrain, atelierStrategy,
       maximusBrain, maximusStrategy,
-      worldBrain, jarvisMemory, opportunities, conversationLog,
+      worldBrain, jarvisMemory, jarvisInfrastructure, opportunities, conversationLog,
       salesPerformance, competitorIntel, socialPerformance, jarvisPersona, resultsLog,
     ] = await Promise.all([
       fetchGitHubFile("Casellelol/Caselle", "exelixis-brain.md"),
@@ -82,6 +82,7 @@ async function jarvisRespond(message: string) {
       fetchGitHubFile("Casellelol/Maximus", "maximus-strategy.md"),
       fetchGitHubFile("Casellelol/Caselle", "jarvis-world-brain.md"),
       fetchGitHubFile("Casellelol/Caselle", "jarvis-memory.md"),
+      fetchGitHubFile("Casellelol/Caselle", "jarvis-infrastructure.md"),
       fetchGitHubFile("Casellelol/Caselle", "jarvis-opportunities.md"),
       fetchGitHubFile("Casellelol/Caselle", "conversation-log.md"),
       fetchGitHubFile("Casellelol/Caselle", "sales-performance.md"),
@@ -111,8 +112,11 @@ Market Intel: ${maximusBrain?.slice(0, 600) || "Scout not yet active"}
 === JARVIS WORLD BRAIN ===
 ${worldBrain?.slice(0, 1500) || "World brain not yet populated"}
 
-=== JARVIS MEMORY ===
-${jarvisMemory?.slice(0, 800) || "No memory yet"}
+=== JARVIS INFRASTRUCTURE (what is running autonomously) ===
+${jarvisInfrastructure || "No infrastructure file yet"}
+
+=== JARVIS MEMORY (recent) ===
+${jarvisMemory?.slice(-1200) || "No memory yet"}
 
 === CONVERSATION HISTORY ===
 ${conversationLog?.slice(-3000) || "No past sessions recorded yet"}

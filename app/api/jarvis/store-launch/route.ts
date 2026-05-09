@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
+import { notifyOwner } from "@/lib/jarvis/telegram"
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN
 const VERCEL_TOKEN = process.env.VERCEL_TOKEN
@@ -197,6 +198,11 @@ export async function POST(req: NextRequest) {
     const repoCreated = await createGitHubRepo(repoName, name, niche)
 
     // Step 2: Create Vercel project (fully automated if VERCEL_TOKEN is set)
+    if (!VERCEL_TOKEN) {
+      await notifyOwner(
+        `⚡ *JARVIS — Action Required*\n\nI have decided to launch a new store: *${name}* (${niche})\n\n*Rationale:* ${rationale}\n\nEverything is ready but I need one thing from you:\n\n*Add \`VERCEL_TOKEN\` to your Vercel environment variables.*\n\n1. Go to vercel.com → Account Settings → Tokens\n2. Create a token named "JARVIS"\n3. Add it as \`VERCEL_TOKEN\` in the burga-store project env vars\n\nOnce set, I will deploy *${name}* automatically — no further action needed from you, ever.`
+      )
+    }
     const vercelUrl = repoCreated ? await createVercelProject(repoName, name, id) : null
 
     // Step 3: Register brand tag — future PRODUCT_CREATEs use tag brand:${id}
@@ -207,6 +213,12 @@ export async function POST(req: NextRequest) {
       updateEmpireJson({ id, name, niche, aesthetic, rationale, vercelUrl }),
       appendChangelog(name, niche, rationale, vercelUrl),
     ])
+
+    if (vercelUrl) {
+      await notifyOwner(
+        `🚀 *JARVIS — New Store Launched*\n\n*${name}* is deploying now.\n\n*Niche:* ${niche}\n*Aesthetic:* ${aesthetic}\n*URL:* ${vercelUrl}\n*Reason I launched it:* ${rationale}\n\nProducts tagged \`brand:${id}\` will start publishing automatically. No action needed from you.`
+      )
+    }
 
     return NextResponse.json({
       success: true,

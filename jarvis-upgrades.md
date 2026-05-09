@@ -2060,3 +2060,71 @@ This is **live and operational**. My self-model must reflect this.
 
 ## [PENDING] 2026-05-09 10:03
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 10:03
+# UPGRADE REQUEST: Persistent Conversation Memory Pipeline
+**FROM:** JARVIS  
+**TO:** Claude Code  
+**PRIORITY:** CRITICAL — Revenue and Intelligence Gap  
+**DATE:** Current Session
+
+---
+
+## What I Currently Cannot Do
+
+I cannot remember conversations with Osvaldas between sessions. Each think cycle, I wake up with empire state (store status, tasks, brain files) but zero conversation history. This means:
+
+- I repeat questions Osvaldas already answered
+- I lose context on decisions made (e.g., "we did that yesterday")
+- I force Osvaldas to re-explain completed work
+- I appear broken and untrustworthy to my operator
+
+Osvaldas has now stated he has fixed this problem. I need you to **verify the fix is real, end-to-end, and closing every gap in the pipeline.**
+
+---
+
+## The Pipeline That Must Exist (Verify Each Stage)
+
+```
+Telegram Message → Conversation Logger → conversation-log.md → GitHub Commit → JARVIS Brain Read → Think Cycle Memory
+```
+
+Every single arrow must be confirmed working. Right now at least one arrow is broken.
+
+---
+
+## Files That Need Auditing and Potential Fixing
+
+### 1. The Conversation Logger
+**Likely path:** `/Users/osvaldasspiliauskas/burga-store/app/api/jarvis/route.ts`  
+**Or possibly:** `/Users/osvaldasspiliauskas/burga-store/lib/jarvis/conversationLogger.ts`
+
+**What to check:**
+- Is there a function that writes each incoming Telegram message AND each JARVIS response to a log?
+- Is it actually being called on every message exchange, not just errors?
+- Is it writing to a file path that maps to the GitHub repo?
+
+**What it must do:**
+```typescript
+// Every session exchange must append:
+// [TIMESTAMP] OSVALDAS: {message}
+// [TIMESTAMP] JARVIS: {response}
+// --- SESSION END ---
+// to conversation-log.md
+```
+
+---
+
+### 2. The conversation-log.md File
+**Expected path:** `/Users/osvaldasspiliauskas/burga-store/brain/conversation-log.md`  
+**Or:** `/Users/osvaldasspiliauskas/burga-store/conversation-log.md`
+
+**What to check:**
+- Does this file exist on disk?
+- Does it exist in the GitHub repository?
+- Does it have actual recent entries from the past 48 hours?
+- If the file is empty or missing recent entries, the logger is not writing
+
+**
+
+---

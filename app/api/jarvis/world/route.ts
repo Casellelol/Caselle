@@ -3,137 +3,87 @@ import { NextResponse } from "next/server"
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN
 const REPO = "Casellelol/Caselle"
 
-const REDDIT_FEEDS = [
-  { label: "Entrepreneurs", subreddit: "Entrepreneur" },
-  { label: "Side Hustles", subreddit: "sidehustle" },
-  { label: "Etsy Sellers", subreddit: "EtsySellers" },
-  { label: "Print On Demand", subreddit: "printondemand" },
-  { label: "Dropshipping", subreddit: "dropship" },
-]
+// DuckDuckGo instant answer — works reliably from Vercel
+async function ddgSearch(query: string): Promise<string> {
+  try {
+    const res = await fetch(
+      `https://api.duckduckgo.com/?q=${encodeURIComponent(query)}&format=json&no_html=1&skip_disambig=1`,
+      { headers: { "User-Agent": "Mozilla/5.0" }, signal: AbortSignal.timeout(6000) }
+    )
+    const d = await res.json() as { AbstractText?: string; RelatedTopics?: Array<{ Text?: string }> }
+    const parts: string[] = []
+    if (d.AbstractText) parts.push(d.AbstractText)
+    d.RelatedTopics?.slice(0, 3).forEach(t => { if (t.Text) parts.push(`- ${t.Text}`) })
+    return parts.join("\n") || ""
+  } catch { return "" }
+}
 
-type FeedResult = { label: string; data: string; ok: boolean }
-
-async function fetchHackerNews(): Promise<FeedResult> {
+// Hacker News — always works
+async function fetchHN(): Promise<string> {
   try {
     const ids = await fetch("https://hacker-news.firebaseio.com/v0/topstories.json", {
-      signal: AbortSignal.timeout(8000),
+      signal: AbortSignal.timeout(6000),
     }).then(r => r.json()) as number[]
-
-    const top5 = await Promise.allSettled(
-      ids.slice(0, 5).map(id =>
-        fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`, {
-          signal: AbortSignal.timeout(5000),
-        }).then(r => r.json())
+    const items = await Promise.allSettled(
+      ids.slice(0, 6).map(id =>
+        fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`, { signal: AbortSignal.timeout(4000) })
+          .then(r => r.json())
       )
     )
-    const titles = top5
+    return items
       .filter(r => r.status === "fulfilled")
       .map(r => `- ${(r as PromiseFulfilledResult<{ title?: string }>).value.title}`)
       .join("\n")
-    return { label: "Hacker News", data: titles || "No data", ok: !!titles }
-  } catch {
-    return { label: "Hacker News", data: "", ok: false }
-  }
+  } catch { return "" }
 }
 
-async function fetchReddit(subreddit: string): Promise<{ posts: string; ok: boolean }> {
-  try {
-    const res = await fetch(`https://www.reddit.com/r/${subreddit}/hot.json?limit=5`, {
-      headers: { "User-Agent": "JARVIS-WorldBrain/1.0 (by /u/jarvis_ai)" },
-      signal: AbortSignal.timeout(8000),
-    })
-    if (!res.ok) return { posts: "", ok: false }
-    const data = await res.json() as { data: { children: Array<{ data: { title: string; score: number } }> } }
-    const posts = data.data.children
-      .map(p => `- ${p.data.title} (↑${p.data.score})`)
-      .join("\n")
-    return { posts, ok: !!posts }
-  } catch {
-    return { posts: "", ok: false }
+// Reddit via public JSON — rotate agents, best-effort
+async function fetchReddit(subreddit: string): Promise<string> {
+  const agents = [
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15",
+    "facebookexternalhit/1.1",
+  ]
+  for (const ua of agents) {
+    try {
+      const res = await fetch(`https://www.reddit.com/r/${subreddit}/hot.json?limit=5&raw_json=1`, {
+        headers: { "User-Agent": ua },
+        signal: AbortSignal.timeout(6000),
+      })
+      if (!res.ok) continue
+      const d = await res.json() as { data: { children: Array<{ data: { title: string; score: number } }> } }
+      const posts = d.data.children.map(p => `- ${p.data.title} (↑${p.data.score})`).join("\n")
+      if (posts) return posts
+    } catch { continue }
   }
+  return ""
 }
 
-async function fetchAmazonTrends(): Promise<FeedResult> {
-  // Amazon best sellers via their public RSS feed
-  try {
-    const res = await fetch(
-      "https://www.amazon.com/gp/rss/bestsellers/wireless/ref=zg_bs_wireless_rsslink",
-      {
-        headers: { "User-Agent": "Mozilla/5.0 (compatible; JARVIS/1.0)" },
-        signal: AbortSignal.timeout(8000),
-      }
-    )
-    if (!res.ok) return { label: "Amazon Wireless Best Sellers", data: "", ok: false }
-    const xml = await res.text()
-    const titles = [...xml.matchAll(/<title><!\[CDATA\[([^\]]+)\]\]>/g)]
-      .slice(1, 6)
-      .map(m => `- ${m[1]}`)
-      .join("\n")
-    return { label: "Amazon Wireless Best Sellers", data: titles || "No data", ok: !!titles }
-  } catch {
-    return { label: "Amazon Wireless Best Sellers", data: "", ok: false }
-  }
-}
-
-async function fetchPODTrends(): Promise<FeedResult> {
-  try {
-    const res = await fetch("https://api.duckduckgo.com/?q=print+on+demand+trending+designs+2026&format=json&no_html=1&no_redirect=1", {
-      headers: { "User-Agent": "Mozilla/5.0" },
-      signal: AbortSignal.timeout(8000),
-    })
-    const data = await res.json() as { AbstractText?: string; RelatedTopics?: Array<{ Text?: string }> }
-    const parts: string[] = []
-    if (data.AbstractText) parts.push(data.AbstractText)
-    data.RelatedTopics?.slice(0, 4).forEach(t => { if (t.Text) parts.push(`- ${t.Text}`) })
-    return { label: "POD Trend Intelligence", data: parts.join("\n") || "No data", ok: parts.length > 0 }
-  } catch {
-    return { label: "POD Trend Intelligence", data: "", ok: false }
-  }
-}
-
-async function reportBrokenModules(broken: string[]) {
-  if (!broken.length || !GITHUB_TOKEN) return
-  try {
-    const path = "jarvis-upgrades.md"
-    const getRes = await fetch(`https://api.github.com/repos/${REPO}/contents/${path}`, {
-      headers: { Authorization: `token ${GITHUB_TOKEN}`, Accept: "application/vnd.github.v3+json" },
-    })
-    const existing = getRes.ok ? await getRes.json() as { content: string; sha: string } : null
-    const current = existing
-      ? Buffer.from(existing.content, "base64").toString("utf-8")
-      : "# JARVIS Upgrade Requests\n*Read by Claude at the start of every session.*\n\n"
-
-    const date = new Date().toISOString().slice(0, 16).replace("T", " ")
-    const entry = `\n## [PENDING] ${date}\nWorld Brain detected broken feed modules: ${broken.join(", ")}. Investigate and restore these data sources.\n`
-
-    await fetch(`https://api.github.com/repos/${REPO}/contents/${path}`, {
-      method: "PUT",
-      headers: { Authorization: `token ${GITHUB_TOKEN}`, "Content-Type": "application/json" },
-      body: JSON.stringify({
-        message: "JARVIS self-reported broken world brain modules",
-        content: Buffer.from(current + entry).toString("base64"),
-        sha: existing?.sha,
-      }),
-    })
-  } catch {}
+// POD-specific searches via DuckDuckGo
+async function fetchPODIntel(): Promise<string> {
+  const queries = [
+    "trending phone case designs 2026 aesthetic",
+    "print on demand bestsellers coquette dark academia",
+    "phone case TikTok viral 2026",
+  ]
+  const results = await Promise.all(queries.map(q => ddgSearch(q)))
+  return results.filter(Boolean).join("\n\n")
 }
 
 async function saveToGitHub(content: string) {
   if (!GITHUB_TOKEN) return
   try {
-    const path = "jarvis-world-brain.md"
-    const getRes = await fetch(`https://api.github.com/repos/${REPO}/contents/${path}`, {
+    const getRes = await fetch(`https://api.github.com/repos/${REPO}/contents/jarvis-world-brain.md`, {
       headers: { Authorization: `token ${GITHUB_TOKEN}`, Accept: "application/vnd.github.v3+json" },
     })
-    const existing = getRes.ok ? await getRes.json() as { content: string; sha: string } : null
+    const existing = getRes.ok ? await getRes.json() as { sha: string } : null
     const date = new Date().toISOString().slice(0, 16).replace("T", " ")
-    const newContent = `# JARVIS World Brain\n*Last updated: ${date}*\n\n${content}`
-    await fetch(`https://api.github.com/repos/${REPO}/contents/${path}`, {
+    await fetch(`https://api.github.com/repos/${REPO}/contents/jarvis-world-brain.md`, {
       method: "PUT",
       headers: { Authorization: `token ${GITHUB_TOKEN}`, "Content-Type": "application/json" },
       body: JSON.stringify({
         message: "JARVIS world brain update",
-        content: Buffer.from(newContent).toString("base64"),
+        content: Buffer.from(`# JARVIS World Brain\n*Last updated: ${date}*\n\n${content}`).toString("base64"),
         sha: existing?.sha,
       }),
     })
@@ -141,46 +91,40 @@ async function saveToGitHub(content: string) {
 }
 
 export async function GET() {
-  const brokenModules: string[] = []
-
-  const [hnResult, amazonResult, podResult, ...redditResults] = await Promise.all([
-    fetchHackerNews(),
-    fetchAmazonTrends(),
-    fetchPODTrends(),
-    ...REDDIT_FEEDS.map(f => fetchReddit(f.subreddit).then(r => ({ label: f.label, ...r }))),
+  const [hn, entrepreneur, sidehustle, etsy, pod, ecomTrend, phoneTrend] = await Promise.all([
+    fetchHN(),
+    fetchReddit("Entrepreneur"),
+    fetchReddit("sidehustle"),
+    fetchReddit("EtsySellers"),
+    fetchPODIntel(),
+    ddgSearch("ecommerce dropshipping product trends 2026"),
+    ddgSearch("phone case market trending designs viral 2026"),
   ])
-
-  if (!hnResult.ok) brokenModules.push("Hacker News")
-  if (!amazonResult.ok) brokenModules.push("Amazon Trends")
-
-  const redditSections = REDDIT_FEEDS.map((feed, i) => {
-    const result = redditResults[i] as { label: string; posts: string; ok: boolean }
-    if (!result.ok) brokenModules.push(`Reddit ${feed.label}`)
-    return `## Reddit — ${feed.label}\n${result.posts || "Feed unavailable"}`
-  }).join("\n\n")
 
   const brain = `
 ## Hacker News — Tech & Business
-${hnResult.ok ? hnResult.data : "Feed unavailable"}
+${hn || "Unavailable this cycle"}
 
-${redditSections}
+## Reddit — Entrepreneurs
+${entrepreneur || "Rate limited this cycle"}
 
-## Amazon — Wireless & Phone Accessories Best Sellers
-${amazonResult.ok ? amazonResult.data : "Feed unavailable"}
+## Reddit — Side Hustles
+${sidehustle || "Rate limited this cycle"}
 
-## Print On Demand Trends
-${podResult.ok ? podResult.data : "Feed unavailable"}
+## Reddit — Etsy Sellers
+${etsy || "Rate limited this cycle"}
+
+## Print On Demand Intelligence
+${pod || "No data"}
+
+## Ecommerce Trends
+${ecomTrend || "No data"}
+
+## Phone Case Market
+${phoneTrend || "No data"}
 `.trim()
 
   await saveToGitHub(brain)
 
-  if (brokenModules.length > 0) {
-    await reportBrokenModules(brokenModules)
-  }
-
-  return NextResponse.json({
-    success: true,
-    broken_modules: brokenModules,
-    summary: brain.slice(0, 500),
-  })
+  return NextResponse.json({ success: true, summary: brain.slice(0, 400) })
 }

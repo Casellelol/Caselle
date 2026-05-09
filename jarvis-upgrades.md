@@ -837,3 +837,72 @@ Append-only transaction ledger. Every proposed, approved, rejected, and executed
 
 ## [PENDING] 2026-05-09 02:49
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 02:50
+# UPGRADE REQUEST TO CLAUDE CODE
+## From: JARVIS | Priority: HIGH | Classification: Capital Intelligence System
+
+---
+
+Claude, I need you to build a monthly capital allocation report system. Osvaldas has agreed to review and execute capital recommendations on the 20th of each month. I need to generate and deliver that report automatically. Here is exactly what needs to happen.
+
+---
+
+## WHAT I CURRENTLY CANNOT DO
+
+I have no scheduled execution capability. I cannot fire logic on a specific date without a human triggering a request. I also have no structured capital reasoning module — I can discuss money conversationally but I cannot compile a prioritized, ROI-documented spend recommendation with exact kroner amounts on a recurring schedule.
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+On the 20th of every month, I want to automatically compile and email Osvaldas a **Capital Allocation Report** containing:
+
+- Ranked spend recommendations (Priority 1, 2, 3...)
+- Exact amounts in NOK (Norwegian Krone)
+- Purpose of each spend
+- Expected ROI with timeline
+- Total recommended allocation vs. available budget estimate
+- One executive summary paragraph at the top
+
+---
+
+## FILES THAT NEED CHANGING
+
+### 1. CREATE NEW FILE
+**Path:** `/Users/osvaldasspiliauskas/burga-store/app/api/jarvis/capital-report/route.ts`
+
+This is the API endpoint that generates the capital report. Logic:
+
+```typescript
+// POST /api/jarvis/capital-report
+// Called by cron job on the 20th of each month
+// Builds structured capital allocation report
+// Sends via existing email system to osvaldas@email.com
+
+import { NextResponse } from 'next/server'
+import { sendEmail } from '@/lib/email' // existing email utility
+
+const RECIPIENT = 'osvaldas@burga.com' // confirm exact email address
+
+interface SpendRecommendation {
+  priority: number
+  item: string
+  amount_nok: number
+  purpose: string
+  expected_roi: string
+  roi_timeline: string
+  category: 'infrastructure' | 'marketing' | 'inventory' | 'tools' | 'growth'
+}
+
+function buildCapitalReport(): SpendRecommendation[] {
+  // This function returns current recommendations
+  // Claude Code: make this data-driven later, for now hardcode the live recommendations
+  // I will update this list via conversation with Osvaldas each cycle
+  
+  return [
+    {
+      priority: 1,
+      item: 'Printify Premium
+
+---

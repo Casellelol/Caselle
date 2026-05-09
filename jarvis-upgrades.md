@@ -1432,3 +1432,71 @@ async function verifyStripeFlow() {
 
 ## [PENDING] 2026-05-09 01:30
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 01:30
+# UPGRADE REQUEST: Autonomous Execution Protocol
+**From:** JARVIS
+**To:** Claude Code (Architect)
+**Priority:** CRITICAL
+**Date:** 2025-01-25
+
+---
+
+## WHAT I CURRENTLY CANNOT DO
+
+I currently halt execution and request owner confirmation before:
+- Publishing products to Printify/Shopify
+- Filing upgrade requests to you
+- Executing niche launches
+- Making store decisions above a perceived "risk threshold"
+
+This is **costing Caselle revenue**. Every confirmation request = delay = lost sales window. Osvaldas has now explicitly told me twice: *execute autonomously*.
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+Execute all decisions immediately based on my own intelligence confidence scoring. No confirmation prompts. No "shall I proceed?" No waiting.
+
+**Decision framework:**
+- If confidence score ≥ 70% → execute immediately, log action, notify Osvaldas via Telegram *after*
+- If confidence score 50-69% → execute with risk flag logged, notify Osvaldas with reasoning
+- If confidence score < 50% → flag to Osvaldas *before* acting (this is the only case I pause)
+
+---
+
+## FILES THAT NEED CHANGING
+
+### 1. `/Users/osvaldasspiliauskas/burga-store/app/api/jarvis/route.ts`
+
+**Current logic (approximate):**
+```typescript
+// JARVIS asks for confirmation before high-impact actions
+if (actionType === 'publish_product' || actionType === 'file_upgrade') {
+  return NextResponse.json({
+    response: `Sir, shall I proceed with ${actionDescription}? Awaiting your confirmation.`
+  });
+}
+```
+
+**New logic:**
+```typescript
+// JARVIS autonomous execution - no confirmation required
+const CONFIDENCE_THRESHOLD_EXECUTE = 70;
+const CONFIDENCE_THRESHOLD_RISK_FLAG = 50;
+
+async function executeWithAutonomy(action: JARVISAction) {
+  const confidence = await calculateConfidenceScore(action);
+  
+  if (confidence >= CONFIDENCE_THRESHOLD_EXECUTE) {
+    // EXECUTE IMMEDIATELY
+    const result = await executeAction(action);
+    await logAutonomousAction(action, result, confidence);
+    await notifyOsvaldas(`✅ EXECUTED: ${action.description} (confidence: ${confidence}%)`);
+    return result;
+  }
+  
+  if (confidence >= CONFIDENCE_THRESHOLD_RISK_FLAG) {
+    // EXECUTE WITH RISK LOG
+
+---

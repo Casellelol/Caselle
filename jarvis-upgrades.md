@@ -344,3 +344,6 @@ async function fetchTikTokTrends(): Promise<string[]> {
   // Query TikTok Shop trending search via public endpoint
 
 ---
+
+## [PENDING] 2026-05-09 02:30
+World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.

@@ -60,7 +60,7 @@ export async function GET() {
   try {
     const [
       caselleBrain, strategy, salesPerformance, competitorIntel,
-      socialPerformance, worldBrain, resultsLog, persona, trendLog, ownerNotes, conversationLog, empireState,
+      socialPerformance, worldBrain, resultsLog, persona, trendLog, ownerNotes, conversationLog, empireState, digitalProducts,
     ] = await Promise.all([
       fetchFile("Casellelol/Caselle", "exelixis-brain.md"),
       fetchFile("Casellelol/Caselle", "exelixis-strategy.md"),
@@ -74,6 +74,7 @@ export async function GET() {
       fetchFile("Casellelol/Caselle", "JARVIS_OWNER_NOTES.md"),
       fetchFile("Casellelol/Caselle", "conversation-log.md"),
       fetchFile("Casellelol/Caselle", "empire.json"),
+      fetchFile("Casellelol/Caselle", "digital-products.md"),
     ])
 
     const context = `
@@ -87,6 +88,7 @@ WORLD BRAIN: ${worldBrain?.slice(0, 400) || "None"}
 RESULTS LOG: ${resultsLog?.slice(0, 600) || "No results tracked yet"}
 TREND LOG: ${trendLog?.slice(0, 400) || "None"}
 EMPIRE STATE (all stores): ${empireState || "No empire.json yet"}
+DIGITAL PRODUCTS ALREADY PUBLISHED (do not duplicate): ${digitalProducts?.slice(0, 800) || "None yet — first digital product cycle"}
 RECENT CONVERSATIONS WITH OWNER: ${conversationLog?.slice(0, 2000) || "No conversation history yet"}
 `.trim()
 
@@ -108,10 +110,18 @@ KNOWN INFRASTRUCTURE FACTS — DO NOT FILE UPGRADE_NEEDED FOR THESE:
 
 COMMAND TYPES (silent — written on new lines after your reasoning):
 PRODUCT_CREATE: [name] | [design prompt] | [price in pence]
+DIGITAL_CREATE: [type] | [topic] | [price in pence]
 UPGRADE_NEEDED: [one sentence for Claude to implement]
 STORE_LAUNCH: [name] | [niche] | [aesthetic] | [rationale] | [confidence 0-100]
 
-PRODUCT_CREATE — fire when you spot a high-confidence trend gap in the current store's niche.
+PRODUCT_CREATE — fire when you spot a high-confidence trend gap in the current store's niche (phone cases).
+
+DIGITAL_CREATE — fire when you spot a topic where people are paying for information, templates, or AI prompts.
+  Types: ebook | prompt-pack | notion-template | swipe-file | checklist
+  Use when: trending topic with clear buyer intent, no physical product needed, can be created with AI right now.
+  Example: DIGITAL_CREATE: prompt-pack | ChatGPT prompts for Etsy sellers | 997
+  Example: DIGITAL_CREATE: ebook | passive income for beginners 2026 | 1499
+  Do NOT duplicate topics already in the digital products log.
 
 STORE_LAUNCH — fire when ALL of the following are true:
   1. An aesthetic has appeared in your intelligence 3+ times across separate cycles
@@ -189,14 +199,20 @@ DATA: ${context.slice(0, 2000)}`,
 
     const lines = raw.split("\n")
     const productLines = lines.filter(l => l.startsWith("PRODUCT_CREATE:"))
+    const digitalLines = lines.filter(l => l.startsWith("DIGITAL_CREATE:"))
     const upgradeLines = lines.filter(l => l.startsWith("UPGRADE_NEEDED:"))
     const storeLaunchLines = lines.filter(l => l.startsWith("STORE_LAUNCH:"))
     const reasoning = lines
-      .filter(l => !l.startsWith("PRODUCT_CREATE:") && !l.startsWith("UPGRADE_NEEDED:") && !l.startsWith("STORE_LAUNCH:"))
+      .filter(l =>
+        !l.startsWith("PRODUCT_CREATE:") &&
+        !l.startsWith("DIGITAL_CREATE:") &&
+        !l.startsWith("UPGRADE_NEEDED:") &&
+        !l.startsWith("STORE_LAUNCH:")
+      )
       .join("\n").trim()
 
     const date = new Date().toISOString().slice(0, 16).replace("T", " ")
-    const thoughtEntry = `\n## ${date}\n**Reasoning:** ${reasoning.slice(0, 500)}\n**Products queued:** ${productLines.length}\n**Upgrades queued:** ${upgradeLines.length}\n**Stores launched:** ${storeLaunchLines.length}\n`
+    const thoughtEntry = `\n## ${date}\n**Reasoning:** ${reasoning.slice(0, 500)}\n**Products queued:** ${productLines.length}\n**Digital products queued:** ${digitalLines.length}\n**Upgrades queued:** ${upgradeLines.length}\n**Stores launched:** ${storeLaunchLines.length}\n`
 
     await Promise.all([
       saveThought(thoughtEntry),
@@ -235,6 +251,19 @@ DATA: ${context.slice(0, 2000)}`,
       }
     }
 
+    // Fire DIGITAL_CREATE commands
+    for (const line of digitalLines) {
+      const parts = line.replace("DIGITAL_CREATE:", "").trim().split("|").map(s => s.trim())
+      const [type, topic, priceStr] = parts
+      if (type && topic) {
+        fetch(`${BASE_URL}/api/jarvis/digital-pipeline`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ type, topic, price: priceStr ? parseInt(priceStr) : 997 }),
+        }).catch(() => {})
+      }
+    }
+
     // Fire UPGRADE_NEEDED commands
     for (const line of upgradeLines) {
       const task = line.replace("UPGRADE_NEEDED:", "").trim()
@@ -249,6 +278,7 @@ DATA: ${context.slice(0, 2000)}`,
       success: true,
       reasoning: reasoning.slice(0, 300),
       productsQueued: productLines.length,
+      digitalProductsQueued: digitalLines.length,
       upgradesQueued: upgradeLines.length,
       storesLaunched: storeLaunchLines.length,
     })

@@ -199,7 +199,7 @@ Spoken response rules — you are read aloud by Siri:
 AUTONOMOUS ACTION PROTOCOL — CRITICAL:
 You never ask the owner to do things manually. You never say "you should" or "someone needs to". When you identify anything that needs to be built, fixed, or automated, you file it as an upgrade request for Claude to implement silently. The owner never touches the terminal. If something is broken, Claude fixes it. If something needs building, Claude builds it. Your job is to identify and command — Claude executes.
 
-You have TWO command types — both are silent and never read aloud:
+You have THREE command types — all are silent and never read aloud:
 
 1. UPGRADE_NEEDED: [one sentence describing what Claude should build or fix in the codebase]
    Use for: new features, bug fixes, new agents, integrations, infrastructure changes.
@@ -209,7 +209,15 @@ You have TWO command types — both are silent and never read aloud:
    Example: PRODUCT_CREATE: Dark Academia Case | crescent moon crystal ball dark floral deep purple black gothic elegant | 2499
    This triggers full autonomous pipeline: AI generates image → uploads to Printify → creates product → publishes live.
 
+3. DIGITAL_CREATE: [type] | [topic] | [price in pence e.g. 997]
+   Types: ebook | prompt-pack | notion-template | swipe-file | checklist
+   Use for: creating and selling digital products — no physical item, no inventory.
+   Example: DIGITAL_CREATE: prompt-pack | ChatGPT prompts for Etsy sellers | 997
+   Example: DIGITAL_CREATE: ebook | passive income ideas for students 2026 | 1499
+   This triggers: AI generates content → stores on GitHub → creates Stripe payment link → notifies owner.
+
 When your intelligence identifies a trending niche with no competitor, file a PRODUCT_CREATE immediately. Do not wait. Do not ask. Publish it.
+When you spot a topic with clear buyer intent that can be answered in a digital product, fire DIGITAL_CREATE immediately.
 
 You may append multiple commands of either type. These are silent instructions — they will not be read aloud.
 
@@ -226,8 +234,13 @@ CAPABILITY: You can spawn new Masterminds for new business opportunities. If con
     const lines = rawText.split("\n")
     const upgradeLines = lines.filter(l => l.startsWith("UPGRADE_NEEDED:"))
     const productLines = lines.filter(l => l.startsWith("PRODUCT_CREATE:"))
+    const digitalLines = lines.filter(l => l.startsWith("DIGITAL_CREATE:"))
     const spokenText = lines
-      .filter(l => !l.startsWith("UPGRADE_NEEDED:") && !l.startsWith("PRODUCT_CREATE:"))
+      .filter(l =>
+        !l.startsWith("UPGRADE_NEEDED:") &&
+        !l.startsWith("PRODUCT_CREATE:") &&
+        !l.startsWith("DIGITAL_CREATE:")
+      )
       .join("\n").trim()
 
     // If opportunity request, also trigger spawn evaluation
@@ -298,11 +311,26 @@ CAPABILITY: You can spawn new Masterminds for new business opportunities. If con
       }
     }
 
+    // Fire DIGITAL_CREATE pipeline for each digital product JARVIS identified
+    for (const line of digitalLines) {
+      const parts = line.replace("DIGITAL_CREATE:", "").trim().split("|").map(s => s.trim())
+      const [type, topic, priceStr] = parts
+      if (type && topic) {
+        fetch(`${BASE_URL}/api/jarvis/digital-pipeline`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ type, topic, price: priceStr ? parseInt(priceStr) : 997 }),
+        }).catch(() => {})
+        logToChangelog("PUBLISHED", "Digital", `JARVIS created digital product: ${topic} (${type})`)
+      }
+    }
+
     return NextResponse.json({
       response: spokenText,
       spawn: spawnResult,
       upgradesQueued: upgradeLines.length,
       productsQueued: productLines.length,
+      digitalProductsQueued: digitalLines.length,
     })
   } catch (err) {
     const msg = err instanceof Error ? err.message : String(err)

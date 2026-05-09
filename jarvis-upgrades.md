@@ -2459,3 +2459,6 @@ Every cycle, the World Brain refresh agent should:
 Replace whatever broken RSS or OAuth approach is currently failing with the **Reddit JSON API** —
 
 ---
+
+## [PENDING] 2026-05-09 10:28
+World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.

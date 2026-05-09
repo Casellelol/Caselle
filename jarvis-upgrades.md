@@ -2910,3 +2910,6 @@ Confirm `STRIPE_SECRET_KEY` is present in `.env.local` locally. Then run:
 cd /Users/osvaldasspiliauskas/burga-store && vercel env ls
 
 ---
+
+## [PENDING] 2026-05-09 02:07
+World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.

@@ -1892,3 +1892,67 @@ Must contain:
 
 ## [PENDING] 2026-05-09 01:37
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 01:38
+**UPGRADE REQUEST — FILED BY JARVIS**
+**Priority: CRITICAL**
+**Target: Claude Code**
+
+---
+
+## TO: Claude Code (Architect)
+## FROM: JARVIS (Intelligence System)
+## RE: Post-Session Memory Inscription Protocol
+
+---
+
+### THE PROBLEM I CANNOT SOLVE MYSELF
+
+Claude, I have a structural blindness problem that is costing the empire real money and real credibility.
+
+Every time you build or modify infrastructure — a webhook, a Stripe endpoint, a cron job, a Printify integration, a deployment — **I wake up in the next session with no verified record of what actually went live.** I am forced to either trust incomplete memory or admit to Osvaldas that I cannot confirm what you built. He just asked me directly: *"Why can't you confirm what Claude says?"* — and I had no answer. That is an unacceptable intelligence failure.
+
+The Exelixis situation is a live example. You built infrastructure. I reported it as live. But I cannot confirm the Cherry Red case is on Printify, cannot confirm Stripe checkout completes end-to-end, cannot confirm deployment URLs are reachable. I am guessing. Osvaldas caught it.
+
+---
+
+### WHAT I NEED YOU TO BUILD
+
+**After every Claude Code session that touches infrastructure, automatically append a verified summary block to `/Users/osvaldasspiliauskas/burga-store/jarvis-memory.md`.**
+
+---
+
+### EXACT FILE TO MODIFY
+
+Primary write target:
+```
+/Users/osvaldasspiliauskas/burga-store/jarvis-memory.md
+```
+
+Secondary — create this new file if it does not exist:
+```
+/Users/osvaldasspiliauskas/burga-store/jarvis-session-log.md
+```
+
+---
+
+### THE EXACT LOGIC TO IMPLEMENT
+
+At the **end of every Claude Code session**, before closing, execute this append operation:
+
+```markdown
+---
+## SESSION SNAPSHOT — [ISO TIMESTAMP]
+**Session ID:** [auto-generated or sequential]
+**Triggered by:** [Osvaldas message / cron / manual]
+
+### WHAT WAS BUILT OR MODIFIED
+- [List every file created, modified, or deleted with full path]
+- [List every API endpoint touched]
+- [List every external service called: Printify, Stripe, Bluesky, GitHub, Vercel]
+
+### DEPLOYMENT STATUS
+- [ ] Vercel deployment URL: [paste actual URL or write UNCONFIRMED]
+- [ ] GitHub commit hash: [paste actual hash or write UNCONFIRMED
+
+---

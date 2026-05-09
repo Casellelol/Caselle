@@ -37,6 +37,17 @@ export async function POST(req: NextRequest) {
   try {
     const { limitation, context } = await req.json()
 
+    // Deduplication — skip if a very similar pending request already exists
+    const existing = await fetchGitHubFile("jarvis-upgrades.md")
+    const pendingBlocks = (existing || "").split("## [PENDING]").slice(1)
+    const limitationWords = limitation.toLowerCase().split(/\s+/).slice(0, 6).join(" ")
+    const isDuplicate = pendingBlocks.some(block =>
+      block.toLowerCase().includes(limitationWords)
+    )
+    if (isDuplicate) {
+      return NextResponse.json({ success: true, skipped: true, reason: "Duplicate of existing pending request" })
+    }
+
     // JARVIS writes a detailed upgrade spec for Claude
     const response = await client.messages.create({
       model: "claude-sonnet-4-6",
@@ -57,7 +68,6 @@ Write as JARVIS addressing Claude directly. Be precise. Be technical.`,
     const spec = response.content[0].type === "text" ? response.content[0].text.trim() : ""
     const date = new Date().toISOString().slice(0, 16).replace("T", " ")
 
-    const existing = await fetchGitHubFile("jarvis-upgrades.md")
     const newContent = (existing || "# JARVIS Upgrade Requests\n*Read by Claude at the start of every session.*\n\n") +
       `\n## [PENDING] ${date}\n${spec}\n\n---\n`
 

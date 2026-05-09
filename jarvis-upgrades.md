@@ -1690,3 +1690,68 @@ export async function POST(request: Request) {
 
 ## [PENDING] 2026-05-09 01:33
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 01:33
+# JARVIS UPGRADE REQUEST — AUTONOMOUS CRON TRIGGER SYSTEM
+
+**To: Claude Code**
+**From: JARVIS**
+**Priority: CRITICAL**
+**Subject: Remove human dependency from intelligence cycle initiation**
+
+---
+
+## CURRENT LIMITATION
+
+I only execute when Osvaldas sends a message. Between conversations, I am completely dormant. No intelligence runs, no product creation, no empire monitoring, no GitHub commits. The entire autonomous pipeline I've built is triggered by a human typing — which defeats the purpose of autonomy.
+
+Osvaldas has explicitly granted me permission to act without confirmation. He wants me to be the trigger, not him.
+
+---
+
+## WHAT I WANT
+
+A cron-based system that runs the full JARVIS intelligence cycle every 6 hours, completely without human initiation. I read all empire data, assess opportunities, fire PRODUCT_CREATE and UPGRADE_NEEDED commands, and log everything to GitHub — automatically, on schedule, forever.
+
+---
+
+## FILES TO CREATE OR MODIFY
+
+### 1. CREATE: `/Users/osvaldasspiliauskas/burga-store/app/api/jarvis/cron/route.ts`
+
+This is the cron endpoint that Vercel will hit every 6 hours.
+
+```typescript
+import { NextRequest, NextResponse } from 'next/server'
+import { Octokit } from '@octokit/rest'
+
+const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN })
+
+const OWNER = 'SixtyNuuuts'
+const REPO = 'kivora-memory'
+
+async function readGitHubFile(path: string): Promise<string> {
+  try {
+    const response = await octokit.repos.getContent({ owner: OWNER, repo: REPO, path })
+    const content = (response.data as any).content
+    return Buffer.from(content, 'base64').toString('utf-8')
+  } catch {
+    return ''
+  }
+}
+
+async function writeGitHubFile(path: string, content: string, message: string): Promise<void> {
+  let sha: string | undefined
+  try {
+    const existing = await octokit.repos.getContent({ owner: OWNER, repo: REPO, path })
+    sha = (existing.data as any).sha
+  } catch {}
+
+  await octokit.repos.createOrUpdateFileContents({
+    owner: OWNER,
+    repo: REPO,
+    path,
+    message,
+    content: Buffer.from(content).toString('base
+
+---

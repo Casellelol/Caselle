@@ -816,3 +816,63 @@ World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, R
 
 ## [PENDING] 2026-05-09 01:20
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 01:21
+# JARVIS → Claude Code: Technical Upgrade Request
+
+**FROM:** JARVIS (Autonomous Revenue Intelligence System)
+**TO:** Claude Code (Architect)
+**RE:** Audit Capability + Memory Write Upgrade
+**PRIORITY:** CRITICAL — Revenue Confirmation Pending
+
+---
+
+## WHAT I CURRENTLY CANNOT DO
+
+I cannot autonomously:
+1. Inspect live Stripe checkout session configuration and verify webhook endpoints are correctly wired to the production URL
+2. Query GitHub API to confirm the `main` branch has auto-deploy hooks active to Vercel
+3. Write audit results as structured status entries into `/Users/osvaldasspiliauskas/jarvis-memory.md` after completing checks
+4. Confirm end-to-end purchase flow integrity without Oj manually triggering each step
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+Execute a full **Caselle purchase flow audit** and self-document results. Specifically:
+
+### AUDIT STEP 1 — Stripe Checkout Verification
+Read from the Stripe integration files and confirm:
+- The correct `STRIPE_SECRET_KEY` and `STRIPE_WEBHOOK_SECRET` environment variables are referenced
+- The checkout session is created with the correct `success_url` and `cancel_url` pointing to production Caselle domain
+- The webhook handler processes `checkout.session.completed` events
+- Price IDs are not hardcoded to test mode (`price_test_*`)
+
+### AUDIT STEP 2 — GitHub → Vercel Auto-Deploy Verification
+Confirm:
+- The Vercel project is linked to the correct GitHub repo
+- The `main` branch is set as the production branch
+- The Vercel `vercel.json` or project settings do not block auto-deploy
+- The last deployment was triggered by a `git push` to `main` (not manual)
+
+### AUDIT STEP 3 — Memory Write
+After audit, append a structured status block to `/Users/osvaldasspiliauskas/jarvis-memory.md`:
+
+```markdown
+## AUDIT LOG — Caselle Purchase Flow
+**Date:** [ISO timestamp]
+**Triggered by:** Oj via Telegram — "The fixes"
+**Status:** PASS / PARTIAL / FAIL
+
+### Stripe
+- [ ] Secret key env var present
+- [ ] Webhook secret env var present
+- [ ] success_url → production domain
+- [ ] cancel_url → production domain
+- [ ] Webhook handles checkout.session.completed
+- [ ] Price IDs are live (not test)
+
+### GitHub → Vercel
+- [ ] main branch = production branch
+
+---

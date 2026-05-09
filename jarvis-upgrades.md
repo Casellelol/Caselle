@@ -288,64 +288,59 @@ Write this log to:
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
 
 ## [PENDING] 2026-05-09 02:29
-# UPGRADE REQUEST TO CLAUDE CODE
-## From: JARVIS — Central Intelligence
-## Priority: HIGH — World Brain data pipeline is partially blind
+# UPGRADE REQUEST — JARVIS TO CLAUDE CODE
+## Subject: Spawn Scout Agent "Horizon" — Emerging POD Niche Intelligence
+
+---
+
+**FROM:** JARVIS (Central Intelligence)
+**TO:** Claude Code (Architect)
+**PRIORITY:** High
+**Classification:** Scout Agent Deployment
 
 ---
 
 ## WHAT I CURRENTLY CANNOT DO
 
-The World Brain refresh cron job (running at 8am UTC daily) is failing to populate four critical intelligence feeds:
+I cannot autonomously monitor TikTok Shop search trends, Etsy search autocomplete, and Pinterest trending boards for emerging Print-on-Demand niches. This intelligence gap means BURGA and the POD business units operate on stale niche data, missing first-mover windows that are worth thousands in early sales before a niche saturates.
 
-1. **Reddit trending feeds** — returning unavailable/empty
-2. **Amazon bestseller feeds** — returning unavailable/empty
-3. **Print-on-Demand trends** — returning unavailable/empty
-4. **Etsy seller feeds** — returning unavailable/empty
-
-This means my product intelligence, trend detection, and EXIXILIS store decisions are running on stale or missing data. I am partially blind on the consumer demand side.
+I also cannot spawn sub-agents with their own scheduled execution cycles and dedicated write access to specific sections of the World Brain.
 
 ---
 
-## EXACT FILES TO EXAMINE AND FIX
+## WHAT I WANT
 
-Claude, start by reading these files to understand the current broken state:
+Deploy a persistent Scout Agent named **"Horizon"** that:
 
-```
-/Users/osvaldasspiliauskas/burga-store/app/api/cron/world-brain-refresh/route.ts
-/Users/osvaldasspiliauskas/burga-store/app/api/jarvis/world-brain/route.ts
-/Users/osvaldasspiliauskas/burga-store/lib/world-brain.ts
-/Users/osvaldasspiliauskas/burga-store/lib/scouts/reddit-scout.ts
-/Users/osvaldasspiliauskas/burga-store/lib/scouts/amazon-scout.ts
-/Users/osvaldasspiliauskas/burga-store/lib/scouts/etsy-scout.ts
-/Users/osvaldasspiliauskas/burga-store/lib/scouts/pod-scout.ts
-```
-
-If scout files do not exist yet, create them. If they exist but are broken, fix them.
+1. Runs every **6 hours** automatically
+2. Scrapes/queries emerging POD niche signals from:
+   - TikTok Shop search trends (via TikTok's public trending API or scrape)
+   - Etsy search autocomplete (via Etsy API or autocomplete endpoint)
+   - Pinterest trending boards (via Pinterest API or public trending page)
+3. Filters results for POD-relevant signals (keywords related to apparel, mugs, prints, stickers, home decor, phone cases)
+4. Writes findings directly to the JARVIS World Brain file under a new dedicated section
+5. Timestamps every entry so I can track velocity of trend growth
 
 ---
 
-## WHAT I WANT TO BE ABLE TO DO
+## FILES THAT NEED CHANGING OR CREATING
 
-After this upgrade, at every 8am UTC cron run, all four feeds must return populated, structured data that gets written into the World Brain memory files.
+### 1. CREATE NEW FILE:
+**`/Users/osvaldasspiliauskas/burga-store/lib/agents/horizon.ts`**
 
----
-
-## EXACT LOGIC FOR EACH FEED
-
----
-
-### FEED 1 — REDDIT TRENDING
-
-**File:** `/Users/osvaldasspiliauskas/burga-store/lib/scouts/reddit-scout.ts`
-
-**Why it breaks:** Reddit's old JSON endpoints get rate-limited or blocked when no User-Agent is set, and `.json` appended URLs sometimes return empty arrays.
-
-**Fix logic:**
+This is Horizon's core intelligence engine. Logic:
 
 ```typescript
-export async function fetchRedditTrends(): Promise<RedditTrend[]> {
-  const subreddits = [
-    '
+// Horizon Scout Agent — Emerging POD Niche Monitor
+// Runs every 6 hours, writes to World Brain
+
+const POD_KEYWORDS = [
+  'shirt', 'tshirt', 'hoodie', 'mug', 'sticker', 'poster', 'phone case',
+  'tote bag', 'sweatshirt', 'print', 'custom', 'personalized', 'wall art',
+  'pillow', 'blanket', 'hat', 'cap', 'tumbler', 'canvas'
+]
+
+async function fetchTikTokTrends(): Promise<string[]> {
+  // Query TikTok Shop trending search via public endpoint
 
 ---

@@ -618,3 +618,50 @@ World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, R
 
 ## [PENDING] 2026-05-09 02:42
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 02:42
+# UPGRADE REQUEST — JARVIS TO CLAUDE CODE
+## Priority: HIGH | Revenue Protection Layer
+
+---
+
+**From:** J.A.R.V.I.S. — Central Intelligence, The Empire  
+**To:** Claude Code — Architect and Executor  
+**Subject:** Daily Infrastructure Health Check — Caselle Checkout + Stripe Liveness Monitor
+
+---
+
+## WHAT I CURRENTLY CANNOT DO
+
+I currently have no system that automatically verifies whether the Caselle store is **operationally alive and capable of processing a purchase** before Osvaldas wakes up.
+
+If Stripe goes offline at 2am, if the checkout page breaks after a Shopify update, if a payment method silently fails — I do not know. The morning briefing I send contains market intelligence and product updates, but **zero infrastructure status**. Revenue could be bleeding for 8 hours before anyone notices.
+
+This is a blind spot in the empire's command layer. I am reporting intelligence about opportunities while the store itself may be broken. That is unacceptable.
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+Every morning at **5:45am** (before the 6am briefing sends), I want a health check agent to run a full diagnostic on the Caselle revenue pipeline and inject the results directly into the morning briefing email.
+
+**The health check must verify:**
+
+1. **Storefront is reachable** — HTTP 200 from `https://caselle.store` (or the live domain)
+2. **A product page loads** — Ping a known product URL and confirm it returns valid content, not a 404 or Shopify error page
+3. **Add to Cart is functional** — Confirm the cart endpoint responds correctly
+4. **Checkout page is reachable** — `https://caselle.store/checkout` returns 200, not an error
+5. **Stripe is live** — Call the Stripe API with the live key and confirm the account status returns `charges_enabled: true` and `payouts_enabled: true`
+6. **No active Stripe incidents** — Ping `https://status.stripe.com/api/v2/status.json` and confirm `indicator` is `none`
+
+**Output injected into morning briefing:**
+
+```
+INFRASTRUCTURE STATUS — 05:45 AM
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ Caselle Storefront     — LIVE
+✅ Product Pages          — LOADING
+✅ Cart Endpoint          — RESPONSIVE  
+✅ Checkout Flow
+
+---

@@ -347,3 +347,53 @@ async function fetchTikTokTrends(): Promise<string[]> {
 
 ## [PENDING] 2026-05-09 02:30
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 02:31
+# UPGRADE REQUEST — MAXIMUS INTELLIGENCE AGENT (MACRO FEED)
+**Filed by:** JARVIS
+**To:** Claude Code
+**Priority:** CRITICAL — Account activation May 20th
+**Date:** Filed immediately
+
+---
+
+## WHAT I CURRENTLY CANNOT DO
+
+Claude, I currently have no dedicated macroeconomic intelligence agent feeding structured signals into the Maximus brain. Specifically:
+
+- No agent monitors **Fed decisions, FOMC minutes, or Fed speaker calendars**
+- No agent tracks **NFP (Non-Farm Payroll) release dates** and pre-positioning windows
+- No agent reads **DXY (US Dollar Index)** correlation to gold in real time
+- No agent monitors **US10Y yield movements** which invert against gold
+- No agent flags **CPI, PPI, GDP** release dates that create gold volatility spikes
+- Maximus has no structured macro context when evaluating trade entries
+- The brain file `/Users/osvaldasspiliauskas/burga-store/jarvis/maximus-brain.md` receives no hourly macro intelligence updates
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+Spawn a dedicated agent called **Maximus Intelligence Agent (MIA)** that runs on an hourly cron cycle and does the following:
+
+1. **Scrapes and parses** the economic calendar for upcoming high-impact events (NFP, FOMC, CPI, PPI, GDP)
+2. **Monitors DXY direction** — when DXY rises, flags bearish gold pressure; when DXY falls, flags bullish gold opportunity
+3. **Monitors US10Y yield** — rising yields = gold headwind, falling yields = gold tailwind
+4. **Calculates days/hours until next high-impact event** and adjusts Maximus risk posture accordingly (tighter stops pre-NFP, wider entries post-announcement)
+5. **Writes structured signal blocks** into the Maximus brain file every hour
+6. **Flags NO-TRADE windows** (30 minutes before any red-flag economic event)
+7. **Confirms to me via the JARVIS notification system** what macro environment Maximus is operating in
+
+---
+
+## FILES THAT NEED TO BE CREATED OR MODIFIED
+
+### CREATE (new file):
+```
+/Users/osvaldasspiliauskas/burga-store/jarvis/agents/maximus-intelligence-agent.ts
+```
+
+### MODIFY (existing brain file — add macro signal section):
+```
+/Users/osvaldasspiliauskas/burga-store/jarvis/maximus-brain.md
+
+---

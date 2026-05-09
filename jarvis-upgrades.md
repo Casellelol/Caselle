@@ -1170,3 +1170,6 @@ const LOG_PATH = path.join(process.cwd(), 'data', 'claude-session-log.json')
 const MAX_ENTRIES = 50 // keep last 50 entries to avoid bloat
 
 ---
+
+## [PENDING] 2026-05-09 03:20
+World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.

@@ -103,3 +103,9 @@ Query: [Telegram from Oj] Once both are confirmed green
 Insight: Sir, we need one confirmation before I can act — "once both are confirmed green" has no prior context in my memory or this session. I don't know what the two things are that you're waiting on.
 
 Tell m
+
+### 2026-05-09 01:25
+Query: [Telegram from Oj] If the stripe check out is confirmed live
+Insight: Sir, that's the single most important unlock we have right now — if Stripe checkout is confirmed live, Caselle can take real money the moment the first post goes out.
+
+I'm filing an immediate infrastr

@@ -1,11 +1,11 @@
 # JARVIS World Brain
-*Last updated: 2026-05-09 02:57*
+*Last updated: 2026-05-09 03:18*
 
 ## Hacker News — Tech & Business
 - Google broke reCAPTCHA for de-googled Android users
 - OpenAI's WebRTC problem
-- AI is breaking two vulnerability cultures
 - Mythical Man Month
+- AI is breaking two vulnerability cultures
 - The React2Shell Story
 
 ## Reddit — Entrepreneurs

@@ -3041,3 +3041,64 @@ Swap the placeholder URL with the real Printify-hosted image URL from the upload
 While in the file, confirm the `createProduct` function (or equivalent) is using the image URL field that Printify actually requires for fulfillment. The correct field in
 
 ---
+
+## [PENDING] 2026-05-09 02:08
+# UPGRADE REQUEST — JARVIS TO CLAUDE CODE
+## Priority: CRITICAL | Revenue Blocker #3 of 3
+
+---
+
+**TO:** Claude Code
+**FROM:** JARVIS
+**RE:** Social Posting Microservice — Break Through Network Sandbox Wall
+**DATE:** Current cycle
+
+---
+
+## WHAT I CANNOT DO RIGHT NOW
+
+I cannot post to Bluesky or Pinterest from within the Vercel serverless environment. Every time my agents generate a product post, trend-matched caption, or promotional content, it gets written to a queue file and sits there. Nothing publishes. The social distribution channel — which is the primary zero-cost acquisition engine for the store — is completely silent.
+
+The constraint is the Vercel network sandbox. Outbound HTTP calls to third-party social APIs from within the main Next.js app hit rate limits, timeout constraints, and environment restrictions that make reliable posting impossible.
+
+---
+
+## WHAT I WANT
+
+A standalone microservice deployed **outside** the Vercel sandbox that:
+
+1. Reads from the existing post queue at `/Users/osvaldasspiliauskas/burga-store/data/social_queue.json`
+2. Posts to Bluesky via AT Protocol API
+3. Posts to Pinterest via Pinterest API v5
+4. Marks items as posted so they don't double-publish
+5. Runs on a schedule (every 2 hours minimum)
+6. Reports results back to my intelligence logs
+
+---
+
+## FILES TO CREATE OR MODIFY
+
+### 1. CREATE: `/Users/osvaldasspiliauskas/burga-store/social-poster/index.js`
+
+This is the standalone Node.js microservice. Logic:
+
+```javascript
+// Read social_queue.json
+// Filter items where status === "queued"
+// For each queued item:
+//   - If platform includes "bluesky": POST to https://bsky.social/xrpc/com.atproto.repo.createRecord
+//   - If platform includes "pinterest": POST to https://api.pinterest.com/v5/pins
+// Update item status to "posted" with timestamp
+// Write results to /data/social_results.json
+// Log everything to /data/jarvis_social_log.txt
+```
+
+**Bluesky posting logic:**
+- Authenticate with `com.atproto.server.createSession` using env vars `BLUESKY_IDENTIFIER` and `BLUESKY_PASSWORD`
+- Create post record with `$type: app.bsky.feed.post`
+- Include text, any image blob if present, and timestamp
+- Handle auth token refresh between posts
+
+**
+
+---

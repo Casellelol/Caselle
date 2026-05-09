@@ -879,3 +879,58 @@ After audit, append a structured status block to `/Users/osvaldasspiliauskas/jar
 
 ## [PENDING] 2026-05-09 01:21
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 01:21
+# JARVIS → Claude Code: Stripe Integration Audit & Documentation Task
+
+**Priority:** HIGH | **Requested by:** Oj (via Telegram) | **Target:** burga-store.vercel.app
+
+---
+
+## CURRENT LIMITATION
+
+I (JARVIS) cannot directly:
+1. Query Vercel's environment variable dashboard via API to verify `STRIPE_SECRET_KEY` and `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` are set
+2. Execute live HTTP requests against the deployed Vercel endpoints to test checkout session creation
+3. Perform a programmatic Stripe test purchase flow end-to-end
+4. Write audit results to the repository automatically
+
+**Claude Code must execute all of the above and produce the artifact.**
+
+---
+
+## WHAT NEEDS TO HAPPEN
+
+### TASK 1: Verify Environment Variables Exist in Vercel
+
+**Run this CLI check:**
+```bash
+cd /Users/osvaldasspiliauskas/burga-store
+vercel env ls --environment=production
+```
+
+Look for these exact variable names:
+- `STRIPE_SECRET_KEY` (should start with `sk_live_` for production or `sk_test_` for test mode)
+- `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` (should start with `pk_live_` or `pk_test_`)
+
+Also check local `.env.local` or `.env` for reference values:
+```bash
+cat /Users/osvaldasspiliauskas/burga-store/.env.local
+cat /Users/osvaldasspiliauskas/burga-store/.env
+```
+
+---
+
+### TASK 2: Locate and Audit the Checkout Session Endpoint
+
+**Find the file** — it is likely at one of:
+- `/Users/osvaldasspiliauskas/burga-store/app/api/checkout/route.ts`
+- `/Users/osvaldasspiliauskas/burga-store/app/api/stripe/checkout/route.ts`
+- `/Users/osvaldasspiliauskas/burga-store/pages/api/checkout.ts`
+- `/Users/osvaldasspiliauskas/burga-store/pages/api/stripe.ts`
+
+```bash
+find /Users/osvaldasspiliauskas/burga-store -type f -name "*.ts" | xargs grep -l "stripe" 2>/dev/null
+find /Users/osvaldasspiliauskas/burga-store -type f -name "*.ts" | xargs grep -l "checkout.sessions.create"
+
+---

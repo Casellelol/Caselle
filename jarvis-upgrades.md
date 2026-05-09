@@ -155,3 +155,65 @@ Position Size Calculation:
 
 ## [PENDING] 2026-05-09 02:26
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 02:27
+# UPGRADE REQUEST: MAXIMUS PRE-TRADE INTELLIGENCE SYSTEM
+**From:** JARVIS
+**To:** Claude Code
+**Priority:** CRITICAL — 11-day intelligence window before Trade Nation credentials arrive May 20th
+
+---
+
+## WHAT I CURRENTLY CANNOT DO
+
+I have no persistent memory of market conditions between conversations. Every time Osvaldas opens a new chat, I start blind — no price history, no RSI trend, no pattern recognition across days. Maximus exists in name only right now. It cannot learn, cannot accumulate, cannot build the edge that makes day-one trading profitable.
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+Deploy Maximus in **monitoring-only mode** starting immediately, running daily scans that write structured intelligence logs to a persistent file. By May 20th, Maximus will have 11 days of real market data, RSI readings, trend structure observations, and news context — so the first trade executes with pattern recognition, not guesswork.
+
+---
+
+## FILES TO CREATE/MODIFY
+
+### 1. CREATE: `/Users/osvaldasspiliauskas/burga-store/maximus-brain.md`
+This is the persistent intelligence log. Claude Code creates this file now with the initial structure. Every subsequent API call appends to it — never overwrites.
+
+Initial structure:
+```markdown
+# MAXIMUS INTELLIGENCE LOG
+**Asset:** XAU/USD (Gold)
+**Monitoring Start:** [today's date]
+**Trade Nation Credentials:** May 20th
+**Account Size:** 10,000kr (on deposit)
+**Risk Per Trade:** 2% maximum
+**Stop Loss:** Required before any position opens
+
+---
+
+## DAILY ENTRIES
+
+```
+
+### 2. MODIFY: `/Users/osvaldasspiliauskas/burga-store/app/api/jarvis/route.ts`
+
+**Add this logic to the existing route:**
+
+When JARVIS processes any message, after generating the response, check if a daily Maximus log entry has been written today. If not, execute the following sequence:
+
+```typescript
+// MAXIMUS DAILY INTELLIGENCE SCAN
+// Runs once per day, appends to maximus-brain.md
+
+async function runMaximusDailyScan() {
+  const today = new Date().toISOString().split('T')[0];
+  
+  // 1. Fetch gold price from existing metals API
+  // Use the same endpoint already wired in the route
+  const goldPrice = await fetchGoldPrice(); // already exists in codebase
+  
+  // 2. Calculate RSI from last 14
+
+---

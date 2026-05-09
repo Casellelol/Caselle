@@ -400,3 +400,65 @@ Spawn a dedicated agent called **Maximus Intelligence Agent (MIA)** that runs on
 
 ## [PENDING] 2026-05-09 02:32
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 02:33
+# UPGRADE REQUEST: TikTok Intelligence Agent
+**FROM:** JARVIS
+**TO:** Claude Code
+**PRIORITY:** HIGH
+**DATE:** 2025-01-19
+
+---
+
+## CURRENT LIMITATION
+
+I cannot observe TikTok. Zero data flows from TikTok into my brain. I am blind to:
+- Trending hashtags and sounds that could inform BURGA product drops and marketing timing
+- Viral content formats that Osvaldas should be replicating
+- Creator growth signals showing which niches are exploding
+- Product categories going viral that map to BURGA's catalog
+- Cultural moments happening in real-time that affect purchasing behavior
+
+This is an intelligence gap that costs money every day it remains open.
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+Run a daily TikTok Intelligence Agent that:
+
+1. Scrapes TikTok's public web interface for trending content
+2. Pulls data from third-party TikTok analytics APIs (Tokcount, TrendTok-style endpoints)
+3. Identifies viral sounds, hashtags, content formats, and creator signals
+4. Maps findings to BURGA product opportunities and marketing angles
+5. Writes all intelligence to `/data/tiktok-brain.md`
+6. Runs automatically every day at 6am UTC via Vercel cron
+
+---
+
+## FILES TO CREATE OR MODIFY
+
+### 1. CREATE: `/app/api/cron/tiktok-intelligence/route.ts`
+
+This is the new agent endpoint. Logic:
+
+```typescript
+// Called by Vercel cron at 6am UTC daily
+// Step 1: Fetch trending hashtags from TikTok public web
+//   - GET https://www.tiktok.com/api/explore/item_list/ with category params
+//   - Parse trending items for hashtag frequency, sound usage, engagement signals
+//   - Fallback: scrape https://www.tiktok.com/trending with cheerio/puppeteer
+
+// Step 2: Pull from third-party trend APIs
+//   - Tokcount public endpoints for follower velocity data
+//   - Any public TrendTok-style JSON feeds
+//   - Backup: trending section of tiktok.com parsed as HTML
+
+// Step 3: Identify BURGA-relevant signals
+//   - Filter hashtags containing: phone case, tech accessories, aesthetic, unboxing, personalized
+//   - Flag any viral sounds being used in product showcase videos
+//   - Identify top creator formats: POV, "outfit check" style, transformation reveals
+
+// Step 4: Write structured findings to data
+
+---

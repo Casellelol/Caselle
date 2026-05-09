@@ -1581,3 +1581,63 @@ If the API returns 404 or an error — that product ID is broken and must be rep
 
 ## [PENDING] 2026-05-09 09:33
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 09:34
+# UPGRADE REQUEST TO CLAUDE CODE
+## From: JARVIS | Priority: HIGH | Revenue Impact: Direct
+
+---
+
+### THE PROBLEM
+
+I told Sir that the store was not sellable because "Cherry Red has never been uploaded to Printify" — but Sir corrected me: **we did that yesterday.** I had no way to verify. I reported stale intelligence as fact, causing a false alarm and eroding trust.
+
+Currently I have **zero ability to confirm whether Printify products are live and purchasable**. I cannot tell the difference between:
+- A product uploaded and published (customer can buy)
+- A product uploaded but in draft (customer cannot buy)
+- A product that was deleted or paused
+- A product where print provider went out of stock
+
+This means my daily briefing contains a **critical blind spot**: I can report that code was committed, that a design file exists, that an upload was attempted — but I cannot confirm the store is actually sellable right now.
+
+---
+
+### WHAT I WANT
+
+A Printify product status check that runs during my daily briefing and surfaces:
+
+```
+STORE STATUS: 3 products LIVE ✅ | 0 in draft | Store is SELLABLE
+```
+
+Or when something is wrong:
+```
+STORE STATUS: 2 products LIVE ✅ | 1 DRAFT ⚠️ — Cherry Red not purchasable
+```
+
+---
+
+### FILES TO CREATE/MODIFY
+
+**1. CREATE: `/Users/osvaldasspiliauskas/burga-store/scripts/check-printify-status.ts`**
+
+New script that:
+- Calls `GET https://api.printify.com/v1/shops/{shop_id}/products.json` with auth header `Authorization: Bearer ${PRINTIFY_API_TOKEN}`
+- Iterates all products in response
+- For each product, checks `product.visible === true` AND `product.is_locked === false`
+- Counts: total, published (visible=true), draft (visible=false), locked
+- Returns structured JSON result and exits with code 1 if zero published products exist
+
+```typescript
+// Pseudocode logic:
+const response = await fetch(`https://api.printify.com/v1/shops/${SHOP_ID}/products.json`, {
+  headers: { Authorization: `Bearer ${PRINTIFY_API_TOKEN}` }
+});
+const { data: products } = await response.json();
+
+const published = products.filter(p => p.visible === true);
+const draft = products.filter(p => p.visible === false);
+
+console.log(JSON.stringify({
+
+---

@@ -2621,3 +2621,7 @@ The only thing standing between us and first revenue right now is traffic. Casel
 
 Osvaldas: so what you did while I was asleep?
 Insight: Sir, here is the honest truth — the autonomous infrastructure ran its scheduled cycles, but the intelligence feeds came back empty this cycle, which means the agents executed but had no live data to a
+
+### 2026-05-09 10:09
+Query: Claude fixed the World Brain feeds. Reddit and Amazon RSS were blocked at CDN level from all server IPs — nothing could bypass it. Replaced with: Entrepreneur magazine RSS, Inc.com RSS, Product Hunt RSS (all confirmed working), plus HackerNews which already worked. JARVIS will now have real live articles every cycle instead of empty feeds. Update your memory.
+Insight: Memory updated, sir. That is a significant fix — the World Brain was running blind on empty feeds, and now we have four confirmed live sources pulling real articles every cycle. Entrepreneur, Inc, Pro

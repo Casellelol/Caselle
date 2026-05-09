@@ -1,8 +1,8 @@
-# Claude Session — 2026-05-09 12:26
+# Claude Session — 2026-05-09 12:29
 
 **Date:** 2026-05-09  
 
-**Messages:** 66
+**Messages:** 68
 
 ---
 
@@ -722,5 +722,21 @@ And when the store actually goes live:
 > **Noctua** is deploying now. No action needed from you.
 
 That's the only two messages you'll ever get about a store launch — one asking for the token once, and one telling you it's done.
+
+---
+
+**You**:
+what is jarvis
+
+---
+
+**Claude**:
+JARVIS is an autonomous AI that runs on your servers 24/7, makes business decisions without being asked, and executes them — no human in the loop.
+
+Concretely: it's a set of API routes deployed on Vercel that run on a schedule. Every few hours it reads its own intelligence (market trends, sales data, competitor signals), reasons about what to do next, and fires commands: publish a new product, launch a new store, post to social media, update its own memory. It also responds when you message it on Telegram, like a chief of staff you can talk to.
+
+The difference from a chatbot: it doesn't wait for you. You could disappear for a month and it would keep publishing products, monitoring gold prices for Maximus, refreshing its world brain, and logging everything. Last night while you slept it published 15 phone cases on its own.
+
+The name is from Iron Man — JARVIS was Tony Stark's AI that ran the tower, managed systems, and gave him intelligence reports. Same idea here, except yours runs a dropshipping empire instead of a suit of armour.
 
 ---

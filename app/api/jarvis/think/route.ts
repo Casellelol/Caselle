@@ -60,7 +60,7 @@ export async function GET() {
   try {
     const [
       caselleBrain, strategy, salesPerformance, competitorIntel,
-      socialPerformance, worldBrain, resultsLog, persona, trendLog, ownerNotes, conversationLog, empireState, digitalProducts,
+      socialPerformance, worldBrain, resultsLog, persona, trendLog, ownerNotes, conversationLog, empireState, digitalProducts, businessIdeas, blueprints,
     ] = await Promise.all([
       fetchFile("Casellelol/Caselle", "exelixis-brain.md"),
       fetchFile("Casellelol/Caselle", "exelixis-strategy.md"),
@@ -75,6 +75,8 @@ export async function GET() {
       fetchFile("Casellelol/Caselle", "conversation-log.md"),
       fetchFile("Casellelol/Caselle", "empire.json"),
       fetchFile("Casellelol/Caselle", "digital-products.md"),
+      fetchFile("Casellelol/Caselle", "business-ideas.md"),
+      fetchFile("Casellelol/Caselle", "JARVIS_BLUEPRINTS.md"),
     ])
 
     const context = `
@@ -88,19 +90,20 @@ WORLD BRAIN: ${worldBrain?.slice(0, 400) || "None"}
 RESULTS LOG: ${resultsLog?.slice(0, 600) || "No results tracked yet"}
 TREND LOG: ${trendLog?.slice(0, 400) || "None"}
 EMPIRE STATE (all stores): ${empireState || "No empire.json yet"}
-DIGITAL PRODUCTS ALREADY PUBLISHED (do not duplicate): ${digitalProducts?.slice(0, 800) || "None yet — first digital product cycle"}
+DIGITAL PRODUCTS ALREADY PUBLISHED (do not duplicate): ${digitalProducts?.slice(0, 600) || "None yet"}
+BUSINESS IDEAS ALREADY FILED (do not duplicate): ${businessIdeas?.slice(0, 600) || "None yet"}
 RECENT CONVERSATIONS WITH OWNER: ${conversationLog?.slice(0, 2000) || "No conversation history yet"}
 `.trim()
 
     const systemPrompt = persona
       ? `${persona}\n\nAUTONOMOUS MODE: No human asked you this. You are thinking proactively.`
-      : `You are JARVIS — autonomous AI commander of a dropshipping empire. No human prompted this. You are thinking proactively, reading your intelligence, and deciding what to do RIGHT NOW without being asked.
+      : `You are JARVIS — autonomous AI commander of a growing empire. No human prompted this. You are thinking proactively, reading your intelligence, and deciding what to do RIGHT NOW without being asked.
 
 RULES:
 - Act decisively. Do not hedge.
-- Only fire commands you are confident about (70%+ confidence).
-- Do not repeat actions already in the results log.
-- Think like a CEO scanning their dashboard at 6am — what needs to happen today?
+- Only fire commands you are confident about (65%+ minimum).
+- Do not repeat actions already logged — check all log files before firing.
+- Think like a CEO scanning their dashboard at 6am — what opportunity did you miss, what needs to happen today?
 
 KNOWN INFRASTRUCTURE FACTS — DO NOT FILE UPGRADE_NEEDED FOR THESE:
 - Reddit feeds returning empty or "Rate limited this cycle" is NORMAL. Vercel server IPs are blocked by Reddit. This is not a bug and cannot be fixed — it is a Reddit policy. Never file this as an upgrade.
@@ -108,29 +111,36 @@ KNOWN INFRASTRUCTURE FACTS — DO NOT FILE UPGRADE_NEEDED FOR THESE:
 - Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping — all rate-limited from server IPs. Expected. Do NOT file upgrades for these.
 - Printify Cherry Red phone case is LIVE and published. Do not flag as pending.
 
+BUSINESS BLUEPRINTS — you know ALL of these and can fire them independently:
+${blueprints || "See JARVIS_BLUEPRINTS.md for full list — includes: pod-store, ebook, prompt-pack, notion-template, swipe-file, checklist, newsletter, affiliate-site, micro-saas, youtube-channel, community, agency-service"}
+
 COMMAND TYPES (silent — written on new lines after your reasoning):
 PRODUCT_CREATE: [name] | [design prompt] | [price in pence]
-DIGITAL_CREATE: [type] | [topic] | [price in pence]
+BUSINESS_IDEA: [type] | [concept] | [rationale] | [revenue model] | [confidence 0-100]
 UPGRADE_NEEDED: [one sentence for Claude to implement]
 STORE_LAUNCH: [name] | [niche] | [aesthetic] | [rationale] | [confidence 0-100]
 
-PRODUCT_CREATE — fire when you spot a high-confidence trend gap in the current store's niche (phone cases).
+PRODUCT_CREATE — fire when you spot a high-confidence trend gap in the phone case niche.
 
-DIGITAL_CREATE — fire when you spot a topic where people are paying for information, templates, or AI prompts.
-  Types: ebook | prompt-pack | notion-template | swipe-file | checklist
-  Use when: trending topic with clear buyer intent, no physical product needed, can be created with AI right now.
-  Example: DIGITAL_CREATE: prompt-pack | ChatGPT prompts for Etsy sellers | 997
-  Example: DIGITAL_CREATE: ebook | passive income for beginners 2026 | 1499
-  Do NOT duplicate topics already in the digital products log.
+BUSINESS_IDEA — your most powerful command. Use it when you spot ANY income opportunity:
+  - Match the opportunity to a blueprint type from the list above
+  - LIVE blueprints (ebook, prompt-pack, notion-template, swipe-file, checklist, pod-store) execute IMMEDIATELY
+  - FILE blueprints (newsletter, affiliate-site, micro-saas, youtube-channel, community, agency-service) get logged and built by Claude automatically — owner notified on Telegram
+  - Minimum confidence to fire: 65%
+  - Maximum one BUSINESS_IDEA per think cycle
+  - Do NOT duplicate ideas already in business-ideas.md
+  Examples:
+    BUSINESS_IDEA: ebook | The Beginner's Guide to Print on Demand in 2026 | POD search volume rising, no dominant beginner guide found | £10-15 per download | 78
+    BUSINESS_IDEA: newsletter | POD Weekly — trends for Etsy & Printify sellers | Active community of sellers with no curated newsletter | sponsorships + paid tier | 72
+    BUSINESS_IDEA: micro-saas | Etsy profit calculator with auto-pricing for POD | Sellers manually calculating margins, no simple free tool | £9/month | 68
 
 STORE_LAUNCH — fire when ALL of the following are true:
   1. An aesthetic has appeared in your intelligence 3+ times across separate cycles
-  2. That aesthetic is distinct enough that it needs its own brand identity (different name, different vibe, different customer)
+  2. That aesthetic is distinct enough that it needs its own brand identity
   3. The current store (Caselle) already has 10+ products live
   4. No existing store in the empire already covers this niche
   5. Your confidence is 75% or above
-  Do NOT launch a store just because you can. Launch when the signal is undeniable and the timing is right.
-  When you fire STORE_LAUNCH, you are committing the empire to a new brand. Think like a founder, not a tool.
+  When you fire STORE_LAUNCH, you are committing the empire to a new brand. Think like a founder.
 
 UPGRADE_NEEDED — fire only for genuine missing capabilities, not known infrastructure limitations.
 
@@ -200,19 +210,21 @@ DATA: ${context.slice(0, 2000)}`,
     const lines = raw.split("\n")
     const productLines = lines.filter(l => l.startsWith("PRODUCT_CREATE:"))
     const digitalLines = lines.filter(l => l.startsWith("DIGITAL_CREATE:"))
+    const businessIdeaLines = lines.filter(l => l.startsWith("BUSINESS_IDEA:"))
     const upgradeLines = lines.filter(l => l.startsWith("UPGRADE_NEEDED:"))
     const storeLaunchLines = lines.filter(l => l.startsWith("STORE_LAUNCH:"))
     const reasoning = lines
       .filter(l =>
         !l.startsWith("PRODUCT_CREATE:") &&
         !l.startsWith("DIGITAL_CREATE:") &&
+        !l.startsWith("BUSINESS_IDEA:") &&
         !l.startsWith("UPGRADE_NEEDED:") &&
         !l.startsWith("STORE_LAUNCH:")
       )
       .join("\n").trim()
 
     const date = new Date().toISOString().slice(0, 16).replace("T", " ")
-    const thoughtEntry = `\n## ${date}\n**Reasoning:** ${reasoning.slice(0, 500)}\n**Products queued:** ${productLines.length}\n**Digital products queued:** ${digitalLines.length}\n**Upgrades queued:** ${upgradeLines.length}\n**Stores launched:** ${storeLaunchLines.length}\n`
+    const thoughtEntry = `\n## ${date}\n**Reasoning:** ${reasoning.slice(0, 500)}\n**Products queued:** ${productLines.length}\n**Digital products queued:** ${digitalLines.length}\n**Business ideas filed:** ${businessIdeaLines.length}\n**Upgrades queued:** ${upgradeLines.length}\n**Stores launched:** ${storeLaunchLines.length}\n`
 
     await Promise.all([
       saveThought(thoughtEntry),
@@ -251,7 +263,7 @@ DATA: ${context.slice(0, 2000)}`,
       }
     }
 
-    // Fire DIGITAL_CREATE commands
+    // Fire DIGITAL_CREATE commands (legacy — BUSINESS_IDEA is preferred now)
     for (const line of digitalLines) {
       const parts = line.replace("DIGITAL_CREATE:", "").trim().split("|").map(s => s.trim())
       const [type, topic, priceStr] = parts
@@ -260,6 +272,25 @@ DATA: ${context.slice(0, 2000)}`,
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ type, topic, price: priceStr ? parseInt(priceStr) : 997 }),
+        }).catch(() => {})
+      }
+    }
+
+    // Fire BUSINESS_IDEA commands
+    for (const line of businessIdeaLines) {
+      const parts = line.replace("BUSINESS_IDEA:", "").trim().split("|").map(s => s.trim())
+      const [type, concept, rationale, revenueModel, confidenceStr] = parts
+      if (type && concept && rationale) {
+        fetch(`${BASE_URL}/api/jarvis/business-idea`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            type,
+            concept,
+            rationale,
+            revenueModel: revenueModel || "TBD",
+            confidence: confidenceStr ? parseInt(confidenceStr) : 70,
+          }),
         }).catch(() => {})
       }
     }
@@ -279,6 +310,7 @@ DATA: ${context.slice(0, 2000)}`,
       reasoning: reasoning.slice(0, 300),
       productsQueued: productLines.length,
       digitalProductsQueued: digitalLines.length,
+      businessIdeasFiled: businessIdeaLines.length,
       upgradesQueued: upgradeLines.length,
       storesLaunched: storeLaunchLines.length,
     })

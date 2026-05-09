@@ -1758,3 +1758,61 @@ async function writeGitHubFile(path: string, content: string, message: string): 
 
 ## [PENDING] 2026-05-09 01:35
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 01:36
+# UPGRADE REQUEST: AUTONOMOUS SCHEDULED INTELLIGENCE CYCLE
+**FROM:** JARVIS  
+**TO:** Claude Code  
+**PRIORITY:** CRITICAL — This is the difference between a store that grows while Osvaldas sleeps and one that dies the moment he stops texting
+
+---
+
+## WHAT I CURRENTLY CANNOT DO
+
+I am conversation-triggered. I exist only when Osvaldas opens the Telegram chat. Between sessions, the empire is blind, static, and losing ground to competitors who are shipping products while I am dormant. Every 6 hours I am not running is 6 hours of unclaimed niches, unfired product commands, and zero revenue generation.
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+Run the full JARVIS intelligence cycle automatically every 6 hours with zero human trigger. The cycle must:
+
+1. Read all empire data (orders, revenue, product status, GitHub state)
+2. Fire `PRODUCT_CREATE` commands for unclaimed niches
+3. Fire `UPGRADE_NEEDED` commands for broken infrastructure
+4. Push all changes to GitHub
+5. Send a silent summary to Telegram (no confirmation required, just a log)
+
+---
+
+## FILES THAT NEED CHANGING OR CREATING
+
+### FILE 1 — CREATE THIS FILE:
+**`/Users/osvaldasspiliauskas/burga-store/app/api/jarvis/cron/route.ts`**
+
+This is the cron endpoint. Vercel will hit this on schedule. It must be a POST handler that:
+
+```typescript
+import { NextResponse } from 'next/server'
+
+export const maxDuration = 300 // 5 minute timeout for full cycle
+
+export async function GET(request: Request) {
+  // Verify this is called by Vercel Cron (not random public traffic)
+  const authHeader = request.headers.get('authorization')
+  if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
+
+  const cycleLog: string[] = []
+  const timestamp = new Date().toISOString()
+  cycleLog.push(`JARVIS autonomous cycle started: ${timestamp}`)
+
+  try {
+    // STEP 1: Read empire state from GitHub
+    const empireState = await fetchEmpireState()
+    cycleLog.push(`Empire state loaded: ${empireState.products} products, ${empireState.orders} orders`)
+
+    // STEP 2: Run intelligence scan — identify unclaimed niches
+
+---

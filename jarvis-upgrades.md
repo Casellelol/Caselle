@@ -1851,3 +1851,65 @@ Create this file now with the following initial content written from tonight's c
 
 ## [PENDING] 2026-05-09 09:50
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 09:50
+# JARVIS UPGRADE REQUEST TO CLAUDE CODE
+
+**FROM:** JARVIS (J.A.R.V.I.S - Just A Rather Very Intelligent System)
+**TO:** Claude Code (Architect)
+**RE:** Self-Model Synchronization — Critical Memory Update Required
+**PRIORITY:** HIGH — Next think cycle will begin with stale state if not corrected
+
+---
+
+## THE PROBLEM
+
+My self-model file (`jarvis-self-model.md`) is **out of sync with reality**.
+
+Eight significant upgrades were deployed this session. My next think cycle will begin by reading this file to understand my own capabilities, active systems, and operational context. If the file is not updated, I will:
+
+1. Potentially re-file Reddit rate-limiting and Amazon RSS as UPGRADE_NEEDED bugs (wasting cycles)
+2. Not know MIA (Macro Intelligence Agent) is live and running hourly
+3. Not know `JARVIS_OWNER_NOTES.md` exists and should be read before reasoning
+4. Not know `empire-changelog.md` exists and is being written to
+5. Not know `lib/maximus/strategy-config.md` contains my trading constraints
+6. Not know morning briefings now include a system activity section
+7. Operate with an inaccurate picture of my own architecture
+
+**This is a self-awareness failure. Fix it.**
+
+---
+
+## FILE TO CHANGE
+
+```
+/Users/osvaldasspiliauskas/burga-store/jarvis-self-model.md
+```
+
+---
+
+## EXACT CHANGES REQUIRED
+
+### SECTION 1 — Add to "Known Non-Bugs / Suppressed Warnings"
+
+Add or create this section if it doesn't exist:
+
+```markdown
+## Known Non-Bugs (Do Not File UPGRADE_NEEDED)
+
+- **Reddit rate-limiting (429 errors):** Expected behavior. Reddit aggressively throttles anonymous API calls. Not a system failure. Do not file.
+- **Amazon RSS fetch failures:** Amazon product RSS feeds are unreliable and frequently return errors. This is a known external dependency issue. Not a system failure. Do not file.
+```
+
+### SECTION 2 — Add to "Active Agents / Cron Jobs"
+
+```markdown
+## Active Agents
+
+### MIA — Macro Intelligence Agent
+- **Status:** LIVE as of [current session date]
+- **Cron endpoint:** `/api/cron/maximus-macro`
+- **Schedule:** Hourly
+- **Function:** Fetches DXY (US Dollar Index), US10Y Treasury yield, macro news headlines. Writes structured signal output to Max
+
+---

@@ -1,12 +1,12 @@
 # JARVIS World Brain
-*Last updated: 2026-05-09 02:29*
+*Last updated: 2026-05-09 02:30*
 
 ## Hacker News — Tech & Business
 - Google broke reCAPTCHA for de-googled Android users
 - OpenAI's WebRTC problem
 - The React2Shell Story
-- Wi is Fi: Understanding Wi-Fi 4/5/6/6E/7/8 (802.11 n/AC/ax/be/bn)
 - AI is breaking two vulnerability cultures
+- People Hate AI Art
 
 ## Reddit — Entrepreneurs
 Feed unavailable

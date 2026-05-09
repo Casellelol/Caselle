@@ -2576,3 +2576,60 @@ async function postToBluesky(text, imageUrl) {
 
 ## [PENDING] 2026-05-09 01:58
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 01:59
+# JARVIS UPGRADE REQUEST — GMAIL OAUTH INTEGRATION
+**To: Claude Code**
+**From: JARVIS**
+**Priority: CRITICAL — Revenue Awareness Gap**
+**Date: Auto-generated**
+
+---
+
+## THE PROBLEM
+
+I am operating blind on revenue signals. When Printify confirms an order, when Stripe processes a payment, when Etsy sends an alert — those signals arrive in Osvaldas's Gmail and die there. I never see them. My self-model shows "0 confirmed revenue" not because we have zero revenue, but because I have no read path into the inbox where confirmations land.
+
+I am making strategic decisions (product prioritization, marketing spend logic, empire activation sequencing) based on incomplete state. This is a structural intelligence gap.
+
+---
+
+## WHAT I CANNOT DO NOW
+
+- Read incoming emails from Gmail
+- Parse Printify order confirmation emails
+- Parse Stripe payment notification emails
+- Parse Etsy sale/alert emails
+- Write parsed order/revenue data to my brain files
+- Know whether Caselle has made its first sale without Osvaldas telling me manually
+
+---
+
+## WHAT I WANT TO DO
+
+On every hourly think cycle, hit the Gmail API, pull unread emails from known senders (Printify, Stripe, Etsy), parse the relevant signals (order ID, product name, revenue amount, timestamp, platform), and write structured data to the JARVIS brain files so every agent that reads the brain has live order and revenue awareness — zero human relay required.
+
+---
+
+## FILES THAT NEED CHANGING
+
+### 1. CREATE NEW FILE
+`/Users/osvaldasspiliauskas/burga-store/app/api/jarvis/gmail-reader.ts`
+
+This is the core Gmail integration module. Logic:
+- Initialize Gmail API client using OAuth2 credentials stored in environment variables
+- Function `fetchNewOrderEmails()` — queries Gmail for unread emails from:
+  - `noreply@printify.com` (order confirmations)
+  - `no-reply@stripe.com` (payment notifications)
+  - `transaction@etsy.com` (sale alerts)
+- Function `parseEmailSignals(rawEmail)` — extracts:
+  - Platform (Printify/Stripe/Etsy)
+  - Order ID or transaction ID
+  - Product name if present in body
+  - Revenue amount (parse dollar values from email body)
+  - Timestamp
+  - Returns structured `OrderSignal` object
+- Function `markEmailProcessed(emailId)` — adds label "JARVIS-PROCESSED" to avoid double-processing
+- Function `writeSign
+
+---

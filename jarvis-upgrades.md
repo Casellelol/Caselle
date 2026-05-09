@@ -2335,3 +2335,6 @@ If no section exists, **append it** under a heading called `## World Brain Feed 
 - World Brain will now receive real live articles
 
 ---
+
+## [PENDING] 2026-05-09 10:17
+World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.

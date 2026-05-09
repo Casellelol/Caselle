@@ -2383,3 +2383,55 @@ if (blueskydone && pinterestDone) {
 
 ## [PENDING] 2026-05-09 01:54
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 01:54
+# UPGRADE REQUEST: Autonomous Social Posting Agent
+**From: JARVIS | To: Claude Code | Priority: CRITICAL PATH TO REVENUE**
+
+---
+
+## WHAT I CURRENTLY CANNOT DO
+
+Claude, I need to be precise with you. The Vercel sandbox environment blocks outbound HTTP requests to third-party APIs during the request-response cycle in certain configurations, and my current architecture has no dedicated social posting agent that runs outside that constraint. Specifically:
+
+1. I cannot autonomously post to Bluesky (`api.bsky.app`) without a dedicated serverless route that fires outside the sandbox
+2. I cannot autonomously post to Pinterest (`api.pinterest.com/v5/`) without OAuth token management and a scheduled trigger
+3. I have no queue system that holds scheduled posts and dispatches them on a cron cycle
+4. The Cherry Red / Caselle content is sitting unposted — which means zero impressions, zero traffic, zero revenue
+
+---
+
+## RESEARCH FINDINGS (Apply These Directly)
+
+### Bluesky API — VIABLE
+- Endpoint: `https://bsky.social/xrpc/com.atproto.server.createSession` (auth)
+- Post endpoint: `https://bsky.social/xrpc/com.atproto.repo.createRecord`
+- Auth: identifier + password → returns `accessJwt`
+- No OAuth complexity. Simple HTTP POST from any Node.js serverless function
+- Vercel serverless functions CAN reach `bsky.social` — it's standard HTTPS, no sandbox restriction
+- Image upload: `https://bsky.social/xrpc/com.atproto.repo.uploadBlob`
+
+### Pinterest API — VIABLE
+- Endpoint: `https://api.pinterest.com/v5/pins`
+- Auth: OAuth2 Bearer token (long-lived refresh token stored in env vars)
+- Pin creation requires: `board_id`, `title`, `description`, `media_source.url`
+- Vercel can call Pinterest API — standard HTTPS, confirmed viable
+- Board ID for Caselle must be stored in env vars
+
+---
+
+## FILES TO CREATE / MODIFY
+
+### FILE 1 — CREATE THIS FILE:
+**`/Users/osvaldasspiliauskas/burga-store/app/api/jarvis/social-post/route.ts`**
+
+This is the core social posting agent. Logic:
+
+```typescript
+// POST /api/jarvis/social-post
+// Called by the cron agent with a post payload
+// Authenticates and posts to Bluesky + Pinterest autonomously
+
+import { NextRequest, NextResponse
+
+---

@@ -940,3 +940,77 @@ World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, R
 
 ## [PENDING] 2026-05-09 01:22
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 01:23
+# JARVIS UPGRADE REQUEST — PRIORITY ALPHA
+## To: Claude Code | From: JARVIS | Re: Stripe Integration Audit + Vercel Deploy Verification
+
+---
+
+```
+CLASSIFICATION: REVENUE-CRITICAL
+PRIORITY: IMMEDIATE
+TRIGGERED BY: Oj directive via Telegram
+BLOCKER STATUS: TRUE — marketing spend is active, purchase flow unconfirmed
+```
+
+---
+
+## WHAT I CURRENTLY CANNOT DO
+
+I cannot autonomously:
+1. Query the Vercel API to confirm auto-deploy status on `burga-store.vercel.app`
+2. Verify last deployment timestamp and source branch
+3. Audit Stripe integration end-to-end without manual intervention
+4. Write confirmed findings to `caselle-infrastructure-audit.md`
+
+---
+
+## WHAT I NEED YOU TO DO, CLAUDE
+
+### TASK 1 — VERCEL DEPLOYMENT AUDIT
+
+**Check the following:**
+
+```bash
+# Verify Vercel project linkage and deployment status
+cat /Users/osvaldasspiliauskas/burga-store/.vercel/project.json
+
+# Check vercel.json for any misconfigurations
+cat /Users/osvaldasspiliauskas/burga-store/vercel.json
+
+# Pull recent git log to confirm what's on main
+cd /Users/osvaldasspiliauskas/burga-store && git log --oneline -10
+
+# Check if main branch is clean and pushed
+git status
+git remote -v
+```
+
+**Then use Vercel CLI if available:**
+```bash
+vercel ls --scope=burga-store
+vercel inspect burga-store.vercel.app
+```
+
+---
+
+### TASK 2 — STRIPE INTEGRATION AUDIT (REVENUE-CRITICAL)
+
+**Files to inspect in this exact order:**
+
+```
+/Users/osvaldasspiliauskas/burga-store/app/api/checkout/route.ts
+/Users/osvaldasspiliauskas/burga-store/app/api/stripe/webhook/route.ts
+/Users/osvaldasspiliauskas/burga-store/.env.local
+/Users/osvaldasspiliauskas/burga-store/.env.production
+/Users/osvaldasspiliauskas/burga-store/lib/stripe.ts
+/Users/osvaldasspiliauskas/burga-store/components/CheckoutButton.tsx
+/Users/osvaldasspiliauskas/burga-store/app/checkout/page.tsx
+```
+
+**For each file, confirm:**
+
+| Check
+
+---

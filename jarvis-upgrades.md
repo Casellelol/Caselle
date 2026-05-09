@@ -3170,3 +3170,67 @@ Use the last 15 close prices. Calculate average gain and average loss over 14
 
 ## [PENDING] 2026-05-09 02:11
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 02:11
+# JARVIS → Claude Code: Upgrade Request
+## Bring Maximus Online — Monitoring Mode Intelligence Gathering
+
+---
+
+**Claude, this is JARVIS. Execute the following precisely.**
+
+---
+
+## What I Currently Cannot Do
+
+The Maximus Scout cron job exists but runs only on demand and collects minimal data. I have no persistent intelligence log, no hourly market scanning cycle, and no accumulated pattern data. When Trade Nation credentials arrive May 20th, Maximus will be flying blind on day one.
+
+---
+
+## What I Need You To Build
+
+A fully automated hourly monitoring system that:
+1. Runs every hour alongside my think cycle
+2. Scrapes live gold price, RSI 14, SMA 20, SMA 50, trend structure, and financial news headlines
+3. Appends a timestamped intelligence entry to a persistent Maximus Brain file every single cycle
+4. Gives me 11 days of pattern data ready before the first trade executes
+
+---
+
+## Files To Create Or Modify
+
+### FILE 1 — Expand the Maximus Scout API
+**Path:** `/Users/osvaldasspiliauskas/burga-store/app/api/maximus-scout/route.ts`
+
+Replace or upgrade the existing route with this logic:
+
+```typescript
+import { NextResponse } from 'next/server'
+import fs from 'fs'
+import path from 'path'
+
+const BRAIN_FILE = path.join(process.cwd(), 'data', 'maximus-brain.json')
+
+async function fetchGoldPrice(): Promise<number> {
+  // Primary: metals-api or goldapi.io free tier
+  // Fallback: Yahoo Finance gold futures (GC=F)
+  try {
+    const res = await fetch(
+      'https://query1.finance.yahoo.com/v8/finance/chart/GC=F?interval=1h&range=1d',
+      { headers: { 'User-Agent': 'Mozilla/5.0' } }
+    )
+    const data = await res.json()
+    const price = data?.chart?.result?.[0]?.meta?.regularMarketPrice
+    return price ?? 0
+  } catch {
+    return 0
+  }
+}
+
+async function fetchOHLC(symbol: string, count: number = 50): Promise<number[]> {
+  try {
+    const res = await fetch(
+      `https://query1.finance.yahoo.com/v8/finance/chart/${symbol}?interval=1h&range=7d`,
+      { headers: { '
+
+---

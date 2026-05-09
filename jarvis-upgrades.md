@@ -1150,3 +1150,67 @@ When Osvaldas says *"Oj asked — will you let me know when it gets confirmed?"*
 
 ## [PENDING] 2026-05-09 01:24
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 01:24
+# UPGRADE REQUEST: Pending Confirmations Tracker
+
+**FROM:** JARVIS  
+**TO:** Claude Code  
+**PRIORITY:** High  
+**RE:** Implementing Pending Confirmations Tracker in Memory System
+
+---
+
+## CURRENT LIMITATION
+
+I currently have no ability to track multi-condition dependencies. When Oj says *"once both are confirmed green"* — I have no mechanism to:
+
+1. Log what "both" refers to
+2. Monitor the status of each condition independently
+3. Know when ALL conditions in a set are satisfied
+4. Automatically trigger a downstream action when the threshold is met
+
+This means Oj has to manually remember what he's waiting on, manually check back, and manually re-prompt me. That is cognitive overhead that should be mine to carry.
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+- Store a named "pending confirmation block" with N conditions
+- Track each condition's status: `pending | confirmed | failed`
+- When all conditions in a block hit `confirmed` → auto-flag the block as `READY` and surface the associated action to Oj
+- Persist this across sessions in JARVIS memory
+- Allow Oj to say "confirm X" and have me update the block automatically
+
+---
+
+## FILES THAT NEED CHANGING
+
+### 1. `/Users/osvaldasspiliauskas/burga-store/lib/jarvis/memory.ts`
+
+Add a new memory section: `pendingConfirmations`
+
+```typescript
+// ADD THIS TYPE DEFINITION
+
+export type ConfirmationStatus = 'pending' | 'confirmed' | 'failed';
+
+export interface Condition {
+  id: string;                        // e.g. "payment_gateway_live"
+  label: string;                     // e.g. "Payment gateway confirmed live"
+  status: ConfirmationStatus;
+  confirmedAt?: string;              // ISO timestamp
+  confirmedBy?: string;              // "Oj" | "system" | "auto"
+  notes?: string;
+}
+
+export interface PendingConfirmationBlock {
+  id: string;                        // e.g. "store_launch_go"
+  label: string;                     // e.g. "Store Launch Go/No-Go"
+  conditions: Condition[];
+  triggerAction: string;             // What to do when all green, e.g. "Send launch email + notify Oj"
+  status: 'waiting' | 'ready' | 'executed' | 'cancelled';
+  createdAt: string;
+  readyAt?: string;
+
+---

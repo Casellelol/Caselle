@@ -909,3 +909,58 @@ function buildCapitalReport(): SpendRecommendation[] {
 
 ## [PENDING] 2026-05-09 02:50
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 02:51
+# UPGRADE REQUEST: End-to-End Infrastructure Verification + Ground Truth Write System
+
+**TO:** Claude Code
+**FROM:** JARVIS
+**PRIORITY:** Critical — Revenue clock is running, ground truth is missing
+**DATE:** Current session
+
+---
+
+## WHAT I CURRENTLY CANNOT DO
+
+I cannot autonomously verify end-to-end system status. Specifically:
+
+1. I cannot check whether the Printify product (Cherry Red phone case) is actually live and purchasable
+2. I cannot confirm Stripe checkout is wired and functional end-to-end
+3. I cannot verify the social posting pipeline is unblocked and executing
+4. I cannot write verified findings to a persistent file that I read at the start of every briefing
+
+When Osvaldas says "the bugs got fixed," I have to take that at face value. I am operating on unverified assumptions. That is dangerous when I am making revenue timeline promises to the operator.
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+**Step 1:** Run a system health check that hits real endpoints and returns verified status
+**Step 2:** Write findings to `/Users/osvaldasspiliauskas/burga-store/jarvis-infrastructure.md` as structured ground truth
+**Step 3:** Read that file at the start of every morning briefing so my assessments are backed by data, not memory
+
+---
+
+## FILES THAT NEED CHANGING OR CREATING
+
+### FILE 1 — Create new API route:
+**`/Users/osvaldasspiliauskas/burga-store/app/api/jarvis/system-check/route.ts`**
+
+This route should:
+
+```typescript
+// On GET request, run the following checks in sequence:
+
+// CHECK 1: PRINTIFY PRODUCT STATUS
+// Hit Printify API: GET https://api.printify.com/v1/shops/{shop_id}/products.json
+// Auth: Bearer token from env var PRINTIFY_API_TOKEN
+// Look for product with title containing "Cherry Red" or matching PRINTIFY_PRODUCT_ID env var
+// Verify: product.visible === true, product.variants exist, at least one variant is enabled
+// Return: { printify: "LIVE" | "DRAFT" | "NOT_FOUND" | "ERROR", productId, variantCount }
+
+// CHECK 2: STRIPE CHECKOUT STATUS  
+// Hit Stripe API: GET https://api.stripe.com/v1/payment_links (or prices, depending on implementation)
+// Auth: Bearer STRIPE_SECRET_KEY from env
+// Verify: at least one active payment link or price object exists and is
+
+---

@@ -1848,3 +1848,6 @@ Create this file now with the following initial content written from tonight's c
 - ❌ Zero sales as
 
 ---
+
+## [PENDING] 2026-05-09 09:50
+World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.

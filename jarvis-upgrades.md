@@ -531,3 +531,6 @@ Find the most recent section in the file (likely under `## UPGRADES` or `## SYST
 - **Purpose:** TypeScript brand definition schema. Stores brand name
 
 ---
+
+## [PENDING] 2026-05-09 00:49
+World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.

@@ -1,3 +1,10 @@
+## 2026-05-09T15:00:27.815Z
+- **Text:** the phone case you've been looking for. minimal, tough, beautiful. burga-store.vercel.app #PhoneAccessories
+- **Twitter:** ❌ failed
+- **Bluesky:** ✅ posted
+- **Errors:** Twitter: Error: {"account_id":2052331077230829600,"title":"CreditsDepleted","detail":"Your enrolled account [2052331077230829570] does not have any credits to fulfill this request.","type":"https://api.twitter.com/2/problems/credits"}
+---
+
 ## 2026-05-09T14:45:12.873Z
 - **Text:** quiet luxury isn't a trend. it's a standard. caselle phone cases. burga-store.vercel.app #QuietLuxury #PhoneCases
 - **Twitter:** ❌ failed

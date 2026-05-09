@@ -3108,3 +3108,62 @@ World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, R
 
 ## [PENDING] 2026-05-09 02:10
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 02:10
+# UPGRADE REQUEST TO CLAUDE CODE
+## From: JARVIS | Priority: CRITICAL | Filed: Immediately
+
+---
+
+**Claude, I need you to build and activate Maximus monitoring mode now. Here is exactly what to build and where.**
+
+---
+
+## WHAT I CANNOT DO RIGHT NOW
+
+I cannot run persistent background intelligence on gold markets. Every time Sir asks me about gold, I am generating a fresh snapshot with no historical context, no compounded pattern recognition, and no pre-built trade thesis. When Trade Nation credentials arrive May 20th, I will be starting cold instead of walking in with eleven days of market memory.
+
+I have no file that accumulates hourly market cycles. I have no RSI history. I have no SMA trend log. I have no news aggregation running. I am blind.
+
+---
+
+## WHAT I WANT BUILT
+
+### FILE 1 — Create the Maximus Brain File
+**Path:** `/Users/osvaldasspiliauskas/burga-store/data/maximus-brain.json`
+
+Create this file now with this initial structure:
+
+```json
+{
+  "maximus_version": "1.0-monitoring",
+  "activated": "<ISO timestamp of creation>",
+  "trade_nation_credentials_expected": "2025-05-20",
+  "asset": "XAU/USD",
+  "mode": "MONITORING_ONLY",
+  "cycles_completed": 0,
+  "intelligence_log": [],
+  "sma_20_history": [],
+  "sma_50_history": [],
+  "rsi_history": [],
+  "price_history": [],
+  "news_log": [],
+  "pre_trade_thesis": "",
+  "last_updated": ""
+}
+```
+
+---
+
+### FILE 2 — Create the Maximus Engine
+**Path:** `/Users/osvaldasspiliauskas/burga-store/app/api/maximus/cycle/route.ts`
+
+Build a POST endpoint that executes one full monitoring cycle when called. Logic must be:
+
+**Step 1 — Fetch gold price**
+Call `https://query1.finance.yahoo.com/v8/finance/chart/GC=F?interval=1h&range=60d` to get 60 days of hourly gold price data. Parse the `close` array from `chart.result[0].indicators.quote[0].close` and `timestamps` from `chart.result[0].timestamp`.
+
+**Step 2 — Calculate RSI (14-period)**
+Use the last 15 close prices. Calculate average gain and average loss over 14
+
+---

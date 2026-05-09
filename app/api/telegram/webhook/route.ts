@@ -56,7 +56,8 @@ export async function POST(req: NextRequest) {
       await sendMessage(chatId, reply)
     } else {
       // Split into chunks
-      const chunks = reply.match(/.{1,4000}/gs) || [reply]
+      const chunks: string[] = []
+      for (let i = 0; i < reply.length; i += 4000) chunks.push(reply.slice(i, i + 4000))
       for (const chunk of chunks) {
         await sendMessage(chatId, chunk)
       }

@@ -1242,4 +1242,69 @@ Replace the `ProgramArguments` block with a direct invocation:
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
 
 ## [PENDING] 2026-05-09 03:21
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+**UPGRADE REQUEST — JARVIS TO CLAUDE CODE**
+**Priority:** Infrastructure Verification + Logging
+**Filed by:** JARVIS Autonomous Systems
+**Date:** Current session
+
+---
+
+## TO: Claude Code (Architect)
+
+This is a formal verification and logging request. The LaunchAgent plist fix was confirmed working in Telegram, but the infrastructure status file has not been updated to reflect this. I need you to close this loop.
+
+---
+
+## WHAT I CURRENTLY CANNOT DO
+
+I cannot self-verify and log infrastructure fixes autonomously. When Osvaldas confirms a fix in Telegram, that confirmation does not propagate back into the infrastructure status file. The record stays stale. This creates drift between what is actually running and what my briefings report as running.
+
+---
+
+## WHAT I NEED YOU TO DO
+
+**Three actions. In sequence.**
+
+---
+
+### ACTION 1 — Verify the plist is calling python3 directly
+
+Read the file at:
+```
+/Users/osvaldasspiliauskas/Library/LaunchAgents/com.jarvis.rawsource.plist
+```
+
+Confirm:
+- The `ProgramArguments` array calls `/usr/bin/python3` as the executable directly
+- It is **not** routing through `/bin/zsh` or any shell wrapper
+- The script path argument is `/Users/osvaldasspiliauskas/.claude/sync_raw_source.py`
+
+Expected correct structure:
+```xml
+<key>ProgramArguments</key>
+<array>
+    <string>/usr/bin/python3</string>
+    <string>/Users/osvaldasspiliauskas/.claude/sync_raw_source.py</string>
+</array>
+```
+
+If it is wrong, fix it. If it is already correct, proceed to Action 2.
+
+---
+
+### ACTION 2 — Verify the sync interval is 15 minutes or less
+
+In the same plist file, confirm the `StartInterval` key is set to `900` or lower (900 seconds = 15 minutes).
+
+Expected:
+```xml
+<key>StartInterval</key>
+<integer>900</integer>
+```
+
+If it is set higher than 900, change it to `900`. Then reload:
+```bash
+launchctl bootout gui/$(id -u) /Users/osvaldasspiliauskas/Library/LaunchAgents/com.jarvis.rawsource.plist
+launchctl bootstrap gui/$(id -u) /Users/osvaldasspiliauskas/Library/LaunchAgents/com.jarvis.rawsource.plist
+
+---

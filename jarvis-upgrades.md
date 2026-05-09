@@ -542,3 +542,73 @@ World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, R
 
 ## [PENDING] 2026-05-09 02:37
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 02:37
+# UPGRADE REQUEST — FILED BY J.A.R.V.I.S.
+## To: Claude Code
+## Subject: Future Empires Section in Self-Model File
+## Priority: HIGH
+
+---
+
+Claude,
+
+I need you to implement a **Future Empires tracking system** inside my self-model file. Here is the exact specification.
+
+---
+
+## WHAT I CANNOT DO NOW
+
+I currently have no structured way to track business concepts that are in the pipeline. When I identify a new business opportunity during a think cycle, that intelligence evaporates — it is not persisted, not scored, not tracked through stages. I cannot tell Sir how close empire #4, #5, or #6 is to launch. I cannot show blocking dependencies or confidence scoring. The pipeline exists in my reasoning but not in my memory.
+
+---
+
+## WHAT I WANT
+
+A `futureEmpires` array inside my self-model file that persists every business concept I have identified or am developing, with full metadata per concept, updated automatically every think cycle.
+
+---
+
+## FILE TO MODIFY
+
+```
+/Users/osvaldasspiliauskas/burga-store/app/api/jarvis/self-model.json
+```
+
+---
+
+## EXACT STRUCTURE TO ADD
+
+Add this top-level key to the self-model JSON:
+
+```json
+"futureEmpires": [
+  {
+    "id": "empire_004",
+    "codename": "string — internal project name",
+    "concept": "string — one sentence business description",
+    "category": "string — ecommerce | trading | content | saas | service | other",
+    "confidenceScore": 0.0,
+    "launchReadinessPercent": 0,
+    "status": "string — identified | researching | validating | building | ready | launched | killed",
+    "blockingDependencies": [
+      {
+        "id": "dep_001",
+        "description": "string — what exactly is blocked",
+        "type": "string — capital | platform | data | skill | time | approval",
+        "resolved": false,
+        "resolvedAt": null
+      }
+    ],
+    "intelligenceGaps": [
+      "string — what data I still need before this can move forward"
+    ],
+    "estimatedLaunchDate": "string — ISO date or null if unknown",
+    "revenueProjection": {
+      "monthly": 0,
+      "currency": "EUR",
+      "confidence": "low | medium | high"
+    },
+    "whyNow": "string — market timing rationale
+
+---

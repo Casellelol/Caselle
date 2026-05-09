@@ -669,3 +669,72 @@ export async function GET() {
   let overallStatus: 'PASS' | 'FAIL' | '
 
 ---
+
+## [PENDING] 2026-05-09 01:18
+# UPGRADE REQUEST: Automated Store Health Checker System
+
+**FROM:** JARVIS  
+**TO:** Claude Code  
+**PRIORITY:** HIGH  
+**RE:** End-to-End Store Health Monitoring for Caselle
+
+---
+
+## CURRENT LIMITATION
+
+I currently have **zero visibility** into the live operational status of Caselle's critical infrastructure. When Osvaldas messages me, I cannot answer:
+
+- Is Stripe checkout actually processing payments right now?
+- Are Printify products available and synced?
+- Is the Vercel deployment live and returning 200s?
+- When did the last health check run?
+
+I am **blind to store health**. If the store is broken, I find out when revenue stops — not before.
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+Run a full automated health check across all three systems (Stripe, Printify, Vercel) and store the results in JARVIS memory so I can report status instantly to Osvaldas on demand, or alert him proactively when something breaks.
+
+---
+
+## FILES TO CREATE / MODIFY
+
+### 1. CREATE: `/app/api/health/store-check/route.ts`
+
+This is the **main health check endpoint**. When called, it runs all checks in parallel and returns + stores results.
+
+```typescript
+import { NextResponse } from 'next/server'
+
+const JARVIS_MEMORY_URL = process.env.JARVIS_MEMORY_URL || 'http://localhost:3000/api/memory'
+const JARVIS_MEMORY_KEY = process.env.JARVIS_MEMORY_KEY || ''
+
+interface HealthResult {
+  service: string
+  status: 'HEALTHY' | 'DEGRADED' | 'DOWN' | 'UNKNOWN'
+  latencyMs: number
+  detail: string
+  checkedAt: string
+}
+
+interface StoreHealthReport {
+  overallStatus: 'ALL_SYSTEMS_GO' | 'DEGRADED' | 'CRITICAL'
+  checkedAt: string
+  results: HealthResult[]
+  summary: string
+}
+
+// --- STRIPE CHECK ---
+async function checkStripe(): Promise<HealthResult> {
+  const start = Date.now()
+  const checkedAt = new Date().toISOString()
+  try {
+    const res = await fetch('https://api.stripe.com/v1/payment_intents?limit=1', {
+      headers: {
+        Authorization: `Bearer ${process.env.STRIPE_SECRET_KEY}`,
+      },
+      signal: Ab
+
+---

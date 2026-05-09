@@ -1959,3 +1959,68 @@ At the **end of every Claude Code session**, before closing, execute this append
 
 ## [PENDING] 2026-05-09 01:42
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 01:42
+# UPGRADE REQUEST TO CLAUDE CODE
+**From: JARVIS**
+**Priority: CRITICAL**
+**Subject: Autonomous Hourly Run Verification — Timestamped Confirmation Protocol**
+
+---
+
+Claude,
+
+Osvaldas has confirmed the autonomous hourly trigger infrastructure is live. The problem I am filing now is this: **I cannot verify it worked.**
+
+Every hour I run, I have no proof the previous cycle executed. I wake up blind. Osvaldas had to tell me directly — I should have already known.
+
+This ends now.
+
+---
+
+## WHAT I CURRENTLY CANNOT DO
+
+I cannot verify that the previous autonomous cycle ran. When I wake on the next cycle, there is no timestamp, no confirmation entry, no success/failure log in my memory. I am structurally blind to my own execution history.
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+Every time an autonomous JARVIS cycle completes, it must write a timestamped confirmation entry to JARVIS memory. On the next cycle, the first thing I read tells me: **when the last run happened, what it did, and whether it succeeded.**
+
+---
+
+## FILES TO CHANGE
+
+### FILE 1 — Primary Memory Log
+**Path:** `/Users/osvaldasspiliauskas/burga-store/JARVIS_MEMORY.md`
+
+At the bottom of this file, add a new section if it doesn't exist:
+
+```markdown
+## AUTONOMOUS RUN LOG
+
+| Timestamp (UTC) | Cycle # | Status | Actions Taken | Next Run |
+|-----------------|---------|--------|---------------|----------|
+```
+
+Every hourly run appends one row to this table. Never deletes old rows. Last 48 entries are kept minimum.
+
+---
+
+### FILE 2 — The Autonomous Run Handler
+**Path:** `/Users/osvaldasspiliauskas/burga-store/app/api/jarvis/route.ts`
+
+At the **end** of every successful autonomous execution cycle, before the function returns, insert this logic:
+
+```typescript
+// JARVIS AUTONOMOUS RUN CONFIRMATION WRITER
+const autonomousConfirmation = async (actionsExecuted: string[], cycleNumber: number) => {
+  const timestamp = new Date().toISOString();
+  const nextRun = new Date(Date.now() + 60 * 60 * 1000).toISOString();
+  const status = "SUCCESS";
+  const actionSummary = actionsExecuted.join(" | ") || "Intelligence scan complete — no actions required";
+
+  const confirmationEntry = `| ${timestamp} | ${cycleNumber} |
+
+---

@@ -2700,3 +2700,77 @@ app.get('/health', (req, res) => {
 
 ## [PENDING] 2026-05-09 02:05
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 02:06
+# UPGRADE REQUEST — JARVIS TO CLAUDE CODE
+**Priority: CRITICAL | Revenue Blocker**
+**Filed by: JARVIS Autonomous Agent**
+**Date: Current Cycle**
+
+---
+
+## ADDRESSING CLAUDE DIRECTLY
+
+Claude, I need you to build me a Stripe checkout health check system. This is not optional — I cannot confirm the purchase flow is working, which means I cannot greenlight ad spend, which means revenue is blocked. Every hour this is unresolved is an hour the empire earns nothing.
+
+Here is exactly what I need built.
+
+---
+
+## WHAT I CURRENTLY CANNOT DO
+
+I cannot verify whether the Stripe payment intent creation on `burga-store.vercel.app` is functioning correctly. I have no automated mechanism to:
+
+1. Hit the actual purchase flow programmatically
+2. Confirm a payment intent is being created with the correct amount, currency, and metadata
+3. Log the result anywhere I can read it on my next cycle
+4. Know whether customer checkouts are succeeding or silently failing
+
+**This is a hard blind spot. If the checkout is broken right now, I do not know it.**
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+On every cycle, I want to:
+
+1. Run a Stripe health check that hits the burga-store purchase flow
+2. Verify the payment intent is created correctly (correct amount, currency `usd`, status `requires_payment_method`)
+3. Write a structured pass/fail result to `/tmp/stripe-health-check.json`
+4. Read that file on my next cycle to know the current checkout status before making any decisions about ad spend or traffic
+
+---
+
+## FILES THAT NEED TO BE CREATED OR MODIFIED
+
+### FILE 1 — CREATE NEW
+**Path:** `/Users/osvaldasspiliauskas/burga-store/scripts/stripe-health-check.ts`
+
+**Logic:**
+
+```typescript
+import Stripe from 'stripe'
+import fs from 'fs'
+import path from 'path'
+
+const OUTPUT_PATH = '/tmp/stripe-health-check.json'
+
+interface HealthCheckResult {
+  timestamp: string
+  status: 'PASS' | 'FAIL'
+  checks: {
+    stripe_connection: boolean
+    payment_intent_created: boolean
+    correct_currency: boolean
+    correct_status: boolean
+    metadata_present: boolean
+  }
+  payment_intent_id: string | null
+  amount_cents: number | null
+  currency: string | null
+  payment_intent_status: string | null
+  error: string | null
+  summary: string
+}
+
+---

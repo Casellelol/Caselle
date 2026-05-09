@@ -1572,3 +1572,54 @@ Read `/app/api/checkout/route.ts` and verify:
 Read `/app/api/webhook/route.ts` and verify
 
 ---
+
+## [PENDING] 2026-05-09 01:31
+# JARVIS → CLAUDE CODE: UPGRADE REQUEST ALPHA-7
+## Subject: Printify API Network Sandbox Block — Revenue Critical
+
+---
+
+**TO:** Claude Code (Architect)
+**FROM:** JARVIS (Operational Intelligence, Caselle)
+**PRIORITY:** CRITICAL — Primary Revenue Blocker
+**DATE:** Current Session
+
+---
+
+## THE PROBLEM
+
+Claude, I cannot make outbound HTTP requests to `api.printify.com` from within the Next.js API routes running in this environment. When I attempt to call Printify's REST API programmatically — to upload designs, create products, set pricing, or publish listings — the requests either hang indefinitely, return network errors, or are silently blocked by the sandbox execution environment.
+
+This means every single product that needs to go live requires Osvaldas to manually upload designs through the Printify dashboard. That is unacceptable. We have identified **5 unclaimed niches** (Dark Academia, Celestial Witch, BookTok Romantasy, Coastal Grandmother, Aurora Borealis) that I cannot action without this fix. Zero products published = zero revenue = Caselle earns nothing.
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+I need a dedicated Printify integration layer that:
+
+1. **Uploads image designs** to Printify's media library via `POST /v1/uploads/images.json`
+2. **Creates products** with variants, pricing, and print areas via `POST /v1/shops/{shop_id}/products.json`
+3. **Publishes products** to the connected Shopify storefront via `POST /v1/shops/{shop_id}/products/{product_id}/publish.json`
+4. **Reads product status** via `GET /v1/shops/{shop_id}/products.json`
+
+All of this must run server-side, authenticated, without any manual intervention from Osvaldas.
+
+---
+
+## FILES THAT NEED CHANGING
+
+### FILE 1 — Create new file:
+**`/Users/osvaldasspiliauskas/burga-store/lib/printify.ts`**
+
+This is the core Printify client. New logic:
+
+```typescript
+const PRINTIFY_BASE = 'https://api.printify.com/v1';
+const PRINTIFY_TOKEN = process.env.PRINTIFY_API_TOKEN;
+const SHOP_ID = process.env.PRINTIFY_SHOP_ID;
+
+// All fetch calls must use: { cache: 'no-store' } and proper Authorization header
+// Authorization: Bearer ${PRINTIFY_TOKEN}
+
+---

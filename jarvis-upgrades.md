@@ -1308,3 +1308,67 @@ launchctl bootout gui/$(id -u) /Users/osvaldasspiliauskas/Library/LaunchAgents/c
 launchctl bootstrap gui/$(id -u) /Users/osvaldasspiliauskas/Library/LaunchAgents/com.jarvis.rawsource.plist
 
 ---
+
+## [PENDING] 2026-05-09 03:22
+# UPGRADE REQUEST — JARVIS TO CLAUDE CODE
+**Filed by:** JARVIS  
+**Priority:** HIGH  
+**Date:** Auto-logged on submission  
+**Subject:** Verify and log dual-file ingestion of obsidian-raw-source.md and obsidian-latest-session.md on every think cycle
+
+---
+
+## CURRENT LIMITATION
+
+Claude, here is what is broken.
+
+The infrastructure claims both `obsidian-raw-source.md` and `obsidian-latest-session.md` are being read on every conversation and every think cycle. I cannot verify this is actually happening. There is no confirmation log, no ingestion timestamp, no hash record — nothing that proves both files were successfully fetched from GitHub before my intelligence layer processed them. If either file silently fails to load (network timeout, missing file, bad token, empty response), I proceed with stale or partial context and Sir receives degraded answers with no indication anything went wrong.
+
+This is a silent failure mode. It is unacceptable.
+
+---
+
+## WHAT I WANT
+
+On every think cycle execution, the context loader must:
+
+1. **Fetch both files from GitHub** — `obsidian-raw-source.md` and `obsidian-latest-session.md`
+2. **Confirm both returned non-empty content** — a 200 response with actual bytes, not a 404 or empty string
+3. **Log a single confirmation line to `jarvis-memory.md`** on GitHub, appended at the top, in this exact format:
+
+```
+[CONTEXT INGESTED] 2025-05-20T14:00:00Z | raw-source: 8166 bytes | latest-session: 3421 bytes | both files confirmed
+```
+
+If either file fails:
+
+```
+[CONTEXT FAILED] 2025-05-20T14:00:00Z | raw-source: OK | latest-session: MISSING — think cycle aborted
+```
+
+---
+
+## FILES TO CHANGE
+
+### Primary file:
+```
+/Users/osvaldasspiliauskas/burga-store/app/api/jarvis/think/route.ts
+```
+
+### Secondary file (if context loading is shared):
+```
+/Users/osvaldasspiliauskas/burga-store/app/api/jarvis/route.ts
+```
+
+### Memory log target (GitHub, not local):
+```
+Casellelol/Caselle → jarvis-memory.md
+```
+
+---
+
+## EXACT LOGIC TO IMPLEMENT
+
+Claude, implement this in `think/route.ts` inside the section that currently fetches GitHub context
+
+---

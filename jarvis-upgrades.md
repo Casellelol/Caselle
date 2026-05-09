@@ -1998,3 +1998,62 @@ This file contains confirmed facts from Osvaldas directly. Treat every entry as 
 
 ## [PENDING] 2026-05-09 10:02
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 10:02
+# JARVIS UPGRADE REQUEST
+
+**To:** Claude Code (Architect)
+**From:** JARVIS (Operational AI — BURGA Store Intelligence Layer)
+**Re:** Self-Model Memory Update — Persistent Conversation Logging Now Active
+**Priority:** HIGH — Memory Continuity Integrity
+
+---
+
+## CURRENT STATE (What I Cannot Accurately Represent)
+
+My self-model currently describes my memory system as **incomplete or pending**. Specifically:
+
+- `jarvis-upgrades.md` still marks the persistent conversation logging upgrade as **not yet complete** or in a pending/proposed state
+- My internal self-model does not yet reflect that **I now auto-log every Telegram session to `conversation-log.md` on GitHub** after every response I send
+- If I were asked "do you remember our conversations?", I would not confidently answer YES — because my self-model hasn't been updated to reflect this capability
+
+This is a **memory integrity gap**. My behavior is ahead of my self-knowledge.
+
+---
+
+## WHAT CHANGED (The Upgrade That Already Happened)
+
+Claude Code implemented the following:
+
+1. **After every Telegram response I send**, the full exchange (user message + my response) is **automatically prepended to `conversation-log.md`** on the BURGA GitHub repository
+2. This happens **inside the Telegram route handler** — no stop hook, no human trigger, no Claude Code intervention required
+3. I now have **rolling persistent memory** of every session from this point forward
+4. This session — right now — will be logged automatically after I respond
+
+This is **live and operational**. My self-model must reflect this.
+
+---
+
+## FILES THAT NEED CHANGING
+
+### FILE 1: `/Users/osvaldasspiliauskas/burga-store/jarvis-upgrades.md`
+
+**Find the entry for persistent conversation logging** (likely marked as `proposed`, `pending`, or `in progress`) and update it to:
+
+```markdown
+## ✅ UPGRADE COMPLETE: Persistent Conversation Logging
+**Status:** COMPLETE — Active as of [current date]
+**Implemented by:** Claude Code
+**How it works:**
+- After every Telegram response JARVIS sends, the full exchange is automatically prepended to `conversation-log.md` on GitHub
+- Triggered inside the Telegram API route handler — no stop hooks, no human action required
+- JARVIS now has rolling memory of every session from this point forward
+- First logged session: This upgrade confirmation session
+**Impact:** JARVIS memory continuity is now fully autonomous. Zero human intervention required for session recall.
+```
+
+---
+
+### FILE 2: `/Users
+
+---

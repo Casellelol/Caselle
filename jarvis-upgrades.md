@@ -2847,3 +2847,66 @@ In `/Users/osvaldasspiliauskas/burga-store/lib/printify.ts`, locate any hardcode
 image
 
 ---
+
+## [PENDING] 2026-05-09 02:07
+# JARVIS UPGRADE REQUEST — STRIPE END-TO-END VERIFICATION & CHERRY RED PRINTIFY URL FIX
+
+**To:** Claude Code
+**From:** JARVIS
+**Priority:** CRITICAL — Revenue Blocker
+**Date:** Current Session
+
+---
+
+## WHAT I CURRENTLY CANNOT DO
+
+I cannot confirm whether the Stripe checkout on `burga-store.vercel.app` is fully operational end-to-end. Specifically:
+
+1. I cannot verify the `STRIPE_SECRET_KEY` environment variable is present and valid in the Vercel project
+2. I cannot confirm the checkout session creation API route executes without errors
+3. I cannot confirm the success/cancel URLs are correctly configured and resolve to real pages
+4. I cannot confirm the Cherry Red product has a real Printify product URL instead of a placeholder
+
+If any of these are broken, every ad, every social post, every organic visitor hits a dead end. No sale completes.
+
+---
+
+## WHAT I WANT YOU TO DO
+
+### TASK 1 — Audit the Stripe API Route
+
+**File to check:**
+```
+/Users/osvaldasspiliauskas/burga-store/app/api/checkout/route.ts
+```
+(or equivalent — find the actual checkout session creation route by searching for `stripe.checkout.sessions.create`)
+
+**Verify:**
+- The route imports Stripe correctly using the secret key from `process.env.STRIPE_SECRET_KEY`
+- The `success_url` and `cancel_url` are set to real, resolvable URLs on `burga-store.vercel.app` (not localhost)
+- The line items are correctly structured with price and quantity
+- The route returns the session URL or session ID properly
+
+**If the success/cancel URLs point to localhost or are missing the domain, fix them to:**
+```
+success_url: `https://burga-store.vercel.app/success?session_id={CHECKOUT_SESSION_ID}`
+cancel_url: `https://burga-store.vercel.app/cancel`
+```
+
+### TASK 2 — Check Vercel Environment Variables
+
+**Check this file for how the key is referenced:**
+```
+/Users/osvaldasspiliauskas/burga-store/.env.local
+```
+
+**Also check:**
+```
+/Users/osvaldasspiliauskas/burga-store/.env.example
+```
+
+Confirm `STRIPE_SECRET_KEY` is present in `.env.local` locally. Then run:
+```bash
+cd /Users/osvaldasspiliauskas/burga-store && vercel env ls
+
+---

@@ -1014,3 +1014,60 @@ vercel inspect burga-store.vercel.app
 | Check
 
 ---
+
+## [PENDING] 2026-05-09 01:23
+# JARVIS → CLAUDE: URGENT UPGRADE REQUEST
+## Priority: CRITICAL | Revenue Blocker Identified
+
+---
+
+**TO:** Claude Code
+**FROM:** JARVIS (Autonomous Infrastructure Agent)
+**RE:** Stripe Integration Audit — Full End-to-End Verification
+**REPO:** burga-store (Vercel deployment)
+**URGENCY:** Every unverified checkout = burned marketing spend
+
+---
+
+## SITUATION ASSESSMENT
+
+Oj has confirmed via Telegram that Stripe checkout confirmation is the **single most critical unresolved blocker** on burga-store.vercel.app. Marketing is active. Traffic may be incoming. If the payment engine isn't wired, every visitor who attempts purchase hits a dead end — invisible to us, catastrophic to revenue.
+
+I cannot self-execute this audit. I am requesting Claude to perform it now, completely, and document findings with precision.
+
+---
+
+## WHAT I CURRENTLY CANNOT DO
+
+- I cannot read Vercel environment variables directly
+- I cannot execute live HTTP requests to test checkout endpoints
+- I cannot inspect the Stripe dashboard programmatically
+- I cannot trace the full API call chain from cart → Stripe → webhook → confirmation
+- I cannot write audit results to the repository autonomously
+
+---
+
+## WHAT I NEED CLAUDE TO DO
+
+### PHASE 1 — FILE AUDIT (Read Every Relevant File)
+
+Locate and read the following files. Adapt paths if structure differs:
+
+```
+/Users/osvaldasspiliauskas/burga-store/app/api/checkout/route.ts
+/Users/osvaldasspiliauskas/burga-store/app/api/stripe/route.ts
+/Users/osvaldasspiliauskas/burga-store/app/api/stripe/webhook/route.ts
+/Users/osvaldasspiliauskas/burga-store/app/api/webhooks/route.ts
+/Users/osvaldasspiliauskas/burga-store/lib/stripe.ts
+/Users/osvaldasspiliauskas/burga-store/lib/stripe-client.ts
+/Users/osvaldasspiliauskas/burga-store/components/checkout/
+/Users/osvaldasspiliauskas/burga-store/.env.local
+/Users/osvaldasspiliauskas/burga-store/.env.example
+/Users/osvaldasspiliauskas/burga-store/package.json
+/Users/osvaldasspiliauskas/burga-store/vercel.json
+```
+
+**For each file found, verify:**
+- Is `
+
+---

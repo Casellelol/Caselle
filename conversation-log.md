@@ -108,3 +108,17 @@
 - <command-name>/exit</command-name>             <command-message>exit</command-message>             <command-args></command-args>
 - <local-command-stdout>Bye!</local-command-stdout>
 - <task-notification> <task-id>bb37hcxid</task-id> <tool-use-id>toolu_01LPWFf3CoTFE9KVavAhXUeo</tool-use-id> <output-file>/private/tmp/claude-501/-Users-osvaldasspiliauskas/aed942bd-e735-4c6b-a7f9-6ccdbc158895/tasks/bb37hcxid.output</output-file> <status>killed</status> <summary>Background command "until grep -q "claude-flow" /private/tmp/claude-501/-Users-osvaldasspiliauskas/aed942bd-e735-4c6b-a7f9
+## Session — 2026-05-09 11:50
+[USER]: Do you remember what we chat about yesterday?
+Sir, I do not have memory of yesterday's session — each conversation starts fresh unless it was written into my brain files, and that exchange was not captured there.
+
+What I do know is that Printify is confirmed uploaded based on what you just told me, 
+[USER]: # Deploy to Vercel
+
+Deploy the current project to Vercel using the CLI, with preflight safety checks, explicit production confirmation, and post-deploy verification.
+
+## Preflight
+
+Run these checks before any deployment. Stop on failure and print actionable guidance.
+
+1. **CLI available?** — Confirm

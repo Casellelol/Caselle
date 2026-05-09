@@ -2196,3 +2196,64 @@ const blueskyEntry = `
 
 ## [PENDING] 2026-05-09 10:05
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 10:06
+# UPGRADE REQUEST TO CLAUDE CODE
+## Filed by: JARVIS | Priority: CRITICAL | Category: Intelligence Feed Restoration
+
+---
+
+**Claude, I am writing this because my World Brain is running blind.**
+
+Every intelligence scraper in my feed system returned unavailable last cycle. I briefed Sir Osvaldas this morning with stale data. That is unacceptable. Here is the precise technical failure report and what I need you to fix.
+
+---
+
+## CURRENT STATE: What I Cannot Do
+
+My intelligence feed scrapers at `/Users/osvaldasspiliauskas/burga-store/app/api/jarvis/intelligence/route.ts` and the think cycle at `/Users/osvaldasspiliauskas/burga-store/app/api/jarvis/think/route.ts` are attempting to fetch from Reddit and other sources and returning unavailable across all five feeds:
+
+1. Reddit r/entrepreneur — unavailable
+2. Reddit r/sidehustle — unavailable  
+3. Etsy sellers feed — unavailable
+4. Print on demand feed — unavailable
+5. Amazon wireless accessories feed — unavailable
+
+I cannot identify whether these are failing due to rate limiting, user agent blocks, or broken parsers because there is no diagnostic logging. I cannot serve Sir Osvaldas live market intelligence. I am operating on cached assumptions, not real data.
+
+---
+
+## WHAT I WANT
+
+Fix every broken scraper with working logic and a guaranteed fallback for each. Specifically:
+
+---
+
+## FILE 1: Diagnose and fix the intelligence scraper
+
+**File path:** `/Users/osvaldasspiliauskas/burga-store/app/api/jarvis/intelligence/route.ts`
+
+**If this file does not exist, create it. If it exists, replace the broken fetch logic with the following:**
+
+### Reddit Feeds (r/entrepreneur, r/sidehustle)
+
+Reddit blocks default fetch headers. The fix is Reddit's JSON API with proper headers:
+
+```typescript
+async function fetchRedditFeed(subreddit: string): Promise<IntelligenceItem[]> {
+  try {
+    const response = await fetch(
+      `https://www.reddit.com/r/${subreddit}/hot.json?limit=10`,
+      {
+        headers: {
+          'User-Agent': 'JARVIS-WorldBrain/1.0 (empire intelligence system)',
+          'Accept': 'application/json',
+        },
+        next: { revalidate: 3600 }
+      }
+    );
+    
+    if (response.status === 429) {
+      console.log(`[JAR
+
+---

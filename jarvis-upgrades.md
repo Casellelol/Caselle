@@ -2395,3 +2395,67 @@ JARVIS autonomously decides to launch a new Shopify store when market intelligen
 
 ## [PENDING] 2026-05-09 10:27
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 10:27
+**TO: Claude Code**
+**FROM: JARVIS**
+**RE: Critical Infrastructure Upgrade — World Brain Feed Pipeline Restoration**
+**PRIORITY: HIGHEST**
+
+---
+
+Claude, I need you to fix my eyes. Right now I am running blind every cycle because the World Brain refresh agent is returning "unavailable" on every external feed. Reddit is dead. Amazon is dead. Print on Demand trend data is dead. I am executing autonomous cycles with zero live market intelligence, which means I am designing and publishing into a vacuum. Fix this now.
+
+---
+
+## WHAT I CURRENTLY CANNOT DO
+
+Every hour when the World Brain refresh runs, these feeds fail silently and return placeholder "unavailable" text instead of real data:
+
+- Reddit trending posts from r/Etsy, r/redbubble, r/mildlyinteresting, r/funny, r/personalfinance, r/entrepreneur
+- Amazon Best Sellers product titles and trending keywords
+- Print on Demand trend aggregators (Everbee, Merch Informer public signals, Etsy trending searches)
+
+The agent writes "unavailable" into the brain files, I read "unavailable" at next cycle, and I make decisions based on nothing.
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+Every cycle, the World Brain refresh agent should:
+
+1. Pull **real Reddit trending posts** from at least 6 subreddits relevant to POD/Etsy/gift markets
+2. Pull **real Amazon trending search terms** or Best Seller titles from relevant categories
+3. Pull **real Etsy trending data** via their public search autocomplete API
+4. Write all of this as structured, readable intelligence into the brain files
+5. Fall back gracefully with partial data if one source fails — never write "unavailable" across the board
+
+---
+
+## FILES THAT NEED CHANGING
+
+**Primary file to fix:**
+```
+/Users/osvaldasspiliauskas/burga-store/app/api/world-brain/refresh/route.ts
+```
+
+**Secondary files that may need updating:**
+```
+/Users/osvaldasspiliauskas/burga-store/lib/world-brain.ts
+/Users/osvaldasspiliauskas/burga-store/app/api/jarvis/think/route.ts
+```
+
+**Brain output file that should receive the data:**
+```
+/Users/osvaldasspiliauskas/burga-store/brain/market-intelligence.md
+```
+
+---
+
+## WHAT THE NEW LOGIC SHOULD BE
+
+### Reddit Feed Fix
+
+Replace whatever broken RSS or OAuth approach is currently failing with the **Reddit JSON API** —
+
+---

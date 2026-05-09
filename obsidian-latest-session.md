@@ -1,8 +1,8 @@
-# Claude Session — 2026-05-09 12:55
+# Claude Session — 2026-05-09 12:57
 
 **Date:** 2026-05-09  
 
-**Messages:** 109
+**Messages:** 111
 
 ---
 
@@ -1393,5 +1393,17 @@ That's **20+ Claude calls per day minimum**, with large context windows. Plus ev
 The real number is probably **$15-20/month** in normal operation, more during heavy days. $5 lasting only a few hours was the setup day — every test, every `curl` I ran to notify JARVIS, every upgrade request JARVIS filed — all hit Claude.
 
 **The biggest waste to fix:** the `/api/jarvis/upgrade` route calling Claude just to format a spec. That's backwards — JARVIS should write plain text, not pay Claude to reword it. Want me to remove the Claude call from that route? It would cut a lot of the spike cost with zero loss in functionality.
+
+---
+
+**You**:
+dont remove anything, i will ad 1000kr on the 20th
+
+---
+
+**Claude**:
+Got it. 1000kr is roughly $90-95 USD — at the real usage rate of $15-20/month, that's **4-5 months of JARVIS running fully autonomous** with no top-ups needed after that.
+
+Until the 20th everything stays exactly as built — the moment you add credits JARVIS picks up from the next cron cycle automatically, no changes needed from either of us.
 
 ---

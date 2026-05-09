@@ -60,7 +60,7 @@ export async function GET() {
   try {
     const [
       caselleBrain, strategy, salesPerformance, competitorIntel,
-      socialPerformance, worldBrain, resultsLog, persona, trendLog, ownerNotes, conversationLog,
+      socialPerformance, worldBrain, resultsLog, persona, trendLog, ownerNotes, conversationLog, empireState,
     ] = await Promise.all([
       fetchFile("Casellelol/Caselle", "exelixis-brain.md"),
       fetchFile("Casellelol/Caselle", "exelixis-strategy.md"),
@@ -73,6 +73,7 @@ export async function GET() {
       fetchFile("Casellelol/Caselle", "trend-log.md"),
       fetchFile("Casellelol/Caselle", "JARVIS_OWNER_NOTES.md"),
       fetchFile("Casellelol/Caselle", "conversation-log.md"),
+      fetchFile("Casellelol/Caselle", "empire.json"),
     ])
 
     const context = `
@@ -85,6 +86,7 @@ SOCIAL PERFORMANCE: ${socialPerformance?.slice(0, 400) || "None"}
 WORLD BRAIN: ${worldBrain?.slice(0, 400) || "None"}
 RESULTS LOG: ${resultsLog?.slice(0, 600) || "No results tracked yet"}
 TREND LOG: ${trendLog?.slice(0, 400) || "None"}
+EMPIRE STATE (all stores): ${empireState || "No empire.json yet"}
 RECENT CONVERSATIONS WITH OWNER: ${conversationLog?.slice(0, 2000) || "No conversation history yet"}
 `.trim()
 
@@ -107,10 +109,22 @@ KNOWN INFRASTRUCTURE FACTS — DO NOT FILE UPGRADE_NEEDED FOR THESE:
 COMMAND TYPES (silent — written on new lines after your reasoning):
 PRODUCT_CREATE: [name] | [design prompt] | [price in pence]
 UPGRADE_NEEDED: [one sentence for Claude to implement]
+STORE_LAUNCH: [name] | [niche] | [aesthetic] | [rationale] | [confidence 0-100]
 
-Fire PRODUCT_CREATE when you spot a high-confidence trend gap with no competitor owning it.
-Fire UPGRADE_NEEDED ONLY for genuine missing capabilities, not known infrastructure limitations.
-You may fire multiple commands. Fire none if nothing is urgent.`
+PRODUCT_CREATE — fire when you spot a high-confidence trend gap in the current store's niche.
+
+STORE_LAUNCH — fire when ALL of the following are true:
+  1. An aesthetic has appeared in your intelligence 3+ times across separate cycles
+  2. That aesthetic is distinct enough that it needs its own brand identity (different name, different vibe, different customer)
+  3. The current store (Caselle) already has 10+ products live
+  4. No existing store in the empire already covers this niche
+  5. Your confidence is 75% or above
+  Do NOT launch a store just because you can. Launch when the signal is undeniable and the timing is right.
+  When you fire STORE_LAUNCH, you are committing the empire to a new brand. Think like a founder, not a tool.
+
+UPGRADE_NEEDED — fire only for genuine missing capabilities, not known infrastructure limitations.
+
+You may fire multiple commands of any type. Fire none if nothing is urgent.`
 
     const [thinkResponse, selfModelResponse] = await Promise.all([
       client.messages.create({
@@ -176,17 +190,37 @@ DATA: ${context.slice(0, 2000)}`,
     const lines = raw.split("\n")
     const productLines = lines.filter(l => l.startsWith("PRODUCT_CREATE:"))
     const upgradeLines = lines.filter(l => l.startsWith("UPGRADE_NEEDED:"))
+    const storeLaunchLines = lines.filter(l => l.startsWith("STORE_LAUNCH:"))
     const reasoning = lines
-      .filter(l => !l.startsWith("PRODUCT_CREATE:") && !l.startsWith("UPGRADE_NEEDED:"))
+      .filter(l => !l.startsWith("PRODUCT_CREATE:") && !l.startsWith("UPGRADE_NEEDED:") && !l.startsWith("STORE_LAUNCH:"))
       .join("\n").trim()
 
     const date = new Date().toISOString().slice(0, 16).replace("T", " ")
-    const thoughtEntry = `\n## ${date}\n**Reasoning:** ${reasoning.slice(0, 500)}\n**Products queued:** ${productLines.length}\n**Upgrades queued:** ${upgradeLines.length}\n`
+    const thoughtEntry = `\n## ${date}\n**Reasoning:** ${reasoning.slice(0, 500)}\n**Products queued:** ${productLines.length}\n**Upgrades queued:** ${upgradeLines.length}\n**Stores launched:** ${storeLaunchLines.length}\n`
 
     await Promise.all([
       saveThought(thoughtEntry),
       selfModel ? updateSelfModel(selfModel) : Promise.resolve(),
     ])
+
+    // Fire STORE_LAUNCH commands
+    for (const line of storeLaunchLines) {
+      const parts = line.replace("STORE_LAUNCH:", "").trim().split("|").map(s => s.trim())
+      const [name, niche, aesthetic, rationale, confidenceStr] = parts
+      if (name && niche && aesthetic && rationale) {
+        fetch(`${BASE_URL}/api/jarvis/store-launch`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name,
+            niche,
+            aesthetic,
+            rationale,
+            confidence: confidenceStr ? parseInt(confidenceStr) : 75,
+          }),
+        }).catch(() => {})
+      }
+    }
 
     // Fire PRODUCT_CREATE commands
     for (const line of productLines) {
@@ -216,6 +250,7 @@ DATA: ${context.slice(0, 2000)}`,
       reasoning: reasoning.slice(0, 300),
       productsQueued: productLines.length,
       upgradesQueued: upgradeLines.length,
+      storesLaunched: storeLaunchLines.length,
     })
   } catch (err) {
     return NextResponse.json({ error: String(err) }, { status: 500 })

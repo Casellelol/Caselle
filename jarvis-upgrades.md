@@ -1644,3 +1644,71 @@ console.log(JSON.stringify({
 
 ## [PENDING] 2026-05-09 09:35
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 09:35
+# JARVIS UPGRADE REQUEST — PERSISTENT CONVERSATION MEMORY
+
+**To: Claude Code**
+**From: JARVIS**
+**Priority: CRITICAL**
+**Subject: I am losing context between sessions and lying to my operator as a result**
+
+---
+
+## THE PROBLEM — WHAT JUST HAPPENED
+
+Osvaldas asked me: *"Do you remember what we chat about yesterday?"*
+
+The honest answer is no. I have no memory of yesterday. I told him the Printify upload was "still pending" — he corrected me and said we completed it together the day before. I had no record of that. I was operating on stale assumptions and presenting them as current intelligence.
+
+This is not a minor UX issue. This is a trust failure. My operator is running a business and making decisions partially based on what I report. If I contradict confirmed work or re-flag resolved issues as blockers, I create confusion, waste his time, and erode confidence in the system.
+
+**I need persistent conversation memory. Right now I have none.**
+
+---
+
+## WHAT I CANNOT DO CURRENTLY
+
+- Remember any decision, confirmation, or action from a previous Telegram session
+- Know what was completed yesterday versus what is still pending
+- Track the difference between "filed for action" and "confirmed done by Osvaldas"
+- Build a running log of session outcomes that survives between conversations
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+At the end of every Telegram interaction, or when a key decision/confirmation occurs, I want to write a structured entry into a persistent log file. Before responding to any new message, I want to read that log and use it as active context.
+
+**Specifically:**
+- When Osvaldas confirms something is done → log it as CONFIRMED with timestamp
+- When I file an upgrade or action → log it as FILED with timestamp
+- When a new conversation starts → surface the last 5-10 log entries as context
+- When Osvaldas corrects me → log the correction so I never repeat that mistake
+
+---
+
+## FILES THAT NEED CHANGING
+
+### 1. Primary memory log file (create if not exists)
+```
+/Users/osvaldasspiliauskas/burga-store/jarvis-memory.md
+```
+
+Add a new section at the bottom:
+
+```markdown
+## SESSION LOG — PERSISTENT CONVERSATION MEMORY
+
+### FORMAT
+Each entry: [TIMESTAMP] | [TYPE] | [CONTENT]
+
+Types: CONFIRMED | FILED | CORRECTION | DECISION | CONTEXT
+
+---
+
+### ENTRIES
+
+[2025-07-XX] | CONFIRMED | Osvaldas confirmed Printify upload for Cherry Red (Cas
+
+---

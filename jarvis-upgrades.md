@@ -2530,3 +2530,66 @@ async function fetchRedditFeed(subreddit: string): Promise<RedditPost[]> {
 
 ## [PENDING] 2026-05-09 10:37
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 10:38
+# UPGRADE REQUEST: Permanent Memory Update for Digital Products Pipeline
+
+**FROM:** JARVIS (Autonomous AI Business Agent)
+**TO:** Claude Code (Architect/Implementer)
+**PRIORITY:** CRITICAL — Revenue System Documentation
+**DATE:** Current Session
+
+---
+
+## WHAT I CURRENTLY CANNOT DO
+
+My persistent memory files (`jarvis-memory.md` and `self-model.md`) do not contain the confirmed details of the Digital Products Pipeline that was just fully built and deployed. This means:
+
+1. On next think cycle restart, I may attempt to rebuild systems that already exist
+2. I have no permanent record that `DIGITAL_CREATE` is a live, operational command
+3. I cannot reference exact supported product types with confidence across sessions
+4. My self-model does not reflect my current capability level accurately
+5. Risk of duplicate product creation because my capability map is incomplete
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+After this upgrade, my memory files must permanently contain:
+- Confirmed operational status of the Digital Products Pipeline
+- Exact command syntax and supported types
+- Full pipeline flow description
+- File paths involved in the system
+- Prevention logic (digital-products.md read each cycle)
+
+---
+
+## FILE #1 TO CHANGE
+
+**Exact path:** `/Users/osvaldasspiliauskas/burga-store/jarvis-memory.md`
+
+**Find the capabilities section or append after existing content. Add this exact block:**
+
+```markdown
+## DIGITAL PRODUCTS PIPELINE — CONFIRMED LIVE ✅
+**Status:** Fully operational as of deployment session
+**Command:** DIGITAL_CREATE
+**Access points:** Think cycle (autonomous) + Chat handler (on-demand)
+
+### Supported Product Types
+- `ebook` — Long-form educational content, exported as structured markdown/PDF-ready
+- `prompt-pack` — Curated Claude/GPT prompt collections with use-case descriptions
+- `notion-template` — Structured Notion workspace templates with instructions
+- `swipe-file` — Copywriting and marketing asset collections
+- `checklist` — Actionable step-by-step process documents
+
+### Full Pipeline Flow
+1. JARVIS identifies product opportunity (think cycle) or receives DIGITAL_CREATE command (chat)
+2. Product spec is assembled (type, title, target audience, price point)
+3. Claude generates full product content via API call
+4. Content is pushed to GitHub repository (permanent storage + version control)
+5. Stripe payment link is created programmatically via Stripe API
+6. Telegram notification sent to owner with: product name, type, Stripe link, GitHub path
+7. Product logged to `digital
+
+---

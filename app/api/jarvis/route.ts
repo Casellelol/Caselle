@@ -43,10 +43,24 @@ async function spawnMastermind(opportunity: string, autoApprove: boolean) {
   } catch { return null }
 }
 
+export async function GET(req: NextRequest) {
+  const message = req.nextUrl.searchParams.get("message")
+  if (!message) return NextResponse.json({ error: "No message" }, { status: 400 })
+  return jarvisRespond(message)
+}
+
 export async function POST(req: NextRequest) {
   try {
     const { message } = await req.json()
     if (!message) return NextResponse.json({ error: "No message" }, { status: 400 })
+    return jarvisRespond(message)
+  } catch (err) {
+    return NextResponse.json({ error: String(err) }, { status: 500 })
+  }
+}
+
+async function jarvisRespond(message: string) {
+  try {
 
     // Refresh world brain in background
     fetch(`${BASE_URL}/api/jarvis/world`).catch(() => {})
@@ -240,3 +254,4 @@ CAPABILITY: You can spawn new Masterminds for new business opportunities. If con
     return NextResponse.json({ error: "JARVIS offline", detail: msg }, { status: 500 })
   }
 }
+

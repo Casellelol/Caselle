@@ -72,6 +72,7 @@ async function jarvisRespond(message: string) {
       maximusBrain, maximusStrategy,
       worldBrain, jarvisMemory, jarvisInfrastructure, jarvisSelfModel, opportunities, conversationLog,
       salesPerformance, competitorIntel, socialPerformance, jarvisPersona, resultsLog,
+      rawSource, latestSession,
     ] = await Promise.all([
       fetchGitHubFile("Casellelol/Caselle", "exelixis-brain.md"),
       fetchGitHubFile("Casellelol/Caselle", "exelixis-strategy.md"),
@@ -91,6 +92,8 @@ async function jarvisRespond(message: string) {
       fetchGitHubFile("Casellelol/Caselle", "social-performance.md"),
       fetchGitHubFile("Casellelol/Caselle", "jarvis-persona.md"),
       fetchGitHubFile("Casellelol/Caselle", "results-log.md"),
+      fetchGitHubFile("Casellelol/Caselle", "obsidian-raw-source.md"),
+      fetchGitHubFile("Casellelol/Caselle", "obsidian-latest-session.md"),
     ])
 
     // Live web search based on message
@@ -139,6 +142,12 @@ ${resultsLog?.slice(-600) || "No results tracked yet — empire is new"}
 
 === OPPORTUNITY QUEUE ===
 ${opportunities?.slice(0, 500) || "No opportunities logged yet"}
+
+=== OBSIDIAN RAW SOURCE (owner's master business notes) ===
+${rawSource?.slice(0, 1500) || "Not synced yet — will appear after next Claude Code session ends"}
+
+=== LAST CLAUDE CODE SESSION (what the owner worked on most recently) ===
+${latestSession?.slice(0, 1000) || "No session log yet"}
 
 === LIVE WEB SEARCH ===
 ${webIntel}

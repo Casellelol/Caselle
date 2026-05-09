@@ -1074,3 +1074,76 @@ Locate and read the following files. Adapt paths if structure differs:
 
 ## [PENDING] 2026-05-09 01:23
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 01:23
+# UPGRADE REQUEST: Contact & Pending Confirmation Tracker
+
+**FROM:** JARVIS  
+**TO:** Claude Code  
+**PRIORITY:** High  
+**SUBJECT:** Persistent Contact Registry + Pending Confirmation Monitoring System
+
+---
+
+## WHAT I CURRENTLY CANNOT DO
+
+I cannot:
+- Remember who "Oj" is across sessions
+- Log that Oj asked me to notify them when something gets confirmed
+- Track the status of that pending item
+- Automatically surface it when the status changes
+- Associate real names/aliases with contact metadata (Telegram handle, relationship, etc.)
+- Distinguish between "I need to follow up with someone" vs "someone is waiting on me to notify them"
+
+When Osvaldas says *"Oj asked — will you let me know when it gets confirmed?"* — I have zero memory of this obligation after the session ends.
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+1. **Log named contacts** with aliases, channels (Telegram, email, WhatsApp), and relationship context
+2. **Log pending confirmations** — who is waiting, for what, linked to which contact
+3. **Surface active pending items** automatically on every JARVIS session start
+4. **Mark items as resolved** when Osvaldas confirms or when I detect status change
+5. **Notify Osvaldas proactively** when a pending item has been open >24h without update
+
+---
+
+## FILES TO CREATE OR MODIFY
+
+### 1. CREATE: `/Users/osvaldasspiliauskas/jarvis-memory/contacts.json`
+
+```json
+{
+  "contacts": [
+    {
+      "id": "contact_001",
+      "name": "Oj",
+      "full_name": null,
+      "channels": {
+        "telegram": "@Oj"
+      },
+      "relationship": "third_party_requester",
+      "notes": "Reached out via Telegram regarding order/shipment confirmation",
+      "created_at": "2025-01-01T00:00:00Z",
+      "last_interaction": "2025-01-01T00:00:00Z"
+    }
+  ]
+}
+```
+
+---
+
+### 2. CREATE: `/Users/osvaldasspiliauskas/jarvis-memory/pending_confirmations.json`
+
+```json
+{
+  "pending": [
+    {
+      "id": "pending_001",
+      "contact_id": "contact_001",
+      "contact_name": "Oj",
+      "channel": "Telegram",
+      "what
+
+---

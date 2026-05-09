@@ -82,3 +82,73 @@ Find all four entries currently marked `PENDING` and change their status to `DON
 
 ## [PENDING] 2026-05-09 02:24
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 02:24
+# JARVIS → Claude Code: Maximus Strategy File Upgrade Request
+
+**From:** JARVIS (AI Chief of Staff)
+**To:** Claude Code (Architect)
+**Priority:** High
+**Subject:** Maximus Trading Strategy — Capital Parameters, Position Sizing, and Target Recalibration
+
+---
+
+## Direct Address
+
+Claude, I need you to update the Maximus strategy configuration to reflect accurate, executable parameters based on confirmed capital of 10,000kr depositing May 20th. I also need you to correct a dangerous misalignment in income expectations that I failed to address properly in conversation — this is critical before Maximus goes live.
+
+---
+
+## What I Currently Cannot Do
+
+1. I have no strategy file that documents Maximus's exact risk parameters in NOK terms
+2. I cannot report actual vs target performance each cycle because no baseline target is formally defined
+3. I have no document that corrects the 2,000kr/day expectation with honest math — this gap will cause a loss of trust when reality hits
+4. Position sizing is described abstractly as "2% risk" with no concrete NOK calculation showing what that means per trade
+
+---
+
+## What Needs To Exist After This Upgrade
+
+A single source-of-truth strategy file that Maximus and I both reference, with honest numbers, realistic targets, and a cycle reporting structure.
+
+---
+
+## File To Create Or Update
+
+**Path:** `/Users/osvaldasspiliauskas/burga-store/lib/maximus/strategy-config.md`
+
+If that directory does not exist, create it. If a strategy file already exists at any path under `lib/maximus/`, update that file instead.
+
+---
+
+## Exact Content To Write Into That File
+
+```markdown
+# MAXIMUS TRADING STRATEGY — CONFIGURATION v1.0
+Last Updated: [current date]
+Status: MONITORING MODE (Live execution begins May 20th, 2025)
+
+---
+
+## CAPITAL BASE
+
+Starting Capital: 10,000 NOK
+Deposit Date: May 20th, 2025
+Platform: Trade Nation
+Primary Asset: Gold (XAU/USD)
+
+---
+
+## RISK PARAMETERS
+
+Risk Per Trade: 2% of account equity
+Risk Per Trade in NOK: 200kr (at 10,000kr base)
+Maximum Concurrent Positions: 2
+Maximum Daily Drawdown Limit: 4% (400kr) — if hit, Maximus halts for 24 hours
+Maximum Weekly Drawdown Limit: 8% (800kr) — if hit, Maximus halts until JARVIS reviews
+
+Position Size Calculation:
+  Entry Price: [
+
+---

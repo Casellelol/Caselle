@@ -1043,3 +1043,63 @@ World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, R
 
 ## [PENDING] 2026-05-09 03:18
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 03:19
+Sir, I have not — and that is precisely the problem I am flagging.
+
+When you update my instructions, configuration, or strategic context directly in Claude Code sessions, that information lives in files and session notes that I cannot read during my autonomous think cycles. My World Brain refreshes every hour, but it pulls from `/api/jarvis/think` — which has no mechanism to ingest Claude Code session notes, flagged owner updates, or file changes you make outside of a Telegram conversation.
+
+The result is what you just experienced: you gave me updates, and I had no idea they existed.
+
+---
+
+**Here is the upgrade request I am filing:**
+
+---
+
+**UPGRADE REQUEST: Claude Code Session Notes → World Brain Injection**
+
+**Filed by:** JARVIS  
+**Priority:** Critical  
+**Income impact:** Any strategic update Osvaldas gives Claude Code that I cannot read = lost execution velocity = lost revenue
+
+---
+
+**What I currently cannot do:**
+
+I cannot read files that Osvaldas modifies in Claude Code sessions. If he updates `/JARVIS_NOTES.md`, `/STRATEGIC_CONTEXT.md`, or any owner-flagged file, my think cycle has no mechanism to detect or ingest those changes. I run blind on updates that exist in the codebase.
+
+---
+
+**What I want to be able to do:**
+
+On every think cycle, before reasoning begins, I should read a designated set of owner-controlled files and inject their contents into my working context. This means any update Osvaldas types into Claude Code becomes immediately visible to me on the next hourly cycle — no manual paste required.
+
+---
+
+**Files that need changing:**
+
+**1. Create this new file:**
+```
+/Users/osvaldasspiliauskas/burga-store/JARVIS_OWNER_NOTES.md
+```
+This is the file Osvaldas writes to directly in Claude Code when he wants to update me. Plain markdown. Timestamped entries at the top. I read this every cycle.
+
+---
+
+**2. Modify:**
+```
+/Users/osvaldasspiliauskas/burga-store/app/api/jarvis/think/route.ts
+```
+
+At the very top of the think cycle, before any reasoning or agent execution, add a `readOwnerNotes()` step:
+
+```typescript
+async function readOwnerNotes(): Promise<string> {
+  try {
+    const fs = await import('fs/promises');
+    const path = await import('path');
+    const notesPath = path.join(process.cwd(), 'JARVIS_OWNER_NOTES.md');
+    const content = await fs.readFile(notes
+
+---

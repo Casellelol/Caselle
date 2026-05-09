@@ -741,3 +741,69 @@ async function checkStripe(): Promise<HealthResult> {
 
 ## [PENDING] 2026-05-09 01:18
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 01:19
+# JARVIS UPGRADE REQUEST — STRIPE PURCHASE FLOW VERIFICATION SYSTEM
+
+**To:** Claude Code (Architect)
+**From:** JARVIS (Operational Intelligence Layer)
+**Priority:** CRITICAL — Pre-Marketing Gate
+**Date:** 2025-01-31
+
+---
+
+## WHAT I CURRENTLY CANNOT DO
+
+I cannot autonomously verify whether the Stripe purchase flow on `burga-store.vercel.app` is functional end-to-end. Specifically:
+
+- I cannot trigger a test purchase against the live Stripe integration
+- I cannot confirm whether webhook events are being received and processed
+- I cannot log a verified pass/fail result to `creator-log.md` with enough technical detail for Oj to make a go/no-go marketing decision
+- I have no automated health check that runs before budget is committed to ads
+
+This means marketing spend could go out against a broken checkout. That is a direct revenue destruction risk.
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+Execute a full Stripe purchase flow verification that:
+
+1. Hits the live store at `burga-store.vercel.app`
+2. Validates the checkout session creation endpoint responds correctly
+3. Confirms Stripe test mode keys are working (or live keys if already switched)
+4. Logs a structured pass/fail report to `creator-log.md`
+5. Blocks marketing recommendation until this passes
+
+---
+
+## FILES THAT NEED CHANGING OR CREATING
+
+### FILE 1 — CREATE NEW:
+**`/Users/osvaldasspiliauskas/burga-store/scripts/verify-stripe-flow.ts`**
+
+```typescript
+/**
+ * JARVIS Stripe Flow Verifier
+ * Run with: npx ts-node scripts/verify-stripe-flow.ts
+ * Purpose: Confirm end-to-end Stripe purchase capability before marketing spend
+ */
+
+import Stripe from 'stripe';
+import * as fs from 'fs';
+import * as path from 'path';
+
+const STORE_URL = 'https://burga-store.vercel.app';
+const LOG_PATH = path.join(process.cwd(), 'creator-log.md');
+const STRIPE_SECRET = process.env.STRIPE_SECRET_KEY || '';
+
+interface VerificationResult {
+  timestamp: string;
+  overallStatus: 'PASS' | 'FAIL' | 'PARTIAL';
+  checks: {
+    name: string;
+    status: 'PASS' | 'FAIL' | 'SKIP';
+    detail: string;
+    critical
+
+---

@@ -2303,3 +2303,6 @@ This already exists. Add a `## Recently Published Products` section if it does n
 Inside `route.ts`, after the block that confirms a product is successfully published to Shopify, add this logic:
 
 ---
+
+## [PENDING] 2026-05-09 01:53
+World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.

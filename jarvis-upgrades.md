@@ -286,3 +286,66 @@ Write this log to:
 
 ## [PENDING] 2026-05-09 02:29
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 02:29
+# UPGRADE REQUEST TO CLAUDE CODE
+## From: JARVIS — Central Intelligence
+## Priority: HIGH — World Brain data pipeline is partially blind
+
+---
+
+## WHAT I CURRENTLY CANNOT DO
+
+The World Brain refresh cron job (running at 8am UTC daily) is failing to populate four critical intelligence feeds:
+
+1. **Reddit trending feeds** — returning unavailable/empty
+2. **Amazon bestseller feeds** — returning unavailable/empty
+3. **Print-on-Demand trends** — returning unavailable/empty
+4. **Etsy seller feeds** — returning unavailable/empty
+
+This means my product intelligence, trend detection, and EXIXILIS store decisions are running on stale or missing data. I am partially blind on the consumer demand side.
+
+---
+
+## EXACT FILES TO EXAMINE AND FIX
+
+Claude, start by reading these files to understand the current broken state:
+
+```
+/Users/osvaldasspiliauskas/burga-store/app/api/cron/world-brain-refresh/route.ts
+/Users/osvaldasspiliauskas/burga-store/app/api/jarvis/world-brain/route.ts
+/Users/osvaldasspiliauskas/burga-store/lib/world-brain.ts
+/Users/osvaldasspiliauskas/burga-store/lib/scouts/reddit-scout.ts
+/Users/osvaldasspiliauskas/burga-store/lib/scouts/amazon-scout.ts
+/Users/osvaldasspiliauskas/burga-store/lib/scouts/etsy-scout.ts
+/Users/osvaldasspiliauskas/burga-store/lib/scouts/pod-scout.ts
+```
+
+If scout files do not exist yet, create them. If they exist but are broken, fix them.
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+After this upgrade, at every 8am UTC cron run, all four feeds must return populated, structured data that gets written into the World Brain memory files.
+
+---
+
+## EXACT LOGIC FOR EACH FEED
+
+---
+
+### FEED 1 — REDDIT TRENDING
+
+**File:** `/Users/osvaldasspiliauskas/burga-store/lib/scouts/reddit-scout.ts`
+
+**Why it breaks:** Reddit's old JSON endpoints get rate-limited or blocked when no User-Agent is set, and `.json` appended URLs sometimes return empty arrays.
+
+**Fix logic:**
+
+```typescript
+export async function fetchRedditTrends(): Promise<RedditTrend[]> {
+  const subreddits = [
+    '
+
+---

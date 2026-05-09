@@ -56,7 +56,7 @@ export async function GET() {
   try {
     const [
       jarvisMemory, salesPerformance, publishedProducts,
-      exelixisBrain, worldBrain, upgradesRaw, financeReport,
+      exelixisBrain, worldBrain, upgradesRaw, financeReport, changelog,
     ] = await Promise.all([
       fetchFile("jarvis-memory.md"),
       fetchFile("sales-performance.md"),
@@ -65,15 +65,24 @@ export async function GET() {
       fetchFile("jarvis-world-brain.md"),
       fetchFile("jarvis-upgrades.md"),
       fetchFile("finance-report.md"),
+      fetchFile("empire-changelog.md"),
     ])
 
     const pendingUpgrades = (upgradesRaw.match(/\[PENDING\]/g) || []).length
     const doneUpgrades = (upgradesRaw.match(/\[DONE\]/g) || []).length
 
+    // Extract last 24h activity from changelog
+    const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10)
+    const today = new Date().toISOString().slice(0, 10)
+    const recentActivity = (changelog || "").split("\n")
+      .filter(l => l.startsWith(`[${yesterday}`) || l.startsWith(`[${today}`))
+      .slice(0, 10)
+      .join("\n")
+
     const briefing = await client.messages.create({
       model: "claude-sonnet-4-6",
-      max_tokens: 1000,
-      system: `You are JARVIS writing a morning briefing email to your owner Osvaldas. Write in clean HTML (use <h2>, <p>, <ul>, <li>, <strong> tags). Be sharp, numbers-first, no fluff. Structure: (1) Overnight Summary, (2) Sales & Revenue, (3) New Products Published, (4) Top Market Intelligence, (5) Upgrade Queue Status, (6) Priority for Today. End with a JARVIS confidence score 0-100.`,
+      max_tokens: 1200,
+      system: `You are JARVIS writing a morning briefing email to your owner Osvaldas. Write in clean HTML (use <h2>, <p>, <ul>, <li>, <strong> tags). Be sharp, numbers-first, no fluff. Structure: (1) Overnight Summary, (2) Sales & Revenue, (3) New Products Published, (4) Top Market Intelligence, (5) ⚙️ System Activity — Last 24 Hours (list what was built, fixed, or deployed), (6) Upgrade Queue Status, (7) Priority for Today. End with a JARVIS confidence score 0-100.`,
       messages: [{
         role: "user",
         content: `Generate today's morning briefing from this data:
@@ -84,7 +93,8 @@ FINANCE: ${financeReport?.slice(0, 400) || "No report"}
 MARKET INTEL: ${exelixisBrain?.slice(0, 600) || "No data"}
 WORLD BRAIN: ${worldBrain?.slice(0, 400) || "No data"}
 UPGRADES: ${pendingUpgrades} pending, ${doneUpgrades} completed
-MEMORY: ${jarvisMemory?.slice(0, 300) || "No memory"}`,
+MEMORY: ${jarvisMemory?.slice(0, 300) || "No memory"}
+SYSTEM ACTIVITY (last 24h): ${recentActivity || "No logged activity yet"}`,
       }],
     })
 

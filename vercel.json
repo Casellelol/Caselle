@@ -79,6 +79,10 @@
     {
       "path": "/api/jarvis/verify",
       "schedule": "0 6 * * *"
+    },
+    {
+      "path": "/api/cron/maximus-macro",
+      "schedule": "0 * * * *"
     }
   ]
 }

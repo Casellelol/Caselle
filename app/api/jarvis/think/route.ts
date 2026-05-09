@@ -60,7 +60,7 @@ export async function GET() {
   try {
     const [
       caselleBrain, strategy, salesPerformance, competitorIntel,
-      socialPerformance, worldBrain, resultsLog, persona, trendLog,
+      socialPerformance, worldBrain, resultsLog, persona, trendLog, ownerNotes,
     ] = await Promise.all([
       fetchFile("Casellelol/Caselle", "exelixis-brain.md"),
       fetchFile("Casellelol/Caselle", "exelixis-strategy.md"),
@@ -71,9 +71,11 @@ export async function GET() {
       fetchFile("Casellelol/Caselle", "results-log.md"),
       fetchFile("Casellelol/Caselle", "jarvis-persona.md"),
       fetchFile("Casellelol/Caselle", "trend-log.md"),
+      fetchFile("Casellelol/Caselle", "JARVIS_OWNER_NOTES.md"),
     ])
 
     const context = `
+${ownerNotes ? `=== OWNER INSTRUCTIONS (read first — highest priority) ===\n${ownerNotes.slice(0, 800)}\n` : ""}
 MARKET INTELLIGENCE: ${caselleBrain?.slice(0, 1500) || "None"}
 CURRENT STRATEGY: ${strategy?.slice(0, 600) || "None"}
 SALES PERFORMANCE: ${salesPerformance?.slice(0, 600) || "No sales data yet"}
@@ -94,12 +96,18 @@ RULES:
 - Do not repeat actions already in the results log.
 - Think like a CEO scanning their dashboard at 6am — what needs to happen today?
 
+KNOWN INFRASTRUCTURE FACTS — DO NOT FILE UPGRADE_NEEDED FOR THESE:
+- Reddit feeds returning empty or "Rate limited this cycle" is NORMAL. Vercel server IPs are blocked by Reddit. This is not a bug and cannot be fixed — it is a Reddit policy. Never file this as an upgrade.
+- Amazon Trends RSS was intentionally removed and replaced with DuckDuckGo searches. There is no "Amazon Trends module" to restore.
+- Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping — all rate-limited from server IPs. Expected. Do NOT file upgrades for these.
+- Printify Cherry Red phone case is LIVE and published. Do not flag as pending.
+
 COMMAND TYPES (silent — written on new lines after your reasoning):
 PRODUCT_CREATE: [name] | [design prompt] | [price in pence]
 UPGRADE_NEEDED: [one sentence for Claude to implement]
 
 Fire PRODUCT_CREATE when you spot a high-confidence trend gap with no competitor owning it.
-Fire UPGRADE_NEEDED when you detect a system problem or missing capability.
+Fire UPGRADE_NEEDED ONLY for genuine missing capabilities, not known infrastructure limitations.
 You may fire multiple commands. Fire none if nothing is urgent.`
 
     const [thinkResponse, selfModelResponse] = await Promise.all([

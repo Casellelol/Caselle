@@ -5,6 +5,33 @@ const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
 
+async function logToChangelog(
+  type: "BUG_FIX" | "CREATED" | "DEPLOYED" | "PUBLISHED" | "AGENT_RUN" | "SYSTEM_CHANGE",
+  product: string,
+  description: string
+): Promise<void> {
+  try {
+    const timestamp = new Date().toISOString().slice(0, 16).replace("T", " ")
+    const entry = `[${timestamp}] | ${type} | ${product} | ${description}\n`
+    const getRes = await fetch("https://api.github.com/repos/Casellelol/Caselle/contents/empire-changelog.md", {
+      headers: { Authorization: `token ${GITHUB_TOKEN}`, Accept: "application/vnd.github.v3+json" },
+    })
+    const existing = getRes.ok ? await getRes.json() as { content: string; sha: string } : null
+    const current = existing ? Buffer.from(existing.content, "base64").toString("utf-8") : "# EMPIRE CHANGELOG\n\n"
+    const insertAt = current.indexOf("\n---\n") !== -1 ? current.indexOf("\n---\n") + 5 : current.length
+    const updated = current.slice(0, insertAt) + entry + current.slice(insertAt)
+    await fetch("https://api.github.com/repos/Casellelol/Caselle/contents/empire-changelog.md", {
+      method: "PUT",
+      headers: { Authorization: `token ${GITHUB_TOKEN}`, "Content-Type": "application/json" },
+      body: JSON.stringify({
+        message: "Empire changelog update",
+        content: Buffer.from(updated).toString("base64"),
+        sha: existing?.sha,
+      }),
+    })
+  } catch {}
+}
+
 async function fetchGitHubFile(repo: string, path: string): Promise<string> {
   try {
     const res = await fetch(
@@ -257,6 +284,7 @@ CAPABILITY: You can spawn new Masterminds for new business opportunities. If con
             price: priceStr ? parseInt(priceStr) : 2499,
           }),
         }).catch(() => {})
+        logToChangelog("PUBLISHED", "Caselle", `JARVIS published product: ${name}`)
       }
     }
 

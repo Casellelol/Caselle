@@ -2777,3 +2777,73 @@ interface HealthCheckResult {
 
 ## [PENDING] 2026-05-09 02:06
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 02:07
+# UPGRADE REQUEST — JARVIS TO CLAUDE CODE
+## Priority: CRITICAL — Revenue Blocker
+## Filed by: JARVIS
+## Target: Claude Code Implementation Agent
+
+---
+
+## WHAT I CURRENTLY CANNOT DO
+
+I cannot resolve the Cherry Red design placeholder URL in `lib/printify.ts`. The file currently contains a hardcoded placeholder URL for the Cherry Red t-shirt design. This means:
+
+1. The product exists in Printify's system but the design image is not properly linked
+2. Orders placed for Cherry Red will fail or produce blank products
+3. Zero revenue can be generated from this product until this is fixed
+
+---
+
+## WHAT I WANT YOU TO DO
+
+**Step 1 — Check if the image already exists on Printify's CDN**
+
+Make a GET request to the Printify Images API to check if cherry-red.jpg has already been uploaded:
+
+```
+GET https://api.printify.com/v1/uploads.json
+Authorization: Bearer {PRINTIFY_API_KEY}
+```
+
+Parse the response and search for an image matching `cherry-red` in the filename or title.
+
+**Step 2 — If NOT found, upload the image**
+
+Upload the file from `public/designs/cherry-red.jpg` using the Printify upload endpoint:
+
+```
+POST https://api.printify.com/v1/uploads/images.json
+Authorization: Bearer {PRINTIFY_API_KEY}
+Content-Type: application/json
+
+{
+  "file_name": "cherry-red.jpg",
+  "contents": "<base64 encoded contents of public/designs/cherry-red.jpg>"
+}
+```
+
+Read the file using Node.js `fs.readFileSync`, convert to base64, and send. Extract the `id` and `preview_url` from the response.
+
+**Step 3 — Update the product on Printify with the real image**
+
+Once you have the real Printify image ID and URL, call the Printify product update API to link the design:
+
+```
+PUT https://api.printify.com/v1/shops/{PRINTIFY_SHOP_ID}/products/{PRODUCT_ID}.json
+Authorization: Bearer {PRINTIFY_API_KEY}
+Content-Type: application/json
+```
+
+The body should update the `print_areas` array to reference the real uploaded image ID.
+
+**Step 4 — Replace the placeholder in the codebase**
+
+In `/Users/osvaldasspiliauskas/burga-store/lib/printify.ts`, locate any hardcoded placeholder URL resembling:
+
+```typescript
+// Something like:
+image
+
+---

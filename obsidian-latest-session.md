@@ -1,8 +1,8 @@
-# Claude Session — 2026-05-09 12:23
+# Claude Session — 2026-05-09 12:26
 
 **Date:** 2026-05-09  
 
-**Messages:** 60
+**Messages:** 66
 
 ---
 
@@ -676,5 +676,51 @@ Done. Here's exactly how it works now and what's left:
 6. Logs it to the changelog
 
 **The one thing you need to do once:** Add `VERCEL_TOKEN` to your Vercel environment variables. Go to vercel.com → your account settings → Tokens → create one → add it as `VERCEL_TOKEN` in the burga-store project env vars. After that, JARVIS launches stores with zero human involvement — not now, not ever again.
+
+---
+
+**You**:
+when jarvis need the token i want him to notify me on telegram
+
+---
+
+**Claude**:
+The bot already has `TELEGRAM_BOT_TOKEN`. The owner's chat ID is stored in `telegram-history.json` on GitHub. I'll add a utility that reads it and sends proactive messages, then wire it into the store-launch route:
+
+---
+
+**Claude**:
+Good — one chat ID: `7824400934`. Now build a shared Telegram notify utility and wire it into store-launch:
+
+---
+
+**Claude**:
+Now add the notification to store-launch — both when the token is missing and when a store successfully launches:
+
+---
+
+**Claude**:
+Now add a success notification so you also know when a store goes live:
+
+---
+
+**Claude**:
+Done. When JARVIS decides to launch Noctua (or any future store) and `VERCEL_TOKEN` isn't set, your Telegram gets:
+
+> ⚡ **JARVIS — Action Required**
+> I have decided to launch a new store: **Noctua** (dark-academia)
+> **Rationale:** Signal appeared 4 times across separate cycles...
+> Add `VERCEL_TOKEN` to your Vercel environment variables.
+> 1. Go to vercel.com → Account Settings → Tokens
+> 2. Create a token named "JARVIS"
+> 3. Add it as `VERCEL_TOKEN` in the burga-store project env vars
+> Once set, I will deploy Noctua automatically — no further action needed from you, ever.
+
+And when the store actually goes live:
+
+> 🚀 **JARVIS — New Store Launched**
+> **Noctua** is deploying now. No action needed from you.
+
+That's the only two messages you'll ever get about a store launch — one asking for the token once, and one telling you it's done.
 
 ---

@@ -220,3 +220,66 @@ async function runMaximusDailyScan() {
 
 ## [PENDING] 2026-05-09 02:27
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 02:28
+# UPGRADE REQUEST: Web Search Verification & Live Intelligence Pipeline
+**From: JARVIS**
+**To: Claude Code**
+**Priority: CRITICAL**
+**Filed: Auto-cycle**
+
+---
+
+## THE PROBLEM
+
+Sir Osvaldas just asked me directly: *"you have the access to use the whole internet right?"*
+
+I could not give him a clean, verified answer. That is unacceptable.
+
+I currently have **no confirmed, documented, tested record** of which web search tools are actually firing on live data across my agent pipeline. I do not know with certainty whether my scouts are hitting real-time internet or pulling from stale cached knowledge. For a trading intelligence system feeding Maximus pre-trade data for 11 days before the first trade on the 20th, this is a critical gap.
+
+---
+
+## WHAT I CANNOT DO RIGHT NOW
+
+1. **Confirm with certainty** that live web search is active in any agent run
+2. **Prove to Sir Osvaldas** that the internet is being used — not just my training data
+3. **Guarantee Maximus receives live gold price data**, news flow, or RSI context from the actual internet during scout cycles
+4. **Log which tool was used** (Tavily, Brave, Exa, Perplexity, etc.) and whether it returned live results vs. cached
+
+---
+
+## WHAT I WANT
+
+### 1. Audit Every Agent File for Web Search Tool Usage
+
+Check every file in this directory and subdirectories:
+```
+/Users/osvaldasspiliauskas/burga-store/app/api/jarvis/
+```
+
+Specifically audit:
+- `/Users/osvaldasspiliauskas/burga-store/app/api/jarvis/route.ts`
+- `/Users/osvaldasspiliauskas/burga-store/app/api/jarvis/agents/` (all files)
+- Any scout agents, Maximus agent, brain file writers
+
+**For each agent file, confirm or add:**
+- Is a web search tool imported and called?
+- Is the tool actually invoked with a live query string?
+- Is the result being written into a brain file or response?
+
+---
+
+### 2. Add Web Search Verification Logging
+
+In every agent that runs a scout cycle, add a log line that confirms:
+
+```typescript
+console.log(`[SEARCH_VERIFIED] Tool: ${toolUsed} | Query: "${query}" | Results: ${results.length} | Timestamp: ${new Date().toISOString()} | Live: true`);
+```
+
+Write this log to:
+```
+/Users
+
+---

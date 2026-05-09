@@ -40,7 +40,10 @@ export async function POST(req: NextRequest) {
       getFileSha("conversation-log.md"),
     ])
 
-    const updated = current + content
+    // Prepend so newest sessions are always at the top — JARVIS reads slice(0, N) not slice(-N)
+    const header = "# JARVIS — Conversation Log\n*Every session with Osvaldas, permanently remembered. Secrets redacted.*\n\n"
+    const body = current.replace(/^# JARVIS[^\n]*\n[^\n]*\n\n/, "")
+    const updated = header + content + body
 
     await fetch("https://api.github.com/repos/Casellelol/Caselle/contents/conversation-log.md", {
       method: "PUT",

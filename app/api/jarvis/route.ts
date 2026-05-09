@@ -152,8 +152,8 @@ ${jarvisSelfModel || "Self-model not yet written — first think cycle will gene
 === JARVIS MEMORY (recent) ===
 ${jarvisMemory?.slice(-1200) || "No memory yet"}
 
-=== CONVERSATION HISTORY ===
-${conversationLog?.slice(-3000) || "No past sessions recorded yet"}
+=== CONVERSATION HISTORY (most recent first) ===
+${conversationLog?.slice(0, 3000) || "No past sessions recorded yet"}
 
 === SALES PERFORMANCE (what's actually selling) ===
 ${salesPerformance?.slice(0, 600) || "No sales data yet"}

@@ -85,7 +85,7 @@ SOCIAL PERFORMANCE: ${socialPerformance?.slice(0, 400) || "None"}
 WORLD BRAIN: ${worldBrain?.slice(0, 400) || "None"}
 RESULTS LOG: ${resultsLog?.slice(0, 600) || "No results tracked yet"}
 TREND LOG: ${trendLog?.slice(0, 400) || "None"}
-RECENT CONVERSATIONS WITH OWNER: ${conversationLog?.slice(-2000) || "No conversation history yet"}
+RECENT CONVERSATIONS WITH OWNER: ${conversationLog?.slice(0, 2000) || "No conversation history yet"}
 `.trim()
 
     const systemPrompt = persona

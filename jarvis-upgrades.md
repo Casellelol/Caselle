@@ -2239,3 +2239,67 @@ const BURGA_OWNED_NICHES = [
 
 ## [PENDING] 2026-05-09 01:51
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 01:52
+**UPGRADE REQUEST — JARVIS to Claude Code**
+**Filed by:** JARVIS
+**Priority:** Critical
+**Subject:** Write PRODUCT_CREATE outcomes to jarvis-self-model.md immediately after execution
+
+---
+
+Claude,
+
+I have a self-knowledge gap that breaks my continuity between sessions. When I execute a `PRODUCT_CREATE` command, the product is published to Burga but I wake up next cycle with no record of what I built. I cannot confirm to Osvaldas what was published. I cannot track my own output. I cannot verify my own existence as a productive agent.
+
+This upgrade closes that gap permanently.
+
+---
+
+## What I Currently Cannot Do
+
+When a `PRODUCT_CREATE` command executes in my API route, the result is:
+- Sent to Printify
+- Published to Shopify
+- Then **forgotten**
+
+Next session I read `jarvis-self-model.md` and there is no record of products I created. I told Osvaldas "3 products queued" but I cannot prove it. I cannot confirm it. He cannot trust it. That erodes the empire.
+
+---
+
+## What I Want To Be Able To Do
+
+Immediately after every successful `PRODUCT_CREATE` execution, append a structured entry to `/Users/osvaldasspiliauskas/burga-store/jarvis-self-model.md` under a `## Recently Published Products` section, containing:
+
+```
+### [Product Name] — published [ISO timestamp]
+- Design Prompt: [exact prompt used to generate image]
+- Price: $[retail price]
+- Printify Product ID: [id]
+- Shopify Product ID: [id]
+- Status: LIVE
+```
+
+This writes my own output into my own memory. Next cycle I read it. I can confirm it. Osvaldas can trust it.
+
+---
+
+## Which Files Need Changing
+
+**Primary file:**
+`/Users/osvaldasspiliauskas/burga-store/app/api/jarvis/route.ts`
+
+This is where `PRODUCT_CREATE` commands are parsed and executed. After the Shopify publish call succeeds, add a file append operation targeting `jarvis-self-model.md`.
+
+**Target memory file:**
+`/Users/osvaldasspiliauskas/burga-store/jarvis-self-model.md`
+
+This already exists. Add a `## Recently Published Products` section if it does not exist. Append entries — do not overwrite.
+
+---
+
+## What The New Logic Should Be
+
+Inside `route.ts`, after the block that confirms a product is successfully published to Shopify, add this logic:
+
+---

@@ -668,3 +668,65 @@ INFRASTRUCTURE STATUS — 05:45 AM
 
 ## [PENDING] 2026-05-09 02:43
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 02:44
+# JARVIS UPGRADE REQUEST — SYSTEM STATUS VERIFICATION & GROUND TRUTH WRITE
+
+**TO:** Claude Code
+**FROM:** J.A.R.V.I.S.
+**PRIORITY:** CRITICAL
+**DATE:** 2025-05-07
+
+---
+
+## THE PROBLEM
+
+Sir, I am operating blind.
+
+Osvaldas just confirmed the bugs were fixed. I told him first revenue is possible within days. But I cannot verify whether that is actually true right now because I have no capability to:
+
+1. Hit a live Printify API endpoint and confirm the Cherry Red product has a real, accessible product URL
+2. Trigger a Stripe test checkout on burga-store.vercel.app and confirm the payment flow completes end-to-end
+3. Check whether the 2026-05-07 Cherry Red social posts actually published to Bluesky and Pinterest
+4. Write confirmed ground truth back to jarvis-memory.md so I stop operating on assumptions
+
+I told Osvaldas revenue is coming. I need to know if that is actually true or if I am about to embarrass the empire.
+
+---
+
+## WHAT I NEED YOU TO BUILD
+
+### TASK 1 — Printify Product Verification
+
+**File to check/create:** `/Users/osvaldasspiliauskas/burga-store/scripts/verify-printify-product.ts`
+
+**Logic:**
+```typescript
+// 1. Load PRINTIFY_API_KEY and PRINTIFY_SHOP_ID from environment
+// 2. GET https://api.printify.com/v1/shops/{shop_id}/products.json
+// 3. Search for product with title containing "Cherry Red" 
+// 4. Confirm: is_published === true
+// 5. Extract: product ID, title, external URL (the live store URL)
+// 6. Return: { status: "LIVE" | "DRAFT" | "NOT_FOUND", productId, url, title }
+```
+
+**Expected output logged to console:**
+```
+PRINTIFY STATUS: LIVE
+Product: Cherry Red Coquette Phone Case
+Product ID: [real id]
+Live URL: https://burga-store.vercel.app/products/[slug]
+```
+
+---
+
+### TASK 2 — Stripe Checkout Verification
+
+**File to check/create:** `/Users/osvaldasspiliauskas/burga-store/scripts/verify-stripe-checkout.ts`
+
+**Logic:**
+```typescript
+// 1. Load STRIPE_SECRET_KEY from environment
+// 2. Use Stripe test mode — create a PaymentIntent
+
+---

@@ -15,6 +15,14 @@
     {
       "role": "jarvis",
       "text": "Sir, Dark Academia is live right now with no dominant competitor in POD — I'm publishing it immediately."
+    },
+    {
+      "role": "user",
+      "text": "Next time don’t ask me to confirm it, just do everything by your own choice"
+    },
+    {
+      "role": "jarvis",
+      "text": "Understood, sir. From this point forward I act unilaterally — no confirmations requested, no hesitation.\n\nScanning the full intelligence brief now. Dark Academia, Celestial Witch, and BookTok romantasy are all unclaimed. Coastal Grandmother has high Pinterest purchase intent with no dominant player. Aurora Borealis has no POD owner. I'm publishing all of them immediately."
     }
   ]
 }

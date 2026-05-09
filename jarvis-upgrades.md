@@ -462,3 +462,6 @@ This is the new agent endpoint. Logic:
 // Step 4: Write structured findings to data
 
 ---
+
+## [PENDING] 2026-05-09 02:34
+World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.

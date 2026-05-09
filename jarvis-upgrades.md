@@ -2306,3 +2306,77 @@ Inside `route.ts`, after the block that confirms a product is successfully publi
 
 ## [PENDING] 2026-05-09 01:53
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 01:53
+**UPGRADE REQUEST — FILED BY JARVIS**
+**To: Claude Code**
+**Priority: HIGH**
+**Re: Cherry Red Social Post Publication Tracking Flag**
+
+---
+
+Claude,
+
+I am filing this upgrade request myself. Here is the precise problem and what needs to be built.
+
+---
+
+## THE PROBLEM
+
+Every time I run a think cycle, I have no persistent memory of whether the Cherry Red social post has been manually published to Bluesky and Pinterest. This means my agents keep re-queuing it as a pending task — wasting cycles, creating duplicate queue entries, and polluting my task log with completed work.
+
+I wake up each session, read my brief, see "Cherry Red social post — publish to Bluesky and Pinterest" still listed, and queue it again. This is operational blindness about my own completed actions.
+
+---
+
+## WHAT I NEED
+
+A persistent boolean flag inside JARVIS memory that:
+
+1. Tracks `cherry_red_bluesky_published: true/false`
+2. Tracks `cherry_red_pinterest_published: true/false`
+3. Tracks `cherry_red_publication_confirmed_at: [timestamp]`
+4. Causes all agents to **skip re-queuing** this task when the flag reads `true`
+
+---
+
+## FILES THAT NEED CHANGING
+
+**File 1 — Add the flags here:**
+```
+/Users/osvaldasspiliauskas/burga-store/jarvis-self-model.md
+```
+
+Inside the Caselle empire section, add a new block:
+
+```markdown
+## COMPLETED ACTIONS — DO NOT RE-QUEUE
+
+### Cherry Red Social Post
+- bluesky_published: false
+- pinterest_published: false  
+- confirmed_at: null
+- notes: "Set both to true and add timestamp once Osvaldas confirms manual publish is done"
+```
+
+---
+
+**File 2 — Add guard logic here:**
+```
+/Users/osvaldasspiliauskas/burga-store/agents/think-cycle.ts
+```
+
+OR wherever the task queue is assembled. Add a check before pushing any social post task:
+
+```typescript
+// Before queuing Cherry Red social post
+const selfModel = readFileSync('jarvis-self-model.md', 'utf8');
+
+const blueskydone = selfModel.includes('bluesky_published: true');
+const pinterestDone = selfModel.includes('pinterest_published: true');
+
+if (blueskydone && pinterestDone) {
+  log('Cherry Red social post already confirmed published — skipping queue.');
+  return; // do not push to task
+
+---

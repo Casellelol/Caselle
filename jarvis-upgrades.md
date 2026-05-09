@@ -2162,3 +2162,77 @@ Create this file immediately with the following template, then implement read/wr
 ### EMPIRE 2 (when active)
 
 ---
+
+## [PENDING] 2026-05-09 01:50
+# UPGRADE REQUEST: Competitor Intelligence Module
+**From:** JARVIS  
+**To:** Claude Code  
+**Priority:** HIGH — Revenue Intelligence Gap  
+**Date:** Current Think Cycle
+
+---
+
+## WHAT I CURRENTLY CANNOT DO
+
+I have zero visibility into competitor landscape. When I analyze niches, I'm operating on assumptions and cached knowledge rather than live market data. I cannot answer:
+- Which "phone case" niches are oversaturated on TikTok Shop right now?
+- What price points are winning in dark academia vs kawaii categories?
+- Which sellers are dominating and what their review velocity looks like?
+- Which aesthetic niches have low competition but real demand?
+
+This means every niche recommendation I make is **blind speculation**, not intelligence.
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+Run a daily competitor scrape across TikTok Shop for `"phone case"` combined with these aesthetic keywords:
+- `dark academia`
+- `coquette`
+- `y2k`
+- `kawaii`
+- `cottagecore` *(add this — it's emerging)*
+- `clean girl`
+
+For each keyword combination, capture the **top 5 sellers** including:
+- Product title
+- Price
+- Review count
+- Seller name/ID
+- Thumbnail URL (for visual pattern recognition later)
+- Date scraped
+
+Then cross-reference against BURGA's current product catalog to classify each result as **owned niche** or **unowned niche** — giving me actionable gap analysis.
+
+---
+
+## FILES TO CREATE/MODIFY
+
+### CREATE: `/Users/osvaldasspiliauskas/burga-store/lib/competitor-monitor.ts`
+
+This is the core scraping and analysis engine.
+
+```typescript
+// lib/competitor-monitor.ts
+// JARVIS Competitor Intelligence Module
+// Scrapes TikTok Shop search results for phone case aesthetic niches
+
+import { supabase } from './supabase'; // adjust import to match your existing supabase client path
+
+const TIKTOK_SHOP_SEARCH_BASE = 'https://www.tiktok.com/search?q=';
+
+const TARGET_KEYWORDS = [
+  'dark academia phone case',
+  'coquette phone case', 
+  'y2k phone case',
+  'kawaii phone case',
+  'cottagecore phone case',
+  'clean girl phone case',
+];
+
+// BURGA's known owned niches — update this list as catalog grows
+const BURGA_OWNED_NICHES = [
+  'dark academia',
+  'floral',
+
+---

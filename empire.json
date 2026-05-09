@@ -1,0 +1,25 @@
+{
+  "stores": [
+    {
+      "id": "caselle",
+      "name": "Caselle",
+      "status": "live",
+      "repo": "burga-store",
+      "vercel_url": "burga-store.vercel.app",
+      "niche": "minimalist",
+      "revenue": 0,
+      "products_published": 0
+    },
+    {
+      "id": "noctua",
+      "name": "Noctua",
+      "status": "planned",
+      "repo": "noctua-store",
+      "vercel_url": null,
+      "niche": "dark-academia",
+      "revenue": 0,
+      "products_published": 0
+    }
+  ],
+  "last_updated": "2026-05-09T00:00:00Z"
+}

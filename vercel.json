@@ -71,6 +71,10 @@
     {
       "path": "/api/jarvis/evolve",
       "schedule": "0 1 * * 0"
+    },
+    {
+      "path": "/api/jarvis/nightly-summary",
+      "schedule": "0 3 * * *"
     }
   ]
 }

@@ -76,6 +76,7 @@ async function createProduct(params: {
   description: string
   imageId: string
   price: number
+  brandId?: string
 }): Promise<string> {
   const variantIds = Object.values(PRINTIFY_VARIANT_MAP)
   const uniqueVariantIds = [...new Set(variantIds)]
@@ -91,6 +92,7 @@ async function createProduct(params: {
     description: params.description,
     blueprint_id: PRINTIFY_BLUEPRINT_ID,
     print_provider_id: PRINTIFY_PRINT_PROVIDER_ID,
+    tags: [`brand:${params.brandId || "caselle"}`],
     variants,
     print_areas: [
       {
@@ -201,7 +203,7 @@ async function logToGitHub(entry: string) {
 
 export async function POST(req: NextRequest) {
   try {
-    const { name, description, prompt, price = 2499 } = await req.json()
+    const { name, description, prompt, price = 2499, brandId } = await req.json()
 
     if (!name || !prompt) {
       return NextResponse.json({ error: "name and prompt required" }, { status: 400 })
@@ -209,15 +211,17 @@ export async function POST(req: NextRequest) {
 
     const slug = name.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "")
     const date = new Date().toISOString().slice(0, 16).replace("T", " ")
+    const brand = brandId || "caselle"
 
     // Full pipeline
     const imageUrl = await generateDesignImage(prompt)
     const imageId = await uploadToPrintify(imageUrl, slug)
     const productId = await createProduct({
       title: name,
-      description: description || `${name} — premium tough phone case by Caselle.`,
+      description: description || `${name} — premium tough phone case by ${brand.charAt(0).toUpperCase() + brand.slice(1)}.`,
       imageId,
       price,
+      brandId: brand,
     })
     await publishProduct(productId)
 

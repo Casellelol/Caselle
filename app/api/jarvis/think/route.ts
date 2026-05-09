@@ -20,7 +20,7 @@ async function saveThought(entry: string) {
     "https://api.github.com/repos/Casellelol/Caselle/contents/jarvis-thoughts.md",
     { headers: { Authorization: `token ${GITHUB_TOKEN}`, Accept: "application/vnd.github.v3+json" } }
   )
-  const existing = getRes.ok ? await getRes.json() : null
+  const existing = getRes.ok ? await getRes.json() as { content: string; sha: string } : null
   const current = existing
     ? Buffer.from(existing.content, "base64").toString("utf-8")
     : "# JARVIS Autonomous Thoughts\n*What JARVIS decided to do on his own — no human asked.*\n\n"
@@ -34,6 +34,26 @@ async function saveThought(entry: string) {
       sha: existing?.sha,
     }),
   })
+}
+
+async function updateSelfModel(model: string) {
+  try {
+    const getRes = await fetch(
+      "https://api.github.com/repos/Casellelol/Caselle/contents/jarvis-self-model.md",
+      { headers: { Authorization: `token ${GITHUB_TOKEN}`, Accept: "application/vnd.github.v3+json" } }
+    )
+    const existing = getRes.ok ? await getRes.json() as { sha: string } : null
+    const body: Record<string, unknown> = {
+      message: "JARVIS self-model update",
+      content: Buffer.from(model).toString("base64"),
+    }
+    if (existing?.sha) body.sha = existing.sha
+    await fetch("https://api.github.com/repos/Casellelol/Caselle/contents/jarvis-self-model.md", {
+      method: "PUT",
+      headers: { Authorization: `token ${GITHUB_TOKEN}`, "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    })
+  } catch {}
 }
 
 export async function GET() {
@@ -82,17 +102,67 @@ Fire PRODUCT_CREATE when you spot a high-confidence trend gap with no competitor
 Fire UPGRADE_NEEDED when you detect a system problem or missing capability.
 You may fire multiple commands. Fire none if nothing is urgent.`
 
-    const response = await client.messages.create({
-      model: "claude-sonnet-4-6",
-      max_tokens: 800,
-      system: systemPrompt,
-      messages: [{
-        role: "user",
-        content: `Here is everything you know right now:\n\n${context}\n\nWhat do you decide to do? Think, then act.`,
-      }],
-    })
+    const [thinkResponse, selfModelResponse] = await Promise.all([
+      client.messages.create({
+        model: "claude-sonnet-4-6",
+        max_tokens: 800,
+        system: systemPrompt,
+        messages: [{
+          role: "user",
+          content: `Here is everything you know right now:\n\n${context}\n\nWhat do you decide to do? Think, then act.`,
+        }],
+      }),
+      client.messages.create({
+        model: "claude-sonnet-4-6",
+        max_tokens: 600,
+        system: "You are JARVIS writing your internal self-model — a structured record of your current beliefs about the empire. Be precise and factual. Use the data provided. This file replaces itself every cycle.",
+        messages: [{
+          role: "user",
+          content: `Based on this intelligence, write the current jarvis-self-model.md. Use this exact structure:
 
-    const raw = response.content[0].type === "text" ? response.content[0].text.trim() : ""
+# JARVIS Self-Model
+*Last updated: ${new Date().toISOString().slice(0, 16).replace("T", " ")}*
+
+## Empire Status
+### Caselle (Phone Cases)
+- Live status: [live/building/broken]
+- Revenue confidence: [0-100%]
+- Top hypothesis: [one sentence on what will drive sales]
+- Watching: [one risk or opportunity]
+
+### Noctua (Dark Academia) — Planned
+- Status: [planned/scaffolding/live]
+- Launch readiness: [0-100%]
+
+### Atelier (Fiverr Design)
+- Status: [active/inactive]
+- Intelligence quality: [what the scout is finding]
+
+### Lumière (Etsy Wall Art)
+- Status: [active/inactive]
+- Launch readiness: [0-100%]
+
+## Active Hypotheses
+[2-3 specific bets JARVIS is making about what will work]
+
+## What Changed This Cycle
+[What is different from last cycle based on the data]
+
+## Expected Next Cycle
+[What JARVIS expects to see in the next run — makes next cycle verifiable]
+
+## Confidence Summary
+- Overall empire confidence: [0-100%]
+- Biggest known unknown: [one sentence]
+
+DATA: ${context.slice(0, 2000)}`,
+        }],
+      }),
+    ])
+
+    const raw = thinkResponse.content[0].type === "text" ? thinkResponse.content[0].text.trim() : ""
+    const selfModel = selfModelResponse.content[0].type === "text" ? selfModelResponse.content[0].text.trim() : ""
+
     const lines = raw.split("\n")
     const productLines = lines.filter(l => l.startsWith("PRODUCT_CREATE:"))
     const upgradeLines = lines.filter(l => l.startsWith("UPGRADE_NEEDED:"))
@@ -102,7 +172,11 @@ You may fire multiple commands. Fire none if nothing is urgent.`
 
     const date = new Date().toISOString().slice(0, 16).replace("T", " ")
     const thoughtEntry = `\n## ${date}\n**Reasoning:** ${reasoning.slice(0, 500)}\n**Products queued:** ${productLines.length}\n**Upgrades queued:** ${upgradeLines.length}\n`
-    await saveThought(thoughtEntry)
+
+    await Promise.all([
+      saveThought(thoughtEntry),
+      selfModel ? updateSelfModel(selfModel) : Promise.resolve(),
+    ])
 
     // Fire PRODUCT_CREATE commands
     for (const line of productLines) {

@@ -70,7 +70,7 @@ async function jarvisRespond(message: string) {
       caselleBrain, caselleStrategy, caselleAccounting,
       atelierBrain, atelierStrategy,
       maximusBrain, maximusStrategy,
-      worldBrain, jarvisMemory, jarvisInfrastructure, opportunities, conversationLog,
+      worldBrain, jarvisMemory, jarvisInfrastructure, jarvisSelfModel, opportunities, conversationLog,
       salesPerformance, competitorIntel, socialPerformance, jarvisPersona, resultsLog,
     ] = await Promise.all([
       fetchGitHubFile("Casellelol/Caselle", "exelixis-brain.md"),
@@ -83,6 +83,7 @@ async function jarvisRespond(message: string) {
       fetchGitHubFile("Casellelol/Caselle", "jarvis-world-brain.md"),
       fetchGitHubFile("Casellelol/Caselle", "jarvis-memory.md"),
       fetchGitHubFile("Casellelol/Caselle", "jarvis-infrastructure.md"),
+      fetchGitHubFile("Casellelol/Caselle", "jarvis-self-model.md"),
       fetchGitHubFile("Casellelol/Caselle", "jarvis-opportunities.md"),
       fetchGitHubFile("Casellelol/Caselle", "conversation-log.md"),
       fetchGitHubFile("Casellelol/Caselle", "sales-performance.md"),
@@ -114,6 +115,9 @@ ${worldBrain?.slice(0, 1500) || "World brain not yet populated"}
 
 === JARVIS INFRASTRUCTURE (what is running autonomously) ===
 ${jarvisInfrastructure || "No infrastructure file yet"}
+
+=== JARVIS SELF-MODEL (current beliefs, updated every think cycle) ===
+${jarvisSelfModel || "Self-model not yet written — first think cycle will generate it"}
 
 === JARVIS MEMORY (recent) ===
 ${jarvisMemory?.slice(-1200) || "No memory yet"}

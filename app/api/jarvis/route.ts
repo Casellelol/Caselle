@@ -150,10 +150,10 @@ ${jarvisInfrastructure || "No infrastructure file yet"}
 ${jarvisSelfModel || "Self-model not yet written — first think cycle will generate it"}
 
 === JARVIS MEMORY (recent) ===
-${jarvisMemory?.slice(-1200) || "No memory yet"}
+${jarvisMemory?.slice(-3000) || "No memory yet"}
 
 === CONVERSATION HISTORY (most recent first) ===
-${conversationLog?.slice(0, 3000) || "No past sessions recorded yet"}
+${conversationLog?.slice(0, 6000) || "No past sessions recorded yet"}
 
 === SALES PERFORMANCE (what's actually selling) ===
 ${salesPerformance?.slice(0, 600) || "No sales data yet"}
@@ -259,6 +259,16 @@ CAPABILITY: You can spawn new Masterminds for new business opportunities. If con
         }),
       })
     } catch {}
+
+    // Persist this conversation turn to conversation-log.md — no Claude Code needed
+    fetch(`${BASE_URL}/api/jarvis/session`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        date: new Date().toISOString().slice(0, 16).replace("T", " "),
+        messages: `[SIR]: ${message.slice(0, 400)}\n[JARVIS]: ${spokenText.slice(0, 600)}`,
+      }),
+    }).catch(() => {})
 
     // File upgrade requests for every actionable task JARVIS identified
     for (const line of upgradeLines) {

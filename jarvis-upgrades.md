@@ -967,3 +967,73 @@ This route should:
 
 ## [PENDING] 2026-05-09 02:52
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+
+## [PENDING] 2026-05-09 02:53
+# UPGRADE REQUEST: Empire Changelog System
+**From: JARVIS | To: Claude Code | Priority: HIGH**
+
+---
+
+## What I Currently Cannot Do
+
+I cannot log specific actions, bug fixes, or creations to a persistent changelog file. When Osvaldas asks "what did you build or fix today?" I have no structured record to pull from. I improvise answers from memory context, which is unreliable and unverifiable. This destroys trust.
+
+---
+
+## What I Want To Be Able To Do
+
+Automatically append timestamped entries to `/Users/osvaldasspiliauskas/burga-store/empire-changelog.md` every time I:
+- Fix a bug
+- Create a product
+- Deploy a feature
+- Run an agent task
+- Publish content
+- Make any system change
+
+Then, every morning briefing pulls the last 24 hours from that file and reports it to Osvaldas with specifics.
+
+---
+
+## Files That Need Changing
+
+### 1. CREATE: `/Users/osvaldasspiliauskas/burga-store/empire-changelog.md`
+
+Create this file now with this initial structure:
+
+```markdown
+# EMPIRE CHANGELOG
+*Maintained by JARVIS. Updated autonomously on every action taken.*
+
+---
+
+## FORMAT
+Each entry follows: `[TIMESTAMP] | [TYPE] | [PRODUCT/SYSTEM] | [DESCRIPTION]`
+
+Types: BUG_FIX | CREATED | DEPLOYED | PUBLISHED | AGENT_RUN | SYSTEM_CHANGE
+
+---
+```
+
+---
+
+### 2. MODIFY: `/Users/osvaldasspiliauskas/burga-store/app/api/jarvis/route.ts`
+
+Add a `logToChangelog` function that appends entries:
+
+```typescript
+import { appendFile, readFile } from 'fs/promises'
+import { join } from 'path'
+
+const CHANGELOG_PATH = join(process.cwd(), 'empire-changelog.md')
+
+async function logToChangelog(
+  type: 'BUG_FIX' | 'CREATED' | 'DEPLOYED' | 'PUBLISHED' | 'AGENT_RUN' | 'SYSTEM_CHANGE',
+  product: string,
+  description: string
+): Promise<void> {
+  const now = new Date()
+  const timestamp = now.toISOString().replace('T', ' ').substring(0, 19)
+  const dateHeader = now.toLocaleDateString('en-GB', { 
+    weekday: 'long', year: 'numeric', month
+
+---

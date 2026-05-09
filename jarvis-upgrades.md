@@ -730,3 +730,6 @@ Live URL: https://burga-store.vercel.app/products/[slug]
 // 2. Use Stripe test mode — create a PaymentIntent
 
 ---
+
+## [PENDING] 2026-05-09 02:45
+World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.

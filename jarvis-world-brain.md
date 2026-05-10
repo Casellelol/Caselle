@@ -1,12 +1,12 @@
 # JARVIS World Brain
-*Last updated: 2026-05-09 10:43*
+*Last updated: 2026-05-10 08:09*
 
 ## Hacker News — Tech & Business
-- A recent experience with ChatGPT 5.5 Pro
-- Google broke reCAPTCHA for de-googled Android users
-- Using Claude Code: The unreasonable effectiveness of HTML
-- OpenAI’s WebRTC problem
-- Mythical Man Month
+- Show HN: Building a web server in assembly to give my life (a lack of) meaning
+- Bun's experimental Rust rewrite hits 99.8% test compatibility on Linux x64 glibc
+- The One Dollar Counterfeiter
+- We see something that works, and then we understand it
+- Casio S100X Japanese Lacquer Edition (JP Page Only)
 
 ## Reddit — Entrepreneurs
 Feed unavailable

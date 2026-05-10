@@ -1,3 +1,10 @@
+## 2026-05-10T18:15:13.009Z
+- **Text:** the details make the difference. caselle quiet luxury phone cases from $24.99. burga-store.vercel.app #QuietLuxury
+- **Twitter:** ❌ failed
+- **Bluesky:** ✅ posted
+- **Errors:** Twitter: Error: {"account_id":2052331077230829600,"title":"CreditsDepleted","detail":"Your enrolled account [2052331077230829570] does not have any credits to fulfill this request.","type":"https://api.twitter.com/2/problems/credits"}
+---
+
 ## 2026-05-10T18:00:24.241Z
 - **Text:** the details make the difference. caselle quiet luxury phone cases from $24.99. burga-store.vercel.app #QuietLuxury
 - **Twitter:** ❌ failed

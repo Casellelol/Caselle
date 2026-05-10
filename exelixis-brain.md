@@ -68,3 +68,38 @@
 - https://www.androidcentral.com/accessories/cases-screen-protectors/best-samsung-galaxy-s26-cases
 
 ---
+
+## [2026-05-10 12:01] — Product & Design Trends
+
+**Key findings:**
+- **Animal prints are the #1 breakout design category of spring 2026** — cheetah, zebra, and leopard are all confirmed viral on TikTok (#viralproducts, #trendyphonecase, #animalprint). Critically, Hailey Bieber publicly cosigned the trend (per Bustle coverage), giving it celebrity velocity. Fashion week coverage confirms it spans clothing AND accessories. POD supply for animal-print phone cases is thin — major brands have it, indie POD sellers mostly don't. Clean, high-contrast cheetah on black or cream = the fastest-to-launch version.
+- **"Clean Girl" aesthetic is officially dead in 2026** — the 2025 meta of beige/neutral/minimalist is over. Maximalism, bold color, and self-expression are in. **Butter yellow is the new beige** — warm, soft, versatile. Any Caselle designs still leaning beige/minimal are now behind the trend cycle. This also invalidates any "clean girl aesthetic" marketing copy.
+- **3D/Embossed "puffer" cases are a rising tactile trend** — not just a visual aesthetic but a physical feel: raised square blocks that look like a waffle or chocolate bar, bubble cases with 3D Japanese stickers (Etsy listing `/4389015956/` confirmed live and active). This is a design format, not just a pattern — if the POD supplier supports embossed/raised prints, it's a differentiator flat-print competitors can't match. Worth testing Casestry or Podbase for 3D capability.
+- **Y2K Butterfly design specifics confirmed**: the viral format is holographic butterflies + chrome hearts + pixel graphics + neon pink/purple palette. Not just "Y2K" generically — this specific combo is dominating. TikTok algorithm is actively pushing it as nostalgia content. CASETiFY has a Y2K collection but POD sellers haven't caught up with the specific butterfly+chrome heart combination.
+- **iPhone 17e now supports MagSafe** — Apple finally brought MagSafe to its budget iPhone (17e). This opens a brand-new customer segment: budget iPhone buyers who previously couldn't participate in the MagSafe ecosystem. MagSafe-compatible stylish cases for iPhone 17e are undersupplied — most MagSafe case inventory targets Pro/Pro Max. Price point for this segment should be $22–27 (budget-conscious but still paying for MagSafe utility).
+- **"Ostand" combo cases gaining ground in wholesale** — stand-integrated cases beating plain cases in B2B wholesale channels. Not a POD story yet but signals rising consumer appetite for functional features beyond protection. Magnetic stand cases (MagSafe ring + foldable kickstand) combine both trends.
+
+**Actionable for:**
+- **Marketing Agent**: Post a TikTok using the animal print hook — "POV: Hailey Bieber approved your phone case" + cheetah-on-cream case visual. This is a ready-made celebrity-cosign narrative that needs zero fabrication. Also: retire any "clean girl beige" marketing copy immediately — it reads as 2025, not 2026.
+- **Store Creator**: Three immediate design launches: (1) Cheetah print on cream background — high contrast, fashion-forward, zero design complexity. (2) Y2K Butterfly — holographic butterflies + chrome hearts on neon pink/purple. (3) Butter yellow abstract — replaces beige in the neutral lineup; pairs with "anti-clean-girl" framing. Also: list iPhone 17e as a supported model on all MagSafe case SKUs; this is a new high-demand device not yet in catalog.
+- **Trend Monitor**: Watch the 3D/embossed case category — if a POD supplier confirms embossed printing capability, this becomes a first-mover product line with tactile differentiation. Also track "butter yellow" as a color in upcoming collections to time re-releases.
+- **Exelixis**: The iPhone 17e + MagSafe story is the most underrated opportunity right now. Budget iPhone users are a massive demographic — larger than Pro users by volume. A $24 MagSafe case for iPhone 17e targeted at "finally, MagSafe for everyone" could be a hero SKU with near-zero competition from stylish POD brands.
+
+**Sources:**
+- Search: "trending phone cases 2026 new designs viral May"
+- Search: "viral phone case aesthetic TikTok 2026"
+- Search: "best selling phone cases Etsy 2026 top designs"
+- Search: "embossed 3D textured phone case trend 2026 puffer waffle"
+- Search: "Y2K butterfly phone case TikTok viral 2026"
+- Search: "new phone models releasing summer 2026 accessories cases"
+- Search: "animal print phone case cheetah zebra TikTok trend 2026 viral"
+- Search: "iPhone 17e phone case market demand 2026 accessories"
+- Search: "clean girl aesthetic phone case beige minimalist 2026 trend"
+- https://www.bustle.com/style/hailey-bieber-2026-animal-print-trend
+- https://shamoscases.com/blogs/styling/tiktok-phone-case-trends-everyone-is-copying
+- https://www.etsy.com/listing/4389015956/bubble-case-with-cute-3d-japanese
+- https://www.chicscreens.com/blog/2026-phone-case-trend-forecast
+- https://www.cnn.com/cnn-underscored/electronics/best-iphone17e-cases
+- https://www.asinsight.com/report/US/iphone-17-cases
+
+---

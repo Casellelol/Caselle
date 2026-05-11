@@ -1,3 +1,10 @@
+## 2026-05-11T03:30:19.379Z
+- **Text:** protect it. style it. own it. tough cases with minimal design. burga-store.vercel.app #PhoneAccessories #MinimalStyle
+- **Twitter:** ❌ failed
+- **Bluesky:** ✅ posted
+- **Errors:** Twitter: Error: {"account_id":2052331077230829600,"title":"CreditsDepleted","detail":"Your enrolled account [2052331077230829570] does not have any credits to fulfill this request.","type":"https://api.twitter.com/2/problems/credits"}
+---
+
 ## 2026-05-11T03:15:12.560Z
 - **Text:** protect it. style it. own it. tough cases with minimal design. burga-store.vercel.app #PhoneAccessories #MinimalStyle
 - **Twitter:** ❌ failed

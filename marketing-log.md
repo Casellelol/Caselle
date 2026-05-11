@@ -1,3 +1,10 @@
+## 2026-05-11T21:30:19.795Z
+- **Text:** marble white. midnight navy. champagne gold. your vibe, your case. burga-store.vercel.app #PhoneCase #Aesthetic
+- **Twitter:** ❌ failed
+- **Bluesky:** ✅ posted
+- **Errors:** Twitter: Error: {"account_id":2052331077230829600,"title":"CreditsDepleted","detail":"Your enrolled account [2052331077230829570] does not have any credits to fulfill this request.","type":"https://api.twitter.com/2/problems/credits"}
+---
+
 ## 2026-05-11T21:15:14.069Z
 - **Text:** marble white. midnight navy. champagne gold. your vibe, your case. burga-store.vercel.app #PhoneCase #Aesthetic
 - **Twitter:** ❌ failed

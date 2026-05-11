@@ -1,3 +1,10 @@
+## 2026-05-11T01:15:12.495Z
+- **Text:** minimal. timeless. yours. phone cases that match your aesthetic — marble, sage, navy + more. burga-store.vercel.app #PhoneCase
+- **Twitter:** ❌ failed
+- **Bluesky:** ✅ posted
+- **Errors:** Twitter: Error: {"account_id":2052331077230829600,"title":"CreditsDepleted","detail":"Your enrolled account [2052331077230829570] does not have any credits to fulfill this request.","type":"https://api.twitter.com/2/problems/credits"}
+---
+
 ## 2026-05-11T01:00:25.163Z
 - **Text:** minimal. timeless. yours. phone cases that match your aesthetic — marble, sage, navy + more. burga-store.vercel.app #PhoneCase
 - **Twitter:** ❌ failed

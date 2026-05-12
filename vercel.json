@@ -62,7 +62,7 @@
     },
     {
       "path": "/api/jarvis/think",
-      "schedule": "0 7,13,19,1 * * *"
+      "schedule": "0 13 * * *"
     },
     {
       "path": "/api/jarvis/evaluate",
@@ -82,7 +82,7 @@
     },
     {
       "path": "/api/cron/maximus-macro",
-      "schedule": "0 * * * *"
+      "schedule": "0 8 * * *"
     }
   ]
 }

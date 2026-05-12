@@ -74,7 +74,7 @@ export async function POST(req: NextRequest) {
       body: JSON.stringify({
         caption: postText,
         image_url: "https://raw.githubusercontent.com/Casellelol/Caselle/main/public/designs/marble-white.jpg",
-        link: "https://burga-store.vercel.app",
+        link: process.env.NEXT_PUBLIC_SITE_URL || process.env.NEXT_PUBLIC_BASE_URL || "https://burga-store.vercel.app",
       }),
     })
 

@@ -107,15 +107,16 @@ async function logToGitHub(entry: string) {
 }
 
 // ── Post copy templates ──────────────────────────────────────────────────────
+const SITE_HOST = (process.env.NEXT_PUBLIC_SITE_URL || process.env.NEXT_PUBLIC_BASE_URL || "https://burga-store.vercel.app").replace("https://", "")
 const POSTS = [
-  "your phone deserves better. quiet luxury phone cases, designed to last. burga-store.vercel.app #QuietLuxury #PhoneCases",
-  "minimal. timeless. yours. phone cases that match your aesthetic — marble, sage, navy + more. burga-store.vercel.app #PhoneCase",
-  "the details make the difference. caselle quiet luxury phone cases from $24.99. burga-store.vercel.app #QuietLuxury",
-  "protect it. style it. own it. tough cases with minimal design. burga-store.vercel.app #PhoneAccessories #MinimalStyle",
-  "not loud. just right. caselle — the phone case for people who know. burga-store.vercel.app #QuietLuxury",
-  "marble white. midnight navy. champagne gold. your vibe, your case. burga-store.vercel.app #PhoneCase #Aesthetic",
-  "quiet luxury isn't a trend. it's a standard. caselle phone cases. burga-store.vercel.app #QuietLuxury #PhoneCases",
-  "the phone case you've been looking for. minimal, tough, beautiful. burga-store.vercel.app #PhoneAccessories",
+  `your phone deserves better. quiet luxury phone cases, designed to last. ${SITE_HOST} #QuietLuxury #PhoneCases`,
+  `minimal. timeless. yours. phone cases that match your aesthetic — marble, sage, navy + more. ${SITE_HOST} #PhoneCase`,
+  `the details make the difference. caselle quiet luxury phone cases from $24.99. ${SITE_HOST} #QuietLuxury`,
+  `protect it. style it. own it. tough cases with minimal design. ${SITE_HOST} #PhoneAccessories #MinimalStyle`,
+  `not loud. just right. caselle — the phone case for people who know. ${SITE_HOST} #QuietLuxury`,
+  `marble white. midnight navy. champagne gold. your vibe, your case. ${SITE_HOST} #PhoneCase #Aesthetic`,
+  `quiet luxury isn't a trend. it's a standard. caselle phone cases. ${SITE_HOST} #QuietLuxury #PhoneCases`,
+  `the phone case you've been looking for. minimal, tough, beautiful. ${SITE_HOST} #PhoneAccessories`,
 ]
 
 // ── Buffer (fallback + additional channel) ───────────────────────────────────

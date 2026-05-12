@@ -97,9 +97,9 @@ async function jarvisRespond(message: string) {
       caselleBrain, caselleStrategy, caselleAccounting,
       atelierBrain, atelierStrategy,
       maximusBrain, maximusStrategy,
-      worldBrain, jarvisMemory, jarvisInfrastructure, jarvisSelfModel, opportunities, conversationLog,
+      worldBrain, jarvisMemory, jarvisInfrastructure, jarvisSelfModel, opportunities, jarvisSummary,
       salesPerformance, competitorIntel, socialPerformance, jarvisPersona, resultsLog,
-      rawSource, latestSession,
+      ownerNotes, rawSource,
     ] = await Promise.all([
       fetchGitHubFile("Casellelol/Caselle", "exelixis-brain.md"),
       fetchGitHubFile("Casellelol/Caselle", "exelixis-strategy.md"),
@@ -113,14 +113,14 @@ async function jarvisRespond(message: string) {
       fetchGitHubFile("Casellelol/Caselle", "jarvis-infrastructure.md"),
       fetchGitHubFile("Casellelol/Caselle", "jarvis-self-model.md"),
       fetchGitHubFile("Casellelol/Caselle", "jarvis-opportunities.md"),
-      fetchGitHubFile("Casellelol/Caselle", "conversation-log.md"),
+      fetchGitHubFile("Casellelol/Caselle", "jarvis-summary.md"),
       fetchGitHubFile("Casellelol/Caselle", "sales-performance.md"),
       fetchGitHubFile("Casellelol/Caselle", "competitor-intel.md"),
       fetchGitHubFile("Casellelol/Caselle", "social-performance.md"),
       fetchGitHubFile("Casellelol/Caselle", "jarvis-persona.md"),
       fetchGitHubFile("Casellelol/Caselle", "results-log.md"),
+      fetchGitHubFile("Casellelol/Caselle", "JARVIS_OWNER_NOTES.md"),
       fetchGitHubFile("Casellelol/Caselle", "obsidian-raw-source.md"),
-      fetchGitHubFile("Casellelol/Caselle", "obsidian-latest-session.md"),
     ])
 
     // Live web search based on message
@@ -149,11 +149,14 @@ ${jarvisInfrastructure || "No infrastructure file yet"}
 === JARVIS SELF-MODEL (current beliefs, updated every think cycle) ===
 ${jarvisSelfModel || "Self-model not yet written — first think cycle will generate it"}
 
-=== JARVIS MEMORY (recent) ===
-${jarvisMemory?.slice(-3000) || "No memory yet"}
+=== OWNER INSTRUCTIONS (highest priority) ===
+${ownerNotes?.slice(0, 1000) || "No owner notes"}
 
-=== CONVERSATION HISTORY (most recent first) ===
-${conversationLog?.slice(0, 6000) || "No past sessions recorded yet"}
+=== STRATEGIC MEMORY SUMMARY (compressed history of all sessions) ===
+${jarvisSummary?.slice(0, 3000) || "No summary yet — will generate after first session ends"}
+
+=== JARVIS MEMORY (recent insights) ===
+${jarvisMemory?.slice(-2000) || "No memory yet"}
 
 === SALES PERFORMANCE (what's actually selling) ===
 ${salesPerformance?.slice(0, 600) || "No sales data yet"}
@@ -171,10 +174,7 @@ ${resultsLog?.slice(-600) || "No results tracked yet — empire is new"}
 ${opportunities?.slice(0, 500) || "No opportunities logged yet"}
 
 === OBSIDIAN RAW SOURCE (owner's master business notes) ===
-${rawSource?.slice(0, 1500) || "Not synced yet — will appear after next Claude Code session ends"}
-
-=== LAST CLAUDE CODE SESSION (what the owner worked on most recently) ===
-${latestSession?.slice(0, 1000) || "No session log yet"}
+${rawSource?.slice(0, 1000) || "Not synced yet"}
 
 === LIVE WEB SEARCH ===
 ${webIntel}

@@ -27,12 +27,13 @@ async function blueskyLogin() {
 
 // Pick the best bio line based on Exelixis strategy
 function buildBio(strategy: string): string {
+  const siteHost = (process.env.NEXT_PUBLIC_SITE_URL || process.env.NEXT_PUBLIC_BASE_URL || "https://burga-store.vercel.app").replace("https://", "")
   const bios = [
-    "quiet luxury phone cases ✦ minimal. timeless. yours. shop → burga-store.vercel.app",
-    "phone cases for people with taste ✦ marble, sage, navy + more → burga-store.vercel.app",
-    "caselle — quiet luxury phone cases from $24.99 ✦ burga-store.vercel.app",
-    "your phone deserves better ✦ quiet luxury cases, tough build → burga-store.vercel.app",
-    "minimal phone cases. maximum aesthetic ✦ caselle → burga-store.vercel.app",
+    `quiet luxury phone cases ✦ minimal. timeless. yours. shop → ${siteHost}`,
+    `phone cases for people with taste ✦ marble, sage, navy + more → ${siteHost}`,
+    `caselle — quiet luxury phone cases from $24.99 ✦ ${siteHost}`,
+    `your phone deserves better ✦ quiet luxury cases, tough build → ${siteHost}`,
+    `minimal phone cases. maximum aesthetic ✦ caselle → ${siteHost}`,
   ]
 
   // Use strategy to pick angle — default to rotation by week number

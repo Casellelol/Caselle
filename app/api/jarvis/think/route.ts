@@ -60,7 +60,7 @@ export async function GET() {
   try {
     const [
       caselleBrain, strategy, salesPerformance, competitorIntel,
-      socialPerformance, worldBrain, resultsLog, persona, trendLog, ownerNotes, conversationLog, empireState, digitalProducts, businessIdeas, blueprints,
+      socialPerformance, worldBrain, resultsLog, persona, trendLog, ownerNotes, jarvisSummary, empireState, digitalProducts, businessIdeas, blueprints,
     ] = await Promise.all([
       fetchFile("Casellelol/Caselle", "exelixis-brain.md"),
       fetchFile("Casellelol/Caselle", "exelixis-strategy.md"),
@@ -72,7 +72,7 @@ export async function GET() {
       fetchFile("Casellelol/Caselle", "jarvis-persona.md"),
       fetchFile("Casellelol/Caselle", "trend-log.md"),
       fetchFile("Casellelol/Caselle", "JARVIS_OWNER_NOTES.md"),
-      fetchFile("Casellelol/Caselle", "conversation-log.md"),
+      fetchFile("Casellelol/Caselle", "jarvis-summary.md"),
       fetchFile("Casellelol/Caselle", "empire.json"),
       fetchFile("Casellelol/Caselle", "digital-products.md"),
       fetchFile("Casellelol/Caselle", "business-ideas.md"),
@@ -92,7 +92,7 @@ TREND LOG: ${trendLog?.slice(0, 400) || "None"}
 EMPIRE STATE (all stores): ${empireState || "No empire.json yet"}
 DIGITAL PRODUCTS ALREADY PUBLISHED (do not duplicate): ${digitalProducts?.slice(0, 600) || "None yet"}
 BUSINESS IDEAS ALREADY FILED (do not duplicate): ${businessIdeas?.slice(0, 600) || "None yet"}
-RECENT CONVERSATIONS WITH OWNER: ${conversationLog?.slice(0, 2000) || "No conversation history yet"}
+STRATEGIC MEMORY SUMMARY: ${jarvisSummary?.slice(0, 3000) || "No summary yet — first session will generate it"}
 `.trim()
 
     const systemPrompt = persona

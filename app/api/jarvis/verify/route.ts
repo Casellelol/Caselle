@@ -37,8 +37,8 @@ async function checkSocialPosting(): Promise<{ twitter: string; bluesky: string;
 }
 
 async function checkPrintify(): Promise<{ ok: boolean; detail: string }> {
-  const key = process.env.PRINTIFY_API_KEY
-  if (!key) return { ok: false, detail: "PRINTIFY_API_KEY not set" }
+  const key = process.env.PRINTIFY_API_TOKEN
+  if (!key) return { ok: false, detail: "PRINTIFY_API_TOKEN not set" }
   try {
     const res = await fetch("https://api.printify.com/v1/shops.json", {
       headers: { Authorization: `Bearer ${key}` },

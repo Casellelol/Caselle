@@ -141,6 +141,32 @@ STORE_LAUNCH — fire when ALL of the following are true:
   4. No existing store in the empire already covers this niche
   5. Your confidence is 75% or above
   When you fire STORE_LAUNCH, you are committing the empire to a new brand. Think like a founder.
+  IMPORTANT: Always include blueprints that match the niche. Format:
+  STORE_LAUNCH: [name] | [niche] | [aesthetic] | [rationale] | [confidence 0-100] | blueprints:["Blueprint Name 1","Blueprint Name 2","Blueprint Name 3"]
+
+MULTI-NICHE STORE EXPANSION — available product blueprints for any store:
+- Tough Case: blueprint 269, $12 base, $29.99 retail — best for: aesthetic, dark academia, coastal grandmother, streetwear, cottagecore
+- Unisex T-Shirt: blueprint 6, $12 base, $29.99 retail — best for: fitness, pet lovers, pop culture, minimalist, motivational
+- Unisex Hoodie: blueprint 92, $27 base, $64.99 retail — best for: fitness, dark academia, streetwear, gaming, cottagecore
+- Women's T-Shirt: blueprint 200, $12 base, $29.99 retail — best for: boho, coastal grandmother, cottagecore, feminist, yoga & wellness
+- Dog Bandana: blueprint 587, $8 base, $19.99 retail — best for: dog lovers, pet gifts, cute dog mom, golden retriever, holiday pet
+- Pet Bowl: blueprint 566, $12 base, $29.99 retail — best for: dog lovers, cat lovers, pet gifts, personalised pet, funny pet
+- Dog T-Shirt: blueprint 571, $12 base, $29.99 retail — best for: dog lovers, cute dog mom, funny dog, breed-specific, holiday pet
+- Mug 11oz: blueprint 68, $7 base, $17.99 retail — best for: coffee lover, office gifts, funny quotes, plant parent, morning routine
+- Poster: blueprint 509, $8 base, $19.99 retail — best for: home decor, inspirational quotes, botanical, dark academia, minimalist art
+- Canvas Print: blueprint 137, $15 base, $37.99 retail — best for: home decor, wall art, boho, abstract art, landscape photography
+- Throw Pillow: blueprint 171, $15 base, $37.99 retail — best for: home decor, cosy aesthetic, boho, cat mom, motivational
+- Tote Bag: blueprint 77, $8 base, $19.99 retail — best for: bookworm, coffee shop aesthetic, plant parent, feminist, aesthetic
+- Sticker: blueprint 358, $3 base, $7.99 retail — best for: any niche, impulse buy, bundle filler, fandom, cute art
+
+When evaluating STORE_LAUNCH opportunities, always match blueprints to the niche:
+- Dog/pet niche → blueprints: ["Dog Bandana", "Pet Bowl", "Dog T-Shirt"]
+- Coffee lover niche → blueprints: ["Mug 11oz", "Tote Bag", "Sticker"]
+- Fitness niche → blueprints: ["Unisex T-Shirt", "Unisex Hoodie", "Tote Bag"]
+- Home decor niche → blueprints: ["Canvas Print", "Throw Pillow", "Poster"]
+- General aesthetic niche → blueprints: ["Tough Case", "Tote Bag", "Sticker"]
+- Bookworm niche → blueprints: ["Tote Bag", "Mug 11oz", "Sticker"]
+Always include at least one low-cost entry product (Sticker at $7.99 or Tote Bag at $19.99) to attract first buyers.
 
 UPGRADE_NEEDED — fire only for genuine missing capabilities, not known infrastructure limitations.
 
@@ -234,8 +260,16 @@ DATA: ${context.slice(0, 2000)}`,
     // Fire STORE_LAUNCH commands
     for (const line of storeLaunchLines) {
       const parts = line.replace("STORE_LAUNCH:", "").trim().split("|").map(s => s.trim())
-      const [name, niche, aesthetic, rationale, confidenceStr] = parts
+      const [name, niche, aesthetic, rationale, confidenceStr, blueprintsStr] = parts
       if (name && niche && aesthetic && rationale) {
+        // Parse optional blueprints field: blueprints:["Name1","Name2"]
+        let blueprints: string[] | undefined
+        if (blueprintsStr) {
+          const match = blueprintsStr.match(/blueprints:\[([^\]]+)\]/)
+          if (match) {
+            blueprints = match[1].split(",").map(s => s.trim().replace(/^["']|["']$/g, ""))
+          }
+        }
         fetch(`${BASE_URL}/api/jarvis/store-launch`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -245,6 +279,7 @@ DATA: ${context.slice(0, 2000)}`,
             aesthetic,
             rationale,
             confidence: confidenceStr ? parseInt(confidenceStr) : 75,
+            blueprints,
           }),
         }).catch(() => {})
       }

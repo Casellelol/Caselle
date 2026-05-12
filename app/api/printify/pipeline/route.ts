@@ -5,6 +5,7 @@ import {
   PRINTIFY_SHOP_ID,
   PRINTIFY_VARIANT_MAP,
 } from "@/lib/printify"
+import { getBlueprintByName } from "@/lib/printify-blueprints"
 
 const PRINTIFY_TOKEN = process.env.PRINTIFY_API_TOKEN
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN
@@ -13,8 +14,10 @@ const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
 const REPLICATE_TOKEN = process.env.REPLICATE_API_TOKEN
 
 // Step 1: Generate design image — Replicate (pro quality) with Pollinations fallback
-async function generateDesignImage(prompt: string): Promise<string> {
-  const enhancedPrompt = `phone case design, ${prompt}, flat lay product design, centered composition, white background, ultra high quality, print ready, 1800x2400`
+async function generateDesignImage(prompt: string, designArea?: { width: number; height: number }): Promise<string> {
+  const w = designArea?.width ?? 1800
+  const h = designArea?.height ?? 2400
+  const enhancedPrompt = `${prompt}, flat lay product design, centered composition, white background, ultra high quality, print ready, ${w}x${h}`
 
   // Try Replicate Flux Pro first if key is available
   if (REPLICATE_TOKEN) {
@@ -27,7 +30,7 @@ async function generateDesignImage(prompt: string): Promise<string> {
           Prefer: "wait=60",
         },
         body: JSON.stringify({
-          input: { prompt: enhancedPrompt, width: 1024, height: 1365, output_format: "png" },
+          input: { prompt: enhancedPrompt, width: Math.min(w, 1440), height: Math.min(h, 1440), output_format: "png" },
         }),
       })
 
@@ -42,7 +45,7 @@ async function generateDesignImage(prompt: string): Promise<string> {
 
   // Fallback: Pollinations (free, no key)
   const encoded = encodeURIComponent(enhancedPrompt)
-  const pollinationsUrl = `https://image.pollinations.ai/prompt/${encoded}?width=1800&height=2400&nologo=true&model=flux&seed=${Date.now()}`
+  const pollinationsUrl = `https://image.pollinations.ai/prompt/${encoded}?width=${w}&height=${h}&nologo=true&model=flux&seed=${Date.now()}`
   const check = await fetch(pollinationsUrl, { method: "HEAD" }).catch(() => null)
   if (check?.ok) return pollinationsUrl
 
@@ -77,6 +80,8 @@ async function createProduct(params: {
   imageId: string
   price: number
   brandId?: string
+  blueprintId?: number
+  providerId?: number
 }): Promise<string> {
   const variantIds = Object.values(PRINTIFY_VARIANT_MAP)
   const uniqueVariantIds = [...new Set(variantIds)]
@@ -90,8 +95,8 @@ async function createProduct(params: {
   const body = {
     title: params.title,
     description: params.description,
-    blueprint_id: PRINTIFY_BLUEPRINT_ID,
-    print_provider_id: PRINTIFY_PRINT_PROVIDER_ID,
+    blueprint_id: params.blueprintId ?? PRINTIFY_BLUEPRINT_ID,
+    print_provider_id: params.providerId ?? PRINTIFY_PRINT_PROVIDER_ID,
     tags: [`brand:${params.brandId || "caselle"}`],
     variants,
     print_areas: [
@@ -203,25 +208,34 @@ async function logToGitHub(entry: string) {
 
 export async function POST(req: NextRequest) {
   try {
-    const { name, description, prompt, price = 2499, brandId } = await req.json()
+    const { name, description, prompt, price = 2499, brandId, blueprint_name } = await req.json()
 
     if (!name || !prompt) {
       return NextResponse.json({ error: "name and prompt required" }, { status: 400 })
     }
 
+    // Resolve blueprint from library — default to Tough Case
+    const blueprintEntry = blueprint_name ? getBlueprintByName(blueprint_name) : null
+    const resolvedBlueprintName = blueprintEntry ? blueprint_name : "Tough Case"
+    const resolvedBlueprintId = blueprintEntry?.blueprint_id ?? PRINTIFY_BLUEPRINT_ID
+    const resolvedProviderId = blueprintEntry?.provider_id ?? PRINTIFY_PRINT_PROVIDER_ID
+    const designArea = blueprintEntry?.design_area ?? { width: 1800, height: 2400 }
+
     const slug = name.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "")
     const date = new Date().toISOString().slice(0, 16).replace("T", " ")
     const brand = brandId || "caselle"
 
-    // Full pipeline
-    const imageUrl = await generateDesignImage(prompt)
+    // Full pipeline — pass design dimensions for correct image sizing
+    const imageUrl = await generateDesignImage(prompt, designArea)
     const imageId = await uploadToPrintify(imageUrl, slug)
     const productId = await createProduct({
       title: name,
-      description: description || `${name} — premium tough phone case by ${brand.charAt(0).toUpperCase() + brand.slice(1)}.`,
+      description: description || `${name} — premium product by ${brand.charAt(0).toUpperCase() + brand.slice(1)}.`,
       imageId,
       price,
       brandId: brand,
+      blueprintId: resolvedBlueprintId,
+      providerId: resolvedProviderId,
     })
     await publishProduct(productId)
 
@@ -251,7 +265,14 @@ export async function POST(req: NextRequest) {
       }),
     }).catch(() => {})
 
-    return NextResponse.json({ success: true, productId, imageId, name, confirmed })
+    return NextResponse.json({
+      success: true,
+      productId,
+      imageId,
+      name,
+      confirmed,
+      blueprint: { name: resolvedBlueprintName, id: resolvedBlueprintId, provider_id: resolvedProviderId },
+    })
   } catch (err) {
     return NextResponse.json({ error: String(err) }, { status: 500 })
   }

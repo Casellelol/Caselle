@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 import { notifyOwner } from "@/lib/jarvis/telegram"
+import { BLUEPRINTS, getBlueprintByName } from "@/lib/printify-blueprints"
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN
 const VERCEL_TOKEN = process.env.VERCEL_TOKEN
@@ -116,11 +117,16 @@ async function createVercelProject(repoName: string, storeName: string, brandId:
 
 // Tag future Printify products for this brand — no new shop needed
 // Products get a brand tag, frontend filters by it
-async function registerBrandTag(brandId: string, storeName: string): Promise<void> {
-  // This is a record only — the pipeline uses brand tags when creating products
-  // No Printify API call needed here; tags are set on PRODUCT_CREATE
+async function registerBrandTag(brandId: string, storeName: string, blueprintNames: string[]): Promise<void> {
+  const blueprintDetails = blueprintNames
+    .map(name => {
+      const b = getBlueprintByName(name)
+      return b ? `- ${name}: blueprint ${b.blueprint_id}, provider ${b.provider_id} (${b.provider_name}), retail $${b.recommended_retail_usd}` : `- ${name}: unknown`
+    })
+    .join("\n")
+
   await githubPut(CASELLE_REPO, `${brandId}-brain.md`,
-    `# ${storeName} — Empire Brain\n*Autonomously launched by JARVIS — ${new Date().toISOString().slice(0, 10)}*\n\n## Brand Tag\nAll Printify products for this store use tag: \`brand:${brandId}\`\n\n## Status\n- Products: 0\n- Revenue: £0\n- Vercel: pending first deployment\n\n## Intelligence\n*(Scout will populate once first products are live)*\n`,
+    `# ${storeName} — Empire Brain\n*Autonomously launched by JARVIS — ${new Date().toISOString().slice(0, 10)}*\n\n## Brand Tag\nAll Printify products for this store use tag: \`brand:${brandId}\`\n\n## Product Blueprints\n${blueprintDetails}\n\n## Status\n- Products: 0\n- Revenue: £0\n- Vercel: pending first deployment\n\n## Intelligence\n*(Scout will populate once first products are live)*\n`,
     `JARVIS: init brain for ${storeName}`
   )
 }
@@ -182,7 +188,7 @@ async function appendChangelog(storeName: string, niche: string, rationale: stri
 
 export async function POST(req: NextRequest) {
   try {
-    const { name, niche, aesthetic, rationale, confidence } = await req.json()
+    const { name, niche, aesthetic, rationale, confidence, blueprints: requestedBlueprints } = await req.json()
 
     if (!name || !niche || !aesthetic || !rationale) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 })
@@ -190,6 +196,28 @@ export async function POST(req: NextRequest) {
     if (confidence && confidence < 70) {
       return NextResponse.json({ error: "Confidence below 70% — launch aborted" }, { status: 400 })
     }
+
+    // Resolve blueprints — default to phone cases if not specified
+    const blueprintNames: string[] = (requestedBlueprints && requestedBlueprints.length > 0)
+      ? requestedBlueprints
+      : ["Tough Case"]
+
+    const resolvedBlueprints = blueprintNames
+      .map(n => ({ name: n, blueprint: getBlueprintByName(n) }))
+      .filter(b => b.blueprint !== null)
+
+    // Generate initial product queue (5 products across selected blueprints)
+    const products_to_create = resolvedBlueprints.flatMap(({ name: bpName, blueprint: b }) => {
+      if (!b) return []
+      const count = Math.max(1, Math.floor(5 / resolvedBlueprints.length))
+      return Array.from({ length: count }, (_, i) => ({
+        blueprint: bpName,
+        blueprint_id: b.blueprint_id,
+        provider_id: b.provider_id,
+        suggested_niche: b.best_niches[i % b.best_niches.length],
+        retail_price: b.recommended_retail_usd,
+      }))
+    }).slice(0, 5)
 
     const id = name.toLowerCase().replace(/[^a-z0-9]/g, "-")
     const repoName = `${name.charAt(0).toUpperCase()}${name.slice(1).toLowerCase()}-store`
@@ -205,8 +233,8 @@ export async function POST(req: NextRequest) {
     }
     const vercelUrl = repoCreated ? await createVercelProject(repoName, name, id) : null
 
-    // Step 3: Register brand tag — future PRODUCT_CREATEs use tag brand:${id}
-    await registerBrandTag(id, name)
+    // Step 3: Register brand tag with blueprint details
+    await registerBrandTag(id, name, blueprintNames)
 
     // Step 4: Update empire state
     await Promise.all([
@@ -215,14 +243,17 @@ export async function POST(req: NextRequest) {
     ])
 
     if (vercelUrl) {
+      const blueprintSummary = blueprintNames.join(", ")
       await notifyOwner(
-        `🚀 *JARVIS — New Store Launched*\n\n*${name}* is deploying now.\n\n*Niche:* ${niche}\n*Aesthetic:* ${aesthetic}\n*URL:* ${vercelUrl}\n*Reason I launched it:* ${rationale}\n\nProducts tagged \`brand:${id}\` will start publishing automatically. No action needed from you.`
+        `🚀 *JARVIS — New Store Launched*\n\n*${name}* is deploying now.\n\n*Niche:* ${niche}\n*Aesthetic:* ${aesthetic}\n*Blueprints:* ${blueprintSummary}\n*URL:* ${vercelUrl}\n*Reason I launched it:* ${rationale}\n\nProducts tagged \`brand:${id}\` will start publishing automatically. No action needed from you.`
       )
     }
 
     return NextResponse.json({
       success: true,
       store: { id, name, niche, aesthetic, vercelUrl, repoName },
+      blueprints: blueprintNames,
+      products_to_create,
       fullyAutonomous: !!VERCEL_TOKEN,
       note: VERCEL_TOKEN
         ? `${name} is deploying to ${vercelUrl}. JARVIS will begin publishing products tagged brand:${id}.`
@@ -232,3 +263,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: String(err) }, { status: 500 })
   }
 }
+
+// Suppress unused import warning
+void Object.keys(BLUEPRINTS).length

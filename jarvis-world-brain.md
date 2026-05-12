@@ -1,12 +1,12 @@
 # JARVIS World Brain
-*Last updated: 2026-05-12 08:09*
+*Last updated: 2026-05-12 22:26*
 
 ## Hacker News — Tech & Business
-- Postmortem: TanStack NPM supply-chain compromise
-- Screenshots of Old Desktop OSes
-- They Live (1988) inspired Adblocker
-- If AI writes your code, why use Python?
-- UCLA discovers first stroke rehabilitation drug to repair brain damage (2025)
+- Googlebook
+- How to make your text look futuristic (2016)
+- CERT is releasing six CVEs for serious security vulnerabilities in dnsmasq
+- Show HN: Needle: We Distilled Gemini Tool Calling into a 26M Model
+- Why senior developers fail to communicate their expertise
 
 ## Reddit — Entrepreneurs
 Feed unavailable

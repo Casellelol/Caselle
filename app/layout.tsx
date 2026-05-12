@@ -3,6 +3,7 @@ import "./globals.css"
 import Header from "@/components/layout/Header"
 import Footer from "@/components/layout/Footer"
 import CartDrawer from "@/components/layout/CartDrawer"
+import EmailCaptureBanner from "@/components/layout/EmailCaptureBanner"
 
 export const metadata: Metadata = {
   title: "Caselle — Premium Phone Cases",
@@ -16,6 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <CartDrawer />
         <main className="pt-14">{children}</main>
+        <EmailCaptureBanner />
         <Footer />
       </body>
     </html>

@@ -1,12 +1,12 @@
 # JARVIS World Brain
-*Last updated: 2026-05-11 08:09*
+*Last updated: 2026-05-12 08:09*
 
 ## Hacker News — Tech & Business
-- Hardware Attestation as Monopoly Enabler
-- Local AI needs to be the norm
-- The Greatest Shot in Television: James Burke Had One Chance to Nail This Scene (2024)
-- Running local models on an M4 with 24GB memory
-- I'm going back to writing code by hand
+- Postmortem: TanStack NPM supply-chain compromise
+- Screenshots of Old Desktop OSes
+- They Live (1988) inspired Adblocker
+- If AI writes your code, why use Python?
+- UCLA discovers first stroke rehabilitation drug to repair brain damage (2025)
 
 ## Reddit — Entrepreneurs
 Feed unavailable

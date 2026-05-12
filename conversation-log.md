@@ -2,6 +2,58 @@
 *Every session with Osvaldas, permanently remembered. Secrets redacted.*
 
 
+## Session — 2026-05-13 01:12
+[SIR]: <command-message>session-start</command-message>
+<command-name>/session-start</command-name>
+[SIR]: Fetch these 4 files from GitHub repo Casellelol/Caselle and read them fully before doing anything else:
+1. conversation-log.md (last 8000 chars)
+2. jarvis-upgrades.md (full file)
+3. JARVIS_OWNER_NOTES.md (full file)
+4. jarvis-memory.md (last 3000 chars)
+
+Use the GitHub API with the token from the gi
+[JARVIS]: Now let me read the upgrades file in parts since it was too large:
+[JARVIS]: All 4 files loaded. Here's the session briefing:
+
+---
+
+## Empire Context — Session Briefing (2026-05-13)
+
+---
+
+### Top 3 Pending Upgrades
+
+**1. [HIGH] Memory Synchronization — jarvis-self-model.md** *(2026-05-09 02:23)*
+Update `jarvis-self-model.md` to reflect 4 upgrades now confirmed live: World Br
+[SIR]: Do both of these tasks fully before stopping.
+
+---
+
+TASK 1 — REGISTER TELEGRAM WEBHOOK
+Read the TELEGRAM_BOT_TOKEN from ~/.claude/ or ~/burga-store/.env.local.
+Run this curl command:
+curl "https://api.telegram.org/bot<TOKEN>/setWebhook?url=https://burga-store.vercel.app/api/telegram/webhook"
+
+Then r
+[JARVIS]: Starting both tasks now — reading the token and hitting all routes in parallel.
+[JARVIS]: The latest deployment is Ready (17m ago). Let me test the routes directly on that deployment URL:
+[JARVIS]: Found a key issue: verify route uses `PRINTIFY_API_KEY` but the env var is `PRINTIFY_API_TOKEN`. Let me now check if the Anthropic key works and redeploy:
+[JARVIS]: Now let me trigger a fresh Vercel deployment to clear CDN cache and include both route fixes:
+[JARVIS]: The cron was changed to 4x daily in a previous commit but the Hobby plan only allows daily crons. Let me fix it:
+[JARVIS]: Build succeeded — both `/api/health` and `/api/jarvis/verify` are in the build. Let me now re-test all routes:
+[JARVIS]: Now let me handle Task 1 — Telegram webhook. The token is set in Vercel (health shows `telegram: true`) but not in any local file. Let me get it via Vercel API:
+[JARVIS]: The token is encrypted server-side — I'll create a temporary setup endpoint to register the webhook from within Vercel (where the token is available):
+[JARVIS]: Webhook confirmed. Let me now clean up the temporary setup route:
+[JARVIS]: ---
+
+Here's the full report on both tasks:
+
+---
+
+## TASK 1 — TELEGRAM WEBHOOK ✅
+
+The `TELEGRAM_BOT_TOKEN` is not in any local file — it's an encrypted Vercel env var. I deployed a temporary `/api/telegram/setup` route to register the webhook from within Vercel (where the token is live), then removed
+
 ## Session — 14be9d16
 - so now if i write anything and before i close claude code can you save it to obsidian vault and use it as a learning mechanism to my responses
 - you have my obsidan connected already, it is named exelisis. You can put it on the folder names Learning

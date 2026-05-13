@@ -22,7 +22,9 @@ export const products: Product[] = [
     collectionSlugs: ["iphone-17", "iphone-16", "iphone-15", "samsung-s25", "pixel-9", "quiet-luxury"],
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#F5F2EE" }],
-    "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/47cc4a1f-5f34-43ba-9469-ab80a23ae96e"]
+    images: {
+      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/47cc4a1f-5f34-43ba-9469-ab80a23ae96e"]
+    },
     featured: true,
     createdAt: "2026-05-08",
   },
@@ -40,7 +42,9 @@ export const products: Product[] = [
     collectionSlugs: ["iphone-17", "iphone-16", "iphone-15", "samsung-s25", "pixel-9", "dark-aesthetic"],
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#F5F2EE" }],
-    "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/984dc2f0-ac78-48f8-9325-da3a5d0f901b"]
+    images: {
+      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/984dc2f0-ac78-48f8-9325-da3a5d0f901b"]
+    },
     featured: true,
     createdAt: "2026-05-09",
   },
@@ -58,7 +62,9 @@ export const products: Product[] = [
     collectionSlugs: ["iphone-17", "iphone-16", "iphone-15", "samsung-s25", "pixel-9", "trending"],
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#F5F2EE" }],
-    "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/a7a2a819-8c2b-420f-be21-a7fe2ab3cf55"]
+    images: {
+      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/a7a2a819-8c2b-420f-be21-a7fe2ab3cf55"]
+    },
     featured: true,
     createdAt: "2026-05-10",
   },
@@ -76,7 +82,9 @@ export const products: Product[] = [
     collectionSlugs: ["iphone-17", "iphone-16", "iphone-15", "samsung-s25", "pixel-9", "quiet-luxury"],
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#F5F2EE" }],
-    "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/a7a2a819-8c2b-420f-be21-a7fe2ab3cf55"]
+    images: {
+      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/a7a2a819-8c2b-420f-be21-a7fe2ab3cf55"]
+    },
     featured: true,
     createdAt: "2026-05-11",
   },
@@ -94,7 +102,9 @@ export const products: Product[] = [
     collectionSlugs: ["iphone-17", "iphone-16", "iphone-15", "samsung-s25", "pixel-9", "trending"],
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#F5F2EE" }],
-    "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/1d808cdc-bfcb-4dbc-b5b9-8c75155f83ed"]
+    images: {
+      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/1d808cdc-bfcb-4dbc-b5b9-8c75155f83ed"]
+    },
     featured: true,
     createdAt: "2026-05-12",
   },
@@ -112,7 +122,9 @@ export const products: Product[] = [
     collectionSlugs: ["iphone-17", "iphone-16", "iphone-15", "samsung-s25", "pixel-9", "dark-aesthetic"],
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#F5F2EE" }],
-    "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/564a5c56-02ba-4c5b-8d50-df3d2bb2b58d"]
+    images: {
+      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/564a5c56-02ba-4c5b-8d50-df3d2bb2b58d"]
+    },
     featured: true,
     createdAt: "2026-05-13",
   },
@@ -129,7 +141,9 @@ export const products: Product[] = [
     collectionSlugs: ["iphone-17", "iphone-16", "iphone-15", "samsung-s25", "pixel-9", "dark-aesthetic"],
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#F5F2EE" }],
-    "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/369355eb-ec98-479b-8d5d-e16dfb868874"]
+    images: {
+      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/369355eb-ec98-479b-8d5d-e16dfb868874"]
+    },
     featured: false,
     createdAt: "2026-05-14",
   },
@@ -146,7 +160,9 @@ export const products: Product[] = [
     collectionSlugs: ["iphone-17", "iphone-16", "iphone-15", "samsung-s25", "pixel-9", "dark-aesthetic"],
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#F5F2EE" }],
-    "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/58bea016-e278-4790-83a8-938171b5b594"]
+    images: {
+      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/58bea016-e278-4790-83a8-938171b5b594"]
+    },
     featured: false,
     createdAt: "2026-05-15",
   },
@@ -163,7 +179,9 @@ export const products: Product[] = [
     collectionSlugs: ["iphone-17", "iphone-16", "iphone-15", "samsung-s25", "pixel-9", "dark-aesthetic"],
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#F5F2EE" }],
-    "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/38f6f68d-118e-4eda-83f1-da89a0e9e0a6"]
+    images: {
+      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/38f6f68d-118e-4eda-83f1-da89a0e9e0a6"]
+    },
     featured: false,
     createdAt: "2026-05-16",
   },
@@ -180,7 +198,9 @@ export const products: Product[] = [
     collectionSlugs: ["iphone-17", "iphone-16", "iphone-15", "samsung-s25", "pixel-9", "dark-aesthetic"],
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#F5F2EE" }],
-    "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/494aec9b-b9bb-48f7-bd69-3633eb7931b5"]
+    images: {
+      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/494aec9b-b9bb-48f7-bd69-3633eb7931b5"]
+    },
     featured: false,
     createdAt: "2026-05-17",
   },
@@ -197,7 +217,9 @@ export const products: Product[] = [
     collectionSlugs: ["iphone-17", "iphone-16", "iphone-15", "samsung-s25", "pixel-9", "quiet-luxury"],
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#F5F2EE" }],
-    "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/46104144-aa04-408b-bd08-acde289fad8e"]
+    images: {
+      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/46104144-aa04-408b-bd08-acde289fad8e"]
+    },
     featured: false,
     createdAt: "2026-05-18",
   },
@@ -214,7 +236,9 @@ export const products: Product[] = [
     collectionSlugs: ["iphone-17", "iphone-16", "iphone-15", "samsung-s25", "pixel-9", "trending"],
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#F5F2EE" }],
-    "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/7d406e69-8c52-48b7-bbd4-591a55e3369a"]
+    images: {
+      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/7d406e69-8c52-48b7-bbd4-591a55e3369a"]
+    },
     featured: false,
     createdAt: "2026-05-19",
   },
@@ -231,7 +255,9 @@ export const products: Product[] = [
     collectionSlugs: ["iphone-17", "iphone-16", "iphone-15", "samsung-s25", "pixel-9", "quiet-luxury"],
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#F5F2EE" }],
-    "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/99069341-a639-4a9b-aa50-8afbf6f390f4"]
+    images: {
+      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/99069341-a639-4a9b-aa50-8afbf6f390f4"]
+    },
     featured: false,
     createdAt: "2026-05-20",
   },
@@ -248,7 +274,9 @@ export const products: Product[] = [
     collectionSlugs: ["iphone-17", "iphone-16", "iphone-15", "samsung-s25", "pixel-9"],
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#F5F2EE" }],
-    "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/c591a0b4-f716-4b30-b615-d882e0ce637b"]
+    images: {
+      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/c591a0b4-f716-4b30-b615-d882e0ce637b"]
+    },
     featured: false,
     createdAt: "2026-05-21",
   },
@@ -265,7 +293,9 @@ export const products: Product[] = [
     collectionSlugs: ["iphone-17", "iphone-16", "iphone-15", "samsung-s25", "pixel-9"],
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#F5F2EE" }],
-    "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/8a4f03cb-af92-4fe8-bf4d-7762428b3611"]
+    images: {
+      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/8a4f03cb-af92-4fe8-bf4d-7762428b3611"]
+    },
     featured: false,
     createdAt: "2026-05-22",
   },
@@ -282,7 +312,9 @@ export const products: Product[] = [
     collectionSlugs: ["iphone-17", "iphone-16", "iphone-15", "samsung-s25", "pixel-9", "quiet-luxury"],
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#F5F2EE" }],
-    "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/d5a074f1-9765-45ae-a3f7-e7077cccfc72"]
+    images: {
+      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/d5a074f1-9765-45ae-a3f7-e7077cccfc72"]
+    },
     featured: false,
     createdAt: "2026-05-23",
   },
@@ -299,7 +331,9 @@ export const products: Product[] = [
     collectionSlugs: ["iphone-17", "iphone-16", "iphone-15", "samsung-s25", "pixel-9", "dark-aesthetic"],
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#F5F2EE" }],
-    "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/3572dfa0-ae0b-44b4-bd0d-fa48dcc35e6b"]
+    images: {
+      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/3572dfa0-ae0b-44b4-bd0d-fa48dcc35e6b"]
+    },
     featured: false,
     createdAt: "2026-05-24",
   },

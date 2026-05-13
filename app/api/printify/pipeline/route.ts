@@ -17,7 +17,7 @@ const REPLICATE_TOKEN = process.env.REPLICATE_API_TOKEN
 async function generateDesignImage(prompt: string, designArea?: { width: number; height: number }): Promise<string> {
   const w = designArea?.width ?? 1800
   const h = designArea?.height ?? 2400
-  const enhancedPrompt = `${prompt}, flat lay product design, centered composition, white background, ultra high quality, print ready, ${w}x${h}`
+  const enhancedPrompt = `${prompt}, phone case back design, full bleed edge to edge, no white borders, no white background, background color fills entire image to edges, ultra high quality, print ready, ${w}x${h}`
 
   // Try Replicate Flux Pro first if key is available
   if (REPLICATE_TOKEN) {
@@ -110,7 +110,7 @@ async function createProduct(params: {
                 id: params.imageId,
                 x: 0.5,
                 y: 0.5,
-                scale: 1,
+                scale: 1.05,
                 angle: 0,
               },
             ],

@@ -1,9 +1,9 @@
 # JARVIS World Brain
-*Last updated: 2026-05-13 08:00*
+*Last updated: 2026-05-13 08:22*
 
 ## Hacker News — Tech & Business
-- Deterministic Fully-Static Whole-Binary Translation Without Heuristics
 - European governments: 3.000 tracking sites, 1.000 phpMyAdmins, and 99% poorly
+- Deterministic Fully-Static Whole-Binary Translation Without Heuristics
 - Restore full BambuNetwork support for Bambu Lab printers
 - The vi family
 - Googlebook
@@ -26,11 +26,11 @@
 
 ## Product Hunt — New Products Trending
 - Product Hunt — The best new products, every day
-- RescueTime for iOS &amp; Android
-- Apideck MCP Server
 - CraftBot with Living UI
-- Fide Shopify App
+- Apideck MCP Server
 - WhoAmILookingFor
+- Latitude for Claude Code
+- Whisper Internet Infra AI Context
 
 ## Amazon Trends
 No data

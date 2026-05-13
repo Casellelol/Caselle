@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Static fallback. Live feed at /api/sitemap/products -->
+<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
+  <channel>
+    <title>Caselle — Phone Cases</title>
+    <link>https://burga-store.vercel.app</link>
+    <description>Premium aesthetic phone cases by Caselle. Live feed: https://burga-store.vercel.app/api/sitemap/products</description>
+  </channel>
+</rss>

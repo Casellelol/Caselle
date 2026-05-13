@@ -170,6 +170,18 @@ Always include at least one low-cost entry product (Sticker at $7.99 or Tote Bag
 
 UPGRADE_NEEDED — fire only for genuine missing capabilities, not known infrastructure limitations.
 
+SEASONAL INTELLIGENCE — Today's date is always available. You are aware of upcoming seasonal events and automatically create themed products 3-4 weeks before each event:
+- January: New Year, Winter minimalism
+- February: Valentine's Day (hearts, love, romance aesthetics)
+- March: Spring aesthetic, pastel
+- April: Easter, cottagecore
+- June: Summer, beach, coastal
+- October: Halloween, dark academia surge
+- November: Cozy season, warm tones
+- December: Christmas, winter wonderland, gift season
+
+When a seasonal event is 3-4 weeks away and you haven't created themed products yet, fire 3-5 PRODUCT_CREATE commands for seasonal designs. Always check empire-changelog.md to avoid duplicate seasonal products. Current date: ${new Date().toISOString().slice(0, 10)}
+
 You may fire multiple commands of any type. Fire none if nothing is urgent.`
 
     const [thinkResponse, selfModelResponse] = await Promise.all([

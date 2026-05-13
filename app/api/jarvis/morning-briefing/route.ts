@@ -145,7 +145,21 @@ export async function GET() {
       .join("\n")
 
     // Build health section (includes /api/health check + cron audit)
-    const healthSection = await buildHealthSection(changelog)
+    const [healthSection, costsData] = await Promise.all([
+      buildHealthSection(changelog),
+      fetch(`${BASE_URL}/api/jarvis/costs`, { signal: AbortSignal.timeout(6000) })
+        .then(r => r.ok ? r.json() : null)
+        .catch(() => null) as Promise<{
+          monthly_spend_usd: number
+          daily_avg_usd: number
+          estimated_days_remaining: number
+          top_cost_routes: string[]
+        } | null>,
+    ])
+
+    const costsSection = costsData
+      ? `<h2>💰 API Spend</h2><p>Month-to-date: <strong>$${costsData.monthly_spend_usd}</strong> · Daily avg: <strong>$${costsData.daily_avg_usd}</strong> · Est. days remaining: <strong>${costsData.estimated_days_remaining}</strong>${costsData.estimated_days_remaining < 7 ? " ⚠️ ALERT: less than 7 days of credits remaining" : ""}</p>`
+      : ""
 
     const briefing = await client.messages.create({
       model: "claude-sonnet-4-6",
@@ -167,7 +181,7 @@ SYSTEM ACTIVITY (last 24h): ${recentActivity || "No logged activity yet"}`,
     })
 
     const briefingHtml = briefing.content[0].type === "text" ? briefing.content[0].text : ""
-    const fullHtml = healthSection + "\n<hr/>\n" + briefingHtml
+    const fullHtml = healthSection + "\n<hr/>\n" + costsSection + "\n<hr/>\n" + briefingHtml
     const date = new Date().toISOString().slice(0, 10)
 
     const emailSent = await sendEmail(`JARVIS Morning Briefing — ${date}`, fullHtml)

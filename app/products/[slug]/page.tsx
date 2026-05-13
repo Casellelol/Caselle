@@ -85,6 +85,47 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
             quantity={quantity}
           />
 
+          {/* Shipping trust bar */}
+          <div className="border border-[#E2DDD6] rounded p-4 flex flex-col gap-2">
+            <div className="flex items-center gap-3">
+              <span className="text-[#8C8880]">✦</span>
+              <span className="font-sans text-xs text-[#1A1A18]">Ships in 3–5 business days</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="text-[#8C8880]">✦</span>
+              <span className="font-sans text-xs text-[#1A1A18]">Printed &amp; shipped by SPOKE (USA)</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="text-[#8C8880]">✦</span>
+              <span className="font-sans text-xs text-[#1A1A18]">Free returns within 30 days</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="text-[#1A1A18]">🛡</span>
+              <span className="font-sans text-xs text-[#1A1A18]">Quality guaranteed — we replace any defective case</span>
+            </div>
+          </div>
+
+          {/* Frequently bought together */}
+          <div className="border border-[#E2DDD6] rounded p-4">
+            <p className="font-sans text-xs uppercase tracking-[0.12em] text-[#8C8880] mb-3">
+              Frequently Bought Together
+            </p>
+            <div className="flex items-center gap-4">
+              <div className="w-14 h-14 bg-[#F5F2EE] rounded flex items-center justify-center text-lg">👜</div>
+              <div className="flex-1">
+                <p className="font-sans text-sm font-medium text-[#1A1A18]">Caselle Canvas Tote Bag</p>
+                <p className="font-sans text-xs text-[#8C8880]">Matching aesthetic — added automatically at checkout</p>
+                <p className="font-sans text-sm text-[#1A1A18] mt-1">
+                  <span className="line-through text-[#8C8880] mr-1">$18</span>
+                  <strong>$12</strong> when ordered with a case
+                </p>
+              </div>
+            </div>
+            <p className="font-sans text-xs text-[#8C8880] mt-3">
+              Add both to cart — the tote is offered at checkout automatically.
+            </p>
+          </div>
+
           <Accordion items={accordionItems} />
         </div>
       </div>

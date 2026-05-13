@@ -31,6 +31,13 @@
 
 ---
 
+### 4. Cart Recovery — every 2 hours
+**URL:** `https://burga-store.vercel.app/api/cron/cart-recovery`
+**Schedule:** `0 */2 * * *`
+**Description:** Checks Stripe for expired/abandoned checkout sessions, sends recovery email to customers who haven't received one in 7 days. 2-hour cadence maximises recovery window.
+
+---
+
 ## Notes
 - These routes are safe to call externally — they authenticate via internal logic only
 - If the Anthropic API credit balance is exhausted, calls will log the error gracefully and return 500 (no side effects)

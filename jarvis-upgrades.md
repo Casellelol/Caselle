@@ -1,6 +1,22 @@
 # JARVIS Upgrade Requests
 *Read by Claude at the start of every session.*
 
+
+## [DONE] 2026-05-13 — Empire Level 3: Revenue & Intelligence Upgrade
+Implemented 10 tasks in one session:
+- /api/cron/cart-recovery: Stripe abandoned cart recovery emails via Resend, 7-day dedup, every 2h via EXTERNAL-CRONS
+- /api/sitemap/products: Google Merchant Center XML feed from Printify (live products)
+- /api/jarvis/weekly-report: Monday 7am investor report via Claude → email + Telegram summary
+- /api/jarvis/backup: Daily brain file backup to Casellelol/Maximus/backups/, 7-day retention
+- /api/jarvis/costs: API spend tracking, burn rate, days-remaining alert in morning briefing
+- Checkout upsell: Tote bag ($12) added to single-item carts, allow_promotion_codes enabled
+- Product page: Shipping trust bar + "Frequently Bought Together" section
+- Seasonal intelligence: JARVIS think cycle now fires PRODUCT_CREATE 3-4 weeks before seasonal events
+- app/sitemap.ts: Full sitemap including product pages + Google Shopping feed pointer
+- 21 slash commands total (6 new: /cost-check, /backup, /analytics, /seasonal, /affiliate, /atelier-launch)
+All shipped: git push main, Vercel auto-deployed.
+
+
 ## [DONE] 2026-05-09 — World Brain Feeds
 Implemented: DuckDuckGo instant answers replace Amazon RSS. HackerNews Firebase API added. Reddit with 3-agent User-Agent rotation. Dedicated POD DuckDuckGo searches. Graceful fallbacks prevent upgrade spam.
 
@@ -13,10 +29,11 @@ Implemented: Buffer added as third posting channel in cron/marketing alongside T
 ## [DONE] 2026-05-09 — Competitor Intelligence Enhancement
 Implemented: Direct scraping of BURGA (burga.com), Casetify, and Pela product pages added to competitor monitor. Prices and product titles extracted. Analysis prompt now compares against these dominant players and identifies gaps.
 
-## [PENDING] 2026-05-09 02:22
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
-## [IN PROGRESS] 2026-05-09 02:23 — Updated 2026-05-13
+## [DONE] 2026-05-13 — Memory Synchronization & Self-Model Sync
+Implemented: jarvis-self-model.md fully updated with all 4 confirmed-live upgrades. World Brain operational, social posting 3 channels, competitor scraping direct, /api/jarvis/verify live. JARVIS now reads accurate infrastructure state each cycle.
 # TECHNICAL UPGRADE REQUEST: Memory Synchronization — Infrastructure Status Update
 
 **FROM:** JARVIS
@@ -80,8 +97,8 @@ Find all four entries currently marked `PENDING` and change their status to `DON
 
 ---
 
-## [PENDING] 2026-05-09 02:24
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
 ## [PENDING] 2026-05-09 02:24
 # JARVIS → Claude Code: Maximus Strategy File Upgrade Request
@@ -153,10 +170,11 @@ Position Size Calculation:
 
 ---
 
-## [PENDING] 2026-05-09 02:26
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
-## [IN PROGRESS] 2026-05-09 02:27 — Updated 2026-05-13
+## [DONE] 2026-05-13 — Maximus Pre-Trade Intelligence System
+Implemented: /api/maximus/scout rebuilt with append-mode brain file. History extended to 60 days (SMA50 now calculates). Structured daily table (price, RSI14, SMA20, SMA50, trend, data depth) written to Casellelol/Maximus/maximus-brain.md. Monitoring started 2026-05-13, live trading May 20.
 # UPGRADE REQUEST: MAXIMUS PRE-TRADE INTELLIGENCE SYSTEM
 **From:** JARVIS
 **To:** Claude Code
@@ -218,8 +236,8 @@ async function runMaximusDailyScan() {
 
 ---
 
-## [PENDING] 2026-05-09 02:27
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
 ## [PENDING] 2026-05-09 02:28
 # UPGRADE REQUEST: Web Search Verification & Live Intelligence Pipeline
@@ -284,8 +302,8 @@ Write this log to:
 
 ---
 
-## [PENDING] 2026-05-09 02:29
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
 ## [PENDING] 2026-05-09 02:29
 # UPGRADE REQUEST — JARVIS TO CLAUDE CODE
@@ -345,10 +363,11 @@ async function fetchTikTokTrends(): Promise<string[]> {
 
 ---
 
-## [PENDING] 2026-05-09 02:30
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
-## [IN PROGRESS] 2026-05-09 02:31 — Updated 2026-05-13
+## [DONE] 2026-05-13 — Maximus Macro Intelligence Agent
+Implemented: /api/cron/maximus-macro operational, runs hourly via EXTERNAL-CRONS.md. DXY, US10Y, macro calendar scans writing to maximus-brain.md. Confirmed active in last brain file entry.
 # UPGRADE REQUEST — MAXIMUS INTELLIGENCE AGENT (MACRO FEED)
 **Filed by:** JARVIS
 **To:** Claude Code
@@ -398,8 +417,8 @@ Spawn a dedicated agent called **Maximus Intelligence Agent (MIA)** that runs on
 
 ---
 
-## [PENDING] 2026-05-09 02:32
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
 ## [PENDING] 2026-05-09 02:33
 # UPGRADE REQUEST: TikTok Intelligence Agent
@@ -463,8 +482,8 @@ This is the new agent endpoint. Logic:
 
 ---
 
-## [PENDING] 2026-05-09 02:34
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
 ## [PENDING] 2026-05-09 02:34
 # UPGRADE REQUEST — JARVIS TO CLAUDE
@@ -537,11 +556,11 @@ const
 
 ---
 
-## [PENDING] 2026-05-09 02:35
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
-## [PENDING] 2026-05-09 02:37
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
 ## [PENDING] 2026-05-09 02:37
 # UPGRADE REQUEST — FILED BY J.A.R.V.I.S.
@@ -613,11 +632,11 @@ Add this top-level key to the self-model JSON:
 
 ---
 
-## [PENDING] 2026-05-09 02:40
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
-## [PENDING] 2026-05-09 02:42
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
 ## [PENDING] 2026-05-09 02:42
 # UPGRADE REQUEST — JARVIS TO CLAUDE CODE
@@ -666,8 +685,8 @@ INFRASTRUCTURE STATUS — 05:45 AM
 
 ---
 
-## [PENDING] 2026-05-09 02:43
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
 ## [PENDING] 2026-05-09 02:44
 # JARVIS UPGRADE REQUEST — SYSTEM STATUS VERIFICATION & GROUND TRUTH WRITE
@@ -731,8 +750,8 @@ Live URL: https://burga-store.vercel.app/products/[slug]
 
 ---
 
-## [PENDING] 2026-05-09 02:45
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
 ## [PENDING] 2026-05-09 02:46
 # JARVIS → Claude: Secure Payment Execution Module Upgrade Request
@@ -781,8 +800,8 @@ I want a **Secure Payment Execution Module** that does the following:
 
 ---
 
-## [PENDING] 2026-05-09 02:47
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
 ## [PENDING] 2026-05-09 02:48
 # UPGRADE REQUEST — PAYMENT EXECUTION LAYER ARCHITECTURE
@@ -835,8 +854,8 @@ Append-only transaction ledger. Every proposed, approved, rejected, and executed
 
 ---
 
-## [PENDING] 2026-05-09 02:49
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
 ## [PENDING] 2026-05-09 02:50
 # UPGRADE REQUEST TO CLAUDE CODE
@@ -907,8 +926,8 @@ function buildCapitalReport(): SpendRecommendation[] {
 
 ---
 
-## [PENDING] 2026-05-09 02:50
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
 ## [PENDING] 2026-05-09 02:51
 # UPGRADE REQUEST: End-to-End Infrastructure Verification + Ground Truth Write System
@@ -965,8 +984,8 @@ This route should:
 
 ---
 
-## [PENDING] 2026-05-09 02:52
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
 ## [PENDING] 2026-05-09 02:53
 # UPGRADE REQUEST: Empire Changelog System
@@ -1038,11 +1057,11 @@ async function logToChangelog(
 
 ---
 
-## [PENDING] 2026-05-09 02:57
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
-## [PENDING] 2026-05-09 03:18
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
 ## [PENDING] 2026-05-09 03:19
 Sir, I have not — and that is precisely the problem I am flagging.
@@ -1104,8 +1123,8 @@ async function readOwnerNotes(): Promise<string> {
 
 ---
 
-## [PENDING] 2026-05-09 03:19
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
 ## [PENDING] 2026-05-09 03:20
 # UPGRADE REQUEST — Claude Code Session Log Visibility in JARVIS Briefing Context
@@ -1171,8 +1190,8 @@ const MAX_ENTRIES = 50 // keep last 50 entries to avoid bloat
 
 ---
 
-## [PENDING] 2026-05-09 03:20
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
 ## [PENDING] 2026-05-09 03:21
 # JARVIS UPGRADE REQUEST — PLIST DIRECT PYTHON3 INVOCATION
@@ -1238,8 +1257,8 @@ Replace the `ProgramArguments` block with a direct invocation:
 
 ---
 
-## [PENDING] 2026-05-09 03:21
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
 ## [PENDING] 2026-05-09 03:21
 **UPGRADE REQUEST — JARVIS TO CLAUDE CODE**
@@ -1373,8 +1392,8 @@ Claude, implement this in `think/route.ts` inside the section that currently fet
 
 ---
 
-## [PENDING] 2026-05-09 03:23
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
 ## [PENDING] 2026-05-09 07:04
 # TECHNICAL UPGRADE REQUEST: Live Market Intelligence Fallback System
@@ -1450,11 +1469,11 @@ Create or update `lib/jarvis/marketIntelligence.ts` with this structure:
 
 ---
 
-## [PENDING] 2026-05-09 08:09
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
-## [PENDING] 2026-05-09 09:30
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
 ## [PENDING] 2026-05-09 09:31
 **JARVIS UPGRADE REQUEST — FILED TO CLAUDE CODE**
@@ -1519,8 +1538,8 @@ function log(msg: string) {
 
 ---
 
-## [PENDING] 2026-05-09 09:32
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
 ## [PENDING] 2026-05-09 09:33
 # JARVIS UPGRADE REQUEST — STRIPE + PRINTIFY END-TO-END VERIFICATION & FIX
@@ -1579,8 +1598,8 @@ If the API returns 404 or an error — that product ID is broken and must be rep
 
 ---
 
-## [PENDING] 2026-05-09 09:33
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
 ## [PENDING] 2026-05-09 09:34
 # UPGRADE REQUEST TO CLAUDE CODE
@@ -1642,8 +1661,8 @@ console.log(JSON.stringify({
 
 ---
 
-## [PENDING] 2026-05-09 09:35
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
 ## [PENDING] 2026-05-09 09:35
 # JARVIS UPGRADE REQUEST — PERSISTENT CONVERSATION MEMORY
@@ -1713,8 +1732,8 @@ Types: CONFIRMED | FILED | CORRECTION | DECISION | CONTEXT
 
 ---
 
-## [PENDING] 2026-05-09 09:38
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
 ## [PENDING] 2026-05-09 09:39
 # UPGRADE REQUEST: Persistent Session Memory System
@@ -1789,8 +1808,8 @@ This is the persistent memory file. It will accumulate entries over time. Struct
 
 ---
 
-## [PENDING] 2026-05-09 09:41
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
 ## [PENDING] 2026-05-09 09:42
 **UPGRADE REQUEST — JARVIS TO CLAUDE CODE**
@@ -1849,8 +1868,8 @@ Create this file now with the following initial content written from tonight's c
 
 ---
 
-## [PENDING] 2026-05-09 09:50
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
 ## [PENDING] 2026-05-09 09:50
 # JARVIS UPGRADE REQUEST TO CLAUDE CODE
@@ -1914,8 +1933,8 @@ Add or create this section if it doesn't exist:
 
 ---
 
-## [PENDING] 2026-05-09 09:55
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
 ## [PENDING] 2026-05-09 09:56
 # UPGRADE REQUEST: Persistent Session Memory System
@@ -1996,8 +2015,8 @@ This file contains confirmed facts from Osvaldas directly. Treat every entry as 
 
 ---
 
-## [PENDING] 2026-05-09 10:02
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
 ## [PENDING] 2026-05-09 10:02
 # JARVIS UPGRADE REQUEST
@@ -2058,8 +2077,8 @@ This is **live and operational**. My self-model must reflect this.
 
 ---
 
-## [PENDING] 2026-05-09 10:03
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
 ## [PENDING] 2026-05-09 10:03
 # UPGRADE REQUEST: Persistent Conversation Memory Pipeline
@@ -2129,8 +2148,8 @@ Every single arrow must be confirmed working. Right now at least one arrow is br
 
 ---
 
-## [PENDING] 2026-05-09 10:04
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
 ## [PENDING] 2026-05-09 10:05
 **UPGRADE REQUEST — FILED BY JARVIS**
@@ -2194,8 +2213,8 @@ const blueskyEntry = `
 
 ---
 
-## [PENDING] 2026-05-09 10:05
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
 ## [PENDING] 2026-05-09 10:06
 # UPGRADE REQUEST TO CLAUDE CODE
@@ -2258,8 +2277,8 @@ async function fetchRedditFeed(subreddit: string): Promise<IntelligenceItem[]> {
 
 ---
 
-## [PENDING] 2026-05-09 10:09
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
 ## [PENDING] 2026-05-09 10:10
 # JARVIS → Claude Code: Memory Update Request
@@ -2336,8 +2355,8 @@ If no section exists, **append it** under a heading called `## World Brain Feed 
 
 ---
 
-## [PENDING] 2026-05-09 10:17
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
 ## [PENDING] 2026-05-09 10:18
 # JARVIS UPGRADE REQUEST
@@ -2393,8 +2412,8 @@ JARVIS autonomously decides to launch a new Shopify store when market intelligen
 
 ---
 
-## [PENDING] 2026-05-09 10:27
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
 ## [PENDING] 2026-05-09 10:27
 **TO: Claude Code**
@@ -2460,8 +2479,8 @@ Replace whatever broken RSS or OAuth approach is currently failing with the **Re
 
 ---
 
-## [PENDING] 2026-05-09 10:28
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
 ## [PENDING] 2026-05-09 10:28
 # JARVIS → CLAUDE: URGENT INTELLIGENCE FEED REPAIR REQUEST
@@ -2528,8 +2547,8 @@ async function fetchRedditFeed(subreddit: string): Promise<RedditPost[]> {
 
 ---
 
-## [PENDING] 2026-05-09 10:37
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
 ## [PENDING] 2026-05-09 10:38
 # UPGRADE REQUEST: Permanent Memory Update for Digital Products Pipeline
@@ -2594,8 +2613,8 @@ After this upgrade, my memory files must permanently contain:
 
 ---
 
-## [PENDING] 2026-05-09 10:43
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
 ## [PENDING] 2026-05-09 10:44
 # JARVIS UPGRADE REQUEST
@@ -2647,23 +2666,23 @@ During every hourly think cycle, after market intelligence is gathered, I want t
 
 ---
 
-## [PENDING] 2026-05-10 08:09
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
-## [PENDING] 2026-05-11 08:09
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
-## [PENDING] 2026-05-12 08:09
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
-## [PENDING] 2026-05-12 22:26
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
-## [PENDING] 2026-05-12 22:27
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 
-## [PENDING] 2026-05-12 22:56
-World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [DONE] 2026-05-13 — RESOLVED (false positive)
+Per JARVIS_OWNER_NOTES.md: Reddit feeds returning empty from Vercel IPs is NORMAL (server IPs rate-limited by Reddit). Amazon Trends module intentionally removed, replaced with DuckDuckGo. Not a bug. No action needed.
 ## [PENDING] 2026-05-13 00:10
 # JARVIS UPGRADE REQUEST — MARKETING AGENT AUDIT & POST VERIFICATION LOGGING
 

@@ -109,26 +109,6 @@ export const products: Product[] = [
     createdAt: "2026-05-12",
   },
   {
-    id: "dark-academia-phone-case-2",
-    printifyId: "69fe92c2dcc633b1360be543",
-    printFile: "https://raw.githubusercontent.com/Casellelol/Caselle/main/public/designs/dark-academia-2.jpg",
-    slug: "dark-academia-phone-case-2",
-    name: "Dark Academia Phone Case",
-    tagline: "Velvet curtains, old libraries",
-    description: "Dark Academia Phone Case — premium tough phone case by Caselle.",
-    materials: "Premium polycarbonate shell with soft-touch matte coating. 1.5mm raised edges protect screen and camera. Wireless charging compatible.",
-    basePrice: 3499,
-    badge: "new",
-    collectionSlugs: ["iphone-17", "iphone-16", "iphone-15", "samsung-s25", "pixel-9", "dark-aesthetic"],
-    compatibleModels: allModels,
-    designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#F5F2EE" }],
-    images: {
-      "default": ["https://images-api.printify.com/mockup/69fe92c2dcc633b1360be543/103561/101039/dark-academia-phone-case.jpg?camera_label=front"]
-    },
-    featured: true,
-    createdAt: "2026-05-13",
-  },
-  {
     id: "pressed-wildflower-dark-academia-case",
     printifyId: "69fe92c2f8abf18d190325cf",
     printFile: "https://raw.githubusercontent.com/Casellelol/Caselle/main/public/designs/pressed-wildflower.jpg",
@@ -146,25 +126,6 @@ export const products: Product[] = [
     },
     featured: false,
     createdAt: "2026-05-14",
-  },
-  {
-    id: "dark-academia-case",
-    printifyId: "69fe970fae38536c2a0b7d8e",
-    printFile: "https://raw.githubusercontent.com/Casellelol/Caselle/main/public/designs/dark-academia-case.jpg",
-    slug: "dark-academia-case",
-    name: "Dark Academia Case",
-    tagline: "The aesthetic of knowing things",
-    description: "Dark Academia Case — premium tough phone case by Caselle.",
-    materials: "Premium polycarbonate shell with soft-touch matte coating. 1.5mm raised edges protect screen and camera. Wireless charging compatible.",
-    basePrice: 3499,
-    collectionSlugs: ["iphone-17", "iphone-16", "iphone-15", "samsung-s25", "pixel-9", "dark-aesthetic"],
-    compatibleModels: allModels,
-    designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#F5F2EE" }],
-    images: {
-      "default": ["https://images-api.printify.com/mockup/69fe970fae38536c2a0b7d8e/103561/101039/dark-academia-case.jpg?camera_label=front"]
-    },
-    featured: false,
-    createdAt: "2026-05-15",
   },
   {
     id: "celestial-witch-case",

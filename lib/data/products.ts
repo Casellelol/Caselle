@@ -236,7 +236,7 @@ export const products: Product[] = [
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#F5F2EE" }],
     images: {
-      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/3572dfa0-ae0b-44b4-bd0d-fa48dcc35e6b"]
+      "default": ["https://images-api.printify.com/mockup/6a03c1827f5b0b906707e079/103561/101039/celestial-witch-dark-case.jpg?camera_label=front"]
     },
     featured: false,
     createdAt: "2026-05-24",
@@ -356,7 +356,7 @@ export const products: Product[] = [
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#1B3A6B" }],
     images: {
-      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/290c1db7-01e5-47c8-aa02-26d245c2e2d3"]
+      "default": ["https://images-api.printify.com/mockup/6a04ea545540b782e103e200/103561/101039/van-gogh-swirl-phone-case.jpg?camera_label=front"]
     },
     featured: false,
     createdAt: "2026-05-13",
@@ -376,7 +376,7 @@ export const products: Product[] = [
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#2D5016" }],
     images: {
-      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/a03dd706-10cf-4acf-b3ae-d5fbaf1baf04"]
+      "default": ["https://images-api.printify.com/mockup/6a04ea60efbe648ab30c82fd/103561/101039/william-morris-floral-phone-case.jpg?camera_label=front"]
     },
     featured: false,
     createdAt: "2026-05-13",
@@ -396,7 +396,7 @@ export const products: Product[] = [
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#1A0A2E" }],
     images: {
-      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/2df3d4a5-e5d8-4722-a23f-61abc9695d15"]
+      "default": ["https://images-api.printify.com/mockup/6a04ea6e40ee4b37d0040e8a/103561/101039/mystic-cat-oracle-phone-case.jpg?camera_label=front"]
     },
     featured: false,
     createdAt: "2026-05-13",
@@ -416,7 +416,7 @@ export const products: Product[] = [
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#C9A96E" }],
     images: {
-      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/1c1b1287-62db-43ff-8e5f-e620562ed94f"]
+      "default": ["https://images-api.printify.com/mockup/6a04ea7cb14e025c990e9eac/103561/101039/klimt-golden-woman-phone-case.jpg?camera_label=front"]
     },
     featured: false,
     createdAt: "2026-05-13",
@@ -436,7 +436,7 @@ export const products: Product[] = [
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#1E1B4B" }],
     images: {
-      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/a542cc33-d502-43f4-b572-5613d255a13b"]
+      "default": ["https://images-api.printify.com/mockup/6a04ea899c35c408d201de64/103561/101039/tarot-moon-card-phone-case.jpg?camera_label=front"]
     },
     featured: false,
     createdAt: "2026-05-13",
@@ -456,7 +456,7 @@ export const products: Product[] = [
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#5C7A3E" }],
     images: {
-      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/941fa837-884d-455f-ad06-57a3b0765864"]
+      "default": ["https://images-api.printify.com/mockup/6a04ea97b796133c9d07b984/103561/101039/mushroom-cottage-core-phone-case.jpg?camera_label=front"]
     },
     featured: false,
     createdAt: "2026-05-13",

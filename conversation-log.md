@@ -2,6 +2,111 @@
 *Every session with Osvaldas, permanently remembered. Secrets redacted.*
 
 
+## Session — 2026-05-13 18:42
+[SIR]: <command-message>session-start</command-message>
+<command-name>/session-start</command-name>
+[SIR]: Fetch these 4 files from GitHub repo Casellelol/Caselle and read them fully before doing anything else:
+1. conversation-log.md (last 8000 chars)
+2. jarvis-upgrades.md (full file)
+3. JARVIS_OWNER_NOTES.md (full file)
+4. jarvis-memory.md (last 3000 chars)
+
+Use the GitHub API with the token from the gi
+[JARVIS]: Let me fetch the GitHub token and all 4 files.
+[JARVIS]: Now let me read the upgrades file in parts since it was too large.
+[JARVIS]: All 4 files are loaded. Here's the full session briefing:
+
+---
+
+## Empire Context — Session Briefing (2026-05-13)
+
+---
+
+### Top 3 Pending Upgrades
+
+**1. [PENDING] 2026-05-09 02:24 — Maximus Strategy File**
+Create `/Users/osvaldasspiliauskas/burga-store/lib/maximus/strategy-config.md` with confirmed
+[SIR]: For all 17 products in shop 27451784 on Printify, fetch the actual design artwork files.
+
+1. Call GET https://api.printify.com/v1/shops/27451784/products.json with the PRINTIFY_API_TOKEN
+2. For each product, look inside print_areas[0].placeholders[0].images[0].src — this is the raw artwork URL that
+[JARVIS]: Let me grab the Printify token and fetch all products.
+[JARVIS]: No products returned — let me check the raw response.
+[JARVIS]: Big response — let me parse it directly.
+[JARVIS]: 17 products found. Extracting all artwork URLs now.
+[JARVIS]: All 17 products fetched. Now let me read the current products.ts to map them.
+[JARVIS]: Good news: all 17 products in `products.ts` already have the correct Printify artwork URLs in both `printFile` and `images.default[0]`. Every UUID matches exactly. Let me verify with a diff to confirm nothing needs changing.
+[JARVIS]: All 17 match perfectly — the file was already correct. No changes needed. Proceeding to deploy.
+[SIR]: In ~/burga-store/ run:
+1. git add -A
+2. git commit -m "Empire update: [describe what changed in one line based on recent work]"
+3. git push origin main
+4. Confirm Vercel deployment triggered (check vercel.json exists and git push succeeded — Vercel Git integration auto-deploys on push to main)
+Print
+[JARVIS]: Remote has diverged — pulling first.
+[JARVIS]: Push succeeded. vercel.json is present and Vercel's Git integration auto-deploys on every push to main.
+
+**Deployed.**
+
+---
+
+**Summary of this session:**
+- Fetched all 17 Printify products via the live API
+- Verified every artwork URL in `products.ts` already matches `print_areas[0].placeholders[0].
+[SIR]: is it at caselle.store now?
+[JARVIS]: Yes — **caselle.store is live and returning 200**. 
+
+- `caselle.store` redirects to `www.caselle.store` (307)
+- `www.caselle.store` returns a full HTML page (HTTP 200, served from Vercel's CDN with a cache HIT)
+
+The store is up and running.
+[SIR]: is the arwork uploaded in that store?
+[JARVIS]: The store IS showing images, but they're the **Printify mockup renders** (design on actual phone), not the raw artwork files. Let me find where that logic lives.
+[JARVIS]: The mockup URLs return `content-length: 0` — **blank images**. The raw S3 artwork URLs work fine (1.1MB JPEGs). Let me find where the store is generating those broken mockup URLs instead of using the artwork.
+[JARVIS]: The live page is still serving a cached old build (the `age: 8122` header = 2+ hours old, pre-dating our push). The mockup URLs it's serving return `content-length: 0` — **blank images**. Our push just went out minutes ago.
+
+Let me check if the new deployment finished yet:
+[JARVIS]: Here's the full picture:
+
+**The store has broken images right now.** The live static build (cached 2+ hours ago) has old URLs from a previous version of `products.ts` — `images-api.printify.com/mockup/...` with 4 camera angles — but **those mockup URLs all return 0 bytes** (blank). Printify's mockup
+[JARVIS]: Still the old cached build. The new build hasn't propagated yet. Here's the full diagnosis:
+
+**Current state:** Broken — images are blank
+- Old build has 4 Printify mockup URLs (`images-api.printify.com/mockup/...`) per product
+- All 4 return **0 bytes** — Printify's mockup renderer isn't serving th
+[SIR]: im happy now
+[JARVIS]: The new build will land shortly and the artwork will show. Store is live at caselle.store.
+[SIR]: how many pushes it makes a day
+[JARVIS]: 100 just today and we hit the 100-commit limit. Let me pull more history.
+[JARVIS]: So today (May 13) alone: **160 pushes** so far. Yesterday (May 12): **40 pushes**.
+
+That's JARVIS's automated cron jobs firing constantly — world brain refresh, memory updates, session logs, marketing posts, etc. Each one commits and pushes. **Every push triggers a Vercel build**, so Vercel is queui
+[SIR]: JARVIS is pushing 160 times/day to the same repo as the store code, triggering 160 Vercel builds for brain files that have nothing to do with the frontend. Fix this by splitting:
+
+TASK 1 — Create a new GitHub repo called Casellelol/JARVIS-brain
+This repo will store ONLY brain files:
+- conversation-l
+[JARVIS]: Let me start by finding all brain-writing routes and creating the new repo in parallel.
+[JARVIS]: Repo created. Now let me audit every file to understand which ones write brain files vs store files.
+[JARVIS]: Now let me check for GITHUB_REPO env var usage and read the key shared routes.
+[JARVIS]: Good. I'll create a shared lib constant, then do the bulk replacement across all routes — keeping only the `public/designs` image URL pointing to Caselle.
+[JARVIS]: vercel.json is cron-only — no repo config there. Vercel's connection to Casellelol/Caselle is dashboard-managed. JARVIS-brain won't auto-connect. 
+
+Now running the bulk replacement:
+[JARVIS]: 36 files updated, image URL preserved. Now add the env var and verify the replacement is clean:
+[JARVIS]: Clean. Now add the env var to `.env.local`:
+[JARVIS]: Now commit and push:
+[JARVIS]: Pushed. Here's the complete summary:
+
+---
+
+**Done. All 5 tasks complete.**
+
+**TASK 1** — `Casellelol/JARVIS-brain` repo created on GitHub. No Vercel connection — pushes there trigger zero builds.
+
+**TASK 2** — 36 API route files updated. Every brain file read/write now points to `Casellelol/JARVIS-b
+[SIR]: now dig into everything we created on clode code and obsidiant i want to ask clode ai something
+
 ## Session — 2026-05-13 18:41
 [SIR]: <command-message>session-start</command-message>
 <command-name>/session-start</command-name>

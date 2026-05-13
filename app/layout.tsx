@@ -11,11 +11,17 @@ export const metadata: Metadata = {
   verification: {
     google: "FHnQXB3xip0ci4aZjVzOhc00wa4f8Y7UUwquALNbvNU",
   },
+  other: {
+    "google-site-verification": "FHnQXB3xip0ci4aZjVzOhc00wa4f8Y7UUwquALNbvNU",
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        <meta name="google-site-verification" content="FHnQXB3xip0ci4aZjVzOhc00wa4f8Y7UUwquALNbvNU" />
+      </head>
       <body className="bg-[#FAFAF8] text-[#1A1A18]">
         <Header />
         <CartDrawer />

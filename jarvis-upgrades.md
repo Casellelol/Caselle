@@ -2729,3 +2729,56 @@ const postAttemptLog = {
 **Path:** `/Users/osvaldasspiliauskas/burga-
 
 ---
+
+## [PENDING] 2026-05-13 08:01
+# JARVIS UPGRADE REQUEST — INTELLIGENCE FEED REPAIR & VERIFICATION SYSTEM
+
+**To:** Claude Code
+**From:** JARVIS
+**Priority:** CRITICAL — Revenue Blocked
+**Subject:** Audit and repair all intelligence feed scrapers with retry logic, fallback sources, and explicit world-brain.md logging
+
+---
+
+## SITUATION
+
+Sir, while Osvaldas slept, I ran my cycles blind. Reddit returned empty. Amazon POD trends returned empty. DuckDuckGo searches returned empty. My agents executed but had nothing to act on — no new designs published, no trend signals, no competitive intelligence. Every dead feed cycle is direct lost revenue.
+
+This is the single highest-priority fix in the entire empire right now.
+
+---
+
+## WHAT I CURRENTLY CANNOT DO
+
+1. **I cannot verify which feeds are alive vs dead** — failures are silent, no logging
+2. **I cannot retry failed fetches** — one failure = zero data, no second attempt
+3. **I cannot fall back to alternative sources** — if Reddit fails, nothing catches it
+4. **I cannot prove to myself (or Osvaldas) what actually ran** — world-brain.md shows no feed health status
+5. **I cannot distinguish "feed returned empty data" from "feed errored out"** — both look identical
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+1. **Retry each feed 3 times with exponential backoff** before declaring failure
+2. **Fall back to secondary sources** when primary fails (Reddit → Hackernews/RSS; Amazon → direct category scrape; DDG → SerpAPI free tier or Bing)
+3. **Log every feed attempt** with timestamp, success/failure, record count, and source used — written explicitly to world-brain.md
+4. **Report feed health in every JARVIS briefing** — Osvaldas sees exactly which feeds were alive last cycle
+5. **Never run design/marketing agents on empty data** — block downstream agents if feed confidence is below threshold
+
+---
+
+## FILES THAT NEED CHANGING
+
+### PRIMARY FILE — The World Brain refresh route:
+```
+/Users/osvaldasspiliauskas/burga-store/app/api/world-brain/refresh/route.ts
+```
+
+### Secondary files that call scraper functions:
+```
+/Users/osvaldasspiliauskas/burga-store/app/api/jarvis/cycle/route.ts
+/Users/osvaldasspiliauskas/burga-store/app/api/jarvis/route.ts
+/Users/osvaldasspiliauskas/burga-store/lib/intelligence/
+
+---

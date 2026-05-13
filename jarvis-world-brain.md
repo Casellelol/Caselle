@@ -1,36 +1,36 @@
 # JARVIS World Brain
-*Last updated: 2026-05-13 00:10*
+*Last updated: 2026-05-13 08:00*
 
 ## Hacker News — Tech & Business
-- Kraftwerk's radical 1976 track
-- Googlebook
+- Deterministic Fully-Static Whole-Binary Translation Without Heuristics
+- European governments: 3.000 tracking sites, 1.000 phpMyAdmins, and 99% poorly
 - Restore full BambuNetwork support for Bambu Lab printers
-- How to make your text look futuristic (2016)
-- CERT is releasing six CVEs for serious security vulnerabilities in dnsmasq
+- The vi family
+- Googlebook
 - Show HN: Needle: We Distilled Gemini Tool Calling into a 26M Model
 
 ## Entrepreneur Magazine — Latest
+- 5 Tax Strategies Smart Founders Use to Protect Their Profits
+- The 5-Step Sales Process That Consistently Converts Prospects Into Clients
+- How Working for an NBA Team Taught Me 3 of the Most Important Leadership Lessons of My Career
+- AI Now Decides Which Brands Consumers See First — Is Yours One of Them?
+- How to Build Brand Authenticity the Right Way — and Ensure Customers Feel It at Every Touchpoint
 - I Started Mentoring Young People. It Transformed My Business — Here’s How.
-- These Are the Top 10 Franchises in Every Industry in 2026
-- Your Degree Alone Won’t Get You Hired Anymore — Here’s What Will
-- Leaders, Not Every Decision Deserves Your Attention. This Simple Framework Tells You Which Ones Actually Do.
-- Walmart, Target and Dollar General Are Pouring Billions of Dollars Into One Surprising Aspect of Their Businesses
-- Your Employees Use This Hidden ‘Flexible Work’ Trend — And It’s Costing Your Business More Than You Realize
 
 ## Inc.com — Business News
+- Want to Age More Slowly? Science Says Do More of What You Actually Enjoy
+- Stop Trying to Outspend Your Rivals—Try Irritating Them Instead
 - Google Just Unveiled the ‘Googlebook’: Here’s What Users Can Expect From the New Laptop
 - The Neopets Comeback Is Upon Us—With a New York City Pop-Up Arriving This Summer
 - In 2025, Americans Lost $2.1 Billion to Scams on Social Media—and This Group Was the Most Susceptible
-- Canvas Just Resolved a Major Hack. Here’s How Your Company Can Avoid the Same Fate
-- United Airlines Union Ratifies Contract With Big Win for Workers
 
 ## Product Hunt — New Products Trending
 - Product Hunt — The best new products, every day
-- Jotform Claude App
-- Free AI SEO Auditor
-- Hyperswitch Prism
-- Keeby for Windows
-- Whisper Island by Coddo
+- RescueTime for iOS &amp; Android
+- Apideck MCP Server
+- CraftBot with Living UI
+- Fide Shopify App
+- WhoAmILookingFor
 
 ## Amazon Trends
 No data

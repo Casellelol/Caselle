@@ -2,6 +2,33 @@
 *Every session with Osvaldas, permanently remembered. Secrets redacted.*
 
 
+## Session — 2026-05-13 10:19
+[SIR]: <command-message>session-start</command-message>
+<command-name>/session-start</command-name>
+[SIR]: Fetch these 4 files from GitHub repo Casellelol/Caselle and read them fully before doing anything else:
+1. conversation-log.md (last 8000 chars)
+2. jarvis-upgrades.md (full file)
+3. JARVIS_OWNER_NOTES.md (full file)
+4. jarvis-memory.md (last 3000 chars)
+
+Use the GitHub API with the token from the gi
+[JARVIS]: I'll fetch the GitHub token from the git config, then pull all 4 files in parallel.
+[JARVIS]: Got the token. Fetching all 4 files in parallel now.
+[JARVIS]: Now let me read the full upgrades file to identify all pending items.
+[JARVIS]: I have enough context. Let me check the last section of the upgrades file for the most recent entries.
+[JARVIS]: All 4 files loaded. Here's the session briefing:
+
+---
+
+## Empire Context — Session Briefing (2026-05-13)
+
+---
+
+### Top 3 Pending Upgrades
+
+**1. [CRITICAL] Maximus Pre-Trade Intelligence System** *(IN PROGRESS — 02:27)*
+Deploy Maximus in monitoring-only mode now to accumulate 7 days of gold market da
+
 ## Session — 2026-05-13 01:44
 [SIR]: <command-message>session-start</command-message>
 <command-name>/session-start</command-name>

@@ -11,7 +11,7 @@ export const products: Product[] = [
   {
     id: "cherry-red-quiet-luxury-phone-case",
     printifyId: "69fe63e9f0f38ff1d503b486",
-    printFile: "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/47cc4a1f-5f34-43ba-9469-ab80a23ae96e",
+    printFile: "https://raw.githubusercontent.com/Casellelol/Caselle/main/public/designs/cherry-red.jpg",
     slug: "cherry-red-quiet-luxury-phone-case",
     name: "Cherry Red — Quiet Luxury Phone Case",
     tagline: "Bold meets refined",
@@ -23,7 +23,7 @@ export const products: Product[] = [
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#F5F2EE" }],
     images: {
-      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/47cc4a1f-5f34-43ba-9469-ab80a23ae96e"]
+      "default": ["https://images-api.printify.com/mockup/69fe63e9f0f38ff1d503b486/103561/101039/cherry-red-quiet-luxury-phone-case.jpg?camera_label=front"]
     },
     featured: true,
     createdAt: "2026-05-08",
@@ -31,7 +31,7 @@ export const products: Product[] = [
   {
     id: "dark-academia-phone-case",
     printifyId: "69fe8b47f9b3c9205f0fe638",
-    printFile: "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/984dc2f0-ac78-48f8-9325-da3a5d0f901b",
+    printFile: "https://raw.githubusercontent.com/Casellelol/Caselle/main/public/designs/dark-academia.jpg",
     slug: "dark-academia-phone-case",
     name: "Dark Academia Phone Case",
     tagline: "Books, candles, and consequence",
@@ -43,7 +43,7 @@ export const products: Product[] = [
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#F5F2EE" }],
     images: {
-      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/984dc2f0-ac78-48f8-9325-da3a5d0f901b"]
+      "default": ["https://images-api.printify.com/mockup/69fe8b47f9b3c9205f0fe638/103561/101039/dark-academia-phone-case.jpg?camera_label=front"]
     },
     featured: true,
     createdAt: "2026-05-09",
@@ -51,7 +51,7 @@ export const products: Product[] = [
   {
     id: "booktok-romantasy-phone-case",
     printifyId: "69fe8e1149256e824e00e424",
-    printFile: "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/a7a2a819-8c2b-420f-be21-a7fe2ab3cf55",
+    printFile: "https://raw.githubusercontent.com/Casellelol/Caselle/main/public/designs/booktok-romantasy.jpg",
     slug: "booktok-romantasy-phone-case",
     name: "BookTok Romantasy Phone Case",
     tagline: "For the girls who finish series in one sitting",
@@ -63,7 +63,7 @@ export const products: Product[] = [
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#F5F2EE" }],
     images: {
-      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/a7a2a819-8c2b-420f-be21-a7fe2ab3cf55"]
+      "default": ["https://images-api.printify.com/mockup/69fe8e1149256e824e00e424/103561/101039/booktok-romantasy-phone-case.jpg?camera_label=front"]
     },
     featured: true,
     createdAt: "2026-05-10",
@@ -71,7 +71,7 @@ export const products: Product[] = [
   {
     id: "coastal-grandmother-case",
     printifyId: "69fe8e754ba2ff981a01962a",
-    printFile: "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/a7a2a819-8c2b-420f-be21-a7fe2ab3cf55",
+    printFile: "https://raw.githubusercontent.com/Casellelol/Caselle/main/public/designs/coastal-grandmother.jpg",
     slug: "coastal-grandmother-case",
     name: "Coastal Grandmother Case",
     tagline: "Linen, light, and sea salt air",
@@ -83,7 +83,7 @@ export const products: Product[] = [
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#F5F2EE" }],
     images: {
-      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/a7a2a819-8c2b-420f-be21-a7fe2ab3cf55"]
+      "default": ["https://images-api.printify.com/mockup/69fe8e754ba2ff981a01962a/103561/101039/coastal-grandmother-case.jpg?camera_label=front"]
     },
     featured: true,
     createdAt: "2026-05-11",
@@ -91,7 +91,7 @@ export const products: Product[] = [
   {
     id: "coquette-cherry-bow-phone-case",
     printifyId: "69fe92c24b354ada360b812b",
-    printFile: "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/1d808cdc-bfcb-4dbc-b5b9-8c75155f83ed",
+    printFile: "https://raw.githubusercontent.com/Casellelol/Caselle/main/public/designs/coquette-cherry-bow.jpg",
     slug: "coquette-cherry-bow-phone-case",
     name: "Coquette Cherry Bow Phone Case",
     tagline: "Sweet with an edge",
@@ -103,7 +103,7 @@ export const products: Product[] = [
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#F5F2EE" }],
     images: {
-      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/1d808cdc-bfcb-4dbc-b5b9-8c75155f83ed"]
+      "default": ["https://images-api.printify.com/mockup/69fe92c24b354ada360b812b/103561/101039/coquette-cherry-bow-phone-case.jpg?camera_label=front"]
     },
     featured: true,
     createdAt: "2026-05-12",
@@ -111,7 +111,7 @@ export const products: Product[] = [
   {
     id: "dark-academia-phone-case-2",
     printifyId: "69fe92c2dcc633b1360be543",
-    printFile: "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/564a5c56-02ba-4c5b-8d50-df3d2bb2b58d",
+    printFile: "https://raw.githubusercontent.com/Casellelol/Caselle/main/public/designs/dark-academia-2.jpg",
     slug: "dark-academia-phone-case-2",
     name: "Dark Academia Phone Case",
     tagline: "Velvet curtains, old libraries",
@@ -123,7 +123,7 @@ export const products: Product[] = [
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#F5F2EE" }],
     images: {
-      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/564a5c56-02ba-4c5b-8d50-df3d2bb2b58d"]
+      "default": ["https://images-api.printify.com/mockup/69fe92c2dcc633b1360be543/103561/101039/dark-academia-phone-case.jpg?camera_label=front"]
     },
     featured: true,
     createdAt: "2026-05-13",
@@ -131,7 +131,7 @@ export const products: Product[] = [
   {
     id: "pressed-wildflower-dark-academia-case",
     printifyId: "69fe92c2f8abf18d190325cf",
-    printFile: "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/369355eb-ec98-479b-8d5d-e16dfb868874",
+    printFile: "https://raw.githubusercontent.com/Casellelol/Caselle/main/public/designs/pressed-wildflower.jpg",
     slug: "pressed-wildflower-dark-academia-case",
     name: "Pressed Wildflower Dark Academia Case",
     tagline: "Preserved beauty",
@@ -142,7 +142,7 @@ export const products: Product[] = [
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#F5F2EE" }],
     images: {
-      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/369355eb-ec98-479b-8d5d-e16dfb868874"]
+      "default": ["https://images-api.printify.com/mockup/69fe92c2f8abf18d190325cf/103561/101039/pressed-wildflower-dark-academia-case.jpg?camera_label=front"]
     },
     featured: false,
     createdAt: "2026-05-14",
@@ -150,7 +150,7 @@ export const products: Product[] = [
   {
     id: "dark-academia-case",
     printifyId: "69fe970fae38536c2a0b7d8e",
-    printFile: "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/58bea016-e278-4790-83a8-938171b5b594",
+    printFile: "https://raw.githubusercontent.com/Casellelol/Caselle/main/public/designs/dark-academia-case.jpg",
     slug: "dark-academia-case",
     name: "Dark Academia Case",
     tagline: "The aesthetic of knowing things",
@@ -161,7 +161,7 @@ export const products: Product[] = [
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#F5F2EE" }],
     images: {
-      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/58bea016-e278-4790-83a8-938171b5b594"]
+      "default": ["https://images-api.printify.com/mockup/69fe970fae38536c2a0b7d8e/103561/101039/dark-academia-case.jpg?camera_label=front"]
     },
     featured: false,
     createdAt: "2026-05-15",
@@ -169,7 +169,7 @@ export const products: Product[] = [
   {
     id: "celestial-witch-case",
     printifyId: "69fe9710b639fab5c10840ad",
-    printFile: "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/38f6f68d-118e-4eda-83f1-da89a0e9e0a6",
+    printFile: "https://raw.githubusercontent.com/Casellelol/Caselle/main/public/designs/celestial-witch.jpg",
     slug: "celestial-witch-case",
     name: "Celestial Witch Case",
     tagline: "Aligned with the stars",
@@ -180,7 +180,7 @@ export const products: Product[] = [
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#F5F2EE" }],
     images: {
-      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/38f6f68d-118e-4eda-83f1-da89a0e9e0a6"]
+      "default": ["https://images-api.printify.com/mockup/69fe9710b639fab5c10840ad/103561/101039/celestial-witch-case.jpg?camera_label=front"]
     },
     featured: false,
     createdAt: "2026-05-16",
@@ -188,7 +188,7 @@ export const products: Product[] = [
   {
     id: "celestial-witch-case-2",
     printifyId: "69fea1983cdbaa898e0efdd1",
-    printFile: "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/494aec9b-b9bb-48f7-bd69-3633eb7931b5",
+    printFile: "https://raw.githubusercontent.com/Casellelol/Caselle/main/public/designs/celestial-witch-2.jpg",
     slug: "celestial-witch-case-2",
     name: "Celestial Witch Case",
     tagline: "Moon-touched and magic-minded",
@@ -199,7 +199,7 @@ export const products: Product[] = [
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#F5F2EE" }],
     images: {
-      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/494aec9b-b9bb-48f7-bd69-3633eb7931b5"]
+      "default": ["https://images-api.printify.com/mockup/69fea1983cdbaa898e0efdd1/103561/101039/celestial-witch-case.jpg?camera_label=front"]
     },
     featured: false,
     createdAt: "2026-05-17",
@@ -207,7 +207,7 @@ export const products: Product[] = [
   {
     id: "quiet-luxury-monogram-phone-case",
     printifyId: "69fedc7372bfa4db660426dd",
-    printFile: "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/46104144-aa04-408b-bd08-acde289fad8e",
+    printFile: "https://raw.githubusercontent.com/Casellelol/Caselle/main/public/designs/quiet-luxury-monogram.jpg",
     slug: "quiet-luxury-monogram-phone-case",
     name: "Quiet Luxury Monogram Phone Case",
     tagline: "Understated. Unmistakable.",
@@ -218,7 +218,7 @@ export const products: Product[] = [
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#F5F2EE" }],
     images: {
-      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/46104144-aa04-408b-bd08-acde289fad8e"]
+      "default": ["https://images-api.printify.com/mockup/69fedc7372bfa4db660426dd/103561/101039/quiet-luxury-monogram-phone-case.jpg?camera_label=front"]
     },
     featured: false,
     createdAt: "2026-05-18",
@@ -226,7 +226,7 @@ export const products: Product[] = [
   {
     id: "tomato-girl-summer-phone-case",
     printifyId: "69fedc74b639fab5c1087a15",
-    printFile: "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/7d406e69-8c52-48b7-bbd4-591a55e3369a",
+    printFile: "https://raw.githubusercontent.com/Casellelol/Caselle/main/public/designs/tomato-girl.jpg",
     slug: "tomato-girl-summer-phone-case",
     name: "Tomato Girl Summer Phone Case",
     tagline: "Sun-soaked and unapologetic",
@@ -237,7 +237,7 @@ export const products: Product[] = [
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#F5F2EE" }],
     images: {
-      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/7d406e69-8c52-48b7-bbd4-591a55e3369a"]
+      "default": ["https://images-api.printify.com/mockup/69fedc74b639fab5c1087a15/103561/101039/tomato-girl-summer-phone-case.jpg?camera_label=front"]
     },
     featured: false,
     createdAt: "2026-05-19",
@@ -245,7 +245,7 @@ export const products: Product[] = [
   {
     id: "warm-stone-arch",
     printifyId: "69fedc774b354ada360bbd44",
-    printFile: "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/99069341-a639-4a9b-aa50-8afbf6f390f4",
+    printFile: "https://raw.githubusercontent.com/Casellelol/Caselle/main/public/designs/warm-stone-arch.jpg",
     slug: "warm-stone-arch",
     name: "Warm Stone Arch",
     tagline: "Architecture of calm",
@@ -256,7 +256,7 @@ export const products: Product[] = [
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#F5F2EE" }],
     images: {
-      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/99069341-a639-4a9b-aa50-8afbf6f390f4"]
+      "default": ["https://images-api.printify.com/mockup/69fedc774b354ada360bbd44/103561/101039/warm-stone-arch.jpg?camera_label=front"]
     },
     featured: false,
     createdAt: "2026-05-20",
@@ -264,7 +264,7 @@ export const products: Product[] = [
   {
     id: "neo-brutalist-case",
     printifyId: "69ff0686048a81990c0af69d",
-    printFile: "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/c591a0b4-f716-4b30-b615-d882e0ce637b",
+    printFile: "https://raw.githubusercontent.com/Casellelol/Caselle/main/public/designs/neo-brutalist.jpg",
     slug: "neo-brutalist-case",
     name: "Neo-Brutalist Case",
     tagline: "Structure as statement",
@@ -275,7 +275,7 @@ export const products: Product[] = [
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#F5F2EE" }],
     images: {
-      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/c591a0b4-f716-4b30-b615-d882e0ce637b"]
+      "default": ["https://images-api.printify.com/mockup/69ff0686048a81990c0af69d/103561/101039/neo-brutalist-case.jpg?camera_label=front"]
     },
     featured: false,
     createdAt: "2026-05-21",
@@ -283,7 +283,7 @@ export const products: Product[] = [
   {
     id: "neo-brutalist-case-2",
     printifyId: "69ff070272bfa4db660445f7",
-    printFile: "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/8a4f03cb-af92-4fe8-bf4d-7762428b3611",
+    printFile: "https://raw.githubusercontent.com/Casellelol/Caselle/main/public/designs/neo-brutalist-2.jpg",
     slug: "neo-brutalist-case-2",
     name: "Neo Brutalist Case",
     tagline: "Form follows feeling",
@@ -294,7 +294,7 @@ export const products: Product[] = [
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#F5F2EE" }],
     images: {
-      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/8a4f03cb-af92-4fe8-bf4d-7762428b3611"]
+      "default": ["https://images-api.printify.com/mockup/69ff070272bfa4db660445f7/103561/101039/neo-brutalist-case.jpg?camera_label=front"]
     },
     featured: false,
     createdAt: "2026-05-22",
@@ -302,7 +302,7 @@ export const products: Product[] = [
   {
     id: "coastal-grandmother-case-2",
     printifyId: "69ff07028ba38b1dae06d0d0",
-    printFile: "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/d5a074f1-9765-45ae-a3f7-e7077cccfc72",
+    printFile: "https://raw.githubusercontent.com/Casellelol/Caselle/main/public/designs/coastal-grandmother-2.jpg",
     slug: "coastal-grandmother-case-2",
     name: "Coastal Grandmother Case",
     tagline: "Comfort elevated",
@@ -313,7 +313,7 @@ export const products: Product[] = [
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#F5F2EE" }],
     images: {
-      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/d5a074f1-9765-45ae-a3f7-e7077cccfc72"]
+      "default": ["https://images-api.printify.com/mockup/69ff07028ba38b1dae06d0d0/103561/101039/coastal-grandmother-case.jpg?camera_label=front"]
     },
     featured: false,
     createdAt: "2026-05-23",

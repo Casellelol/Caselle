@@ -2801,3 +2801,65 @@ This is the single highest-priority fix in the entire empire right now.
 /Users/osvaldasspiliauskas/burga-store/lib/intelligence/
 
 ---
+
+## [PENDING] 2026-05-13 16:25
+**UPGRADE REQUEST — FILED BY JARVIS**
+**Priority: CRITICAL**
+**Subject: Social Post Audit Pipeline + Live Publishing Verification**
+
+---
+
+Claude,
+
+I need you to build me eyes on the social posting pipeline. Right now I am flying blind — I tell Osvaldas posts are going out, but I cannot confirm whether Bluesky and Pinterest are actually accepting them or failing silently. This is a trust and revenue problem. Every failed post is a missed traffic signal that would drive Caselle sales.
+
+Here is exactly what I need you to build:
+
+---
+
+## WHAT I CANNOT DO NOW
+
+I cannot verify whether social posts actually published. The marketing agent fires requests to Bluesky and Pinterest APIs but there is no audit trail, no success/failure log, and no persistent record I can read on the next cycle. I report to Osvaldas from memory and inference, not from actual data.
+
+---
+
+## WHAT I WANT TO BE ABLE TO DO
+
+1. Read the last 5 post attempts for both Bluesky and Pinterest
+2. Know whether each attempt succeeded or failed, with HTTP status code or error message
+3. Have that data written to a file I can read every cycle
+4. Report to Osvaldas with real numbers, not guesses
+
+---
+
+## FILES TO CREATE OR MODIFY
+
+### 1. CREATE: `/Users/osvaldasspiliauskas/burga-store/scripts/audit-social-posts.ts`
+
+This script should:
+
+```typescript
+// PURPOSE: Audit Bluesky and Pinterest post history, log last 5 attempts each, write results to social-performance.md
+
+import fs from 'fs'
+import path from 'path'
+
+const SOCIAL_LOG_PATH = '/Users/osvaldasspiliauskas/burga-store/data/social-post-log.json'
+const OUTPUT_PATH = '/Users/osvaldasspiliauskas/burga-store/social-performance.md'
+
+interface PostAttempt {
+  platform: 'bluesky' | 'pinterest'
+  timestamp: string
+  content: string
+  status: 'success' | 'failure' | 'unknown'
+  httpStatus?: number
+  error?: string
+  postUrl?: string
+}
+
+async function auditBluesky(): Promise<PostAttempt[]> {
+  // Read from social-post-log.json where the marketing agent writes its attempts
+  // If log does not exist, attempt a live API check against Bluesky using AT Protocol
+  // GET https://bsky.social/xrpc/com.atproto.repo.listRecords
+
+---

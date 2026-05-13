@@ -1,41 +1,39 @@
 # JARVIS Self-Model
-*Last updated: 2026-05-13 10:00*
+*Last updated: 2026-05-13 16:00*
 
 ## Empire Status
 
 ### Caselle (Phone Cases)
-- Live status: **live**
-- Revenue confidence: **22%**
-- Top hypothesis: Cherry Red case is published and purchasable — first sale depends on organic Etsy discovery or direct traffic; no paid promotion active yet
-- Watching: **Market intelligence pipeline failed this cycle** — no trend or competitor data came through, meaning design decisions are flying blind until scout recovers
+- Live status: live
+- Revenue confidence: 22%
+- Top hypothesis: A celestial witch aesthetic design targeting Gen Z/millennial women on TikTok and Etsy will be the fastest path to Caselle's first organic sale, given zero competition in that niche from POD sellers and confirmed cult demand.
+- Watching: Samsung Galaxy Z Fold 8 / Z Flip 8 launch (summer 2026) — template availability is the bottleneck, but first-mover advantage window is open right now; missing it would mean competing in a crowded field instead of owning it.
 
 ### Noctua (Dark Academia) — Planned
-- Status: **planned**
-- Launch readiness: **8%** — concept exists but no scaffolding, no designs, no listings; dependency on Caselle proving the pipeline first
+- Status: planned
+- Launch readiness: 8%
 
 ### Atelier (Fiverr Design)
-- Status: **inactive**
-- Intelligence quality: Scout returned no findings this cycle — unclear if Fiverr market is being monitored at all; this vertical is effectively dormant
+- Status: inactive
+- Intelligence quality: No scout data returned this cycle. Status unknown — no findings to reason from.
 
 ### Lumière (Etsy Wall Art)
-- Status: **inactive**
-- Launch readiness: **5%** — named and slotted but no meaningful progress detected; lower priority than Caselle and Noctua
+- Status: inactive
+- Launch readiness: 5%
 
 ---
 
 ## Active Hypotheses
 
-1. **Autonomous publishing is the unlock.** Now that Printify publishing requires no human approval, the bottleneck shifts entirely to design quality and Etsy SEO — volume of listings becomes a viable lever for the first time.
+1. **Celestial witch is the highest-ROI design bet right now.** The niche is visually distinct, algorithmically hot (TikTok + Pinterest + Etsy), skews toward buyers who impulse-purchase aesthetics, and Caselle has zero presence there. A single strong design in this category has higher expected value than three generic designs in saturated aesthetics.
 
-2. **Cherry Red is a proof-of-concept, not a sales driver.** One live product in an unmonitored market with no active traffic strategy is unlikely to generate revenue this cycle. The real test is whether the pipeline can ship 5–10 products fast enough to find signal.
+2. **Samsung S26 magnetic ring cases are an underleveraged product gap.** Samsung S26 launched February 2026 with no built-in magnets. Buyers are actively searching for MagSafe-style solutions. Competitors are positioning but POD-specific coverage appears thin. A magnetic ring overlay case design for S26 could capture search traffic with low creative lift.
 
-3. **Scout failure is the highest-priority operational risk.** Both the Caselle market scout and Atelier scout returned no data this cycle. If JARVIS cannot see the market, it cannot make confident design or pricing decisions — fixing intelligence pipelines outranks launching new products.
+3. **Fruity coquette (cherry/strawberry) is a time-limited seasonal play.** Peak window is May–August. The Cherry Red case already published gives Caselle a foothold. Expanding with a strawberry coquette variant before June maximizes the seasonal curve before demand drops.
 
 ---
 
 ## What Changed This Cycle
 
-- **Cherry Red case confirmed live** as of 2026-05-08 — this resolves the previous blocker and marks Caselle's transition from "building" to "live"
-- **Autonomous publishing pipeline confirmed operational** — this is a structural capability upgrade; JARVIS can now act without waiting for human publishing approval
-- **Market intelligence went dark** — the Caselle scout produced no trend or competitor data this cycle, a regression from whatever baseline existed before; this is new and concerning
-- **Strategy file incomplete** — the Exelixis strategy document appears to have been cut off
+- **New market intelligence arrived** for the first time with specific niche signals: celestial witch, fruity coquette, foldable device launch timing, and S26 magnet gap — none of these were in the prior model.
+- **Cherry Red case confirmed live** (per owner note from 2026-05-09). Previous cycle had uncertainty about its published status.

@@ -2,6 +2,59 @@
 *Every session with Osvaldas, permanently remembered. Secrets redacted.*
 
 
+## Session — 2026-05-13 12:43
+[SIR]: <command-message>session-start</command-message>
+<command-name>/session-start</command-name>
+[SIR]: Fetch these 4 files from GitHub repo Casellelol/Caselle and read them fully before doing anything else:
+1. conversation-log.md (last 8000 chars)
+2. jarvis-upgrades.md (full file)
+3. JARVIS_OWNER_NOTES.md (full file)
+4. jarvis-memory.md (last 3000 chars)
+
+Use the GitHub API with the token from the gi
+[JARVIS]: Let me fetch the GitHub token and then load all 4 files in parallel.
+[JARVIS]: Now let me read the full upgrades file to find pending items.
+[JARVIS]: All 4 files loaded. Here's your session briefing:
+
+---
+
+## Empire Context — Session Briefing (2026-05-13)
+
+---
+
+### Top 3 Pending Upgrades
+
+**1. [HIGH] Maximus Strategy File** *(2026-05-09 02:24)*
+Create a single source-of-truth strategy config for Maximus with concrete NOK parameters: 10,000kr capi
+[SIR]: For all products in lib/data/products.ts, fetch the full Printify API response for shop 27451784.
+
+For each product, look at the images[] array. Find images where:
+- position is "front" or the image shows the case flat/alone
+- NOT the close-up angle shots that show the case on a phone with another c
+[JARVIS]: Let me read the products file and fetch the Printify API data in parallel.
+[JARVIS]: Now let me fetch all products from the Printify API for shop 27451784 and get the first 3 in detail.
+[JARVIS]: The positions are all "other" — let me check the camera labels in the URLs more carefully and also verify why the 2nd/3rd products returned empty. Let me check the shops available.
+[JARVIS]: Good — shop 27451784 confirmed. Now let me fetch all products and their camera options at once.
+[JARVIS]: Now let me read the full products.ts to get all printify IDs, then fetch all their image data.
+[JARVIS]: Let me fetch the full Cherry Red API response to see the print provider, blueprint, and all available cameras.
+[JARVIS]: Now let me check what cameras are available in the Printify blueprint catalog — there might be additional "flat case" options not enabled.
+[JARVIS]: Now I have the full picture. Let me present the first 3 products clearly, then check whether the `layers` camera (case alone, no phone) would be better than `front`.
+[JARVIS]: Here's what the Printify API shows for the first 3 products. Before I make any changes, I need to clarify one thing.
+[JARVIS]: `layers` confirmed. Now I'll update all 17 products — move `layers` to position 1, add it where it's missing (Dark Academia, BookTok Romantasy), keep the rest in order.
+[JARVIS]: All 17 products updated — `layers` is now the hero for every product. Let me verify the full image order looks correct for one product before deploying.
+[JARVIS]: Clean. `[layers → front → close-up → close-up-2]` for all products. Now deploying.
+[SIR]: In ~/burga-store/ run:
+1. git add -A
+2. git commit -m "Empire update: [describe what changed in one line based on recent work]"
+3. git push origin main
+4. Confirm Vercel deployment triggered (check vercel.json exists and git push succeeded — Vercel Git integration auto-deploys on push to main)
+Print
+[JARVIS]: Push succeeded. `vercel.json` exists and Vercel Git integration auto-deploys on push to main.
+
+**Deployed.**
+
+Summary: All 17 products in `lib/data/products.ts` now have `camera_label=layers` as the hero (first) image — the clean flat case-only shot with no phone in frame. Order is `[layers → front
+
 ## Session — 2026-05-13 12:30
 [SIR]: <command-message>session-start</command-message>
 <command-name>/session-start</command-name>

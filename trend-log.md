@@ -1,61 +1,48 @@
 # Trend Monitor — Cross-Empire Intelligence
-*Last updated: 2026-05-13 02:00*
+*Last updated: 2026-05-13 04:25*
 
 # TREND MONITOR — AESTHETIC INTELLIGENCE REPORT
 ### Cross-Empire Analysis | Caselle × Lumière × Atelier
 ---
 
 > ⚠️ **DATA INTEGRITY NOTICE**
-> No Reddit trend dataset was attached to this request. The feed appears empty. Rather than fabricate specific subreddit upvote counts, post velocities, or community metrics, I'm flagging this transparently.
+> No Reddit trend data was attached to this prompt. The field following "Trend data from Reddit:" is empty. I'm flagging this transparently rather than fabricating metrics, as false specificity would corrupt your buying and design decisions.
 
 ---
 
-## RECOMMENDED NEXT STEPS
+## HOW TO ACTIVATE THIS REPORT
 
-To generate a fully data-driven report, please supply any combination of the following:
+To generate your full structured analysis, provide any combination of:
 
-### Input Types I Can Process
-
-| Data Type | Example |
+| Data Type | Examples |
 |---|---|
-| **Raw Reddit posts** | Post titles, upvote counts, subreddit source |
-| **Keyword frequency data** | "cottagecore: 4,200 mentions, +340% WoW" |
-| **Screenshot summaries** | Pasted text from r/femalefashionadvice, r/malelivingspace, etc. |
-| **Engagement metrics** | Comment volumes, award counts, crosspost numbers |
-| **Competitor observation notes** | What you're seeing on r/streetwear, r/DesignPorn, etc. |
-| **Sales data overlay** | Your own SKU performance to cross-reference |
+| **Subreddit signals** | Top posts, rising threads, comment sentiment from r/femalefashionadvice, r/streetwear, r/malelivingspace, r/Anticonsumption, r/cottagecore, etc. |
+| **Keyword frequency data** | Search volume changes, upvote trajectories, award patterns |
+| **Raw post titles/text** | Copied thread titles, top comments, flair categories |
+| **Crosspost patterns** | Which aesthetics are bleeding between communities |
+| **Your own observed signals** | Subreddits you're manually monitoring |
 
 ---
 
-## WHAT THE REPORT WILL COVER (Template Preview)
+## WHAT THE REPORT WILL DELIVER
 
-Once data is received, I'll deliver:
+Once data is supplied, your output will include:
 
-```
-SECTION 1 — TOP 5 RISING AESTHETICS
-├── Aesthetic Name
-├── Momentum Score (0–100, composite of velocity + volume + sentiment)
-├── Key Subreddits driving signal
-└── Representative post patterns
+**① Top 5 Rising Aesthetics**
+Each scored on a **Momentum Index (0–100)** built from velocity, community crossover rate, and comment sentiment polarity
 
-SECTION 2 — EMPIRE ROUTING
-├── Caselle fit score
-├── Lumière fit score
-└── Atelier fit score
+**② Empire Routing**
+Each trend mapped to **Caselle / Lumière / Atelier** with a fit-score rationale (SKU applicability, price point alignment, buyer psychology match)
 
-SECTION 3 — COLOR PALETTE DIRECTIONS
-├── Dominant hex families emerging
-├── Declining color stories
-└── Texture/finish directions
+**③ Color Palette Directions**
+Specific hex clusters, not vague descriptors — actionable for design briefs
 
-SECTION 4 — DECLINING AESTHETICS (Avoid List)
-├── Peak-saturation signals
-└── Community fatigue indicators
+**④ Declining Aesthetics**
+Flagged with decay rate estimates so you know what to liquidate or avoid sourcing
 
-SECTION 5 — CROSS-EMPIRE MEGA-TREND
-└── One unifying opportunity playable across all three stores
-```
+**⑤ Cross-Empire Mega-Trend**
+One unifying opportunity where all three stores can execute a coordinated campaign with shared aesthetic language
 
 ---
 
-**Paste your data below and I'll run the full analysis immediately.**
+*Paste your Reddit data below and the full report generates immediately.*

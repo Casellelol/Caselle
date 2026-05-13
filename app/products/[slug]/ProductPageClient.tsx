@@ -120,25 +120,30 @@ export default function ProductPageClient({ product }: { product: Product }) {
           </div>
 
           {/* Frequently bought together */}
-          <div className="border border-[#E2DDD6] rounded p-4">
-            <p className="font-sans text-xs uppercase tracking-[0.12em] text-[#8C8880] mb-3">
-              Frequently Bought Together
-            </p>
-            <div className="flex items-center gap-4">
-              <div className="w-14 h-14 bg-[#F5F2EE] rounded flex items-center justify-center text-lg">👜</div>
-              <div className="flex-1">
-                <p className="font-sans text-sm font-medium text-[#1A1A18]">Caselle Canvas Tote Bag</p>
-                <p className="font-sans text-xs text-[#8C8880]">Matching aesthetic — added automatically at checkout</p>
-                <p className="font-sans text-sm text-[#1A1A18] mt-1">
-                  <span className="line-through text-[#8C8880] mr-1">$18</span>
-                  <strong>$12</strong> when ordered with a case
-                </p>
-              </div>
+          {related[0] && (
+            <div className="border border-[#E2DDD6] rounded p-4">
+              <p className="font-sans text-xs uppercase tracking-[0.12em] text-[#8C8880] mb-3">
+                Frequently Bought Together
+              </p>
+              <Link href={`/products/${related[0].slug}`} className="flex items-center gap-4 group">
+                <div className="w-14 h-14 bg-[#F5F2EE] rounded overflow-hidden flex-shrink-0">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={Object.values(related[0].images)[0]?.[0] ?? ""}
+                    alt={related[0].name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="flex-1">
+                  <p className="font-sans text-sm font-medium text-[#1A1A18] group-hover:text-[#C9A96E] transition-colors">{related[0].name}</p>
+                  <p className="font-sans text-xs text-[#8C8880]">Pairs well with this case</p>
+                  <p className="font-sans text-sm text-[#1A1A18] mt-1">
+                    <strong>{formatPrice(related[0].basePrice)}</strong>
+                  </p>
+                </div>
+              </Link>
             </div>
-            <p className="font-sans text-xs text-[#8C8880] mt-3">
-              Add both to cart — the tote is offered at checkout automatically.
-            </p>
-          </div>
+          )}
 
           <Accordion items={accordionItems} />
         </div>

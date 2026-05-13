@@ -1,47 +1,61 @@
 # Trend Monitor — Cross-Empire Intelligence
-*Last updated: 2026-05-09 04:03*
+*Last updated: 2026-05-13 02:00*
 
 # TREND MONITOR — AESTHETIC INTELLIGENCE REPORT
 ### Cross-Empire Analysis | Caselle × Lumière × Atelier
 ---
 
-> ⚠️ **DATA TRANSPARENCY FLAG**
->
-> No Reddit trend data was included in your prompt. The data field reads: *[empty]*.
->
-> Producing a "data-driven" report from null input would mean fabricating subreddit engagement figures, upvote velocities, comment sentiment scores, and post frequencies — then presenting them as real. That would undermine every strategic decision downstream.
->
-> **I won't do that.** Here's what I can do instead:
+> ⚠️ **DATA INTEGRITY NOTICE**
+> No Reddit trend dataset was attached to this request. The feed appears empty. Rather than fabricate specific subreddit upvote counts, post velocities, or community metrics, I'm flagging this transparently.
 
 ---
 
-## TWO PATHS FORWARD
+## RECOMMENDED NEXT STEPS
 
-### Option A — Submit Your Data
-Paste raw Reddit data in any of these formats and I'll run the full structured report:
+To generate a fully data-driven report, please supply any combination of the following:
 
-```
-• Subreddit names + top post titles + upvote counts
-• Screenshot transcriptions
-• Export CSVs from tools like GummySearch, Anvaka, or Reddit API pulls
-• Even rough notes: "r/streetwear is blowing up around X"
-```
+### Input Types I Can Process
 
-### Option B — Framework-Only Report
-I generate the **analytical framework and methodology** — the exact scoring rubric, momentum formula, and empire-mapping logic — so the moment you drop data in, the report builds itself in minutes.
-
----
-
-## WHAT THE FULL REPORT WILL COVER
-
-| Section | What You Get |
+| Data Type | Example |
 |---|---|
-| **①** Rising Aesthetics | Momentum Score = (post velocity × comment:upvote ratio × cross-sub spread) |
-| **②** Empire Mapping | Primary + secondary beneficiary per trend with conflict flags |
-| **③** Color Palettes | Hex-level direction, not vague descriptors |
-| **④** Declining Aesthetics | Saturation signals + when to exit inventory |
-| **⑤** Mega-Trend | Cross-empire play with unified campaign logic |
+| **Raw Reddit posts** | Post titles, upvote counts, subreddit source |
+| **Keyword frequency data** | "cottagecore: 4,200 mentions, +340% WoW" |
+| **Screenshot summaries** | Pasted text from r/femalefashionadvice, r/malelivingspace, etc. |
+| **Engagement metrics** | Comment volumes, award counts, crosspost numbers |
+| **Competitor observation notes** | What you're seeing on r/streetwear, r/DesignPorn, etc. |
+| **Sales data overlay** | Your own SKU performance to cross-reference |
 
 ---
 
-Which path do you want to take?
+## WHAT THE REPORT WILL COVER (Template Preview)
+
+Once data is received, I'll deliver:
+
+```
+SECTION 1 — TOP 5 RISING AESTHETICS
+├── Aesthetic Name
+├── Momentum Score (0–100, composite of velocity + volume + sentiment)
+├── Key Subreddits driving signal
+└── Representative post patterns
+
+SECTION 2 — EMPIRE ROUTING
+├── Caselle fit score
+├── Lumière fit score
+└── Atelier fit score
+
+SECTION 3 — COLOR PALETTE DIRECTIONS
+├── Dominant hex families emerging
+├── Declining color stories
+└── Texture/finish directions
+
+SECTION 4 — DECLINING AESTHETICS (Avoid List)
+├── Peak-saturation signals
+└── Community fatigue indicators
+
+SECTION 5 — CROSS-EMPIRE MEGA-TREND
+└── One unifying opportunity playable across all three stores
+```
+
+---
+
+**Paste your data below and I'll run the full analysis immediately.**

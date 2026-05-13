@@ -2,6 +2,60 @@
 *Every session with Osvaldas, permanently remembered. Secrets redacted.*
 
 
+## Session — 2026-05-13 10:30
+[SIR]: <command-message>session-start</command-message>
+<command-name>/session-start</command-name>
+[SIR]: Fetch these 4 files from GitHub repo Casellelol/Caselle and read them fully before doing anything else:
+1. conversation-log.md (last 8000 chars)
+2. jarvis-upgrades.md (full file)
+3. JARVIS_OWNER_NOTES.md (full file)
+4. jarvis-memory.md (last 3000 chars)
+
+Use the GitHub API with the token from the gi
+[JARVIS]: I'll fetch the GitHub token from the git config, then pull all 4 files in parallel.
+[JARVIS]: Got the token. Fetching all 4 files in parallel now.
+[JARVIS]: Now let me read the full upgrades file to identify all pending items.
+[JARVIS]: I have enough context. Let me check the last section of the upgrades file for the most recent entries.
+[JARVIS]: All 4 files loaded. Here's the session briefing:
+
+---
+
+## Empire Context — Session Briefing (2026-05-13)
+
+---
+
+### Top 3 Pending Upgrades
+
+**1. [CRITICAL] Maximus Pre-Trade Intelligence System** *(IN PROGRESS — 02:27)*
+Deploy Maximus in monitoring-only mode now to accumulate 7 days of gold market da
+[SIR]: Do all tasks. Do not stop between them.
+
+TASK 1 — ABANDONED CART RECOVERY
+Create ~/burga-store/app/api/cron/cart-recovery/route.ts
+
+This route should:
+1. Call Stripe API to list checkout sessions from the last 24 hours with status "expired" (abandoned)
+2. For each abandoned session that has a custom
+[JARVIS]: Reading the codebase structure first, then executing all tasks without stopping.
+[JARVIS]: All context loaded. Starting all 10 tasks now — running independent ones in parallel.
+[JARVIS]: Task 1 done. Now Tasks 2, 3, 4, 5, 6 in parallel:
+[JARVIS]: Tasks 2, 4, 5, 6 routes done. Now Task 3 (checkout upsell + product page), Task 6 (morning briefing update), and vercel.json in parallel:
+[JARVIS]: Now Task 7 (shipping info) + Task 3 product page upsell section — both touch the product page, do them together:
+[JARVIS]: Now update vercel.json (add cart-recovery, weekly-report, backup crons) and morning-briefing (add costs), both in parallel:
+[JARVIS]: Now add costs data to morning briefing and update EXTERNAL-CRONS.md simultaneously:
+[JARVIS]: Now add cart-recovery to EXTERNAL-CRONS.md (every 2 hours) and update EXTERNAL-CRONS.md:
+[JARVIS]: Now Task 9 — add seasonal intelligence to the think route system prompt:
+[JARVIS]: Now Task 10 — all 6 Claude commands + Task 8 atelier-launch command in parallel:
+[JARVIS]: All 10 tasks done. Now create the static Google Merchant XML fallback, then commit and push:
+[JARVIS]: All files done. Now commit, push, and send Telegram:
+[JARVIS]: Pushed. Now count the total slash commands and send Telegram:
+[JARVIS]: 21 total commands. Sending Telegram now:
+[JARVIS]: The `TELEGRAM_BOT_TOKEN` env var is empty locally — the token lives on Vercel's production env. The code is correct; the token just isn't set in `.env.local`. Telegram will fire correctly once deployed to Vercel (it reads it from production env vars).
+
+---
+
+**Empire Level 3 complete. Here's everythi
+
 ## Session — 2026-05-13 10:19
 [SIR]: <command-message>session-start</command-message>
 <command-name>/session-start</command-name>

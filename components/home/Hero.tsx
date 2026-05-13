@@ -5,9 +5,6 @@ export default function Hero() {
   return (
     <section className="min-h-[90vh] flex items-center justify-center bg-[#F7F4EF] px-6">
       <div className="text-center max-w-2xl">
-        <p className="font-sans text-xs uppercase tracking-[0.2em] text-[#C9A96E] mb-6">
-          Made to order · Shipped in 24h
-        </p>
         <h1
           className="font-serif text-5xl md:text-7xl text-[#1A1A18] leading-tight mb-6"
           style={{ fontFamily: "Georgia, serif", letterSpacing: "0.02em" }}

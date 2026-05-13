@@ -313,7 +313,7 @@ export const products: Product[] = [
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#E63012" }],
     images: {
-      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/76c50bfc-5f14-47c0-a9a7-cd6164b93fe4"]
+      "default": ["https://images-api.printify.com/mockup/6a04e5f6efbe648ab30c80a9/103561/101039/matisse-abstract-art-phone-case.jpg?camera_label=front"]
     },
     featured: false,
     createdAt: "2026-05-13",
@@ -333,7 +333,7 @@ export const products: Product[] = [
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#A8B5A2" }],
     images: {
-      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/b2818810-e556-488e-8f00-a804e7704e1a"]
+      "default": ["https://images-api.printify.com/mockup/6a04e60db14e025c990e9c51/103561/101039/clean-girl-morandi-phone-case.jpg?camera_label=front"]
     },
     featured: false,
     createdAt: "2026-05-13",
@@ -353,7 +353,7 @@ export const products: Product[] = [
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#FF6B9D" }],
     images: {
-      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/f4e18a07-8a66-4d86-acbf-f32e345b44d8"]
+      "default": ["https://images-api.printify.com/mockup/6a04e620c83dedc748055de4/103561/101039/fruity-coquette-cherry-phone-case.jpg?camera_label=front"]
     },
     featured: false,
     createdAt: "2026-05-13",
@@ -373,7 +373,7 @@ export const products: Product[] = [
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#5C5C5C" }],
     images: {
-      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/755fda29-8191-4b50-a24d-358a54d34b69"]
+      "default": ["https://images-api.printify.com/mockup/6a04e633b0d9387dda0ffde4/103561/101039/brutalist-minimal-phone-case.jpg?camera_label=front"]
     },
     featured: false,
     createdAt: "2026-05-13",
@@ -393,7 +393,127 @@ export const products: Product[] = [
     compatibleModels: allModels,
     designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#6B4F2A" }],
     images: {
-      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/801de8a7-d966-43bd-9a52-719141982ec2"]
+      "default": ["https://images-api.printify.com/mockup/6a04e647b14e025c990e9c71/103561/101039/dark-academia-revival-phone-case.jpg?camera_label=front"]
+    },
+    featured: false,
+    createdAt: "2026-05-13",
+  },
+  {
+    id: "van-gogh-swirl-phone-case",
+    printifyId: "6a04ea545540b782e103e200",
+    printFile: "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/290c1db7-01e5-47c8-aa02-26d245c2e2d3",
+    slug: "van-gogh-swirl-phone-case",
+    name: "Van Gogh Swirl Phone Case",
+    tagline: "Wearable impressionism",
+    description: "Swirling oil-painting texture inspired by Starry Night. Deep midnight blue, gold and teal brushstrokes covering every inch. Wearable impressionism.",
+    materials: "Premium polycarbonate shell with soft-touch matte coating. 1.5mm raised edges protect screen and camera. Wireless charging compatible.",
+    basePrice: 2999,
+    badge: "new" as const,
+    collectionSlugs: ["iphone-17", "iphone-16", "iphone-15", "samsung-s25", "pixel-9"],
+    compatibleModels: allModels,
+    designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#1B3A6B" }],
+    images: {
+      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/290c1db7-01e5-47c8-aa02-26d245c2e2d3"]
+    },
+    featured: false,
+    createdAt: "2026-05-13",
+  },
+  {
+    id: "william-morris-floral-phone-case",
+    printifyId: "6a04ea60efbe648ab30c82fd",
+    printFile: "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/a03dd706-10cf-4acf-b3ae-d5fbaf1baf04",
+    slug: "william-morris-floral-phone-case",
+    name: "William Morris Floral Phone Case",
+    tagline: "Victorian botanical maximalism",
+    description: "Dense Victorian botanical pattern inspired by William Morris. Interlocking leaves, blooms and vines covering the entire case in rich jewel tones.",
+    materials: "Premium polycarbonate shell with soft-touch matte coating. 1.5mm raised edges protect screen and camera. Wireless charging compatible.",
+    basePrice: 2899,
+    badge: "new" as const,
+    collectionSlugs: ["iphone-17", "iphone-16", "iphone-15", "samsung-s25", "pixel-9"],
+    compatibleModels: allModels,
+    designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#2D5016" }],
+    images: {
+      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/a03dd706-10cf-4acf-b3ae-d5fbaf1baf04"]
+    },
+    featured: false,
+    createdAt: "2026-05-13",
+  },
+  {
+    id: "mystic-cat-oracle-phone-case",
+    printifyId: "6a04ea6e40ee4b37d0040e8a",
+    printFile: "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/2df3d4a5-e5d8-4722-a23f-61abc9695d15",
+    slug: "mystic-cat-oracle-phone-case",
+    name: "Mystic Cat Oracle Phone Case",
+    tagline: "Dark and enchanting",
+    description: "A detailed illustration of a mystical black cat surrounded by crescent moons, celestial orbs and glowing stars. Dark and enchanting.",
+    materials: "Premium polycarbonate shell with soft-touch matte coating. 1.5mm raised edges protect screen and camera. Wireless charging compatible.",
+    basePrice: 2799,
+    badge: "new" as const,
+    collectionSlugs: ["iphone-17", "iphone-16", "iphone-15", "samsung-s25", "pixel-9", "dark-aesthetic"],
+    compatibleModels: allModels,
+    designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#1A0A2E" }],
+    images: {
+      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/2df3d4a5-e5d8-4722-a23f-61abc9695d15"]
+    },
+    featured: false,
+    createdAt: "2026-05-13",
+  },
+  {
+    id: "klimt-golden-woman-phone-case",
+    printifyId: "6a04ea7cb14e025c990e9eac",
+    printFile: "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/1c1b1287-62db-43ff-8e5f-e620562ed94f",
+    slug: "klimt-golden-woman-phone-case",
+    name: "Klimt Golden Woman Phone Case",
+    tagline: "Art Nouveau in gold",
+    description: "Art Nouveau gold leaf pattern inspired by Gustav Klimt. Ornate geometric shapes, spirals and a woman silhouette in shimmering gold and jewel tones.",
+    materials: "Premium polycarbonate shell with soft-touch matte coating. 1.5mm raised edges protect screen and camera. Wireless charging compatible.",
+    basePrice: 2999,
+    badge: "new" as const,
+    collectionSlugs: ["iphone-17", "iphone-16", "iphone-15", "samsung-s25", "pixel-9"],
+    compatibleModels: allModels,
+    designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#C9A96E" }],
+    images: {
+      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/1c1b1287-62db-43ff-8e5f-e620562ed94f"]
+    },
+    featured: false,
+    createdAt: "2026-05-13",
+  },
+  {
+    id: "tarot-moon-card-phone-case",
+    printifyId: "6a04ea899c35c408d201de64",
+    printFile: "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/a542cc33-d502-43f4-b572-5613d255a13b",
+    slug: "tarot-moon-card-phone-case",
+    name: "Tarot Moon Card Phone Case",
+    tagline: "Mystical and ornate",
+    description: "A detailed tarot card illustration of The Moon. Mystical night scene with a glowing moon, howling wolves and a crawfish emerging from the deep.",
+    materials: "Premium polycarbonate shell with soft-touch matte coating. 1.5mm raised edges protect screen and camera. Wireless charging compatible.",
+    basePrice: 2899,
+    badge: "new" as const,
+    collectionSlugs: ["iphone-17", "iphone-16", "iphone-15", "samsung-s25", "pixel-9", "dark-aesthetic"],
+    compatibleModels: allModels,
+    designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#1E1B4B" }],
+    images: {
+      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/a542cc33-d502-43f4-b572-5613d255a13b"]
+    },
+    featured: false,
+    createdAt: "2026-05-13",
+  },
+  {
+    id: "mushroom-cottage-core-phone-case",
+    printifyId: "6a04ea97b796133c9d07b984",
+    printFile: "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/941fa837-884d-455f-ad06-57a3b0765864",
+    slug: "mushroom-cottage-core-phone-case",
+    name: "Mushroom Cottage Core Phone Case",
+    tagline: "Whimsical woodland dream",
+    description: "A whimsical detailed illustration of giant mushrooms, tiny fairy doors, flowers and woodland creatures. The ultimate cottagecore dream.",
+    materials: "Premium polycarbonate shell with soft-touch matte coating. 1.5mm raised edges protect screen and camera. Wireless charging compatible.",
+    basePrice: 2799,
+    badge: "new" as const,
+    collectionSlugs: ["iphone-17", "iphone-16", "iphone-15", "samsung-s25", "pixel-9"],
+    compatibleModels: allModels,
+    designs: [{ id: "default", name: "Original Design", type: "pattern" as const, swatch: "#5C7A3E" }],
+    images: {
+      "default": ["https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/941fa837-884d-455f-ad06-57a3b0765864"]
     },
     featured: false,
     createdAt: "2026-05-13",

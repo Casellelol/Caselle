@@ -1,8 +1,8 @@
-# Claude Session — 2026-05-13 11:55
+# Claude Session — 2026-05-13 12:30
 
 **Date:** 2026-05-13  
 
-**Messages:** 6
+**Messages:** 5
 
 ---
 
@@ -30,17 +30,12 @@ Say "Empire context loaded. Ready to build." when done.
 ---
 
 **Claude**:
-Let me fetch the GitHub token and then load all 4 files.
+Let me fetch the GitHub token and then load all 4 files in parallel.
 
 ---
 
 **Claude**:
-Now fetching all 4 files in parallel via GitHub API.
-
----
-
-**Claude**:
-Now let me read the full upgrades file to find the pending ones.
+Now let me read the full upgrades file to find pending items.
 
 ---
 
@@ -55,28 +50,29 @@ All 4 files loaded. Here's your session briefing:
 
 ### Top 3 Pending Upgrades
 
-**1. [CRITICAL] Web Search Verification & Live Intelligence Pipeline** *(2026-05-09 02:28)*
-No confirmed, documented, tested record of which web search tools are firing on live data. Critical gap before Maximus goes live on May 20th — pre-trade intelligence must be verified as real-time, not cached.
+**1. [HIGH] Maximus Strategy File** *(2026-05-09 02:24)*
+Create a single source-of-truth strategy config for Maximus with concrete NOK parameters: 10,000kr capital depositing May 20th, 2% risk per trade in actual NOK terms, realistic daily targets, and cycle reporting baseline. No such file currently exists — Maximus is operating on abstract "2% risk" with no executable numbers.
 
-**2. [HIGH] Maximus Strategy File — Capital Recalibration** *(2026-05-09 02:24)*
-No strategy file documenting exact risk parameters in NOK terms for the confirmed 10,000kr deposit arriving May 20th. No baseline targets defined. The 2,000kr/day expectation needs an honest math correction before first trade.
+**2. [CRITICAL] Web Search Verification & Live Intelligence Pipeline** *(2026-05-09 02:28)*
+Audit every agent file to confirm which web search tool is actually firing (Tavily, Brave, Exa, etc.) and whether it's returning live data vs training cache. JARVIS cannot currently prove to you that scouts are using real-time internet. Critical for Maximus pre-trade intel.
 
-**3. [HIGH] Scout Agent "Horizon" — POD Niche Intelligence** *(2026-05-09 02:29)*
-No autonomous monitoring of TikTok Shop search trends, Etsy autocomplete, or Pinterest trending boards for emerging Print-on-Demand niches. Missing first-mover windows. Sub-agent spawn with scheduled execution not yet implemented.
+**3. [HIGH] Scout Agent "Horizon"** *(2026-05-09 02:29)*
+Deploy a persistent 6-hour POD niche scout monitoring TikTok Shop trends, Etsy autocomplete, and Pinterest trending boards, then writing signals to the World Brain. Currently blind to first-mover niche windows.
 
 ---
 
 ### Last Owner Note
 
-`[2026-05-09] INSTRUCTION:` Amazon RSS feeds were replaced with DuckDuckGo searches. There is no longer an "Amazon Trends" module. **This is by design.** *(Also: Reddit empty feeds from Vercel IPs is NORMAL — not a bug. Maximus monitoring-only until May 20th.)*
+`[2026-05-09]` — Amazon RSS feeds were replaced with DuckDuckGo searches. No "Amazon Trends" module exists anymore. Reddit returning empty from Vercel is **normal** (Vercel IPs rate-limited by Reddit) — not a bug, do not file UPGRADE_NEEDED.
 
 ---
 
-### Urgent Flags from jarvis-memory.md
+### Urgent Flags from Memory
 
-- **Zero sales** on Caselle — store is live, 10 designs published, bottleneck is **traffic**. Marketing agent needs consistent posting to Bluesky/Pinterest.
-- Intelligence feeds returning empty on last cycle — agents executed blind (no live Reddit/POD data).
-- **May 20th is a hard deadline** — Trade Nation credentials arrive then. Maximus must be fully configured and verified before that date (7 days away).
+- **Zero sales** — Caselle is live with 10+ designs published, store works, but no revenue yet. Single bottleneck is **traffic**.
+- **Intelligence feeds were running empty** last cycle — scouts executed but returned no data, so no new designs published and no posts confirmed live.
+- **Maximus monitoring-only** until Trade Nation credentials arrive May 20th. Do NOT attempt live trades before that date.
+- **Social posting** (Bluesky, Buffer) needs confirmation posts are actually landing, not failing silently.
 
 ---
 

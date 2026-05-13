@@ -2,6 +2,40 @@
 *Every session with Osvaldas, permanently remembered. Secrets redacted.*
 
 
+## Session — 2026-05-13 22:10
+[SIR]: <command-message>session-start</command-message>
+<command-name>/session-start</command-name>
+[SIR]: Fetch these 4 files from GitHub repo Casellelol/Caselle and read them fully before doing anything else:
+1. conversation-log.md (last 8000 chars)
+2. jarvis-upgrades.md (full file)
+3. JARVIS_OWNER_NOTES.md (full file)
+4. jarvis-memory.md (last 3000 chars)
+
+Use the GitHub API with the token from the gi
+[JARVIS]: Let me fetch the GitHub token and then load all 4 files in parallel.
+[JARVIS]: Now let me read the full upgrades file to identify the pending items.
+[JARVIS]: All 4 files loaded. Here is your session briefing:
+
+---
+
+## Empire Context — Session Briefing (2026-05-13)
+
+---
+
+### Top 3 Pending Upgrades
+
+**1. [PENDING] Maximus Strategy File** *(2026-05-09 02:24 — HIGH)*
+Create `/lib/maximus/strategy-config.md` with confirmed capital parameters: 10,000 NOK, 2% r
+[SIR]: there some thing i want to improve in the caselle.store
+[JARVIS]: What do you want to improve? Tell me what's on your mind — design, performance, features, conversion, something specific you noticed?
+[SIR]: on the homepage it says shop iphone 17, i want to switch that to shop now
+[JARVIS]: Quick fix. Let me find that text in the codebase.
+[JARVIS]: The Hero component shows "Shop All Cases" not "Shop iPhone 17". Let me check the actual live page and other sources.
+[JARVIS]: I can see that in the `FeaturedCollections` section, the first tile shows "iPhone 17 Cases" with "Shop →" underneath — that's what you're seeing. But there's also the possibility the live Vercel build differs. Can you describe where exactly it appears — is it a button in the hero area, or a card/til
+[JARVIS]: That "Shop →" is what appears below each collection name (including "iPhone 17 Cases"). Changing it won't match the exact phrase you described though — "Shop iPhone 17" would need to come from a button somewhere that includes the model name.
+
+Can you send me a screenshot or tell me exactly which par
+
 ## Session — 2026-05-13 22:08
 [SIR]: <command-message>session-start</command-message>
 <command-name>/session-start</command-name>

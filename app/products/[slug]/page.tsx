@@ -59,11 +59,13 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
 
           <div className="w-full h-px bg-[#E2DDD6]" />
 
-          <DesignSelector
-            designs={product.designs}
-            selectedDesignId={selectedDesignId}
-            onChange={setSelectedDesignId}
-          />
+          {product.designs.length > 1 && (
+            <DesignSelector
+              designs={product.designs}
+              selectedDesignId={selectedDesignId}
+              onChange={setSelectedDesignId}
+            />
+          )}
 
           <DeviceSelector
             compatibleModels={product.compatibleModels}

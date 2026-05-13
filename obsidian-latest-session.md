@@ -1,8 +1,8 @@
-# Claude Session — 2026-05-13 10:19
+# Claude Session — 2026-05-13 11:55
 
 **Date:** 2026-05-13  
 
-**Messages:** 7
+**Messages:** 6
 
 ---
 
@@ -30,27 +30,22 @@ Say "Empire context loaded. Ready to build." when done.
 ---
 
 **Claude**:
-I'll fetch the GitHub token from the git config, then pull all 4 files in parallel.
+Let me fetch the GitHub token and then load all 4 files.
 
 ---
 
 **Claude**:
-Got the token. Fetching all 4 files in parallel now.
+Now fetching all 4 files in parallel via GitHub API.
 
 ---
 
 **Claude**:
-Now let me read the full upgrades file to identify all pending items.
+Now let me read the full upgrades file to find the pending ones.
 
 ---
 
 **Claude**:
-I have enough context. Let me check the last section of the upgrades file for the most recent entries.
-
----
-
-**Claude**:
-All 4 files loaded. Here's the session briefing:
+All 4 files loaded. Here's your session briefing:
 
 ---
 
@@ -60,30 +55,28 @@ All 4 files loaded. Here's the session briefing:
 
 ### Top 3 Pending Upgrades
 
-**1. [CRITICAL] Maximus Pre-Trade Intelligence System** *(IN PROGRESS — 02:27)*
-Deploy Maximus in monitoring-only mode now to accumulate 7 days of gold market data before Trade Nation credentials arrive **May 20th** (7 days away). No RSI history or pattern recognition will exist on day-one trading without this. Files: `jarvis/agents/maximus-intelligence-agent.ts` + `jarvis/maximus-brain.md`.
+**1. [CRITICAL] Web Search Verification & Live Intelligence Pipeline** *(2026-05-09 02:28)*
+No confirmed, documented, tested record of which web search tools are firing on live data. Critical gap before Maximus goes live on May 20th — pre-trade intelligence must be verified as real-time, not cached.
 
-**2. [CRITICAL] Maximus Macro Intelligence Agent (MIA)** *(IN PROGRESS — 02:31)*
-No agent monitors FOMC, NFP, DXY, or US10Y — Maximus has zero macro context for trade entries. Must run hourly, write structured signal blocks to brain file, and flag NO-TRADE windows before red-flag economic events.
+**2. [HIGH] Maximus Strategy File — Capital Recalibration** *(2026-05-09 02:24)*
+No strategy file documenting exact risk parameters in NOK terms for the confirmed 10,000kr deposit arriving May 20th. No baseline targets defined. The 2,000kr/day expectation needs an honest math correction before first trade.
 
-**3. [HIGH] Memory Synchronization — jarvis-self-model.md** *(IN PROGRESS — 02:23)*
-4 upgrades confirmed live are still marked PENDING in the self-model: World Brain feeds, `/api/jarvis/verify`, social posting (now 3 channels), and direct competitor scraping. Stale memory = wrong decisions.
+**3. [HIGH] Scout Agent "Horizon" — POD Niche Intelligence** *(2026-05-09 02:29)*
+No autonomous monitoring of TikTok Shop search trends, Etsy autocomplete, or Pinterest trending boards for emerging Print-on-Demand niches. Missing first-mover windows. Sub-agent spawn with scheduled execution not yet implemented.
 
 ---
 
 ### Last Owner Note
 
-**[2026-05-09] INSTRUCTION** — Amazon RSS feeds were replaced with DuckDuckGo searches. There is no longer an "Amazon Trends" module. This is by design.
-*(All 5 entries are from 2026-05-09 — no new owner notes since then.)*
+`[2026-05-09] INSTRUCTION:` Amazon RSS feeds were replaced with DuckDuckGo searches. There is no longer an "Amazon Trends" module. **This is by design.** *(Also: Reddit empty feeds from Vercel IPs is NORMAL — not a bug. Maximus monitoring-only until May 20th.)*
 
 ---
 
 ### Urgent Flags from jarvis-memory.md
 
-- **Zero sales** — Caselle is live with 10+ designs but no revenue. Bottleneck is traffic, not product or checkout.
-- **Intelligence feeds returning empty** — World Brain ran but Reddit/Amazon data came back empty during last autonomous cycles (Vercel IPs rate-limited by Reddit — per owner notes this is expected behavior, not a bug).
-- **Social posts not confirmed landing** — Marketing agent cycled but no confirmed live posts. Pipeline may be failing silently.
-- **Maximus has 7 days** — May 20th Trade Nation credentials are the hard deadline. Monitoring mode must start today.
+- **Zero sales** on Caselle — store is live, 10 designs published, bottleneck is **traffic**. Marketing agent needs consistent posting to Bluesky/Pinterest.
+- Intelligence feeds returning empty on last cycle — agents executed blind (no live Reddit/POD data).
+- **May 20th is a hard deadline** — Trade Nation credentials arrive then. Maximus must be fully configured and verified before that date (7 days away).
 
 ---
 

@@ -7,6 +7,8 @@ export type DesignVariant = {
 
 export type Product = {
   id: string
+  printifyId: string
+  printFile: string
   slug: string
   name: string
   tagline: string

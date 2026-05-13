@@ -42,6 +42,28 @@ export const DESIGN_PRINT_FILES: Record<string, string> = {
 
 export const DEFAULT_PRINT_FILE = DESIGN_PRINT_FILES["marble-white"]
 
+// Maps store product slug → Printify S3 print file URL for that product's design
+// Used by Stripe webhook to route orders to the correct design on Printify
+export const PRODUCT_PRINT_FILES: Record<string, string> = {
+  "cherry-red-quiet-luxury-phone-case": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/47cc4a1f-5f34-43ba-9469-ab80a23ae96e",
+  "dark-academia-phone-case": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/984dc2f0-ac78-48f8-9325-da3a5d0f901b",
+  "booktok-romantasy-phone-case": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/a7a2a819-8c2b-420f-be21-a7fe2ab3cf55",
+  "coastal-grandmother-case": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/a7a2a819-8c2b-420f-be21-a7fe2ab3cf55",
+  "coquette-cherry-bow-phone-case": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/1d808cdc-bfcb-4dbc-b5b9-8c75155f83ed",
+  "dark-academia-phone-case-2": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/564a5c56-02ba-4c5b-8d50-df3d2bb2b58d",
+  "pressed-wildflower-dark-academia-case": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/369355eb-ec98-479b-8d5d-e16dfb868874",
+  "dark-academia-case": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/58bea016-e278-4790-83a8-938171b5b594",
+  "celestial-witch-case": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/38f6f68d-118e-4eda-83f1-da89a0e9e0a6",
+  "celestial-witch-case-2": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/494aec9b-b9bb-48f7-bd69-3633eb7931b5",
+  "quiet-luxury-monogram-phone-case": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/46104144-aa04-408b-bd08-acde289fad8e",
+  "tomato-girl-summer-phone-case": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/7d406e69-8c52-48b7-bbd4-591a55e3369a",
+  "warm-stone-arch": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/99069341-a639-4a9b-aa50-8afbf6f390f4",
+  "neo-brutalist-case": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/c591a0b4-f716-4b30-b615-d882e0ce637b",
+  "neo-brutalist-case-2": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/8a4f03cb-af92-4fe8-bf4d-7762428b3611",
+  "coastal-grandmother-case-2": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/d5a074f1-9765-45ae-a3f7-e7077cccfc72",
+  "celestial-witch-dark-case": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/3572dfa0-ae0b-44b4-bd0d-fa48dcc35e6b",
+}
+
 type PrintifyAddress = {
   first_name: string
   last_name: string

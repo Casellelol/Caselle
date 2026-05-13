@@ -25,7 +25,7 @@ export default function ProductCard({ product, size = "default" }: Props) {
             src={image}
             alt={product.name}
             fill
-            className="object-cover scale-[1.12] transition-transform duration-500 group-hover:scale-[1.18]"
+            className="object-cover scale-[1.02] transition-transform duration-500 group-hover:scale-[1.06]"
           />
         )}
         {product.badge && (

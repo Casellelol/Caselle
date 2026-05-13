@@ -30,13 +30,13 @@ export default function ProductGallery({ images, productName, activeDesignId, al
               i === activeIndex ? "ring-1 ring-[#1A1A18]" : "opacity-60 hover:opacity-100"
             }`}
           >
-            <Image src={img} alt={`${productName} view ${i + 1}`} fill className="object-cover scale-[1.12]" />
+            <Image src={img} alt={`${productName} view ${i + 1}`} fill className="object-cover scale-[1.02]" />
           </button>
         ))}
       </div>
       <div className="flex-1 aspect-[3/4] relative overflow-hidden bg-[#F4F2EE]">
         {main && (
-          <Image src={main} alt={productName} fill className="object-cover scale-[1.12]" priority />
+          <Image src={main} alt={productName} fill className="object-cover scale-[1.02]" priority />
         )}
       </div>
     </div>

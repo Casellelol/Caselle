@@ -26,7 +26,9 @@ export default function EmailCaptureBanner() {
     return (
       <div className="w-full bg-[#1A1A18] text-[#FAFAF8] py-4 px-6 text-center">
         <p className="font-sans text-sm tracking-wide">
-          You&apos;re in. Check your inbox for your 10% discount.
+          You&apos;re in. Use code{" "}
+          <span className="font-mono font-bold text-[#C9A96E] tracking-widest">WELCOME10</span>
+          {" "}at checkout for 10% off.
         </p>
       </div>
     )

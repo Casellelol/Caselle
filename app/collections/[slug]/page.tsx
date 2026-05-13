@@ -12,7 +12,15 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const collection = getCollectionBySlug(slug)
   if (!collection) return {}
-  return { title: `${collection.name} — Caselle` }
+  return {
+    title: collection.name,
+    description: `Shop ${collection.name} phone cases at Caselle. Premium aesthetic cases made to order, ships in 3–7 days.`,
+    openGraph: {
+      title: `${collection.name} — Caselle`,
+      description: `Shop ${collection.name} phone cases at Caselle. Premium aesthetic cases made to order.`,
+      type: "website",
+    },
+  }
 }
 
 export default async function CollectionPage({ params }: { params: Promise<{ slug: string }> }) {

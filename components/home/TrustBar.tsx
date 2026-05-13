@@ -2,7 +2,7 @@ const items = [
   { icon: "✦", text: "Free shipping over $35" },
   { icon: "✦", text: "Printed on demand" },
   { icon: "✦", text: "30-day returns" },
-  { icon: "✦", text: "Ships within 24h" },
+  { icon: "✦", text: "Ships in 3–7 days" },
 ]
 
 export default function TrustBar() {

@@ -55,13 +55,19 @@ async function generateDesignImage(prompt: string, designArea?: { width: number;
 
 // Step 2: Upload image to Printify media library
 async function uploadToPrintify(imageUrl: string, fileName: string): Promise<string> {
+  // Download image first, then upload as base64 — avoids Printify being unable to fetch external URLs
+  const imgRes = await fetch(imageUrl, { headers: { "User-Agent": "Mozilla/5.0" } })
+  if (!imgRes.ok) throw new Error(`Failed to download image from ${imageUrl}`)
+  const buffer = await imgRes.arrayBuffer()
+  const base64 = Buffer.from(buffer).toString("base64")
+
   const res = await fetch("https://api.printify.com/v1/uploads/images.json", {
     method: "POST",
     headers: {
       Authorization: `Bearer ${PRINTIFY_TOKEN}`,
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ file_name: `${fileName}.png`, url: imageUrl }),
+    body: JSON.stringify({ file_name: `${fileName}.png`, contents: base64 }),
   })
 
   if (!res.ok) {

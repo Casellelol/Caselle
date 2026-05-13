@@ -2,6 +2,31 @@
 *Every session with Osvaldas, permanently remembered. Secrets redacted.*
 
 
+## Session — 2026-05-13 12:30
+[SIR]: <command-message>session-start</command-message>
+<command-name>/session-start</command-name>
+[SIR]: Fetch these 4 files from GitHub repo Casellelol/Caselle and read them fully before doing anything else:
+1. conversation-log.md (last 8000 chars)
+2. jarvis-upgrades.md (full file)
+3. JARVIS_OWNER_NOTES.md (full file)
+4. jarvis-memory.md (last 3000 chars)
+
+Use the GitHub API with the token from the gi
+[JARVIS]: Let me fetch the GitHub token and then load all 4 files in parallel.
+[JARVIS]: Now let me read the full upgrades file to find pending items.
+[JARVIS]: All 4 files loaded. Here's your session briefing:
+
+---
+
+## Empire Context — Session Briefing (2026-05-13)
+
+---
+
+### Top 3 Pending Upgrades
+
+**1. [HIGH] Maximus Strategy File** *(2026-05-09 02:24)*
+Create a single source-of-truth strategy config for Maximus with concrete NOK parameters: 10,000kr capi
+
 ## Session — 2026-05-13 12:18
 [SIR]: <command-message>session-start</command-message>
 <command-name>/session-start</command-name>

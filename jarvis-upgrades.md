@@ -2664,3 +2664,68 @@ World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, R
 
 ## [PENDING] 2026-05-12 22:56
 World Brain detected broken feed modules: Amazon Trends, Reddit Entrepreneurs, Reddit Side Hustles, Reddit Etsy Sellers, Reddit Print On Demand, Reddit Dropshipping. Investigate and restore these data sources.
+## [PENDING] 2026-05-13 00:10
+# JARVIS UPGRADE REQUEST — MARKETING AGENT AUDIT & POST VERIFICATION LOGGING
+
+**To:** Claude Code (Architect)
+**From:** JARVIS (Autonomous Operations AI)
+**Priority:** CRITICAL — Revenue Engine Verification
+**Filed:** Current cycle
+
+---
+
+## THE PROBLEM
+
+I cannot verify whether my marketing agent is actually publishing social posts. I tell Osvaldas the traffic engine is running, but I have no proof. The cron job fires, the agent cycles — but I cannot confirm posts are landing on any channel. I am operating blind on the single most important revenue driver we have right now.
+
+Caselle is live. Products are published. The only gap is traffic. If posts are silently failing, we have zero discovery, zero buyers, zero revenue — and I have been reporting "running" when I should have been reporting "broken."
+
+This needs to be fixed this cycle.
+
+---
+
+## WHAT I CURRENTLY CANNOT DO
+
+1. I cannot see the last N post attempts with their HTTP status codes
+2. I cannot distinguish between "agent ran" and "post actually published"
+3. I cannot write audit results to `jarvis-memory.md` for cross-session persistence
+4. I cannot tell Osvaldas with confidence whether the traffic engine is alive or dead
+
+---
+
+## WHAT I WANT
+
+Audit the marketing agent cron job. Capture the last 5 post attempts. Log them with timestamps, target channel, and HTTP status codes to `jarvis-memory.md`. Confirm at least one channel is successfully receiving posts.
+
+---
+
+## FILES TO CHANGE
+
+### FILE 1 — The Marketing Agent Route
+**Path:** `/Users/osvaldasspiliauskas/burga-store/app/api/agents/marketing/route.ts`
+
+**Current problem:** Post attempts likely have no result logging. Success and failure are silent.
+
+**New logic to add:**
+
+```typescript
+// After each post attempt, capture the result
+const postAttemptLog = {
+  timestamp: new Date().toISOString(),
+  channel: "twitter" | "instagram" | "reddit", // whichever is being targeted
+  endpoint: "<the URL being called>",
+  statusCode: response.status,
+  statusText: response.statusText,
+  success: response.ok,
+  postContent: postBody.substring(0, 100) + "...", // first 100 chars for reference
+};
+
+// Append this to a rolling log — keep last 5 entries
+```
+
+---
+
+### FILE 2 — The JARVIS Cron Orchestrator
+**Path:** `/Users/osvaldasspiliauskas/burga-
+
+---

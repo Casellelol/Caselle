@@ -2,6 +2,58 @@
 *Every session with Osvaldas, permanently remembered. Secrets redacted.*
 
 
+## Session — 2026-05-13 18:23
+[SIR]: <command-message>session-start</command-message>
+<command-name>/session-start</command-name>
+[SIR]: Fetch these 4 files from GitHub repo Casellelol/Caselle and read them fully before doing anything else:
+1. conversation-log.md (last 8000 chars)
+2. jarvis-upgrades.md (full file)
+3. JARVIS_OWNER_NOTES.md (full file)
+4. jarvis-memory.md (last 3000 chars)
+
+Use the GitHub API with the token from the gi
+[JARVIS]: Let me fetch the GitHub token and all 4 files.
+[JARVIS]: Now let me read the upgrades file in parts since it was too large.
+[JARVIS]: All 4 files are loaded. Here's the full session briefing:
+
+---
+
+## Empire Context — Session Briefing (2026-05-13)
+
+---
+
+### Top 3 Pending Upgrades
+
+**1. [PENDING] 2026-05-09 02:24 — Maximus Strategy File**
+Create `/Users/osvaldasspiliauskas/burga-store/lib/maximus/strategy-config.md` with confirmed
+[SIR]: For all 17 products in shop 27451784 on Printify, fetch the actual design artwork files.
+
+1. Call GET https://api.printify.com/v1/shops/27451784/products.json with the PRINTIFY_API_TOKEN
+2. For each product, look inside print_areas[0].placeholders[0].images[0].src — this is the raw artwork URL that
+[JARVIS]: Let me grab the Printify token and fetch all products.
+[JARVIS]: No products returned — let me check the raw response.
+[JARVIS]: Big response — let me parse it directly.
+[JARVIS]: 17 products found. Extracting all artwork URLs now.
+[JARVIS]: All 17 products fetched. Now let me read the current products.ts to map them.
+[JARVIS]: Good news: all 17 products in `products.ts` already have the correct Printify artwork URLs in both `printFile` and `images.default[0]`. Every UUID matches exactly. Let me verify with a diff to confirm nothing needs changing.
+[JARVIS]: All 17 match perfectly — the file was already correct. No changes needed. Proceeding to deploy.
+[SIR]: In ~/burga-store/ run:
+1. git add -A
+2. git commit -m "Empire update: [describe what changed in one line based on recent work]"
+3. git push origin main
+4. Confirm Vercel deployment triggered (check vercel.json exists and git push succeeded — Vercel Git integration auto-deploys on push to main)
+Print
+[JARVIS]: Remote has diverged — pulling first.
+[JARVIS]: Push succeeded. vercel.json is present and Vercel's Git integration auto-deploys on every push to main.
+
+**Deployed.**
+
+---
+
+**Summary of this session:**
+- Fetched all 17 Printify products via the live API
+- Verified every artwork URL in `products.ts` already matches `print_areas[0].placeholders[0].
+
 ## Session — 2026-05-13 18:17
 [SIR]: <command-message>session-start</command-message>
 <command-name>/session-start</command-name>

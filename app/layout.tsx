@@ -5,7 +5,7 @@ import Footer from "@/components/layout/Footer"
 import CartDrawer from "@/components/layout/CartDrawer"
 import EmailCaptureBanner from "@/components/layout/EmailCaptureBanner"
 
-const SITE_URL = "https://burga-store.vercel.app"
+const SITE_URL = "https://caselle.store"
 const OG_IMAGE = "https://images-api.printify.com/mockup/69fe63e9f0f38ff1d503b486/103561/101039/cherry-red-quiet-luxury-phone-case.jpg?camera_label=front"
 
 export const metadata: Metadata = {

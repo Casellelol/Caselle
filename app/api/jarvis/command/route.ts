@@ -3,7 +3,7 @@ import Anthropic from "@anthropic-ai/sdk"
 
 const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN
-const CASELLE_REPO = "Casellelol/Caselle"
+const CASELLE_REPO = "Casellelol/JARVIS-brain"
 
 async function fetchGitHubFile(repo: string, path: string): Promise<string> {
   try {
@@ -64,16 +64,16 @@ export async function POST(req: NextRequest) {
       worldBrain,
       exelixisDirectives, atelierDirectives, maximusDirectives,
     ] = await Promise.all([
-      fetchGitHubFile("Casellelol/Caselle", "exelixis-brain.md"),
-      fetchGitHubFile("Casellelol/Caselle", "exelixis-strategy.md"),
+      fetchGitHubFile("Casellelol/JARVIS-brain", "exelixis-brain.md"),
+      fetchGitHubFile("Casellelol/JARVIS-brain", "exelixis-strategy.md"),
       fetchGitHubFile("Casellelol/Atelier", "exelixis-brain.md"),
       fetchGitHubFile("Casellelol/Atelier", "exelixis-strategy.md"),
       fetchGitHubFile("Casellelol/Maximus", "maximus-brain.md"),
       fetchGitHubFile("Casellelol/Maximus", "maximus-strategy.md"),
-      fetchGitHubFile("Casellelol/Caselle", "jarvis-world-brain.md"),
-      fetchGitHubFile("Casellelol/Caselle", "jarvis-directives/exelixis.md"),
-      fetchGitHubFile("Casellelol/Caselle", "jarvis-directives/atelier.md"),
-      fetchGitHubFile("Casellelol/Caselle", "jarvis-directives/maximus.md"),
+      fetchGitHubFile("Casellelol/JARVIS-brain", "jarvis-world-brain.md"),
+      fetchGitHubFile("Casellelol/JARVIS-brain", "jarvis-directives/exelixis.md"),
+      fetchGitHubFile("Casellelol/JARVIS-brain", "jarvis-directives/atelier.md"),
+      fetchGitHubFile("Casellelol/JARVIS-brain", "jarvis-directives/maximus.md"),
     ])
 
     // JARVIS evaluates all Masterminds and decides what each needs

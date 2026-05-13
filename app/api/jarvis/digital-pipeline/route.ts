@@ -6,7 +6,7 @@ const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN
 const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
-const REPO = "Casellelol/Caselle"
+const REPO = "Casellelol/JARVIS-brain"
 
 type DigitalProductType = "ebook" | "prompt-pack" | "notion-template" | "swipe-file" | "checklist"
 

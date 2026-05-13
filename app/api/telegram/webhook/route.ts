@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server"
 const TELEGRAM_TOKEN = process.env.TELEGRAM_BOT_TOKEN
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN
-const REPO = "Casellelol/Caselle"
+const REPO = "Casellelol/JARVIS-brain"
 const HISTORY_FILE = "telegram-history.json"
 const MAX_HISTORY = 10 // messages per chat to keep
 

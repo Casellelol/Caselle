@@ -5,7 +5,7 @@ export const dynamic = "force-dynamic"
 
 async function fetchGitHubFile(path: string): Promise<string> {
   const res = await fetch(
-    `https://api.github.com/repos/Casellelol/Caselle/contents/${path}`,
+    `https://api.github.com/repos/Casellelol/JARVIS-brain/contents/${path}`,
     { headers: { Authorization: `token ${process.env.GITHUB_TOKEN}`, Accept: "application/vnd.github.v3.raw" } }
   )
   return res.ok ? res.text() : ""

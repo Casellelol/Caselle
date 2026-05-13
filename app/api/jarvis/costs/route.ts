@@ -2,7 +2,7 @@ import { NextResponse } from "next/server"
 
 const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN
-const REPO = "Casellelol/Caselle"
+const REPO = "Casellelol/JARVIS-brain"
 
 // Pricing per million tokens (claude-sonnet-4-6 as of 2026)
 const INPUT_COST_PER_M = 3.0

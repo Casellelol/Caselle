@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server"
 
 const MAKE_WEBHOOK = process.env.MAKE_WEBHOOK_URL
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN
-const REPO = "Casellelol/Caselle"
+const REPO = "Casellelol/JARVIS-brain"
 
 const POSTS = [
   "The case that says everything without saying a word. ✦\n#quietluxury #minimalist #caselle",

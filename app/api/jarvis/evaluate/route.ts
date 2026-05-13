@@ -17,7 +17,7 @@ async function fetchFile(repo: string, path: string): Promise<string> {
 
 async function saveResultsLog(content: string) {
   const getRes = await fetch(
-    "https://api.github.com/repos/Casellelol/Caselle/contents/results-log.md",
+    "https://api.github.com/repos/Casellelol/JARVIS-brain/contents/results-log.md",
     { headers: { Authorization: `token ${GITHUB_TOKEN}`, Accept: "application/vnd.github.v3+json" } }
   )
   const existing = getRes.ok ? await getRes.json() : null
@@ -25,7 +25,7 @@ async function saveResultsLog(content: string) {
     ? Buffer.from(existing.content, "base64").toString("utf-8")
     : "# JARVIS Results Log\n*What worked. What didn't. The track record JARVIS learns from.*\n\n"
 
-  await fetch("https://api.github.com/repos/Casellelol/Caselle/contents/results-log.md", {
+  await fetch("https://api.github.com/repos/Casellelol/JARVIS-brain/contents/results-log.md", {
     method: "PUT",
     headers: { Authorization: `token ${GITHUB_TOKEN}`, "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -39,11 +39,11 @@ async function saveResultsLog(content: string) {
 export async function GET() {
   try {
     const [salesPerformance, publishedProducts, competitorIntel, thoughts, socialPerformance] = await Promise.all([
-      fetchFile("Casellelol/Caselle", "sales-performance.md"),
-      fetchFile("Casellelol/Caselle", "published-products.md"),
-      fetchFile("Casellelol/Caselle", "competitor-intel.md"),
-      fetchFile("Casellelol/Caselle", "jarvis-thoughts.md"),
-      fetchFile("Casellelol/Caselle", "social-performance.md"),
+      fetchFile("Casellelol/JARVIS-brain", "sales-performance.md"),
+      fetchFile("Casellelol/JARVIS-brain", "published-products.md"),
+      fetchFile("Casellelol/JARVIS-brain", "competitor-intel.md"),
+      fetchFile("Casellelol/JARVIS-brain", "jarvis-thoughts.md"),
+      fetchFile("Casellelol/JARVIS-brain", "social-performance.md"),
     ])
 
     const evaluation = await client.messages.create({

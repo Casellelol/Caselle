@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid"
 
 const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN
-const REPO = "Casellelol/Caselle"
+const REPO = "Casellelol/JARVIS-brain"
 
 async function fetchGitHubFile(path: string): Promise<string> {
   try {

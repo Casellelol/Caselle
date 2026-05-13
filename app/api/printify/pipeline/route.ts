@@ -186,7 +186,7 @@ async function confirmProduct(productId: string): Promise<boolean> {
 async function logToGitHub(entry: string) {
   try {
     const getRes = await fetch(
-      "https://api.github.com/repos/Casellelol/Caselle/contents/published-products.md",
+      "https://api.github.com/repos/Casellelol/JARVIS-brain/contents/published-products.md",
       { headers: { Authorization: `token ${GITHUB_TOKEN}`, Accept: "application/vnd.github.v3+json" } }
     )
     const existing = getRes.ok ? await getRes.json() : null
@@ -194,7 +194,7 @@ async function logToGitHub(entry: string) {
       ? Buffer.from(existing.content, "base64").toString("utf-8")
       : "# Published Products\n*Auto-published by JARVIS pipeline.*\n\n"
 
-    await fetch("https://api.github.com/repos/Casellelol/Caselle/contents/published-products.md", {
+    await fetch("https://api.github.com/repos/Casellelol/JARVIS-brain/contents/published-products.md", {
       method: "PUT",
       headers: { Authorization: `token ${GITHUB_TOKEN}`, "Content-Type": "application/json" },
       body: JSON.stringify({

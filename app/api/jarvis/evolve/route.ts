@@ -16,12 +16,12 @@ async function fetchFile(repo: string, path: string): Promise<string> {
 
 async function writeFile(path: string, content: string, message: string) {
   const getRes = await fetch(
-    `https://api.github.com/repos/Casellelol/Caselle/contents/${path}`,
+    `https://api.github.com/repos/Casellelol/JARVIS-brain/contents/${path}`,
     { headers: { Authorization: `token ${GITHUB_TOKEN}`, Accept: "application/vnd.github.v3+json" } }
   )
   const existing = getRes.ok ? await getRes.json() : null
 
-  await fetch(`https://api.github.com/repos/Casellelol/Caselle/contents/${path}`, {
+  await fetch(`https://api.github.com/repos/Casellelol/JARVIS-brain/contents/${path}`, {
     method: "PUT",
     headers: { Authorization: `token ${GITHUB_TOKEN}`, "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -35,12 +35,12 @@ async function writeFile(path: string, content: string, message: string) {
 export async function GET() {
   try {
     const [resultsLog, currentStrategy, caselleBrain, competitorIntel, trendLog, currentPersona] = await Promise.all([
-      fetchFile("Casellelol/Caselle", "results-log.md"),
-      fetchFile("Casellelol/Caselle", "exelixis-strategy.md"),
-      fetchFile("Casellelol/Caselle", "exelixis-brain.md"),
-      fetchFile("Casellelol/Caselle", "competitor-intel.md"),
-      fetchFile("Casellelol/Caselle", "trend-log.md"),
-      fetchFile("Casellelol/Caselle", "jarvis-persona.md"),
+      fetchFile("Casellelol/JARVIS-brain", "results-log.md"),
+      fetchFile("Casellelol/JARVIS-brain", "exelixis-strategy.md"),
+      fetchFile("Casellelol/JARVIS-brain", "exelixis-brain.md"),
+      fetchFile("Casellelol/JARVIS-brain", "competitor-intel.md"),
+      fetchFile("Casellelol/JARVIS-brain", "trend-log.md"),
+      fetchFile("Casellelol/JARVIS-brain", "jarvis-persona.md"),
     ])
 
     const date = new Date().toISOString().slice(0, 10)

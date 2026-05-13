@@ -5,7 +5,7 @@ const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN
 const RESEND_API_KEY = process.env.RESEND_API_KEY
 const OWNER_EMAIL = "the3vka@gmail.com"
-const REPO = "Casellelol/Caselle"
+const REPO = "Casellelol/JARVIS-brain"
 
 async function fetchFile(path: string): Promise<string> {
   try {

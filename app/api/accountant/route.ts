@@ -43,11 +43,11 @@ async function fetchPrintifyCosts(): Promise<string> {
 
 async function saveToGitHub(content: string) {
   const getRes = await fetch(
-    "https://api.github.com/repos/Casellelol/Caselle/contents/finance-report.md",
+    "https://api.github.com/repos/Casellelol/JARVIS-brain/contents/finance-report.md",
     { headers: { Authorization: `token ${GITHUB_TOKEN}`, Accept: "application/vnd.github.v3+json" } }
   )
   const existing = getRes.ok ? await getRes.json() : null
-  await fetch("https://api.github.com/repos/Casellelol/Caselle/contents/finance-report.md", {
+  await fetch("https://api.github.com/repos/Casellelol/JARVIS-brain/contents/finance-report.md", {
     method: "PUT",
     headers: { Authorization: `token ${GITHUB_TOKEN}`, "Content-Type": "application/json" },
     body: JSON.stringify({

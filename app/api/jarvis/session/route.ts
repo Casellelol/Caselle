@@ -7,7 +7,7 @@ const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
 async function getFileSha(path: string): Promise<string | undefined> {
   try {
     const res = await fetch(
-      `https://api.github.com/repos/Casellelol/Caselle/contents/${path}`,
+      `https://api.github.com/repos/Casellelol/JARVIS-brain/contents/${path}`,
       { headers: { Authorization: `token ${GITHUB_TOKEN}`, Accept: "application/vnd.github.v3+json" } }
     )
     if (!res.ok) return undefined
@@ -19,7 +19,7 @@ async function getFileSha(path: string): Promise<string | undefined> {
 async function getCurrentContent(path: string, fallback = ""): Promise<string> {
   try {
     const res = await fetch(
-      `https://api.github.com/repos/Casellelol/Caselle/contents/${path}`,
+      `https://api.github.com/repos/Casellelol/JARVIS-brain/contents/${path}`,
       { headers: { Authorization: `token ${GITHUB_TOKEN}`, Accept: "application/vnd.github.v3.raw" } }
     )
     if (!res.ok) return fallback
@@ -33,7 +33,7 @@ async function writeFile(path: string, content: string, sha?: string, message?: 
     content: Buffer.from(content).toString("base64"),
   }
   if (sha) body.sha = sha
-  await fetch(`https://api.github.com/repos/Casellelol/Caselle/contents/${path}`, {
+  await fetch(`https://api.github.com/repos/Casellelol/JARVIS-brain/contents/${path}`, {
     method: "PUT",
     headers: { Authorization: `token ${GITHUB_TOKEN}`, "Content-Type": "application/json" },
     body: JSON.stringify(body),
@@ -44,7 +44,7 @@ async function updateCompressedSummary(newSessionContent: string): Promise<void>
   try {
     const [currentSummary, summaryShaMeta] = await Promise.all([
       getCurrentContent("jarvis-summary.md", ""),
-      fetch(`https://api.github.com/repos/Casellelol/Caselle/contents/jarvis-summary.md`, {
+      fetch(`https://api.github.com/repos/Casellelol/JARVIS-brain/contents/jarvis-summary.md`, {
         headers: { Authorization: `token ${GITHUB_TOKEN}`, Accept: "application/vnd.github.v3+json" },
       }).then(r => r.ok ? r.json() : null),
     ])

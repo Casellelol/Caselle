@@ -7,7 +7,7 @@ const GITHUB_TOKEN = process.env.GITHUB_TOKEN
 async function fetchFile(path: string): Promise<string> {
   try {
     const res = await fetch(
-      `https://api.github.com/repos/Casellelol/Caselle/contents/${path}`,
+      `https://api.github.com/repos/Casellelol/JARVIS-brain/contents/${path}`,
       { headers: { Authorization: `token ${GITHUB_TOKEN}`, Accept: "application/vnd.github.v3.raw" } }
     )
     return res.ok ? await res.text() : ""
@@ -36,11 +36,11 @@ async function fetchRedditEngagement(topic: string): Promise<string> {
 
 async function saveToGitHub(content: string) {
   const getRes = await fetch(
-    "https://api.github.com/repos/Casellelol/Caselle/contents/social-performance.md",
+    "https://api.github.com/repos/Casellelol/JARVIS-brain/contents/social-performance.md",
     { headers: { Authorization: `token ${GITHUB_TOKEN}`, Accept: "application/vnd.github.v3+json" } }
   )
   const existing = getRes.ok ? await getRes.json() : null
-  await fetch("https://api.github.com/repos/Casellelol/Caselle/contents/social-performance.md", {
+  await fetch("https://api.github.com/repos/Casellelol/JARVIS-brain/contents/social-performance.md", {
     method: "PUT",
     headers: { Authorization: `token ${GITHUB_TOKEN}`, "Content-Type": "application/json" },
     body: JSON.stringify({

@@ -3,7 +3,7 @@ import Anthropic from "@anthropic-ai/sdk"
 
 const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN
-const REGISTRY_REPO = "Casellelol/Caselle"
+const REGISTRY_REPO = "Casellelol/JARVIS-brain"
 
 async function fetchGitHubFile(repo: string, path: string): Promise<string> {
   try {

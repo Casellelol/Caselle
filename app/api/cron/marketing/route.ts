@@ -88,7 +88,7 @@ async function postToBluesky(text: string) {
 
 // ── GitHub logging ───────────────────────────────────────────────────────────
 async function logToGitHub(entry: string) {
-  const apiUrl = `https://api.github.com/repos/Casellelol/Caselle/contents/marketing-log.md`
+  const apiUrl = `https://api.github.com/repos/Casellelol/JARVIS-brain/contents/marketing-log.md`
   const headers = { Authorization: `token ${process.env.GITHUB_TOKEN}`, "Content-Type": "application/json" }
 
   const current = await fetch(apiUrl, { headers }).then((r) => r.json())

@@ -30,11 +30,11 @@ async function fetchTrendData(): Promise<string> {
 
 async function saveToGitHub(content: string) {
   const getRes = await fetch(
-    "https://api.github.com/repos/Casellelol/Caselle/contents/trend-log.md",
+    "https://api.github.com/repos/Casellelol/JARVIS-brain/contents/trend-log.md",
     { headers: { Authorization: `token ${GITHUB_TOKEN}`, Accept: "application/vnd.github.v3+json" } }
   )
   const existing = getRes.ok ? await getRes.json() : null
-  await fetch("https://api.github.com/repos/Casellelol/Caselle/contents/trend-log.md", {
+  await fetch("https://api.github.com/repos/Casellelol/JARVIS-brain/contents/trend-log.md", {
     method: "PUT",
     headers: { Authorization: `token ${GITHUB_TOKEN}`, "Content-Type": "application/json" },
     body: JSON.stringify({

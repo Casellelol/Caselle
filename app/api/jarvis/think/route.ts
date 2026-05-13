@@ -17,7 +17,7 @@ async function fetchFile(repo: string, path: string): Promise<string> {
 
 async function saveThought(entry: string) {
   const getRes = await fetch(
-    "https://api.github.com/repos/Casellelol/Caselle/contents/jarvis-thoughts.md",
+    "https://api.github.com/repos/Casellelol/JARVIS-brain/contents/jarvis-thoughts.md",
     { headers: { Authorization: `token ${GITHUB_TOKEN}`, Accept: "application/vnd.github.v3+json" } }
   )
   const existing = getRes.ok ? await getRes.json() as { content: string; sha: string } : null
@@ -25,7 +25,7 @@ async function saveThought(entry: string) {
     ? Buffer.from(existing.content, "base64").toString("utf-8")
     : "# JARVIS Autonomous Thoughts\n*What JARVIS decided to do on his own — no human asked.*\n\n"
 
-  await fetch("https://api.github.com/repos/Casellelol/Caselle/contents/jarvis-thoughts.md", {
+  await fetch("https://api.github.com/repos/Casellelol/JARVIS-brain/contents/jarvis-thoughts.md", {
     method: "PUT",
     headers: { Authorization: `token ${GITHUB_TOKEN}`, "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -39,7 +39,7 @@ async function saveThought(entry: string) {
 async function updateSelfModel(model: string) {
   try {
     const getRes = await fetch(
-      "https://api.github.com/repos/Casellelol/Caselle/contents/jarvis-self-model.md",
+      "https://api.github.com/repos/Casellelol/JARVIS-brain/contents/jarvis-self-model.md",
       { headers: { Authorization: `token ${GITHUB_TOKEN}`, Accept: "application/vnd.github.v3+json" } }
     )
     const existing = getRes.ok ? await getRes.json() as { sha: string } : null
@@ -48,7 +48,7 @@ async function updateSelfModel(model: string) {
       content: Buffer.from(model).toString("base64"),
     }
     if (existing?.sha) body.sha = existing.sha
-    await fetch("https://api.github.com/repos/Casellelol/Caselle/contents/jarvis-self-model.md", {
+    await fetch("https://api.github.com/repos/Casellelol/JARVIS-brain/contents/jarvis-self-model.md", {
       method: "PUT",
       headers: { Authorization: `token ${GITHUB_TOKEN}`, "Content-Type": "application/json" },
       body: JSON.stringify(body),
@@ -62,21 +62,21 @@ export async function GET() {
       caselleBrain, strategy, salesPerformance, competitorIntel,
       socialPerformance, worldBrain, resultsLog, persona, trendLog, ownerNotes, jarvisSummary, empireState, digitalProducts, businessIdeas, blueprints,
     ] = await Promise.all([
-      fetchFile("Casellelol/Caselle", "exelixis-brain.md"),
-      fetchFile("Casellelol/Caselle", "exelixis-strategy.md"),
-      fetchFile("Casellelol/Caselle", "sales-performance.md"),
-      fetchFile("Casellelol/Caselle", "competitor-intel.md"),
-      fetchFile("Casellelol/Caselle", "social-performance.md"),
-      fetchFile("Casellelol/Caselle", "jarvis-world-brain.md"),
-      fetchFile("Casellelol/Caselle", "results-log.md"),
-      fetchFile("Casellelol/Caselle", "jarvis-persona.md"),
-      fetchFile("Casellelol/Caselle", "trend-log.md"),
-      fetchFile("Casellelol/Caselle", "JARVIS_OWNER_NOTES.md"),
-      fetchFile("Casellelol/Caselle", "jarvis-summary.md"),
-      fetchFile("Casellelol/Caselle", "empire.json"),
-      fetchFile("Casellelol/Caselle", "digital-products.md"),
-      fetchFile("Casellelol/Caselle", "business-ideas.md"),
-      fetchFile("Casellelol/Caselle", "JARVIS_BLUEPRINTS.md"),
+      fetchFile("Casellelol/JARVIS-brain", "exelixis-brain.md"),
+      fetchFile("Casellelol/JARVIS-brain", "exelixis-strategy.md"),
+      fetchFile("Casellelol/JARVIS-brain", "sales-performance.md"),
+      fetchFile("Casellelol/JARVIS-brain", "competitor-intel.md"),
+      fetchFile("Casellelol/JARVIS-brain", "social-performance.md"),
+      fetchFile("Casellelol/JARVIS-brain", "jarvis-world-brain.md"),
+      fetchFile("Casellelol/JARVIS-brain", "results-log.md"),
+      fetchFile("Casellelol/JARVIS-brain", "jarvis-persona.md"),
+      fetchFile("Casellelol/JARVIS-brain", "trend-log.md"),
+      fetchFile("Casellelol/JARVIS-brain", "JARVIS_OWNER_NOTES.md"),
+      fetchFile("Casellelol/JARVIS-brain", "jarvis-summary.md"),
+      fetchFile("Casellelol/JARVIS-brain", "empire.json"),
+      fetchFile("Casellelol/JARVIS-brain", "digital-products.md"),
+      fetchFile("Casellelol/JARVIS-brain", "business-ideas.md"),
+      fetchFile("Casellelol/JARVIS-brain", "JARVIS_BLUEPRINTS.md"),
     ])
 
     const context = `

@@ -2,7 +2,7 @@ import { NextResponse } from "next/server"
 import Stripe from "stripe"
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN
-const REPO = "Casellelol/Caselle"
+const REPO = "Casellelol/JARVIS-brain"
 
 async function checkStripe(): Promise<{ ok: boolean; mode: string; detail: string }> {
   const key = process.env.STRIPE_SECRET_KEY

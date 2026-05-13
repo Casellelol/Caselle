@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server"
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN
-const REGISTRY_REPO = "Casellelol/Caselle"
+const REGISTRY_REPO = "Casellelol/JARVIS-brain"
 
 export async function POST(req: NextRequest) {
   try {

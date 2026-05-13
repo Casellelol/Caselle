@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server"
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN
-const REPO = "Casellelol/Caselle"
+const REPO = "Casellelol/JARVIS-brain"
 
 // DuckDuckGo instant answer
 async function ddgSearch(query: string): Promise<string> {

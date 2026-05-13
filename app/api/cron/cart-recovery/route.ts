@@ -4,7 +4,7 @@ import Stripe from "stripe"
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN
 const RESEND_API_KEY = process.env.RESEND_API_KEY
-const REPO = "Casellelol/Caselle"
+const REPO = "Casellelol/JARVIS-brain"
 const EMAIL_FILE = "email-list.md"
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || process.env.NEXT_PUBLIC_BASE_URL || "https://burga-store.vercel.app"
 const RECOVERY_TAG = "[cart-recovery]"

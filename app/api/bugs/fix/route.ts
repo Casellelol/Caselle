@@ -7,7 +7,7 @@ const GITHUB_TOKEN = process.env.GITHUB_TOKEN
 async function getRecentErrors(): Promise<string> {
   try {
     const getRes = await fetch(
-      "https://api.github.com/repos/Casellelol/Caselle/contents/error-log.md",
+      "https://api.github.com/repos/Casellelol/JARVIS-brain/contents/error-log.md",
       { headers: { Authorization: `token ${GITHUB_TOKEN}`, Accept: "application/vnd.github.v3+json" } }
     )
     if (!getRes.ok) return "No error log found."
@@ -18,7 +18,7 @@ async function getRecentErrors(): Promise<string> {
 
 async function fileUpgradeRequest(description: string) {
   const getRes = await fetch(
-    "https://api.github.com/repos/Casellelol/Caselle/contents/jarvis-upgrades.md",
+    "https://api.github.com/repos/Casellelol/JARVIS-brain/contents/jarvis-upgrades.md",
     { headers: { Authorization: `token ${GITHUB_TOKEN}`, Accept: "application/vnd.github.v3+json" } }
   )
   const existing = getRes.ok ? await getRes.json() : null
@@ -27,7 +27,7 @@ async function fileUpgradeRequest(description: string) {
   const newEntry = `\n## [PENDING] Bug Fix — ${date}\n${description}\n`
   const updated = current + newEntry
 
-  await fetch("https://api.github.com/repos/Casellelol/Caselle/contents/jarvis-upgrades.md", {
+  await fetch("https://api.github.com/repos/Casellelol/JARVIS-brain/contents/jarvis-upgrades.md", {
     method: "PUT",
     headers: { Authorization: `token ${GITHUB_TOKEN}`, "Content-Type": "application/json" },
     body: JSON.stringify({

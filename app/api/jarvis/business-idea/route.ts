@@ -3,7 +3,7 @@ import { notifyOwner } from "@/lib/jarvis/telegram"
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
-const REPO = "Casellelol/Caselle"
+const REPO = "Casellelol/JARVIS-brain"
 
 // Blueprints that are already buildable with existing infrastructure
 const EXECUTABLE_BLUEPRINTS = new Set([

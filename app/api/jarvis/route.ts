@@ -13,14 +13,14 @@ async function logToChangelog(
   try {
     const timestamp = new Date().toISOString().slice(0, 16).replace("T", " ")
     const entry = `[${timestamp}] | ${type} | ${product} | ${description}\n`
-    const getRes = await fetch("https://api.github.com/repos/Casellelol/Caselle/contents/empire-changelog.md", {
+    const getRes = await fetch("https://api.github.com/repos/Casellelol/JARVIS-brain/contents/empire-changelog.md", {
       headers: { Authorization: `token ${GITHUB_TOKEN}`, Accept: "application/vnd.github.v3+json" },
     })
     const existing = getRes.ok ? await getRes.json() as { content: string; sha: string } : null
     const current = existing ? Buffer.from(existing.content, "base64").toString("utf-8") : "# EMPIRE CHANGELOG\n\n"
     const insertAt = current.indexOf("\n---\n") !== -1 ? current.indexOf("\n---\n") + 5 : current.length
     const updated = current.slice(0, insertAt) + entry + current.slice(insertAt)
-    await fetch("https://api.github.com/repos/Casellelol/Caselle/contents/empire-changelog.md", {
+    await fetch("https://api.github.com/repos/Casellelol/JARVIS-brain/contents/empire-changelog.md", {
       method: "PUT",
       headers: { Authorization: `token ${GITHUB_TOKEN}`, "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -101,26 +101,26 @@ async function jarvisRespond(message: string) {
       salesPerformance, competitorIntel, socialPerformance, jarvisPersona, resultsLog,
       ownerNotes, rawSource,
     ] = await Promise.all([
-      fetchGitHubFile("Casellelol/Caselle", "exelixis-brain.md"),
-      fetchGitHubFile("Casellelol/Caselle", "exelixis-strategy.md"),
-      fetchGitHubFile("Casellelol/Caselle", "accounting/summary.md"),
+      fetchGitHubFile("Casellelol/JARVIS-brain", "exelixis-brain.md"),
+      fetchGitHubFile("Casellelol/JARVIS-brain", "exelixis-strategy.md"),
+      fetchGitHubFile("Casellelol/JARVIS-brain", "accounting/summary.md"),
       fetchGitHubFile("Casellelol/Atelier", "exelixis-brain.md"),
       fetchGitHubFile("Casellelol/Atelier", "exelixis-strategy.md"),
       fetchGitHubFile("Casellelol/Maximus", "maximus-brain.md"),
       fetchGitHubFile("Casellelol/Maximus", "maximus-strategy.md"),
-      fetchGitHubFile("Casellelol/Caselle", "jarvis-world-brain.md"),
-      fetchGitHubFile("Casellelol/Caselle", "jarvis-memory.md"),
-      fetchGitHubFile("Casellelol/Caselle", "jarvis-infrastructure.md"),
-      fetchGitHubFile("Casellelol/Caselle", "jarvis-self-model.md"),
-      fetchGitHubFile("Casellelol/Caselle", "jarvis-opportunities.md"),
-      fetchGitHubFile("Casellelol/Caselle", "jarvis-summary.md"),
-      fetchGitHubFile("Casellelol/Caselle", "sales-performance.md"),
-      fetchGitHubFile("Casellelol/Caselle", "competitor-intel.md"),
-      fetchGitHubFile("Casellelol/Caselle", "social-performance.md"),
-      fetchGitHubFile("Casellelol/Caselle", "jarvis-persona.md"),
-      fetchGitHubFile("Casellelol/Caselle", "results-log.md"),
-      fetchGitHubFile("Casellelol/Caselle", "JARVIS_OWNER_NOTES.md"),
-      fetchGitHubFile("Casellelol/Caselle", "obsidian-raw-source.md"),
+      fetchGitHubFile("Casellelol/JARVIS-brain", "jarvis-world-brain.md"),
+      fetchGitHubFile("Casellelol/JARVIS-brain", "jarvis-memory.md"),
+      fetchGitHubFile("Casellelol/JARVIS-brain", "jarvis-infrastructure.md"),
+      fetchGitHubFile("Casellelol/JARVIS-brain", "jarvis-self-model.md"),
+      fetchGitHubFile("Casellelol/JARVIS-brain", "jarvis-opportunities.md"),
+      fetchGitHubFile("Casellelol/JARVIS-brain", "jarvis-summary.md"),
+      fetchGitHubFile("Casellelol/JARVIS-brain", "sales-performance.md"),
+      fetchGitHubFile("Casellelol/JARVIS-brain", "competitor-intel.md"),
+      fetchGitHubFile("Casellelol/JARVIS-brain", "social-performance.md"),
+      fetchGitHubFile("Casellelol/JARVIS-brain", "jarvis-persona.md"),
+      fetchGitHubFile("Casellelol/JARVIS-brain", "results-log.md"),
+      fetchGitHubFile("Casellelol/JARVIS-brain", "JARVIS_OWNER_NOTES.md"),
+      fetchGitHubFile("Casellelol/JARVIS-brain", "obsidian-raw-source.md"),
     ])
 
     // Live web search based on message
@@ -257,12 +257,12 @@ CAPABILITY: You can spawn new Masterminds for new business opportunities. If con
 
       // Get current sha to avoid 409 conflicts
       const shaRes = await fetch(
-        `https://api.github.com/repos/Casellelol/Caselle/contents/jarvis-memory.md`,
+        `https://api.github.com/repos/Casellelol/JARVIS-brain/contents/jarvis-memory.md`,
         { headers: { Authorization: `token ${GITHUB_TOKEN}`, Accept: "application/vnd.github.v3+json" } }
       )
       const shaMeta = shaRes.ok ? await shaRes.json() : null
 
-      await fetch(`https://api.github.com/repos/Casellelol/Caselle/contents/jarvis-memory.md`, {
+      await fetch(`https://api.github.com/repos/Casellelol/JARVIS-brain/contents/jarvis-memory.md`, {
         method: "PUT",
         headers: { Authorization: `token ${GITHUB_TOKEN}`, "Content-Type": "application/json" },
         body: JSON.stringify({

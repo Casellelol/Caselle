@@ -229,7 +229,7 @@ export const products: Product[] = [
     slug: "celestial-witch-dark-case",
     name: "Celestial Witch Dark Case",
     tagline: "The dark side of magic",
-    description: "Celestial Witch Dark Case — premium product by Caselle.",
+    description: "The darker sister of the Celestial Witch. Deep midnight tones, silver moons, and shadowed celestial symbols for those who prefer their magic without the sparkle.",
     materials: "Premium polycarbonate shell with soft-touch matte coating. 1.5mm raised edges protect screen and camera. Wireless charging compatible.",
     basePrice: 3499,
     collectionSlugs: ["iphone-17", "iphone-16", "iphone-15", "samsung-s25", "pixel-9", "dark-aesthetic"],

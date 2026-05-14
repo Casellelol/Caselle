@@ -35,6 +35,7 @@ const shopLinks = collections
 const infoLinks = [
   { label: "Terms of Service", href: "/terms" },
   { label: "Privacy Policy", href: "/privacy" },
+  { label: "Returns & Exchanges", href: "/returns" },
   { label: "Contact", href: "mailto:the3vka@gmail.com" },
 ]
 

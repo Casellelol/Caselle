@@ -25,3 +25,27 @@
 - None identified. All issues were code-level and have been patched.
 
 ---
+
+## Bug Fix Report — 2026-05-14 00:00
+
+### Stores Checked: 1
+
+| Store | URL | Status | Issues Found | Fixed? |
+|---|---|---|---|---|
+| Caselle | burga-store.vercel.app | ⚠️ BUGS | 3 bugs (see below) | ✅ Fixed |
+
+> Note: Live HTTP health checks blocked by network sandbox (403 `host_not_allowed`). Full static code audit performed instead.
+
+### Fixes Applied
+
+- **Caselle — Returns page unreachable**: `/returns/page.tsx` contained a complete return policy but was linked from nowhere — not the footer, not the sitemap. Customers who clicked through product trust bars reading "Free returns within 30 days" had no way to find the actual policy. **Fix**: Added "Returns & Exchanges" to the footer Info section `infoLinks` array and added `/returns` to the sitemap.
+
+- **Caselle — Sitemap missing 3 collection pages**: `/collections/iphone-15`, `/collections/samsung-s25`, and `/collections/pixel-9` were valid, populated pages but entirely absent from the sitemap. Search engines could not crawl them. **Fix**: Added all three collection URLs to `app/sitemap.ts` alongside the `/returns` URL.
+
+- **Caselle — Placeholder product description**: `celestial-witch-dark-case` had a boilerplate description ("Celestial Witch Dark Case — premium product by Caselle.") left over from pipeline scaffolding. **Fix**: Replaced with real copy matching the product's aesthetic.
+
+### Still Broken (needs manual attention)
+
+- **Caselle — Return policy contradiction**: The Terms of Service (`/terms`) states "we do not accept returns unless the item is defective" (14-day window), while the Returns page (`/returns`) describes a full 30-day return policy including non-defective items. These policies contradict each other. Requires a business decision on which is correct before the copy can be reconciled.
+
+---

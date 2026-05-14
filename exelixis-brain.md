@@ -1,5 +1,5 @@
 # Caselle Scout — Market Intelligence
-*Last updated: 2026-05-14 01:00*
+*Last updated: 2026-05-14 14:01*
 
 ---
 
@@ -63,5 +63,37 @@
 - https://bootleads.com/stores/shopify/niches/phone-cases/
 - https://casebx.com/blogs/reviews/velvet-caviar-alternatives
 - Search queries: "burga phone case new collection 2026", "casetify trending designs bestsellers 2026", "phone case store Shopify bestsellers 2026", "casetify collab collection May 2026 new launch", "wildflower cases velvet caviar 2026 new design aesthetic rising competitor"
+
+---
+
+## [2026-05-14 14:01] — Social Media Trends
+
+**Key findings:**
+- **Glacier/Icy Blue aesthetic is a confirmed rising Pinterest trend with hard numbers**: Pinterest searches for "icy blue" +50%, "glacier aesthetic" +35% YoY. Frosted, cool-toned, mint-silver color palette. Phone case brands are already running campaigns on it (Skinnydip "Feeling Blue" collection live now). Caselle has no glacier designs. This is the same "clean girl frosted" signal from May 13 entry — now double-confirmed with Pinterest data. Priority to execute.
+- **"Gimme Gummy" is a Pinterest 2026 Predicts official trend with direct phone case callout**: Pinterest explicitly lists "bendy phone cases" and "3D resin charm cases" as core gummy aesthetic products. Puffy/translucent neon or pastel cases, jelly textures, ASMR-overload tactile designs. POD can't make actual bendy cases, but printing gummy bear / translucent candy graphics on clear cases + curating "jelly aesthetic" product photos IS actionable. This niche has zero Caselle presence.
+- **"6/7" personalization case trend went viral purely on mystery + pastel combo**: Customizable pastel cases with numbers, initials, or codes only you and your best friend understand. Went viral because of: (1) personalization hook, (2) pastel color palette, (3) audience participation mystery. No production costs — a Caselle POD "best friends" or "couple code" case concept could replicate this virality with minimal design effort.
+- **"Reali-TEA" is now the dominant TikTok ecommerce content format**: Lo-fi, one-take, no-polish beats studio shoots. Brands showing real process and imperfections outperform curated content. For Caselle: no more product-on-white-background posts. Film the case on a real desk, a real bag, a real outfit — one take, natural light. This is the format the algorithm is rewarding in May 2026.
+- **80% of TikTok video is watched on mute — if a Caselle video doesn't work silently, it doesn't work**: Hook must land visually in the first 1.5 seconds. Text overlays, visual transitions, aesthetic b-roll of the case in context are more important than voiceover or audio. Key format: 7–15 seconds for viral, 30–90 seconds for educational/storytelling.
+- **Poetcore and Glamoratti are two more Pinterest 2026 trends actionable for case design**: Poetcore = bookish, chunky textures, tonal, warm literary feel — translates to vintage book cover and pressed-flower phone case aesthetics. Glamoratti = 80s maximalist, high-shine, sculpted, gold-heavy — translates to metallic/foil maximalist case designs. Neither has Caselle coverage.
+- **Micro-influencers (10k–50k followers) are outperforming mega-influencers for accessories in 2026**: Higher engagement, tighter community, more affordable partnerships. Primary phone case buyer demographic: 18–24 (49%), 25–34 (31%). Gifting to micro lifestyle/aesthetic accounts in these age brackets delivers better ROI than one-off mega-influencer posts.
+- **TikTok now influences purchasing decisions for 67% of its users** — platform has crossed from discovery to direct conversion. "Companion content" (living with the product in daily scenes) and GRWM formats are the highest-converting organic formats for product stores right now.
+
+**Actionable for:**
+- Marketing Agent: Switch to Reali-TEA format immediately — one-take, natural light, case-in-context. Must work silently (text overlays, not audio-dependent). Hook visually within 1.5 seconds. Test a "6/7" mystery-code best-friends content hook — audience participation = organic shares. Schedule glacier/icy blue content using #glacieraesthetic #icyblue #frostedphone. Post GRWM content showing case as part of an outfit, not isolated product shot.
+- Store Creator: Add a glacier/icy blue design collection (frosted look, cool silver-mint palette, layered ice texture prints). Add a gummy aesthetic collection (clear cases with candy/jelly graphic prints, translucent neon/pastel designs, gummy bear motifs — optimized for "jelly aesthetic" product photos even if the case itself is standard POD). Add Poetcore designs (vintage book covers, pressed botanical illustration, warm parchment tones). Add Glamoratti designs (metallic gold, 80s bold shoulder aesthetic, high-shine color blocks).
+- Trend Monitor: Track whether "Gimme Gummy" manifests more in specific phone case hashtags on TikTok (#gummyaesthetic #jellycase). Watch for Skinnydip "Feeling Blue" campaign engagement as a leading indicator of glacier aesthetic ceiling. Check if "6/7" personalization trend expands to Etsy bestseller lists.
+- Exelixis: Micro-influencer gifting program is the best ROI move available — 10k–50k lifestyle/aesthetic creators, 18–24 demographic, gifting only (no cash). The "Reali-TEA" format shift means Caselle's content production cost can DROP while effectiveness RISES — a lo-fi phone video beats an expensive product shoot in 2026.
+
+**Sources:**
+- https://business.pinterest.com/pinterest-predicts/2026/gimme-gummy/
+- https://ferifajars.medium.com/the-gummy-aesthetic-why-squishy-phone-cases-and-3d-nails-are-taking-over-2026-16508049cc3b
+- https://www.axios.com/2025/12/09/2026-pinterest-trend-report
+- https://fashonation.com/very-mindful-very-frosted-why-icy-blue-is-the-most-refreshing-trend-of-2026/
+- https://www.thedrum.com/news/tiktok-s-2026-forecast-emotional-roi-is-replacing-impulse-buying
+- https://postigniter.com/blog/predicting-tiktoks-2026-shifts-essential-tiktok-content-framework-for-marketers
+- https://www.skinnydiplondon.com/collections/trending-now-feeling-blue
+- https://stackinfluence.com/blog/the-top-tiktok-influencers
+- https://www.kolsprite.com/blog/tiktok-video-trends-2026
+- Search queries: "trending hashtags phone accessories TikTok 2026", "viral product TikTok shop this week May 2026", "Pinterest trending aesthetic 2026 summer", "glacier aesthetic phone case trend 2026 icy blue frosted", "gummy aesthetic 2026 phone case jelly bendy transparent trend", "TikTok content format ecommerce 2026 viral product video hook"
 
 ---

@@ -1,5 +1,5 @@
 # Caselle Scout — Market Intelligence
-*Last updated: 2026-05-14 14:01*
+*Last updated: 2026-05-15 13:03*
 
 ---
 
@@ -95,5 +95,35 @@
 - https://stackinfluence.com/blog/the-top-tiktok-influencers
 - https://www.kolsprite.com/blog/tiktok-video-trends-2026
 - Search queries: "trending hashtags phone accessories TikTok 2026", "viral product TikTok shop this week May 2026", "Pinterest trending aesthetic 2026 summer", "glacier aesthetic phone case trend 2026 icy blue frosted", "gummy aesthetic 2026 phone case jelly bendy transparent trend", "TikTok content format ecommerce 2026 viral product video hook"
+
+---
+
+## [2026-05-15 13:03] — Social Media Trends
+
+**Key findings:**
+- **Lace/Doily Core is an unoccupied phone case niche with an active TikTok discovery page**: Pinterest data shows +215% for lace nails, +150% lace bandanas, +120% lace makeup — cross-category breakout confirming consumer demand. TikTok has an active #lacephonecase discovery page. Wildflower already has a pink lace case going viral on TikTok. Two active variants: black lace on dark backgrounds, pink lace on translucent/frosted cases. Caselle has zero lace designs — this is a direct Wildflower competitor opening right now.
+- **Summer 2026 confirmed color palette: persimmon, wasabi, cool blue, plum noir, jade** (from Pinterest's official trend forecasters). Persimmon (burnt orange-red) is the breakout color — appearing across fashion, ceramics, tableware. "Wasabi" (muted green-yellow) is the Gen Z emerging color. Neither has meaningful representation in POD phone case catalogs on Etsy yet — first-mover window is open.
+- **Instagram Reels hard engagement data for product brands, 2026**: Hook/jump cut in first 3 seconds = 72% more likely to go viral. Jump cut every 3-5 seconds = 32% higher engagement than single-shot. Trending audio = 42% higher engagement. 15-30 seconds optimal for engagement; 60-90 seconds for shares/saves. 55% of Reels views come from non-followers — Instagram is still a discovery engine for cold audiences.
+- **"Brown junk" / earthy warm aesthetic is a rising micro-niche on TikTok**: Warm browns, terracotta, clay, coffee tones in phone cases — described as "earthy touch for girly and cool aesthetics" across multiple TikTok discovery pages. Distinct from the cooler Morandi/clean-girl palette already logged. Underrepresented on Etsy and POD catalogs entirely.
+- **#phoneaccessories has 2.5M TikTok posts, #iphonecase has 1.4M** — both active tagging communities. Neither is oversaturated at that scale. Consistently tagging both on every post is a low-effort SEO lift currently being missed.
+- **Pinterest "Lace & Doily Core" is an official 2026 Predicts trend** — Pinterest Predicts lead real consumer spending by 3-6 months. Peak lace phone case demand will likely arrive late summer/fall 2026. Launching lace designs by June catches the ascending portion of the curve before competitors flood the space.
+
+**Actionable for:**
+- Marketing Agent: Prioritize Instagram Reels over feed posts (80-120% higher engagement). Structure: jump cut in second 1-3, cut every 3-5 seconds throughout, use that week's trending audio (42% engagement lift), keep to 15-30 seconds for engagement. Always tag #phoneaccessories + #iphonecase. Test first-frame hook showing the case design full-screen — no intro text, no logo, just the product visually in the first second.
+- Store Creator: Launch lace phone case designs immediately — black lace on dark background, pink lace on frosted/clear background. Create designs in persimmon and wasabi colorways (no POD competitor has these yet by name). Add an earthy/warm-toned collection (terracotta, clay, coffee) separate from the cooler clean-girl morandi line already planned.
+- Trend Monitor: Track Wildflower's pink lace case TikTok performance weekly as a leading indicator for lace case ceiling. If it sustains virality past June 1, lace is confirmed for the full summer arc. Check if "wasabi" starts appearing as a named color in TikTok Shop product listings.
+- Exelixis: Instagram is being structurally underused if Caselle is TikTok-primary — Reels drives 55% of views from non-followers, meaning Instagram can grow cold audiences in parallel without cannibalizing TikTok. The lace case gap vs. Wildflower is the highest-urgency competitive move from this session's research.
+
+**Sources:**
+- https://www.pedestrian.tv/style/pinterest-predicts-2026/
+- https://www.pedestrian.tv/style/pinterest-palette-2026/
+- https://www.nssmag.com/en/lifestyle/43770/pinterest-predicts-2026-aesthetic-trends
+- https://www.tiktok.com/discover/lace-phone-case
+- https://www.tiktok.com/discover/pink-lace-wildflower-case
+- https://retensis.com/blog/instagram-reels-statistics-2026
+- https://buffer.com/resources/state-of-social-media-engagement-2026/
+- https://displaypurposes.com/hashtags/hashtag/phoneaccessories
+- https://www.loopexdigital.com/blog/instagram-reels-statistics
+- Search queries: "trending hashtags phone accessories TikTok 2026", "viral product TikTok this week May 2026", "Pinterest trending aesthetic 2026 summer", "lace doily aesthetic phone case 2026 TikTok Instagram viral", "Instagram Reels phone case content format viral 2026 engagement rate"
 
 ---

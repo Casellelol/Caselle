@@ -1,9 +1,11 @@
 import Link from "next/link"
 import Button from "@/components/ui/Button"
+import SuccessClearer from "./SuccessClearer"
 
 export default function SuccessPage() {
   return (
     <div className="min-h-[70vh] flex items-center justify-center px-6">
+      <SuccessClearer />
       <div className="text-center max-w-md">
         <div className="w-16 h-16 border border-[#C9A96E] rounded-full flex items-center justify-center mx-auto mb-6">
           <span className="text-[#C9A96E] text-2xl">✓</span>

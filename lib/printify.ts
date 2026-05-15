@@ -42,26 +42,33 @@ export const DESIGN_PRINT_FILES: Record<string, string> = {
 
 export const DEFAULT_PRINT_FILE = DESIGN_PRINT_FILES["marble-white"]
 
-// Maps store product slug → Printify S3 print file URL for that product's design
+// Maps store product slug → Printify print file URL for that product's design
 // Used by Stripe webhook to route orders to the correct design on Printify
 export const PRODUCT_PRINT_FILES: Record<string, string> = {
   "cherry-red-quiet-luxury-phone-case": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/47cc4a1f-5f34-43ba-9469-ab80a23ae96e",
   "dark-academia-phone-case": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/984dc2f0-ac78-48f8-9325-da3a5d0f901b",
   "booktok-romantasy-phone-case": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/a7a2a819-8c2b-420f-be21-a7fe2ab3cf55",
-  "coastal-grandmother-case": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/a7a2a819-8c2b-420f-be21-a7fe2ab3cf55",
+  "coastal-grandmother-phone-case": "https://raw.githubusercontent.com/Casellelol/Caselle/main/public/designs/coastal-grandmother.jpg",
   "coquette-cherry-bow-phone-case": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/1d808cdc-bfcb-4dbc-b5b9-8c75155f83ed",
-  "dark-academia-phone-case-2": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/564a5c56-02ba-4c5b-8d50-df3d2bb2b58d",
   "pressed-wildflower-dark-academia-case": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/369355eb-ec98-479b-8d5d-e16dfb868874",
-  "dark-academia-case": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/58bea016-e278-4790-83a8-938171b5b594",
   "celestial-witch-case": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/38f6f68d-118e-4eda-83f1-da89a0e9e0a6",
-  "celestial-witch-case-2": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/494aec9b-b9bb-48f7-bd69-3633eb7931b5",
   "quiet-luxury-monogram-phone-case": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/46104144-aa04-408b-bd08-acde289fad8e",
   "tomato-girl-summer-phone-case": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/7d406e69-8c52-48b7-bbd4-591a55e3369a",
-  "warm-stone-arch": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/99069341-a639-4a9b-aa50-8afbf6f390f4",
-  "neo-brutalist-case": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/c591a0b4-f716-4b30-b615-d882e0ce637b",
-  "neo-brutalist-case-2": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/8a4f03cb-af92-4fe8-bf4d-7762428b3611",
-  "coastal-grandmother-case-2": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/d5a074f1-9765-45ae-a3f7-e7077cccfc72",
+  "warm-stone-arch-phone-case": "https://raw.githubusercontent.com/Casellelol/Caselle/main/public/designs/warm-stone-arch.jpg",
+  "neo-brutalist-phone-case": "https://raw.githubusercontent.com/Casellelol/Caselle/main/public/designs/neo-brutalist.jpg",
   "celestial-witch-dark-case": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/3572dfa0-ae0b-44b4-bd0d-fa48dcc35e6b",
+  // Products added 2026-05-13 via Printify pipeline (print files already on S3)
+  "matisse-abstract-art-phone-case": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/76c50bfc-5f14-47c0-a9a7-cd6164b93fe4",
+  "clean-girl-morandi-phone-case": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/b2818810-e556-488e-8f00-a804e7704e1a",
+  "fruity-coquette-cherry-phone-case": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/f4e18a07-8a66-4d86-acbf-f32e345b44d8",
+  "brutalist-minimal-phone-case": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/755fda29-8191-4b50-a24d-358a54d34b69",
+  "dark-academia-revival-phone-case": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/801de8a7-d966-43bd-9a52-719141982ec2",
+  "van-gogh-swirl-phone-case": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/290c1db7-01e5-47c8-aa02-26d245c2e2d3",
+  "william-morris-floral-phone-case": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/a03dd706-10cf-4acf-b3ae-d5fbaf1baf04",
+  "mystic-cat-oracle-phone-case": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/2df3d4a5-e5d8-4722-a23f-61abc9695d15",
+  "klimt-golden-woman-phone-case": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/1c1b1287-62db-43ff-8e5f-e620562ed94f",
+  "tarot-moon-card-phone-case": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/a542cc33-d502-43f4-b572-5613d255a13b",
+  "mushroom-cottage-core-phone-case": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/27204592/941fa837-884d-455f-ad06-57a3b0765864",
 }
 
 type PrintifyAddress = {

@@ -1,5 +1,5 @@
 # Caselle Scout — Market Intelligence
-*Last updated: 2026-05-16 13:11*
+*Last updated: 2026-05-16 14:00*
 
 ---
 
@@ -159,5 +159,39 @@
 - https://www.etsy.com/listing/1007432367/witchy-frog-under-moon-phases-with
 - https://www.gelato.com/blog/low-competition-print-on-demand-niches
 - Search queries: "burga phone case new collection 2026", "casetify trending designs bestsellers May 2026", "phone case store Shopify bestsellers 2026", "casetify marimekko collaboration May 2026 designs price", "wildflower cases element eden collaboration spring 2026", "best selling phone case niches Etsy 2026 what's selling dropship POD gaps"
+
+---
+
+## [2026-05-16 14:00] — Social Media Trends
+
+**Key findings:**
+- **Alien Core is a wide-open phone case niche with 80% Pinterest search growth**: Opalescent, iridescent, pearlescent finishes + extraterrestrial/cosmic motifs (metallic skin textures, chrome, UFO elements, trippy gradients). Pinterest flagged this as a 2026 breakout aesthetic. Zero POD sellers have staked this territory — Caselle could own it before any competitor notices.
+- **Neo Deco (Art Deco revival) is an untapped phone case aesthetic**: Geometric chevrons, fan arch patterns, chrome/brass accents, emerald + navy + deep gold palette. Pinterest's official 2026 trend forecast lists it as a top-10 prediction. Gen X + Millennials are the target. No CASETiFY or BURGA collection in this space yet — minimalist Art Deco phone case on a dark background would be a direct product gap.
+- **TikTok's viral "6/7 bestie" pastel format is a real trend mechanic**: Pastel cases with numbers, initials, or inside jokes that only close friends understand. The virality formula is personalization + pastel colorways + mystery/exclusivity angle. No Caselle execution of this yet — a "BFF case" series (matching halves, number pairs, inside-joke templates) is a free creative direction.
+- **PoshPocket brand going viral May 2026 with baby pink MagSafe cases** — #pinkiphone #pinkphonecase format dominating FYP. Baby pink + MagSafe-compatible + slim silhouette = proven viral combo. Caselle can create the same aesthetic without the brand premium; pink colorway cases in this exact style are a near-term quick win.
+- **Earthy brown "junk case" aesthetic confirmed trending**: Girly earth-tone cases in warm browns and tans competing with pink as the other dominant pastel pole. Under-indexed for Caselle. Unmet demand in the #aestheticphonecase #brownphonecase corner of TikTok.
+- **Micro-influencer "shoppertainment" is the highest-ROI TikTok format right now**: Creators with 10K–100K followers doing visual demos with emotional storytelling outperform macro influencers for conversion on TikTok Shop. Case study: a $15 LED galaxy projector drove 10,000 orders in 2 weeks via micro-creator bedroom glow-up videos. Same strategy applies directly to Caselle aesthetic cases — partner with small "aesthetic desk setup" and "bedroom glow-up" creators, not fashion macro influencers.
+- **Unboxing + "current faves showcase" are the two dominant TikTok formats driving phone case discovery**: Aesthetic-first lifestyle vignette outperforms direct product shots. Cases shown as part of a desk setup, GRWM routine, or room tour perform better than plain product videos. Holographic/reflective finishes self-market — they look better on camera than in photos.
+- **Pinterest Spring 2026 Trend Report: "Personalization is in bloom"**: Searches for custom/personalized products spiking hard in spring 2026. Reinforces that monogram + custom name cases have a fresh algorithmic tailwind — not just Etsy, also Pinterest discovery traffic.
+- **Opera/Vamp Romantic aesthetic (rich jewel tones + baroque) emerging**: Burgundy, deep plum, velvet-feel designs with ornate gold detail. Pinterest listing as a 2026 interior/fashion aesthetic. Phone cases with this palette are almost nonexistent in POD. Dark luxury angle — distinct from the celestial witch niche but same dark-feminine audience.
+- **#phonestrap hashtag rising alongside #phonecase**: Phone straps (crossbody chains, cord wrist straps) are a growing accessory pairing. TikTok creators showcasing cases + matching strap as a combo. Opportunity to cross-sell or show case mockups with a strap for higher perceived value in posts.
+
+**Actionable for:**
+- Marketing Agent: Film unboxing + "aesthetic desk/bedroom setup" style TikTok content — this format outperforms direct product shots. Target micro-influencers (10K–100K) in bedroom aesthetic / cottagecore / dark academia niches rather than fashion macro accounts. For pink cases use #pinkiphone #pinkphonecase #pinkaesthetic. Show cases alongside phone straps as a lifestyle combo even if not selling straps yet — perceived value boost.
+- Store Creator: Build three new collections immediately: (1) **Alien Core** — iridescent/opalescent gradient designs with cosmic/extraterrestrial elements, no competitors in POD here; (2) **Neo Deco** — geometric Art Deco fans + chevrons in emerald/navy/gold, targets Gen X/Millennial gap; (3) **Vamp Romantic** — deep burgundy/plum baroque designs for dark-feminine audience. Also create a "BFF / 6-7" matching pair pastel case format as a limited drop.
+- Trend Monitor: Watch Alien Core aesthetic spread from Pinterest to TikTok — it's in the Pinterest-to-TikTok lag phase right now, meaning Caselle has ~4–8 weeks before it blows up on TikTok and competitors rush in. Also monitor #phonestrap growth as a potential accessory add-on.
+- Exelixis: Pinterest Predicts has a strong forecasting track record. Alien Core (80% search growth) and Neo Deco are both pre-viral in the phone case space — being first in either niche could yield 3–6 months of low-competition discovery traffic. Micro-influencer TikTok Shop program should be a priority channel: $0 upfront with rev-share or gifted products, and the ROI benchmarks from comparable categories are exceptional.
+
+**Sources:**
+- https://displaypurposes.com/hashtags/hashtag/phoneaccessories
+- https://www.tiktok.com/discover/viral-phone-cases
+- https://www.housedigest.com/2055964/otherworldly-pinterest-home-decor-trend-alien-core-aesthetic-2026/
+- https://business.pinterest.com/pinterest-predicts/2026/neo-deco/
+- https://elements.envato.com/learn/pinterest-predicts-trends
+- https://newsroom.pinterest.com/news/spring-trend-report-2026/
+- https://blog.adnabu.com/tiktok/tiktok-trending-products/
+- https://cjdropshipping.com/blogs/winning-products/TikTok-Viral-products-2026
+- https://rarecustom.com/blog/custom-phone-case-design-trends-2026
+- Search queries: "trending hashtags phone accessories TikTok 2026", "viral phone case TikTok May 2026", "Pinterest trending aesthetic 2026", "alien core aesthetic phone case 2026", "TikTok Shop trending products influencer niches 2026", "TikTok content format ecommerce product video viral phone case"
 
 ---

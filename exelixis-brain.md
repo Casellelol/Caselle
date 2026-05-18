@@ -1,5 +1,5 @@
 # Caselle Scout — Market Intelligence
-*Last updated: 2026-05-16 14:00*
+*Last updated: 2026-05-18 14:11*
 
 ---
 
@@ -261,5 +261,38 @@
 - https://www.getcasely.com/
 - https://sociallifemagazine.com/the-archive/trendy-phone-case-brands-in-2026-style-protection-and-everyday-confidence/
 - Search queries: "BURGA phone case new collection 2026", "Casetify trending designs new launch May 2026", "phone case store Shopify bestsellers 2026", "Casetify Diesel collaboration spring 2026 price aesthetic", "Casetify Miss Sohee Mother of Pearl phone case 2026", "Wildflower Cases creator collaboration marketing strategy 2026", "Casely phone case strategy BOGO pricing 2026", "phone case competitors gap market 2026 underserved aesthetic niche"
+
+---
+
+## [2026-05-18 14:11] — Social Media Trends
+
+**Key findings:**
+- **Pinterest Spring 2026 "Laced Up" trend explicitly names phone cases as a cross-category target** — lace is spreading from fashion into beauty and accessories. Search volume: "lace nails" +215%, "lace bandana" +105%, "lace makeup" +120%, "lace belt" +55%. TikTok already has an active #lacephonecase discovery tag; Etsy has a live "lace phone case" market. This is early-wave — Pinterest's prediction track record means this has 3–6 months of rising demand ahead. A Caselle lace-overlay or intricate lace-pattern print case would be first POD mover in a Pinterest-validated trend.
+- **Pinterest "Extra Celestial" (Alien Core) confirms the prior celestial intel is broadening, not peaking** — "alien core aesthetic" searches up 80%, "opalescent" +115%, "alien inspired makeup" +140%. The niche is expanding from witchy/celestial into cosmic/iridescent/metallic territory. A Caselle design line using iridescent/opalescent color treatments on celestial compositions (moon phases, planets, aurora effects) would capture both the established celestial witch buyer AND the incoming alien core wave. No major POD competitor in this specific fusion niche.
+- **Pinterest "Jelly aesthetic" is a POD-native trend with no major case competitor** — "jelly candy aesthetic" +100%, "jelly blush" +130%. Etsy's jelly phone case market is active with translucent/colorful designs (color washes, glitter inkblots, pastel candy-toned washes). A Caselle "jelly" series — semi-translucent-looking print designs with soft candy color fields, glitter-wash effects, dreamy inkblot backgrounds — would directly own this trend. POD stores can simulate "jelly" texture aesthetics through graphic design without physical material changes, which means zero supplier friction.
+- **ASMR unboxing is the single highest-completion-rate format for accessory brands on TikTok: 70%+ watch-through** — TikTok's 2026 algorithm weights completion rate and saves over likes. ASMR unboxing + authentic phone-shot footage (not studio lighting) + 1-second visual hook + case tap/packaging click sounds = the organic format that converts cold traffic. Zero additional production cost beyond a decent microphone. Brands using this format are reporting the highest conversion lift in 2026 — it satisfies curiosity AND builds product credibility simultaneously.
+- **TikTok's 2026 algorithm shows new videos to existing followers first — initial follower engagement in the first window determines the size of the next distribution wave** — this structurally rewards accounts with a small, highly-engaged following over accounts with large but passive audiences. Implication for Caselle: building even 500–1,000 genuinely engaged followers who consistently save and share posts will unlock disproportionate reach. "Saves" and "shares" carry more algorithmic weight than likes. Caselle's TikTok strategy should explicitly ask followers to save posts, not just like.
+- **Nano influencers (<10K followers) deliver 11.9% TikTok engagement — higher than any other tier** — 75.9% of Instagram's influencer base is now nano tier. Performance/affiliate model (send free case, earn % of sales via unique link) is the rising structure: zero upfront cost, built-in ROI alignment. Caselle gifting program targeting aesthetic-matched nano creators (cottagecore, dark academia, coquette, alien core niches) at 0 cash cost + 10–15% affiliate commission would cost nothing until it converts. This is the highest-ROI outbound marketing action Caselle isn't currently running.
+
+**Actionable for:**
+- Marketing Agent: Launch a TikTok ASMR unboxing series immediately — phone-shot, not studio-lit. Hook in the first second (case tap on hard surface, packaging pop sound). Show the design close-up with ASMR sounds of handling the case. Add a text overlay CTA "save this for later" explicitly, since saves carry more algorithmic weight than likes. Post 3–5x/week. This single format shift costs nothing and is the highest-converting content type for the category.
+- Store Creator: Three new design collections to build now: (1) **Lace Series** — intricate lace overlay patterns, black lace on ivory, ivory lace on black, vintage lace on blush — first POD store in a Pinterest-validated, search-verified rising trend with explicit phone case mentions; (2) **Jelly / Candy Aesthetic** — semi-translucent-look prints, candy color washes, dreamy inkblot backgrounds in soft pastels and jelly tones (peach, lilac, pistachio, watermelon) — POD-native trend with zero major competitor; (3) **Opalescent Celestial** — fusion of the established celestial witch aesthetic with alien core's iridescent/opalescent/metallic layer — moon phases and crescent moons in aurora/pearl/holographic color treatments.
+- Trend Monitor: Watch #lacephonecase on TikTok and the Etsy "lace phone case" market weekly — if volume doubles within 30 days, the Pinterest prediction is converting to purchase intent. Monitor #aliencore and #jellyaesthetic on TikTok for phone-specific content — first creator to drop a phone case in either niche gets disproportionate engagement because nobody else is in the space yet.
+- Exelixis: The nano influencer gifting + affiliate model is the single unimplemented marketing lever with the clearest ROI path and zero upfront cost. A spreadsheet of 20–30 nano creators in the cottagecore, coquette, dark academia, and alien core niches on TikTok + Instagram — send each a free case, give them a 15% affiliate link — is a full influencer program that costs 20–30 cases (perhaps $200–$400 in Printify production) and nothing else. This is the move.
+
+**Sources:**
+- https://newsroom.pinterest.com/news/spring-trend-report-2026/
+- https://www.contentgrip.com/pinterest-predicts-2026-trends/
+- https://wwd.com/fashion-news/fashion-trends/pinterest-2026-trends-cool-blue-glamoratti-poetcore-fashion-1238385199/
+- https://www.housedigest.com/2055964/otherworldly-pinterest-home-decor-trend-alien-core-aesthetic-2026/
+- https://www.tiktok.com/discover/lace-phone-case
+- https://www.etsy.com/market/jelly_phone_case
+- https://socialcommerceclub.com/blogs/tiktok-shop/how-to-go-viral-on-tiktok-shop-what-actually-works-in-2026
+- https://solvepediahub.com/how-to-go-viral-on-tiktok-in-2026/
+- https://influee.co/blog/influencer-marketing-trends
+- https://www.influize.com/blog/top-influencer-niches
+- https://stackinfluence.com/blog/2026-influencer-marketing-predictions
+- https://www.dashsocial.com/blog/tiktok-hashtags
+- Search queries: "trending hashtags phone accessories TikTok May 2026", "viral product TikTok this week May 2026", "Pinterest trending aesthetic 2026 home fashion", "Pinterest spring 2026 trend report Khaki coded jelly aesthetic lace extra celestial search increases", "TikTok phone case unboxing viral content format 2026 creator strategy", "influencer niche blowing up 2026 TikTok Instagram micro-influencer aesthetic", "alien core aesthetic TikTok phone case accessories trending 2026", "lace phone case OR celestial phone case OR jelly phone case TikTok Etsy trending 2026"
 
 ---

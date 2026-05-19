@@ -1,5 +1,5 @@
 # Caselle Scout — Market Intelligence
-*Last updated: 2026-05-18 14:11*
+*Last updated: 2026-05-19 13:00*
 
 ---
 
@@ -294,5 +294,34 @@
 - https://stackinfluence.com/blog/2026-influencer-marketing-predictions
 - https://www.dashsocial.com/blog/tiktok-hashtags
 - Search queries: "trending hashtags phone accessories TikTok May 2026", "viral product TikTok this week May 2026", "Pinterest trending aesthetic 2026 home fashion", "Pinterest spring 2026 trend report Khaki coded jelly aesthetic lace extra celestial search increases", "TikTok phone case unboxing viral content format 2026 creator strategy", "influencer niche blowing up 2026 TikTok Instagram micro-influencer aesthetic", "alien core aesthetic TikTok phone case accessories trending 2026", "lace phone case OR celestial phone case OR jelly phone case TikTok Etsy trending 2026"
+
+---
+
+## [2026-05-19 13:00] — Competitor Intelligence
+
+**Key findings:**
+- **BURGA just dropped MESIMERI (1 week old) — Mediterranean summer is their 2026 flagship push.** 17 designs, Greek summer aesthetic ("the hour when nothing is planned"), sun-warmed color palette (terracotta, sand, azure, olive). Positioning is narrative-first: "luxury of doing nothing," "long lunch energy." BURGA has ~$1.2M/month traffic and is now the dominant player in aspirational summer Mediterranean aesthetics. Caselle should NOT directly copy this — BURGA owns it — but the market signal is: warm-toned, escapist, slow-life summer aesthetics are converting right now.
+- **CASETiFY is strategically exiting the $25–$50 aesthetic POD space and moving into luxury fashion accessories.** Evidence: Miss Sohee x CASETiFY collab ($300–$900, hand-plated mother-of-pearl, Korean Minhwa folk art, made-to-order by artisans) and Diesel x CASETiFY Spring 2026 ($40–$350, distressed denim cases, bandana/paisley prints, Oval D MagSafe Gripstand with crystals). CASETiFY is now competing with luxury accessories brands, not POD stores. This leaves the $20–$45 design-forward aesthetic case market with no dominant player.
+- **Korean/folk art aesthetic demand is now validated at the top of the market — POD gap wide open at accessible price points.** CASETiFY's Miss Sohee collab proves buyers will pay for folk art cases. But $300–$900 is a luxury gatekeeping price. A Caselle "folk art" series — Korean Minhwa-inspired geometric patterns, Japanese Mingei folk motifs, Scandinavian rosemaling, or Mexican Talavera tile prints — at $25–$40 would be the first POD store to own this aesthetically validated niche at mass-market pricing. Zero major competitors in this space below $100.
+- **Bandana/paisley print aesthetic is now culturally activated and unowned at the POD level.** The Diesel x CASETiFY collab brought distressed bandana prints to fashion-week-level coverage (Hypebeast, WWD, Rolling Stone). The aesthetic itself — paisley bandana patterns, washed/faded colorways (red, blue, black on cream), Western/rodeo energy — is not IP-locked. A Caselle bandana/paisley series in faded colorways would ride the activated cultural moment without needing licensing. No major POD phone case store currently runs this aesthetic as a dedicated collection.
+- **Casely drives the highest traffic in the category ($1.48M/month) with near-permanent BOGO promotions.** Currently running Memorial Day BOGO FREE (code BOGO-SUN). Their model: customers buy 2 cases minimum every visit, doubling AOV over single-case stores. BURGA counters with "Buy 4 pay for 2." Caselle's current promotion model vs. these benchmarks: if Caselle is not running a bundle/multi-case incentive, it is leaving AOV on the table against the category's two highest-traffic competitors.
+
+**Actionable for:**
+- Marketing Agent: Run a bundle/BOGO promotion immediately — even a simple "Buy 2, get 15% off" or limited-time "Buy 1 Get 1 50% off" tests the Casely model at low risk. Casely's traffic lead over all competitors is directly attributable to this mechanic. Also: position Caselle messaging against CASETiFY's luxury pivot — "same aesthetic energy, no luxury markup" is a gap Caselle can own in copy and ads.
+- Store Creator: Three new collections with clear market logic: (1) **Bandana/Paisley Series** — distressed paisley/bandana prints in washed red, faded blue, black-on-cream, Western/rodeo colorways — aesthetically activated by Diesel x CASETiFY at fashion-week level, zero POD competitors, no licensing needed; (2) **Folk Art Series** — Korean Minhwa geometric patterns, Japanese Mingei folk motifs, Scandinavian rosemaling, or Mexican Talavera tiles at $25–$40 — CASETiFY just validated demand at $300–$900, Caselle owns the accessible entry point; (3) **Warm Escapist Summer** — watch BURGA's MESIMERI performance in the next 2–3 weeks; if it goes viral on TikTok, build a Caselle version with a different editorial angle (not Greek, perhaps "Italian coastal" or "Amalfi summer" to differentiate on narrative while targeting the same buyer intent).
+- Trend Monitor: Track BURGA's MESIMERI TikTok performance — if the "luxury of doing nothing" Mediterranean narrative goes viral, it confirms slow-life summer aesthetics as a mass conversion trend for the season. Watch for Diesel x CASETiFY bandana/paisley designs appearing in organic TikTok content — fashion collabs from CASETiFY typically generate creator content within 2–4 weeks of launch that drives search volume for the underlying aesthetic.
+- Exelixis: CASETiFY's luxury pivot is the most strategically significant competitor move this cycle. They are NOT Caselle's competitor anymore — they are chasing Mansur Gavriel and Polène buyers, not the TikTok aesthetic case buyer. The $20–$45 design-forward phone case market now has BURGA at the top ($40–$60) and Casely dominating on promotions — there is a lane for Caselle to own the niche-aesthetic POD space (folk art, bandana, celestial, lace, jelly) that neither BURGA nor CASETiFY is touching. This is the strategic position to build.
+
+**Sources:**
+- https://burga.com/collections/mesimeri-phone-cases
+- https://www.youtube.com/watch?v=OkyqVjXdX0E (BURGA MESIMERI launch video, posted 1 week ago)
+- https://wwd.com/pop-culture/new-fashion-releases/casetify-miss-sohee-collaboration-1238526928/
+- https://shopping.yahoo.com/style/accessories/articles/exclusive-casetify-miss-sohee-team-140000103.html
+- https://hypebeast.com/2026/2/diesel-casetify-spring-2026-collaboration-collection-release-info
+- https://wwd.com/pop-culture/new-fashion-releases/casetify-diesel-release-info-1236948324/
+- https://podifai.com/blog/top-25-online-stores-selling-custom-phone-cases-(2026)
+- https://bootleads.com/stores/shopify/niches/phone-cases/
+- https://www.getcasely.com/
+- Search queries: "burga phone case new collection May 2026", "casetify trending designs new launch 2026", "phone case store Shopify bestsellers 2026", "BURGA MESIMERI collection designs aesthetic Greek summer 2026", "casetify Miss Sohee Korean Minhwa folk art phone case collection details price", "casetify Diesel denim collection spring 2026 price aesthetic details review", "Casely phone case BOGO bestselling designs 2026"
 
 ---

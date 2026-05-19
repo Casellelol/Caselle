@@ -325,3 +325,37 @@
 - Search queries: "burga phone case new collection May 2026", "casetify trending designs new launch 2026", "phone case store Shopify bestsellers 2026", "BURGA MESIMERI collection designs aesthetic Greek summer 2026", "casetify Miss Sohee Korean Minhwa folk art phone case collection details price", "casetify Diesel denim collection spring 2026 price aesthetic details review", "Casely phone case BOGO bestselling designs 2026"
 
 ---
+
+## [2026-05-19 14:07] — Social Media Trends
+
+**Key findings:**
+- **Gummy/Jelly aesthetic is the breakout phone case trend of 2026**: Squishy, translucent, puffy 3D designs in neon and pastel hues — looks like squeeze toys, often adorned with 3D resin charms that look like real candy. Competitor Shamo's already has a dedicated blog post + product line. TikTok Shop has active "gummy bear phone case" listings. The trend is driven by Y2K nostalgia (jelly sandals, inflatable furniture) and is explicitly named in Pinterest Predicts 2026. Caselle has zero designs in this space.
+- **Glacier Blue / Icy Blue is Pinterest's #1 color breakout for 2026**: "Icy blue" search volume on Pinterest up 50%, "glacier aesthetic" up 35% year-over-year. Pinterest officially recommends swapping clear cases for glacier-blue ones as an entry point to the trend. Competitor Skinnydip London has a live "Feeling Blue" collection targeting exactly this. Caselle has no icy-blue or frost-tone cases.
+- **Poetcore aesthetic surging — 75% search increase on Pinterest**: Literary-romantic vibes — pressed botanicals, vintage manuscript text, muted watercolor, dried flowers, moody earth tones. Describes the "bookish protagonist" lifestyle. Currently a fashion/apparel trend with near-zero POD phone case presence, making this an open niche. Directly adjacent to dark academia (already validated in prior entries) but lighter in tone.
+- **Lace aesthetic confirmed on phone cases by Pinterest Predicts 2026**: The "Laced Up" Pinterest trend is cross-category and explicitly includes phone cases as a product type (alongside bomber jackets and bandanas). Delicate lacework, doily-pattern, lace-trim case designs are emerging with no dominant POD player yet.
+- **Phone strap/charm category is surging separately from phone cases**: #phonestrap, #phonecharm, #phonechain, #phoneleash, #phonenecklace all trending on TikTok in 2026. On TikTok Shop, "silver," "green," and "animal-themed" charms are the top search drivers. 72% of Gen Z buyers cite aesthetics as primary purchase driver for charms. "What's in my bag?" content format specifically drives charm sales. Caselle sells cases only — no charm/strap accessories listed, leaving a cross-sell revenue stream on the table.
+- **TikTok content format insight — first 2 seconds is everything**: Hook-based storytelling is dominating in 2026. Authentic UGC-style content (low polish, feels real) outperforms produced ads. Personalization reveals ("watch me customize this case for [name]") generate the highest comment engagement and purchase intent. For phone case content: short demos under 30 seconds with a clear visual payoff (opening a case, attaching a charm, color reveal) perform best. 3–5 hashtags is the optimal range — more dilutes, fewer limits reach.
+- **Hashtag gap identified**: Caselle likely posting under #phonecase, #iphonecase only. Should layer in #phonestrap, #phonecharm, #phonechain, #phoneleash — these are fast-growing clusters with less competition and TikTok is actively surfacing them in shop search.
+
+**Actionable for:**
+- Marketing Agent: Create TikTok content in the authentic UGC format — low polish, personal reveal, "I just got this case" hook in first 2 seconds. Test personalization hooks ("watch me design a case for my aesthetic"). Start using #phonestrap and #phonecharm in posts even before adding those products, to build algorithmic surface area. Post a "glacier blue aesthetic check" video pinning Caselle's closest blue case as a jumping-off point.
+- Store Creator: Three high-priority additions: (1) **Gummy/Jelly Series** — translucent pastel and neon squishy-feel cases with 3D charm accents, in strawberry/cherry/gummy bear colorways, priced $22–$30; (2) **Glacier Blue Series** — frosted icy-blue matte or semi-translucent cases in subzero tones (ice white, arctic blue, frost lavender), priced $20–$28 — Skinnydip already launched this, Caselle needs to move; (3) **Poetcore Series** — pressed botanical watercolor, vintage manuscript/handwritten text, dried flower arrangements on cream/parchment backgrounds, $20–$26 — zero POD competition currently.
+- Trend Monitor: Watch Shamo's gummy case sales and reviews for pricing validation. Monitor whether Skinnydip's "Feeling Blue" collection goes viral on TikTok — if it does, Caselle's glacier blue series launch window is closing. Track poetcore hashtag growth on Pinterest and TikTok over next 2 weeks.
+- Exelixis: Phone charms/straps are a zero-investment market research move — Printify and Printful both offer blank wrist straps and accessory items. Adding even one charm-adjacent accessory tests whether Caselle's audience cross-buys, potentially increasing AOV without any new case designs needed. The lace aesthetic is the quietest opportunity in this cycle — mentioned in Pinterest Predicts but virtually absent from POD storefronts. First mover wins the keyword on Etsy.
+
+**Sources:**
+- Search: "gummy jelly phone case aesthetic TikTok viral 2026"
+- Search: "trending hashtags phone accessories TikTok 2026"
+- Search: "viral product TikTok May 2026"
+- Search: "Pinterest trending aesthetic 2026 summer"
+- Search: "glacier icy blue aesthetic phone case 2026 Pinterest trending"
+- Search: "poetcore aesthetic accessories 2026 Pinterest phone case"
+- Search: "phone charm strap trend TikTok 2026 influencer viral content format"
+- https://medium.com/@ferifajars/the-gummy-aesthetic-why-squishy-phone-cases-and-3d-nails-are-taking-over-2026-16508049cc3b
+- https://www.skinnydiplondon.com/collections/trending-now-feeling-blue
+- https://business.pinterest.com/pinterest-predicts/2026/poetcore/
+- https://fashionunited.com/news/fashion/poetcore-opera-aesthetic-and-brooches-key-style-predictions-from-pinterest-for-2026/2025121069575
+- https://wwd.com/fashion-news/fashion-trends/pinterest-2026-trends-cool-blue-glamoratti-poetcore-fashion-1238385199/
+- https://shamoscases.com/blogs/styling/tiktok-phone-case-trends-everyone-is-copying
+
+---

@@ -1,5 +1,5 @@
 # Caselle Scout — Market Intelligence
-*Last updated: 2026-05-19 13:00*
+*Last updated: 2026-05-19 14:07*
 
 ---
 

@@ -398,3 +398,44 @@
 - https://shamoscases.com/blogs/research/phone-case-trends-by-age-group-what-gen-z-vs-millennials-buy
 
 ---
+
+## [2026-05-20 14:05] — Social Media Trends
+
+**Key findings:**
+- **Fruity phone cases (cherry + strawberry) are a confirmed mid-rise TikTok trend in May 2026, not yet peaked**: CASETiFY launched an official "Very Berry Cherry" collection; Velvet Caviar's strawberry milk case is actively viral. Hashtags #CherryPhoneCase, #BerryTrend, #CherryRed are live and growing. The aesthetic sits in the intersection of coquette + cottagecore — both still strong. Caselle has no confirmed cherry/strawberry designs visible yet. This is a gap.
+- **Celestial witch / astrology aesthetic is "exploding with a cult following" on TikTok and Etsy in 2026**: Rose quartz imagery, amethyst clusters, intention-setting phrases, holographic pastel gradients, and soft watercolor textures define the look. This is distinct from generic "galaxy/stars" cases — it has a self-identified buyer community (witchcore, cottage witch, astrology girlie) who search these terms. Still rising, not peaked.
+- **"London Girl" aesthetic + burgundy gingham is a live TikTok Shop trend right now**: A burgundy gingham phone case went viral on TikTok and is currently on Skinnydip London's viral favorites list. Preppy, vintage-British styling. Gingham specifically in burgundy (not pastel) is the differentiator — pastel gingham is played out, burgundy gingham is the 2026 update.
+- **Alien Core has Pinterest momentum (80% search increase) but minimal phone case TikTok presence — first-mover window**: #AlienStagePhoneCase exists on TikTok but is niche. Pinterest's alien core trend (intergalactic, translucent, iridescent, otherworldly shapes) has not crossed into POD phone cases in a meaningful way. The "celestial calm / opal aesthetic" (iridescent surfaces, star-like lighting, pearlescent finishes) overlaps with alien core and is also rising.
+- **Art Deco resurgence is Pinterest-confirmed but has zero phone case TikTok representation — pure first-mover opportunity**: Geometric details, chrome/brass finishes, marble, luxe structures. Currently confined to home decor on TikTok. Geometric chrome/gold Art Deco phone case designs would be genuinely novel — no CASETiFY or BURGA Art Deco collection visible yet.
+- **Dark Academia / Poetcore is cycling back with a refined identity, not declining**: Pinterest searches for poetcore +75%, satchels +85%, capes +65%. TikTok's dark academia community is producing new content in 2026 under both the original aesthetic and the "poetcore" rebrand. Turtlenecks, vintage blazers, fountain pens, layered textures — this maps to cases with literary motifs, serif typography, aged-paper textures, and ink illustrations.
+- **Instagram Reels optimal format for product brands in May 2026: 15–30 seconds, "elevated casual" aesthetic, completion rate is #1 ranking signal**: 15-30 second Reels get 5.8% engagement vs 4.9% for 31-60 seconds and 3.2% for 90+ seconds. The winning visual style is "elevated casual" — intentional and aesthetically cohesive without looking like an ad. Carousel posts outperform video on saves/shares. Series-based content builds long-term audience growth better than one-off posts.
+- **TikTok content format insight: "companion content" is outperforming pure unboxing for product stores**: The "living with the product" format — showing the case in an aesthetic morning routine, desk setup, or lifestyle moment — converts better than flat unboxing videos. 67% of users say TikTok influences their purchase decisions. Optimal hashtag strategy: #FYP + 2–3 hyper-specific niche hashtags (e.g. #poetcorecase #darkacademiavibes) rather than 10–20 generic tags.
+- **Personalization/"6/7 trend" cases going viral on TikTok**: Customizable pastel cases with numbers, initials, or inside jokes are generating "this is mine" shareability. The personalization hook drives organic UGC — buyers post their cases and tag the store.
+
+**Actionable for:**
+- Marketing Agent: Produce 15–30 second "companion content" Reels showing Caselle cases in aesthetic lifestyle settings (not unboxings). Use "elevated casual" visual framing — well-lit, aesthetically cohesive, but not studio-polished. For TikTok, pair #FYP with #celestialwitchvibes or #poetcorephone (not generic #phonecase). Start cherry/strawberry seasonal content now — peak summer demand is 4–6 weeks away and the trend is mid-rise.
+- Store Creator: **Immediate gap to fill**: Cherry and strawberry designs (fruity coquette aesthetic) — no Caselle presence confirmed, CASETiFY already there so demand is proven. **Burgundy gingham case** — single viral design, easy to produce, low competition outside Skinnydip London. **Celestial witch series**: rose quartz/amethyst imagery + intention phrases + holographic gradient — distinct from generic galaxy designs, aimed at the self-identifying witchcore buyer. **Future pipeline (4–6 weeks)**: Art Deco geometric chrome/gold and Alien Core iridescent designs — both have zero POD phone case presence right now.
+- Trend Monitor: Track #CherryPhoneCase and #CelestialWitch on TikTok weekly — both are mid-rise with confirmed demand. Watch for Art Deco and Alien Core crossing from home/fashion into phone accessories on TikTok (currently zero presence = first-mover window, but also unproven demand). Monitor Poetcore TikTok content for phone accessory integration — literary/ink aesthetic cases are a natural fit.
+- Exelixis: The three rising trends with best risk/reward for Caselle right now: (1) Cherry/strawberry — proven demand, mid-rise, easy design, low barrier; (2) Celestial witch/astrology — cult following, self-identifying buyer community, drives repeat purchases; (3) Burgundy gingham — single viral design with proven sell-through at Skinnydip London. Art Deco and Alien Core are higher-risk, higher-reward first-mover bets worth prototyping. Companion content format on TikTok/Reels should replace any pure unboxing content strategy immediately.
+
+**Sources:**
+- Search: "trending hashtags phone accessories TikTok May 2026"
+- Search: "viral product TikTok this week May 2026"
+- Search: "Pinterest trending home aesthetic 2026"
+- Search: "phone case TikTok viral aesthetic niche 2026 alien core celestial opal art deco"
+- Search: "TikTok ecommerce content format viral May 2026 GRWM phone case aesthetic influencer"
+- Search: "TikTok influencer micro niche 2026 phone accessories aesthetic dark academia poetcore"
+- Search: "Instagram Reels phone case aesthetic viral content format 2026 engagement strategy ecommerce"
+- Search: "fruity phone case cherry strawberry TikTok viral views 2026 trend data"
+- Search: "celestial witch phone case TikTok 2026 hashtag size engagement views astrology"
+- Search: "TikTok Shop phone accessories trending niche May 2026 London girl gingham aesthetic"
+- https://www.tiktok.com/@casetify/video/7401237345187466527
+- https://displaypurposes.com/hashtags/hashtag/phoneaccessories
+- https://www.nssmag.com/en/lifestyle/43770/pinterest-predicts-2026-aesthetic-trends
+- https://theeverygirl.com/pinterest-home-trends/
+- https://www.skinnydiplondon.com/collections/best-selling-phone-cases
+- https://newengen.com/insights/instagram-trends/
+- https://napoleoncat.com/blog/instagram-reels-trends/
+- https://later.com/blog/instagram-reels-trends/
+
+---

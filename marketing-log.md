@@ -4386,3 +4386,41 @@ Simplicity is the ultimate sophistication. —
 Simplicity is the ultimate sophistication. —
 #minimal #luxuryaesthetic #phonecase
 
+
+---
+
+## 2026-05-27 — Marketing Agent Run
+
+**Run timestamp:** 2026-05-27T16:16:17Z
+**Store featured:** Caselle — https://burga-store.vercel.app (Quiet Luxury phone cases)
+**Platform priority:** Bluesky (primary) → Pinterest (secondary) → Twitter (tertiary)
+
+### Engagement Analysis (last 20 posts)
+- No engagement metrics recorded in any prior log entries — zero likes/reposts/replies data available
+- All posts since 2026-05-07 have been Bluesky ✅ / Twitter ❌ (CreditsDepleted) / Buffer ❌ (token not set)
+- Pattern: Bluesky is the only live channel. Twitter credits depleted — cannot post until account is recharged.
+
+### Pattern Findings
+- Previous copy violated multiple Exelixis directives: price mentioned ("$24.99"), no Cherry Red lead, wrong hashtags (#PhoneAccessories, #MinimalStyle, #PhoneCase instead of #QuietLuxury + #PhoneCases + trend), no accent character
+- Baseline established — next run will have corrected templates as signal
+
+### Content Generated (this run)
+**Primary copy (Cherry Red lead, follows all directives):**
+> cherry red just became the only color that matters ✦ caselle. burga-store.vercel.app #QuietLuxury #PhoneCases #CherryRed
+
+**A/B test variable:** trend hashtag (#CherryRed vs #PhoneAesthetic vs #DeskSetup) across 8 rotating templates — first clean A/B signal possible after next 24-hour cron cycle
+
+### Posting Attempts
+- **Bluesky:** ❌ blocked — network sandbox: `Host not in allowlist` (same restriction as all prior direct-post attempts)
+- **Twitter:** ❌ skipped — CreditsDepleted error persists; tertiary platform per directives
+- **Pinterest:** ❌ skipped — sandbox blocked; secondary platform per directives
+
+### Code Fix Applied
+Updated `app/api/cron/marketing/route.ts` — replaced all 8 post templates with Exelixis-compliant Cherry Red copy. Old templates violated: price angle, wrong hashtags, no accent char. New templates: aspirational, Cherry Red lead, 1 accent char (✦), correct 3-hashtag stack with A/B trend variable rotation. Committed and pushed — next Vercel cron hit (runs hourly) will post compliant content to Bluesky.
+
+### Manual Actions Required
+1. **Twitter credits:** Recharge the enrolled account [2052331077230829570] — all Twitter posts failing with CreditsDepleted since day 1
+2. **Pinterest:** Manually post Cherry Red content to Pinterest (burga-store.vercel.app) — sandbox blocks direct API
+3. **Stripe confirmation:** Verify end-to-end purchase flow on burga-store.vercel.app before any paid marketing
+
+**Status:** BLOCKED on direct posting (network sandbox) — code templates fixed; Vercel cron will carry corrected copy forward

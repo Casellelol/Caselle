@@ -107,16 +107,19 @@ async function logToGitHub(entry: string) {
 }
 
 // ── Post copy templates ──────────────────────────────────────────────────────
+// Directives: lead with Cherry Red, aspirational tone, 1 accent char (✦), 3 hashtags
+// (#QuietLuxury + #PhoneCases + trend variable for A/B), no price, no corporate language.
+// Trend variable rotates: #CherryRed (posts 0,2,4,7) vs #PhoneAesthetic (1,5) vs #DeskSetup (3,6)
 const SITE_HOST = (process.env.NEXT_PUBLIC_SITE_URL || process.env.NEXT_PUBLIC_BASE_URL || "https://burga-store.vercel.app").replace("https://", "")
 const POSTS = [
-  `your phone deserves better. quiet luxury phone cases, designed to last. ${SITE_HOST} #QuietLuxury #PhoneCases`,
-  `minimal. timeless. yours. phone cases that match your aesthetic — marble, sage, navy + more. ${SITE_HOST} #PhoneCase`,
-  `the details make the difference. caselle quiet luxury phone cases from $24.99. ${SITE_HOST} #QuietLuxury`,
-  `protect it. style it. own it. tough cases with minimal design. ${SITE_HOST} #PhoneAccessories #MinimalStyle`,
-  `not loud. just right. caselle — the phone case for people who know. ${SITE_HOST} #QuietLuxury`,
-  `marble white. midnight navy. champagne gold. your vibe, your case. ${SITE_HOST} #PhoneCase #Aesthetic`,
-  `quiet luxury isn't a trend. it's a standard. caselle phone cases. ${SITE_HOST} #QuietLuxury #PhoneCases`,
-  `the phone case you've been looking for. minimal, tough, beautiful. ${SITE_HOST} #PhoneAccessories`,
+  `cherry red just became the only color that matters ✦ caselle. ${SITE_HOST} #QuietLuxury #PhoneCases #CherryRed`,
+  `it's giving cherry red and i'm not sorry about it ✦ caselle quiet luxury cases. ${SITE_HOST} #QuietLuxury #PhoneCases #PhoneAesthetic`,
+  `cherry red era, confirmed ✦ caselle. ${SITE_HOST} #QuietLuxury #PhoneCases #CherryRed`,
+  `you already know cherry red is it ✦ caselle quiet luxury phone cases. ${SITE_HOST} #QuietLuxury #PhoneCases #DeskSetup`,
+  `quiet luxury found its pop color and it's cherry red ✦ caselle. ${SITE_HOST} #QuietLuxury #PhoneCases #CherryRed`,
+  `terracotta to cherry red is character development ✦ caselle. ${SITE_HOST} #QuietLuxury #PhoneCases #PhoneAesthetic`,
+  `every flat lay deserves a cherry red anchor ✦ caselle. ${SITE_HOST} #QuietLuxury #PhoneCases #DeskSetup`,
+  `the phone case that pulls the whole aesthetic together ✦ cherry red. ${SITE_HOST} #QuietLuxury #PhoneCases #CherryRed`,
 ]
 
 // ── Buffer (fallback + additional channel) ───────────────────────────────────

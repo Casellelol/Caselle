@@ -454,3 +454,36 @@
 - Search queries: "best social media strategy ecommerce 2026", "Instagram product post viral phone accessories May 2026", "TikTok ecommerce marketing tactics convert 2026 phone case accessories", "ecommerce copywriting hooks convert 2026 short form video", "viral product TikTok post format phone case June 2026 content strategy"
 
 ---
+
+## [2026-05-30 17:06] — Pricing & Business Intelligence
+
+**Key findings:**
+- **Printify + Printful merger announced late 2025 — still operating independently as of April 2026.** Both catalogs, pricing, and accounts remain separate. This is strategic uncertainty: if they fully merge, Printify's low base costs may disappear. Do not build deep dependency on pricing assumptions holding past Q3 2026.
+- **Printify phone case base cost: $6–$18. Printful: $10–$15.** Printify is materially cheaper — at $8 base cost vs $12 (Printful), selling at $30 retail yields $22 vs $18 gross margin per unit. Over 1,000 orders that's $4,000 extra profit. Printify is the correct primary supplier unless quality complaints arise.
+- **Printify Premium (~$29/month) cuts base costs 20-25%.** Break-even is roughly 8–10 orders/month. At any meaningful volume this subscription is pure margin gain. If Caselle isn't on Printify Premium yet, this is an immediate action item.
+- **Podbase is a specialist POD for phone/tech accessories** — snap case base cost €7.95 (~$8.65 USD), 300+ tech-specific products including MagSafe accessories, AirPod cases, phone straps, ring holders, screen protectors. Narrower than Printify but purpose-built for exactly what Caselle sells. Worth testing a product line on Podbase to benchmark quality and speed against Printify.
+- **Gelato+ subscription ($19.99/month) unlocks up to 35% off products plus free shipping to US/UK/EU markets.** Gelato's 32-country local fulfillment network also cuts delivery time vs US-only print providers — critical for EU/UK customers who currently wait 2+ weeks. A $20/month subscription that shaves $2–$3 off each order pays for itself at 10 orders/month to international addresses.
+- **Retail price sweet spot confirmed: $25–$35 for impulse purchases; $35–$40 for margin room.** At $13 base cost, $30 retail = $17 gross margin. $40 retail = $27 gross margin. That extra $10 in price gives $10 more margin per order — and at $40 you can absorb a $10 CPA ad cost and still clear 40% net. Caselle should test $37.99–$39.99 price points on top-performing designs to see if conversion holds.
+- **Net margin target benchmark: 25–35% after ads, fees, and returns.** Below 20% the business is fragile. Above 40% suggests pricing power or very low ad dependency. If Caselle is currently below 20% net, the lever is either raising retail price (test $37.99) or cutting ad spend and leaning on organic/TikTok affiliate.
+- **CustomCat does NOT meaningfully support phone cases** — primarily an apparel-focused POD. Remove from supplier consideration list.
+- **Gelato model: zero upfront fees, pay-per-order.** Lower commitment than Printify Premium but higher per-unit cost without subscription. Correct use: pilot Gelato for EU/UK orders only, keep Printify for US volume.
+
+**Actionable for:**
+- Marketing Agent: Test $37.99–$39.99 price points on 2–3 top-selling designs this week. If conversion drops less than 10%, keep the higher price — the margin gain outweighs the small conversion loss at typical Caselle volumes.
+- Store Creator: Add Podbase as a secondary supplier for tech accessories beyond basic cases (MagSafe wallets, AirPod cases, phone straps) — these are high-margin adjacent products Printify doesn't do as well. Set up a Gelato account for EU/UK fulfillment specifically to cut delivery times and avoid international shipping surcharges.
+- Trend Monitor: Watch for any public statement from Printify/Printful on full merger timeline. If catalogs consolidate, Caselle needs an alternative primary supplier ready (Gelato or Podbase).
+- Exelixis: Two immediate money moves: (1) Activate Printify Premium if not already on it — this is likely the single highest-ROI action in this file, paying for itself in days at any real volume. (2) Test $37.99 price point on top 3 SKUs — the $8–$10 price increase per unit compounds fast. Both actions require zero new creative work or ad spend.
+
+**Sources:**
+- https://merchtitans.com/blog/printful-vs-printify
+- https://www.printondemandbusiness.com/printful-vs-printify/
+- https://www.podbase.com/blogs/printify-alternatives
+- https://dodropshipping.com/gelato-pricing-plans/
+- https://www.gelato.com/blog/the-most-profitable-print-on-demand-products
+- https://bettamax.com/how-to-price-dropshipping-products/
+- https://www.spocket.co/blogs/pricing-strategies-for-dropshipping
+- https://www.podtomatic.com/blog/printful-vs-printify-vs-customcat-2026/
+- https://widermatrix.com/what-is-the-profit-margin-on-phone-cases/
+- Search queries: "phone case profit margin dropshipping 2026", "Printify vs Printful comparison 2026 phone cases", "best POD suppliers phone cases 2026 margins alternatives Printify", "Gelato phone case base cost pricing dropshipping 2026 margin", "phone case dropshipping pricing strategy sweet spot $25 $35 conversion 2026"
+
+---

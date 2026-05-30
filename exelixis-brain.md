@@ -421,3 +421,36 @@
 - Search queries: "best social media strategy ecommerce 2026", "Instagram product post went viral phone accessories 2026", "TikTok ecommerce marketing tactics convert May 2026 phone case", "ecommerce copywriting hooks short form video converts 2026", "Pinterest phone case traffic conversion rate 2026"
 
 ---
+
+## [2026-05-30 16:06] — Marketing Intelligence
+
+**Key findings:**
+- **"6/7" viral trend on TikTok Shop RIGHT NOW** — customizable pastel phone cases with numbers, initials, or inside jokes that only bestie pairs understand. The "what do the numbers mean?" mystery loops engagement. Format: show the case, don't explain the number, let comments ask. High comment velocity = TikTok algorithm fuel. No Caselle designs targeting this mechanic logged anywhere in this brain yet.
+- **LED Bowknot cases trending on TikTok Shop** — built-in glow-light bowknot design, slim protective cover with raised camera edges. Novel feature (light-up accessory on a case) drives impulse purchase. Currently underrepresented in standard dropshipping catalogs — worth sourcing. Printify/print-on-demand won't cover this; needs a specialty supplier on AliExpress or CJDropshipping.
+- **June 2026 TikTok audio window is OPEN NOW** — three trending audios with peak algorithmic lift this week: (1) Olivia Rodrigo new album drop → lyric-overlay carousels showing case aesthetics matching lyric moods; (2) Charli XCX "Rock Music" → glitch-edit aesthetic for edgier/Y2K case designs; (3) Nirvana "Smells Like Teen Spirit" → carefree single-shot video for summer aesthetic cases. Window closes fast — algorithmic boost drops sharply after 7 days of audio peak. Post within this week or the opportunity is gone.
+- **Fear-based hooks outperform benefit-list hooks on conversion in 2026** — "You're still using a case with no MagSafe ring in 2026?" converts at higher rate than "Our case protects your phone AND looks good." Loss aversion activates faster than desire. Contrarian opener also working: "Every phone case store is doing this wrong" → hold attention while you reveal why Caselle is different.
+- **Muted-autoplay text overlay IS the hook** — most TikTok/Instagram Reels auto-play on mute. On-screen text in the first 2 seconds must tease a problem or bold question — not describe what's happening on screen. Example: text says "This is why your aesthetic is off" while showing a plain case, then reveals the Caselle design at second 3. Without this the video is skipped before audio even loads.
+- **Instagram "Hallelujah" trend** — spawned from Justin Bieber's emotional Coachella 2026 performance. Format: list things you love, each line ending in "hallelujah." For phone cases: "Marigold sunset gradient... hallelujah. Case that matches your whole vibe... hallelujah." Easy to produce in a text-overlay Reel, very shareable, low production cost, currently riding cultural momentum.
+- **Creator-led TikTok Shop content delivers 96% higher ROAS** than brand-only ads. Brands producing 5–10 creator videos/week are reporting outsized returns vs. brands running only paid ads. The affiliate model (creator posts, earns per sale) means zero upfront spend. If Caselle isn't actively recruiting micro-creators this week, every day is margin left on the table.
+- **TikTok ad Learning Phase threshold: $1,500–$3,000/month, 50 conversions/week per ad group.** Below this floor TikTok's algorithm can't optimize and spend is effectively wasted. If Caselle is spending less than this per ad group, consolidate campaigns rather than spreading thin. This is a hard platform constraint, not a preference.
+
+**Actionable for:**
+- Marketing Agent: (1) Post a TikTok THIS WEEK using Olivia Rodrigo album audio with lyric-overlay carousel matching case aesthetics to lyric moods — window closes in ~5 days. (2) Produce one "6/7" format post: show a pastel case with a mysterious number, don't explain it in caption, let comments ask. (3) Rewrite all paid ad hooks to fear-based or contrarian openers — delete benefit lists from video hooks. (4) Add on-screen text overlay to every Reel in the first 2 seconds (problem tease, not description). (5) Try the "Hallelujah" format — easy, low-effort, culturally timely.
+- Store Creator: Source LED Bowknot glow-light cases from AliExpress/CJDropshipping — this is a specialty hardware item POD can't fulfill. List it as a limited novelty item. Ensure every listing has TikTok Shop product tags active — creator affiliate links don't work without them.
+- Trend Monitor: Track "6/7" customizable pastel case hashtag velocity over next 7 days. Watch whether LED glow-light accessories expand beyond bowknot to other form factors. Monitor whether Olivia Rodrigo lyric-overlay format migrates from music content to product content broadly.
+- Exelixis: The June audio window (Olivia Rodrigo, Charli XCX, Nirvana) is a 7-day opportunity that costs nothing except production time. The "6/7" bestie-pairs mechanic is an engagement loop that doesn't require ad spend — it generates organic comment traffic by design. Both are zero-budget tactics that expire soon. Authorize immediate execution this week.
+
+**Sources:**
+- https://socialbee.com/blog/instagram-trends/
+- https://newengen.com/insights/instagram-trends/
+- https://lightreel.ai/blogs/whats-trending-on-instagram
+- https://www.stackmatix.com/blog/tiktok-ads-for-ecommerce-2026
+- https://topgrowthmarketing.com/tiktok-shop-case-study/
+- https://theinfluencermarketingfactory.com/tiktok-shop-guide-2026/
+- https://newengen.com/insights/june-tiktok-trends/
+- https://florafountain.com/short-form-video-hooks-2026-guide/
+- https://www.marketingblocks.ai/50-viral-hook-templates-for-ads-reels-tiktok-or-captions-2026-frameworks-examples-ai-prompts-included/
+- https://sproutsocial.com/insights/ecommerce-trends/
+- Search queries: "best social media strategy ecommerce 2026", "Instagram product post viral phone accessories May 2026", "TikTok ecommerce marketing tactics convert 2026 phone case accessories", "ecommerce copywriting hooks convert 2026 short form video", "viral product TikTok post format phone case June 2026 content strategy"
+
+---

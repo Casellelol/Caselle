@@ -1,5 +1,5 @@
 # Caselle Scout — Market Intelligence
-*Last updated: 2026-05-31 17:05*
+*Last updated: 2026-06-01 17:06*
 
 ---
 
@@ -382,5 +382,35 @@
 - https://chayaani.com/blog/printify-pricing-fees-guide-2026
 - https://bettamax.com/phone-case-dropshipping/
 - Search queries: "phone case profit margin dropshipping 2026", "Printify vs Printful phone cases comparison 2026", "best print on demand suppliers phone cases margins 2026", "Podbase phone case base price 2026 vs Printify cost comparison", "Yoycol phone case quality review 2026 dropshipping", "Printful price increase February 2026 phone case shipping cost change", "Printeers phone case POD supplier review pricing 2026"
+
+---
+
+## [2026-06-01 17:06] — Pricing & Business Intelligence
+
+**Key findings:**
+- Printful raised US phone case shipping to **$4.99** in February 2026 (up from $4.59) — this narrows their margin advantage and makes Printify even more attractive on cost. At a $20 retail price, Printful's landed cost is now ~$13-14 vs Printify's ~$10-11, a meaningful gap.
+- **Podbase** claims to be 40% cheaper than "the competition" and quotes an average **$7 higher profit margin per case** vs industry standard. Their base cost is approx €7.95 (~$8-9 USD) with no subscription fee — if accurate, this is the best margin play for phone cases currently available.
+- **Casestry** is a phone/tech-accessories-only POD supplier that's worth watching: 1-day production, USPS First Class shipping (1-3 day transit), lifetime warranty on every order, and fast support for new device generations (already listing iPhone 17, Galaxy S25, Pixel 9). Integrates with Order Desk, Shopify, Etsy, WooCommerce, Amazon. No specific pricing found publicly but their niche focus and lifetime warranty could be a genuine differentiator.
+- Standard Printify phone case base cost: **$8-9 USD** (some providers), retail sweet spot remains **$20-35**, yielding **$12-25 gross profit per unit** before platform fees (~3%) and paid ads.
+- Printify now has **1,300+ products** vs Printful's 370+ — gives Caselle much more flexibility to upsell into accessories (AirPods cases, watch bands, tablet cases) using the same designs.
+- For scale: phone cases remain one of the highest-ROI dropship categories in 2026 — low weight (cheap to ship), evergreen demand, niche designs can hit 150%+ markup without resistance.
+
+**Actionable for:**
+- Marketing Agent: Lean into the "lifetime warranty" angle if using Casestry — no other POD competitor in the phone case space is messaging this prominently. Could be a strong trust signal in ads.
+- Store Creator: Set phone case retail price at **$24.99-$29.99** (not $19.99) — margin data confirms $25-35 range is standard and conversion doesn't drop. Consider AirPods case upsell ($15.99) using same design assets via Printify.
+- Trend Monitor: Watch Casestry's new device support — they claim fast onboarding of iPhone 17 / Galaxy S25 / Pixel 9. Being first-to-list for new phone models is a real SEO and Etsy advantage.
+- Exelixis: Run a live cost comparison: set up identical designs on Podbase, Printify (cheapest provider), and Casestry. Order test units. Podbase's 40% cheaper claim needs verification — if true, switch primary fulfillment to them immediately. The $7/case margin difference is $7,000 per 1,000 orders.
+
+**Sources:**
+- https://www.podbase.com/pricing
+- https://www.podbase.com/blogs/unlocking-profit-potential-how-much-money-can-custom-phone-cases-make
+- https://merchtitans.com/blog/printful-vs-printify
+- https://www.printondemandbusiness.com/printful-vs-printify/
+- https://www.stylefactoryproductions.com/blog/printful-vs-printify
+- https://www.casestry.com/
+- https://podsellers.com/pod-suppliers/casestry/
+- https://bettamax.com/phone-case-dropshipping/
+- https://www.autods.com/blog/dropshipping-niches/phone-cases-dropshipping/
+- Search queries: "phone case profit margin dropshipping 2026", "Printify vs Printful comparison 2026 phone cases", "best print on demand suppliers phone cases 2026 margins", "Podbase phone case pricing base cost 2026", "Casestry phone case POD supplier pricing review 2026"
 
 ---

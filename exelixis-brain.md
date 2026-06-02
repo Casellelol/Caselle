@@ -414,3 +414,34 @@
 - Search queries: "phone case profit margin dropshipping 2026", "Printify vs Printful comparison 2026 phone cases", "best print on demand suppliers phone cases 2026 margins", "Podbase phone case pricing base cost 2026", "Casestry phone case POD supplier pricing review 2026"
 
 ---
+
+## [2026-06-02 17:05] — Pricing & Business Intelligence
+
+**Key findings:**
+- **PrintKK has the lowest-found POD phone case base cost: $1.39–$4 per unit depending on model/material** — cheaper than Yoycol ($2 base, logged May 31) and far below Printify ($8–9). No subscription required. Trustpilot/Shopify reviewers praise "vibrant colors and sharp details at the price." Critical caveat: China fulfillment = longer shipping (similar to Yoycol's 7-day production). PrintKK is NOT in the brain yet and has not been tested. This could replace Yoycol as the budget-tier supplier, or be used alongside it.
+- **CJDropshipping now offers POD capabilities alongside standard dropshipping** — base ~$7 for custom-printed phone cases, 5–12 day US shipping (faster than Yoycol's 7-day production + transit), no minimum order. CJ uniquely bridges POD and hardware novelties in one supplier account — meaning LED Bowknot glow-light cases (logged May 30) AND custom-print designs can be sourced from a single CJ dashboard. This simplifies the "hardware novelties" tier of the supplier strategy.
+- **Gelato subscription tiers clarified: Gelato+ = $14.99/mo (up to 30% off), Gelato Gold = $99/mo (higher discount + free standard shipping globally).** Prior entry logged $19.99/mo — that figure appears outdated. Gelato+ at $14.99/mo is cheaper than Printify Premium ($24.92/mo), though Printify's base costs are still lower. The correct routing strategy confirmed across multiple 2026 sources: **US volume → Printify, EU/UK orders → Gelato** — local fulfillment cuts Gelato delivery from 2+ weeks to 3–5 days for international customers.
+- **Three-tier supplier architecture is the optimal structure for Caselle's catalog** (not confirmed in any prior entry): (1) **Premium aesthetic line** ($25–$35 retail): Podbase or Printify for quality/speed — $8–9 base, $12–22 gross margin; (2) **Budget aesthetic line** ($18–22 retail): PrintKK or Yoycol — $2–4 base, $10–15 gross margin even at lower price; (3) **Hardware novelty items** (LED, glow, charm rings): CJDropshipping — not POD-printable, must be sourced as wholesale. This architecture lets Caselle attack multiple price points without forcing one supplier to do everything poorly.
+- **"Without organic traffic, POD margins vs AliExpress are comparable" — confirmed 2026 data.** POD net margins (15–30%) only beat AliExpress commodity dropshipping (10–20% net) when Caselle's TikTok/organic content reduces paid ad dependency. If CPA from paid ads is $15+, POD net margin collapses to near zero at sub-$30 price points. The strategic implication: every content/creator investment directly improves the supplier economics without changing a single SKU.
+- **Printify + Printful merger status — no change from last logged entry.** Still operating independently as of June 2026. The risk window remains open: if catalogs merge upward on pricing, Caselle's primary supplier stack changes. PrintKK and CJDropshipping are viable contingency options that should be live-tested before they're needed.
+
+**Actionable for:**
+- Marketing Agent: None directly — but confirm: if current Caselle TikTok ad CPA is above $12, the POD margin model is under pressure. Every organic content win (creator affiliate, viral post, Pinterest compound traffic) directly unlocks supplier tier flexibility.
+- Store Creator: (1) **Test PrintKK immediately** — open account, upload 2–3 existing designs to their cheapest snap case SKU ($1.39–$4), order test units. If print quality holds at $3–4 base, this becomes the budget-tier or high-volume supplier replacing or supplementing Yoycol. (2) **Open a CJDropshipping account** — source LED Bowknot glow-light cases (logged May 30) AND test their POD phone case quality. Single account for hardware novelties + POD cases is operationally efficient. (3) **Switch Gelato subscription quote from $19.99 to $14.99** — Gelato+ is now the correct entry price. Route any existing EU/UK orders through Gelato if not already doing so.
+- Trend Monitor: Check if PrintKK lists Samsung Galaxy Z Flip 8, iPhone 17, and Google Pixel 10a case templates — if yes before Printify, there's an SKU first-mover window. Their May 2026 new arrivals page was live in search results, suggesting active catalog expansion.
+- Exelixis: The three-tier supplier structure (Podbase/Printify → PrintKK/Yoycol → CJDropshipping) means Caselle can serve $18, $25, and $35 price points without a single supplier compromise. The $1.39–$4 PrintKK base at the bottom tier is the freshest finding this cycle — if quality verifies, it opens a price-competitive budget line that Caselle currently has no coverage in. Order 3 PrintKK samples this week: that $15 test could unlock a new revenue tier.
+
+**Sources:**
+- https://bootstrappingecommerce.com/printkk-review/
+- https://www.printkk.com/print-on-demand/phone-cases
+- https://cjdropshipping.com/blogs/print-on-demand/CJdropshipping-vs-Printify
+- https://cjdropshipping.com/blogs/print-on-demand/Print-on-Demand-Platforms
+- https://www.printondemandbusiness.com/printify-vs-gelato/
+- https://chayaani.com/blog/printify-vs-gelato-2026
+- https://dodgeprint.com/blog/printify-vs-gelato
+- https://merchtitans.com/blog/printful-vs-printify-vs-gelato-comparison
+- https://bettamax.com/phone-case-dropshipping/
+- https://blog.dropcommerce.com/posts/dropshipping-profit-margins
+- Search queries: "phone case profit margin dropshipping 2026", "Printify vs Printful comparison 2026 phone cases", "best POD suppliers phone cases 2026 margins", "PrintKK phone case base cost 2026 dropshipping review", "Gelato phone case pricing June 2026 vs Printify margins", "CJDropshipping phone case pricing 2026 vs Printify comparison POD", "phone case dropshipping supplier AliExpress vs POD profit 2026 real margins"
+
+---
